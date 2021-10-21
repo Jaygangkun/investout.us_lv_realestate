@@ -1,0 +1,320 @@
+
+
+<?php
+
+/*
+
+|--------------------------------------------------------------------------
+
+| Web Routes
+
+|--------------------------------------------------------------------------
+
+|
+
+| Here is where you can register web routes for your application. These
+
+| routes are loaded by the RouteServiceProvider within a group which
+
+| contains the "web" middleware group. Now create something great!
+
+|
+
+ */
+
+//Route::get('/', 'HomeController@index')->name('index');
+
+Route::post('/signin', 'HomeController@signin')->name('signin');
+
+// admin only routes
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+
+		Route::get('', 'adminController@index')->name('index');
+
+		Route::group(['as' => 'training.', 'prefix' => 'training'], function () {
+
+				Route::get('/upload', 'TrainingVideoController@create')->name('create');
+
+				Route::post('/store', 'TrainingVideoController@store')->name('store');
+
+			});
+
+		Route::group(['as' => 'cms.', 'prefix' => 'cms'], function () {
+
+				Route::get('/{page}', 'cmsController@create')->name('index');
+
+				Route::post('/store', 'cmsController@store')->name('update');
+
+			});
+
+		Route::group(['as' => 'blog.', 'prefix' => 'blog'], function () {
+
+				Route::get('', 'blogController@create')->name('index');
+
+				Route::post('/store', 'blogController@store')->name('store');
+
+				Route::delete('/delete/{id}', 'blogController@delete')->name('delete');
+
+			});
+
+		Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
+
+				Route::get('Administrators', 'adminUserController@getAdministrator')->name('admin-index');
+
+				Route::post('administrators/create', 'adminUserController@createAdmin')->name('admin-create');
+
+				Route::get('/{role}', 'adminUserController@index')->name('index');
+
+			});
+
+		Route::group(['as' => 'document.', 'prefix' => 'document'], function () {
+
+				Route::get('', 'adminController@showDocument')->name('show');
+
+				Route::post('', 'adminController@uploadDocument')->name('upload');
+
+				Route::delete('/{id}', 'adminController@destroyDocument')->name('destroy');
+
+			});
+
+		Route::group(['as' => 'property.', 'prefix' => 'property'], function () {
+
+				Route::get('/phase/{phase}', 'adminPropertyController@getPhaseProperties')->name('phase-index');
+
+				Route::get('seller/{id}', 'adminPropertyController@getUserProperty')->name('user-property-index');
+
+				Route::get('approved', 'adminPropertyController@getApprovedProperties')->name('approved');
+
+				Route::get('contracted', 'adminPropertyController@getContractedProperties')->name('contracted');
+
+				Route::get('closed', 'adminPropertyController@getClosedProperties')->name('closed');
+
+				Route::post('update-level/{id}', 'adminPropertyController@updatePropertyLevel')->name('update');
+
+				// Route::post('approve/{id}', 'adminPropertyController@approveProperty')->name('approve');
+
+				Route::post('state-update/{id}', 'adminPropertyController@updatePropertyState')->name('state-update');
+
+				Route::get('/{id}', 'adminPropertyController@showUserProperty')->name('show');
+
+			});
+
+		Route::group(['as' => 'proposal.', 'prefix' => 'proposal'], function () {
+
+				Route::get('', 'ProposalController@index')->name('index');
+
+				Route::get('/approved', 'ProposalController@approvedShow')->name('approved');
+
+				Route::post('/approve', 'ProposalController@approveProposal')->name('approve');
+
+				Route::post('/deny', 'ProposalController@denyProposal')->name('deny');
+
+				Route::delete('/{id}', 'ProposalController@destroyProposal')->name('destroy');
+
+			});
+
+		Route::group(['as' => 'membership.', 'prefix' => 'membership'], function () {
+
+				Route::post('/approve', 'MembershipController@approveMembership')->name('approve');
+
+				Route::get('', 'MembershipController@index')->name('index');
+
+				Route::post('/deny', 'MembershipController@denyMembership')->name('deny');
+
+			});
+
+	});
+
+// investor only routes
+
+Route::group(['as' => 'investor.', 'prefix' => 'investor', 'middleware' => ['role:investor']], function () {
+
+		Route::get('', 'investorController@index')->name('index');
+
+		Route::group(['as' => 'property.', 'prefix' => 'property'], function () {
+
+				Route::get('/{id}', 'investorController@showProperty')->name('show');
+
+			});
+
+		// proposal creation route
+
+		Route::post('proposal/create', 'ProposalController@create')->name('create');
+
+		// search route
+
+		Route::get('find', 'SearchController@find');
+
+		Route::post('find/search', 'SearchController@customSeach');
+
+		// All proposals
+
+		Route::get('/Proposals', 'investorController@showProposals')->name('proposals');
+
+		// Show Proposal Propoerty
+
+		Route::get('/Proposal/Property', 'investorController@showProposalProperty')->name('proposal.property');
+
+	});
+
+// seller and realtor only routes
+
+Route::group(['as' => 'seller.', 'prefix' => 'Dash', 'middleware' => ['seller-realtor:seller,realtor']], function () {
+
+		Route::get('/', 'sellerController@index')->name('index');
+
+		Route::resource('property', 'propertyController');
+
+		Route::post('property/content/{id}', 'propertyController@contentUpload')->name('property.contentUpload');
+
+		Route::get('/proposal', 'ProposalController@sellerShow')->name('proposal.show');
+
+		Route::get('/proposal/accepted', 'ProposalController@sellerApprovedShow')->name('proposal.approved.show');
+
+		Route::get('/proposal/denited', 'ProposalController@sellerDeniedShow')->name('proposal.denied.show');
+
+		Route::post('/proposal/update', 'ProposalController@updateStatus')->name('proposal.update');
+
+		Route::get('/property/find', 'SearchController@findState');
+
+	});
+
+// Common routes
+
+Route::group(['middleware' => 'auth'], function () {
+
+		// common profile routes
+
+		Route::get('{user}/profile/Edit', 'profileController@edit')->name('profile.edit');
+
+		Route::get('{user}/profile/{adminView?}', 'profileController@show')->name('profile.show');
+
+		Route::post('/profile', 'profileController@update')->name('profile.update');
+
+		Route::delete('/profile/delete/{id}', 'profileController@destroy')->name('profile.delete');
+
+		// commin admin documents show route
+
+		Route::get('{user}/documents', 'DashboardController@showDocument')->name('document.show');
+
+		// common dashboard blog and search route
+
+		Route::get('{user}/blog', 'blogController@index')->name('blog.show');
+
+		Route::get('{user}/blog/{id}', 'blogController@show')->name('blog.view');
+
+		Route::post('{user}/blog/search', 'blogController@search')->name('blog.search');
+
+		// common dashboard training and search route
+
+		Route::get('{user}/Resource', 'TrainingVideoController@panelIndex')->name('resource.panel.show');
+
+		Route::post('{user}/Resource/search', 'TrainingVideoController@search')->name('training.search');
+
+		// common membership route
+
+		Route::get('{user}/membership', 'MembershipController@showMemberShip')->name('membership.show');
+
+		Route::post('{user}/membership', 'MembershipController@createMemberShip')->name('membership.create');
+
+		// messaging routes
+
+		Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
+
+		Route::group(['prefix' => 'ajax', 'as' => 'ajax::'], function () {
+
+				Route::post('message/latest', 'MessageController@getNewMessage')->name('message.latest');
+
+				Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+
+				Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+
+			});
+
+		// alert and notifcation routes
+
+		Route::post('alert/message', 'AlertController@getMessageAlerts')->name('alerts.latest');
+
+		Route::post('alert/notification', 'AlertController@getNotificationAlerts')->name('notifications.latest');
+
+	});
+
+// external pages routes
+
+//Route::get('/Realtor', 'HomeController@realtor')->name('realtorFront');
+
+//Route::get('/Investor', 'HomeController@investor')->name('investorFront');
+
+//Route::get('/Seller', 'HomeController@seller')->name('sellerFront');
+
+//Route::get('/contact', 'contactController@contactPage')->name('contactFront');
+
+// external route end
+
+// external blog route and search route
+
+Route::get('/Blog', 'blogController@outerIndex')->name('blog.outer.show');
+
+Route::get('/Blog/{id}', 'blogController@outerShow')->name('blog.outer.view');
+
+Route::post('/Blog/search', 'blogController@search')->name('blog.outer.search');
+
+// external training route and search route
+
+Route::get('/Resource', 'TrainingVideoController@index')->name('train.outer.show');
+
+Route::post('/Resource/search', 'TrainingVideoController@search')->name('training.outer.search');
+
+// route for sending contact mail
+
+Route::post('/contact-us', 'contactController@contact')->name('contact.send');
+
+//Route::get('/how-it-works', 'HomeController@howitworks')->name('howitworkFront');
+
+//;
+
+// email validation routes
+
+Route::get('/emailV/{token}', 'Auth\RegisterController@verifyUser');
+
+// logout route
+
+// Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Auth::routes();
+
+// route for managing property
+Route::get('/admin/property/phase/{id}/add-property/', 'ManagePropertyController@addProerpty')->name('AddProperty');
+Route::post('/admin/store-property/', 'ManagePropertyController@storeProerpty')->name('StoreProerpty');
+Route::post('/admin/store-property-images/', 'ManagePropertyController@storeProerptyImages')->name('StoreProerptyImages');
+Route::post('/admin/get-property-images/', 'ManagePropertyController@getProerptyImages')->name('getProerptyImages');
+Route::post('/admin/make-cover-img/', 'ManagePropertyController@makeCoverImg')->name('makeCoverImg');
+Route::post('/admin/property-active/', 'ManagePropertyController@isActive')->name('IsActiveProerpty');
+Route::get('/admin/property/phase/{id}/edit', 'ManagePropertyController@editProerpty')->name('EditProperty');
+Route::get('/admin/property/phase/{id}/del', 'ManagePropertyController@delProerpty')->name('DeleteProperty');
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
+// New GUI work by Sonal
+Route::get('/', function () {
+		return view('home');
+	})->name('index');
+
+Route::get('/seller', 'frontendController@seller_index')->name('seller_index');
+Route::get('/investor', 'frontendController@investor_index')->name('investor_index');
+Route::get('/how-it-works', 'frontendController@how_it_works_index')->name('how_it_works_index');
+Route::get('/our-training', 'frontendController@training_index')->name('training_index');
+Route::get('/realtor', 'frontendController@realtor_index')->name('realtor_index');
+Route::get('/contact', 'frontendController@contact_index')->name('contact_index');
+Route::get('/property-lists', 'frontendController@property_lists')->name('property_lists');
+Route::get('/load-ajax-data/', 'frontendController@loadDataAjax')->name('getAjaxData');
+
+// filter on grid list front end
+Route::get('/serach-from-keyword/', 'frontendController@keywordSearch')->name('keywordSearch');
+Route::get('/filter-by-invt-amt-range/', 'frontendController@invtAmountRange')->name('invtAmountRange');
+Route::get('/filter-by-arv-brv-range/', 'frontendController@ArvBrvRange')->name('ArvBrvRange');
+
+Route::get('/property-lists/{id}/property-details', 'frontendController@property_single_page')->name('property_single_page');

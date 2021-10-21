@@ -1,0 +1,205 @@
+
+ul.stats-widget {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+  ul.stats-widget li {
+    padding: 10px 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f2f2f2; }
+    ul.stats-widget li h5 {
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 0;
+      color: #f63131;
+      margin-bottom: 3px; }
+    ul.stats-widget li p {
+      margin: 0 0 5px 0;
+      padding: 0;
+      font-size: 11px;
+      line-height: 100%; }
+      ul.stats-widget li p span {
+        float: right;
+        font-weight: 700; }
+    ul.stats-widget li .progress {
+      margin-bottom: 0; }
+    ul.stats-widget li:last-child {
+      border-bottom: 0 solid #f2f2f2; }
+    ul.stats-widget li:hover {
+      background-color: #f7f7f7; }
+
+
+.widget {
+  background: white;
+  border: 1px solid #dbdbdb;
+  clear: both;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+  .widget .widget-header {
+    background-color: #ededed;
+    /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#ededed));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, white, #ededed);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, white, #ededed);
+    /* FF3.6 */
+    background-image: -ms-linear-gradient(top, white, #ededed);
+    /* IE10 */
+    background-image: -o-linear-gradient(top, white, #ededed);
+    /* Opera 11.10+ */
+    background-image: linear-gradient(top, white, #ededed);
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    border-bottom: 1px solid #dbdbdb;
+    height: 44px;
+    padding: 0 15px;
+    line-height: 44px; }
+    .widget .widget-header .title {
+      color: #333333;
+      float: left;
+      font-weight: bold;
+      font-size: 16px; }
+      .widget .widget-header .title .attribution, .widget .widget-header .title .mini-title {
+        font-size: 11px;
+        padding-left: 4px;
+        color: #b3b3b3;
+        font-weight: normal; }
+        .widget .widget-header .title .attribution a, .widget .widget-header .title .mini-title a {
+          color: #b3b3b3; }
+    .widget .widget-header span.tools {
+      padding: 0;
+      float: right;
+      margin: 0; }
+      .widget .widget-header span.tools > a {
+        display: inline-block;
+        margin-right: 5px;
+        color: #666666;
+        margin-top: 3px; }
+        .widget .widget-header span.tools > a:hover {
+          text-decoration: none;
+          opacity: .6; }
+      .widget .widget-header span.tools > a.btn {
+        color: white;
+        margin-top: 0; }
+    @media (max-width: 767px) {
+      .widget .widget-header span.tools {
+        display: none; }
+      .widget .widget-header .tools {
+        display: none; } }
+  .widget .widget-body {
+    padding: 15px;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px; }
+
+.mini-widget {
+  margin: 0 0 25px 0;
+  display: block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+  .mini-widget .mini-widget-heading {
+    padding: 7px 15px;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    text-transform: uppercase;
+    text-align: center;
+    background: #3693cf;
+    color: white; }
+    .mini-widget .mini-widget-heading .pull-right {
+      color: white;
+      opacity: 0.7;
+      -webkit-transition: All 0.5s ease-in;
+      -moz-transition: All 0.5s ease-in;
+      -ms-transition: All 0.5s ease-in;
+      -o-transition: All 0.5s ease-in;
+      transition: All 0.5s ease-in; }
+      .mini-widget .mini-widget-heading .pull-right i {
+        line-height: 100%;
+        margin-right: 2px; }
+  .mini-widget .mini-widget-body {
+    padding: 10px 15px;
+    font-size: 36px;
+    font-weight: 300;
+    background: #2877aa; }
+    .mini-widget .mini-widget-body i {
+      color: #5fa9d9;
+      -webkit-transition: All 0.5s ease-in;
+      -moz-transition: All 0.5s ease-in;
+      -ms-transition: All 0.5s ease-in;
+      -o-transition: All 0.5s ease-in;
+      transition: All 0.5s ease-in;
+      font-size: 60px;
+      line-height: 60px; }
+    .mini-widget .mini-widget-body .number {
+      font-size: 36px;
+      line-height: 60px;
+      color: white; }
+  .mini-widget .mini-widget-footer {
+    color: white;
+    background: #246895;
+    padding: 5px 15px;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+    position: relative; }
+    .mini-widget .mini-widget-footer i {
+      float: right;
+      position: relative;
+      top: 2px;
+      display: none; }
+
+.mini-widget-red .mini-widget-heading {
+  background: #f63131;
+  color: white; }
+  .mini-widget-red .mini-widget-heading .pull-right {
+    color: white; }
+.mini-widget-red .mini-widget-body {
+  background: #ea0a0a; }
+  .mini-widget-red .mini-widget-body i {
+    color: #f86262; }
+  .mini-widget-red .mini-widget-body .number {
+    color: white; }
+.mini-widget-red .mini-widget-footer {
+  color: white;
+  background: #d10909; }
+
+.mini-widget-green .mini-widget-heading {
+  background: #74b749;
+  color: white; }
+  .mini-widget-green .mini-widget-heading .pull-right {
+    color: white; }
+.mini-widget-green .mini-widget-body {
+  background: #5d933a; }
+  .mini-widget-green .mini-widget-body i {
+    color: #90c56e; }
+  .mini-widget-green .mini-widget-body .number {
+    color: white; }
+.mini-widget-green .mini-widget-footer {
+  color: white;
+  background: #518133; }
+
+.mini-widget-grey .mini-widget-heading {
+  background: #666666;
+  color: white; }
+  .mini-widget-grey .mini-widget-heading .pull-right {
+    color: white; }
+.mini-widget-grey .mini-widget-body {
+  background: #4d4d4d; }
+  .mini-widget-grey .mini-widget-body i {
+    color: gray; }
+  .mini-widget-grey .mini-widget-body .number {
+    color: white; }
+.mini-widget-grey .mini-widget-footer {
+  color: white;
+  background: #404040; }

@@ -1,0 +1,223 @@
+  .carousel-inner>.item>a>img, .carousel-inner>.item>img{
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+  }
+
+  .hide-bullets .col-sm-3{
+    padding-right: 0px;
+    height: 105px;
+  }
+
+  .video-container .ex-thumb{
+    padding:0px;
+    height: 120px;
+    border:3px solid #319c89;
+    border-radius: 0px;
+  }
+
+  .hide-bullets .thumbnail{
+      border:3px solid #319c89;
+      border-radius: 0px;
+      padding: 0px;
+      margin-bottom: 0px;
+    }
+
+    .thumbnail a>img, .thumbnail>img{
+      margin: auto;
+      object-fit: cover;
+    }
+
+    #carousel-bounding-box{
+      padding-right: 0px;
+    }
+
+    #myCarousel{
+      height: 400px;
+    }
+
+    #myCarousel .custom-slider-second-inner,#myCarousel .custom-slider-second-inner .item{
+      height: 100%;
+      border: 1px solid #0b2a4a;
+    }
+
+    .p-t-md .row>div{
+      font-family: unisansregularregular;
+      font-weight: 100;
+    }
+
+    .p-t-md .row>div>p>i{
+      color: #0b2a4a;
+    }
+
+    .p-t-md .row>div>p{
+      color: #319c89;
+      font-family: unisansregularregular;
+    }
+
+    .fonicon{
+      display: inline-block;
+      height: 10px;
+      position: relative;
+      top: -0px;
+    }
+
+    .detailinfo{
+      display: inline-block;
+      width: 90%;
+    }
+
+    .desc-row{
+      margin-left: 15px;
+      width: 100%
+    }
+
+    .table tbody > tr > td{
+      font-family: unisansregularregular;
+      color: #0b2a4a;
+    }
+
+    .ibox-content{
+      border-top: none
+    }
+
+    .tab-content{
+      padding:0px
+    }
+
+    .property-submission-content{
+      padding:1em 0px;
+      border:0px;
+    }
+
+    .property-submission-content .tab-content .table{
+      border:none !important
+    }
+
+    .property-submission-content .tab-content .table th,.property-submission-content .tab-content .table td{
+      font-family: unisansboldbold;
+      font-size: 1.2em;
+      text-align: left !important;
+      color: #0b2a4a;
+      border:none !important;
+      padding:1em;
+      font-weight: 100 !important
+    }
+
+    .property-submission-content .tab-content .table td{
+      color: #34a691
+    }
+
+    .video-container .ibox-content{
+      padding:15px 0px;
+      border:none;
+    }
+
+    .apply-button{
+      background-color: #0b2a4a;
+      color: white;
+      font-family:unisansboldbold;
+      border-radius: 6px;
+      box-shadow: -3px 3px 3px 0px rgba(100,100,100,.24);
+      border:none
+    }
+
+    .apply-button:hover{
+      color:white !important
+    }
+
+
+    .top-right-section{
+      font-family: unisansregularregular;
+    }
+
+    .top-right-section strong{
+      font-weight: 100 !important
+    }
+
+    .left-top .row{
+      color: #0b2a4a !important
+    }
+
+    .carousel-control{
+      display: none;
+    }
+
+      .bid-post{
+        width: 80%;
+        margin-right: 5em;
+        background-color:white
+      }
+
+      .left-section{
+        padding:2em;
+      }
+
+      .type-1-heading{
+        font-family: unisansboldbold;
+        font-weight: 100;
+        color:#0b2a4a;
+        font-size: 2em;
+        margin-bottom: 1em
+      }
+
+      .type-2-heading{
+        color:#0b2a4a;
+        font-family: unisansboldbold;
+        font-weight: 100;
+        margin-bottom: 5px;
+        font-size: 15px;
+      }
+
+      .p-0{
+        padding:0px;
+      }
+
+      .m-0{
+        margin:0px
+      }
+
+      .type-1-text{
+        color:#66baaa;
+        font-family: unisansregularregular;
+        font-size: 14px;
+      }
+
+      .right-section{
+        background-color: #e7e8e9;
+        padding-left: 6em;
+        padding-right: 6em;
+        padding-bottom: 2em;
+        padding-top: 8em;
+        box-shadow: -4px 4px 16px 0px rgba(0, 0, 0, 0.36);
+      }
+
+      .right-section hr{
+        color:#adadae;
+      }
+
+      .right-section >div{
+        width: 90%;
+        margin-left: 4%;
+      }
+
+      .lh{
+        line-height: 15px
+      }
+
+      .additonal-media{
+        display:inline-block;
+        width:80px;
+        height:80px;
+        box-shadow: -3px 3px 3px 0px rgba(100,100,100,.24);
+        /* padding-right:5px; */
+        border:3px solid #319c89
+      }
+
+      .pro-doc{
+        color:#0b2a4a;
+        overflow:hidden;
+        display:inline-block;
+        width:60px;
+        margin-right:10px
+      }

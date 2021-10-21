@@ -1,0 +1,128 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Membership;
+use App\Notification;
+use App\User;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
+
+class LoginController extends Controller {
+	/*
+	|--------------------------------------------------------------------------
+	| Login Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller handles authenticating users for the application and
+	| redirecting them to your home screen. The controller uses a trait
+	| to conveniently provide its functionality to your applications.
+	|
+	 */
+
+	use AuthenticatesUsers;
+
+	/**
+	 * Where to redirect users after login.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = '/';
+
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		$this->middleware('guest')->except('logout');
+	}
+
+	public function authenticated(Request $request, $user) {
+		if (!$user->verified) {
+			auth()   ->logout();
+			return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+		}
+
+		View::composer('*', function ($view) {
+				$view->with('userRole', $this->role());
+			});
+
+		$user = auth()->user();
+
+		$layout  = $this->userRole();
+		$usertxt = $this->userTxt();
+		Session::put('profile', auth()->user()->profile);
+		Session::put('layout', $layout);
+		Session::put('userTxt', $usertxt);
+
+		if ($user->membership_type == 1) {
+			if ($user->roles()->first()->slug != 'admin') {
+				if (isset($user->membership->mem_end_date)) {
+					if ($user->membership->mem_end_date == Carbon::now()->addDays(3)) {
+						Notification::create(['user_id' => $user->id, 'link' => route('membership.show', $user->roles()->first()->slug),
+								'text'                        => 'Please Renew Your Membership before the end date.', 'type'                        => 2]);
+					} elseif ($user->membership->mem_end_date <= Carbon::now()) {
+						$user                  = User::where('id', $user->id)->first();
+						$user->membership_type = 1;
+						$user->save();
+						//Membership::where('user_id', $user->id)->delete();
+						Notification::create(['user_id' => $user->id, 'link' => route('membership.show', $user->roles()->first()->slug),
+								'text'                        => 'Your Membership has been Cancelled. Please Renew Your Membership', 'type'                        => 2]);
+					}
+				} else {
+					$user->membership_type = 1;
+					$user->save();
+					Notification::create(['user_id' => $user->id, 'link' => route('membership.show', $user->roles()->first()->slug),
+							'text'                        => 'Your account does not have Membership. Please get Membership', 'type'                        => 2]);
+				}
+			}
+		}
+
+		if ($user->hasRole('seller') or $user->hasRole('realtor')) {
+			return redirect('/Dash');
+		} elseif ($user->hasRole('investor')) {
+			return redirect('/investor');
+		} elseif ($user->hasRole('admin')) {
+			return redirect('/admin');
+		}
+	}
+
+	public function role() {
+		return auth()->user()->roles()->first()->slug;
+	}
+
+	public function userRole() {
+		$user = auth()->user();
+		if ($user->hasRole('seller') or $user->hasRole('realtor')) {
+			return 'layouts.seller-layout';
+		} elseif ($user->hasRole('investor')) {
+			return 'layouts.investor-layout';
+		} elseif ($user->hasRole('admin')) {
+			return 'layouts.admin-layout';
+		}
+	}
+
+	public function userTxt() {
+		$user = auth()->user();
+		if ($user->hasRole('seller')) {
+			return 'I am a Seller';
+		} elseif ($user->hasRole('realtor')) {
+			return 'I am a Realtor';
+		} elseif ($user->hasRole('investor')) {
+			return 'I am an Investor';
+		} elseif ($user->hasRole('admin')) {
+			return 'I am an admin';
+		}
+	}
+
+	public function logout(Request $request) {
+		Auth::logout();
+		return redirect('/login');
+	}
+}

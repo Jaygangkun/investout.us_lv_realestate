@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Mail\userPropertyApprove;
+use App\Mail\userPropertyClosed;
+use App\Mail\userPropertyNotify;
+use App\Property;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Mail;
+
+class adminPropertyController extends Controller {
+	public function getUserProperty($id) {
+		$properties = Property::where('user_id', $id)->get();
+		return view('admin.properties.all-user-properties', compact('properties'));
+	}
+
+	public function showUserProperty($id) {
+		$property  = Property::where('id', $id)->first();
+		$condition = true;
+		return view('admin.properties.property-show', compact('property', 'condition'));
+	}
+
+	public function getPhaseProperties($phase) {
+		// $properties = Property::where('acceptance_level', $phase)->get();
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->where('properties.acceptance_level', $phase)
+		->get();
+		$phasenum = $phase;
+		if ($phase == 0) {
+			$phase = 'New';
+		} else {
+			$phase = "$phase";
+		}
+		return view('admin.properties.phase-properties', compact('properties', 'phase', 'phasenum'));
+	}
+
+	public function getApprovedProperties() {
+		$properties   = Property::where('approved', 1)->where('property_state', 0)->get();
+		$approve_page = true;
+		$page_title   = 'Listed';
+		return view('admin.properties.approved-properties', compact('properties', 'approve_page', 'page_title'));
+	}
+
+	public function getContractedProperties() {
+		$properties   = Property::where('property_state', 1)->get();
+		$approve_page = false;
+		$page_title   = 'Contracted';
+		return view('admin.properties.approved-properties', compact('properties', 'approve_page', 'page_title'));
+	}
+
+	public function getClosedProperties() {
+		$properties   = Property::where('property_state', 2)->get();
+		$approve_page = false;
+		$page_title   = 'Closed';
+		return view('admin.properties.approved-properties', compact('properties', 'approve_page', 'page_title'));
+	}
+
+	public function updatePropertyLevel(Request $request, $id) {
+		if ($request->input('acceptance_level') == 5) {
+			$property                   = Property::where('id', $id)->first();
+			$property->approved         = 1;
+			$property->approved_date    = \Carbon\Carbon::now();
+			$property->acceptance_level = 5;
+			$property->property_state   = 0;
+			$property->save();
+
+			Mail::to($property->seller->email)->send(new userPropertyApprove($property->seller, $property));
+			return redirect()->back();
+		} else {
+			Property::where('id', $id)->update(['acceptance_level' => $request->input('acceptance_level')]);
+			$property = Property::where('id', $id)->first();
+			Mail::to($property->seller->email)->send(new userPropertyNotify($property->seller, $property));
+			return redirect()->back();
+		}
+	}
+
+	public function updatePropertyState(Request $request, $id) {
+		$property                 = Property::where('id', $id)->first();
+		$property->property_state = $request->input('property_state');
+		$property->save();
+
+		if ($request->input('property_state') == 2) {
+			Mail::to($property->seller->email)->send(new userPropertyClosed($property->seller, $property));
+		}
+		return redirect()->back();
+	}
+}

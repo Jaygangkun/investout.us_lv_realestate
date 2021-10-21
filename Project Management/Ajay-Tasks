@@ -1,0 +1,29 @@
+Tasks:
+1 - Form Submission Code- http://localhost/lv-realestate/public/contact (User old controller & code and bind with this)
+2 - Correct - http://localhost/logout 
+3 - Check admin panel > Property Management
+
+Property Details:
+Considering less then 20 fields including gallery photos.
+
+The information we need from the home owner includes homeowner first name, last name,  street name, street #, city,  zip code,  state, property address, # of floors, bed rooms, bathrooms, square footage, lot size,  phone number, property address, asking price. Text field for description. Yes, No boolean for "For Sale", Yes, No boolean for "Partner Up" with both being an option. If partner field is selected, Estimated Current Value, Estimated Repair Cost,   
+
+Projected Sale Price:  Requested Profits Share with field being open for seller to input a value from 1% to 99%. 
+
+
+====================== Links & Credentials
+
+Setup - http://localhost/lv-realestate/public
+Login - http://localhost/lv-realestate/public/login
+Register - http://localhost/lv-realestate/public/register
+Logout - http://localhost/lv-realestate/public/logout
+
+Admin Panel: frenchytorres@gmail.com / Tempest#1
+Seller Panel: sonal.l.khunt@doyenhub.com
+
+
+================================ 19th MArch
+Tasks: 
+- Add PRoperty / Edit Property
+-- All validations (Required*, MinSize, MaxSize, Maxlength(HTML attribite), Email, URL, OnluAlpha, onlynumber, number(float))
+-- DB Design ( property_details)

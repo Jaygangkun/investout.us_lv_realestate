@@ -1,0 +1,143 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Property;
+use App\PropertyDetail;
+use App\PropertyImage;
+
+use Illuminate\Http\Request;
+
+class ManagePropertyController extends Controller {
+	public function addProerpty($id) {
+		$redirect_var = $id;
+		return view('admin.properties.add-property', compact('redirect_var'));
+	}
+	public function storeProerpty(Request $request) {
+		$request->validate([
+				'address'          => 'required',
+				'city'             => 'required',
+				'state'            => 'required',
+				'zip'              => 'required|digits:6|numeric',
+				'lat'              => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+				'long'             => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
+				'floors'           => 'required|numeric|digits_between:0,5|min:0',
+				'bedroom'          => 'required|numeric|digits_between:0,5|min:0',
+				'bathroom'         => 'required|numeric|digits_between:0,5|min:0',
+				'square_footage'   => 'required|numeric|digits_between:0,6|min:0',
+				'price_per_sqft'   => 'required|numeric|digits_between:0,15|min:0',
+				'lot_size'         => 'required|numeric|digits_between:0,5|min:0',
+				'stories'          => 'required|numeric|digits_between:0,5|min:0',
+				'built'            => 'required|numeric|digits:4',
+				'neighborhood'     => 'required',
+				'county'           => 'required|string',
+				'mortgage'         => 'required|numeric|digits_between:0,15|min:0',
+				'insurance'        => 'required|numeric|digits_between:0,5|min:0',
+				'tax'              => 'required|numeric|digits_between:0,5|min:0',
+				'building_type'    => 'required|numeric|digits_between:0,5|min:0',
+				'about'            => 'required',
+				'during_date'      => 'required|numeric|digits_between:0,3|min:0',
+				'property_type'    => 'required|numeric|digits_between:0,1|min:0',
+				'phone'            => 'required|digits:10|numeric',
+				'investment_price' => 'required|numeric|digits_between:0,15|min:0',
+				'for_sale'         => 'required|numeric|digits_between:0,1|min:0',
+				'partner_up'       => 'required|numeric|digits_between:0,1|min:0',
+				'brv_price'        => 'required|numeric|digits_between:2,15|min:0',
+				'arv_price'        => 'required|numeric|digits_between:2,15|min:0'
+			]);
+		$check_if_edit = $request->is_edit;
+		if ($check_if_edit == "-99") {
+			$propertyKeys    = ['address', 'city', 'zip', 'state', 'lat', 'long'];
+			$propertyDetails = ['floors', 'bedroom', 'bathroom', 'square_footage', 'price_per_sqft', 'lot_size',
+				'stories', 'built', 'neighborhood', 'county', 'mortgage', 'insurance', 'tax', 'building_type', 'about', 'during_date', 'property_type', 'phone', 'investment_price', 'for_sale', 'partner_up', 'brv_price', 'arv_price'];
+			$propertyData                       = $request->all($propertyKeys);
+			$propertyData['user_id']            = auth()->user()->id;
+			$property                           = Property::create($propertyData);
+			$propertyDetailsData                = $request->all($propertyDetails);
+			$propertyDetailsData['property_id'] = $property->id;
+			PropertyDetail::create($propertyDetailsData);
+		} else {
+			$propertyKeys    = ['address', 'city', 'zip', 'state', 'lat', 'long'];
+			$propertyDetails = ['floors', 'bedroom', 'bathroom', 'square_footage', 'price_per_sqft', 'lot_size',
+				'stories', 'built', 'neighborhood', 'county', 'mortgage', 'insurance', 'tax', 'building_type', 'about', 'during_date', 'property_type', 'phone', 'investment_price', 'for_sale', 'partner_up', 'brv_price', 'arv_price'];
+			$propertyData            = $request->all($propertyKeys);
+			$propertyData['user_id'] = auth()->user()->id;
+			Property::where('id', $check_if_edit)->update($propertyData);
+			$propertyDetailsData                = $request->all($propertyDetails);
+			$propertyDetailsData['property_id'] = $check_if_edit;
+			PropertyDetail::where('property_id', $check_if_edit)->update($propertyDetailsData);
+		}
+		return redirect()->route('admin.property.phase-index', $request->phase);
+	}
+	public function editProerpty(Request $request) {
+		$redirect_var = $request->id;
+		$property_id  = $request->pid;
+		// Property::findOrFail($property_id);
+		// PropertyDetail::where('property_id', $property_id)->first();
+		$edit_properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->where('properties.id', $property_id)
+		->first();
+		return view('admin.properties.add-property', compact('redirect_var', 'edit_properties'));
+	}
+	public function isActive(Request $request) {
+		try {
+			$pid           = (int) $request->pid;
+			$is_active_val = (int) $request->is_active_val;
+			Property::where('id', $pid)->update(['in_active' => $is_active_val]);
+			return response()->json(['status'                => true, 'message'                => 'Property updated!']);
+		} catch (Exception $e) {
+			return response()->json(['status' => true, 'message' => 'Property updated!']);
+		}
+	}
+	public function storeProerptyImages(Request $request) {
+		$this->validate($request, [
+				'filename'   => 'required',
+				'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+			]);
+		$pid = $request->pid;
+		foreach ($request->filename as $photo) {
+			$file_name       = $photo->getClientOriginalName();
+			$destinationPath = public_path('properties/'.$pid.'/images/');
+			$imageName       = rand(111111, 999999).'_'.time().'_'.$file_name;
+			$photo->move($destinationPath, $imageName);
+			PropertyImage::create(['property_id' => $pid, 'image' => $imageName]);
+		}
+		return redirect()->back();
+	}
+	public function getProerptyImages(Request $request) {
+		$pid             = $request->pid;
+		$property_images = PropertyImage::where('property_id', $pid)->get();
+		$html            = '';
+		if (!$property_images->isEmpty()) {
+			foreach ($property_images as $images) {
+				$src = asset('properties/'.$pid.'/images/'.$images->image);
+				if ($images->is_cover_image == 1) {
+					$check = '<input type="radio" name="pid" class="cover-img form-check-input" checked value='.$images->id.' data-id='.$pid.'>';
+				} else {
+					$check = '<input type="radio" name="pid" class="cover-img form-check-input" value='.$images->id.' data-id='.$pid.'>';
+				}
+				$html .= '<div class="col-md-4"><div class="form-check">'.$check.'<label class="form-check-label" for="exampleRadios2"> Make it as cover Image</label></div><div class="thumbnail"><a href='.$src.'><img src='.$src.' alt=Lights style=width:100%;height:25vh;></a></div></div>';
+
+			}
+			return response()->json(['status' => true, 'data' => $html]);
+		} else {
+			return response()->json(['status' => false, 'data' => "No data Found"]);
+		}
+
+	}
+
+	public function makeCoverImg(Request $request) {
+		$id  = $request->id;
+		$pid = $request->pid;
+		PropertyImage::where('property_id', (int) $pid)->update(['is_cover_image' => 0]);
+		PropertyImage::where('id', (int) $id)->update(['is_cover_image'           => 1]);
+		return response()->json(['status'                                         => true, 'data'                                         => "Date updated!"]);
+	}
+	public function delProerpty(Request $request) {
+		Property::where('id', $request->pid)->delete();
+		PropertyDetail::where('property_id', $request->pid)->delete();
+		$redirect_var = $request->id;
+		return view('admin.properties.add-property', compact('redirect_var'));
+	}
+}

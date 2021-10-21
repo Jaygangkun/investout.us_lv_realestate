@@ -1,0 +1,2861 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Barbara Sylla</Author>
+  <LastAuthor>Barbara Sylla</LastAuthor>
+  <Created>2020-07-17T23:53:07Z</Created>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>6960</WindowHeight>
+  <WindowWidth>20055</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <NumberFormat ss:Format="&quot;$&quot;#,##0_);[Red]\(&quot;$&quot;#,##0\)"/>
+  </Style>
+  <Style ss:ID="s63">
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s64">
+   <NumberFormat ss:Format="General Date"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="ListingPR Export">
+  <Table ss:ExpandedColumnCount="154" ss:ExpandedRowCount="26" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row>
+    <Cell><Data ss:Type="String">MLSNumber</Data></Cell>
+    <Cell><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">City</Data></Cell>
+    <Cell><Data ss:Type="String">County</Data></Cell>
+    <Cell><Data ss:Type="String">State</Data></Cell>
+    <Cell><Data ss:Type="String">Zip Code</Data></Cell>
+    <Cell><Data ss:Type="String">Zip + 4</Data></Cell>
+    <Cell><Data ss:Type="String">Category</Data></Cell>
+    <Cell><Data ss:Type="String">Status</Data></Cell>
+    <Cell><Data ss:Type="String">MLS_SoldPrice</Data></Cell>
+    <Cell><Data ss:Type="String">OriginalPrice</Data></Cell>
+    <Cell><Data ss:Type="String">CurrentPrice</Data></Cell>
+    <Cell><Data ss:Type="String">Last List Price</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">DOM</Data></Cell>
+    <Cell><Data ss:Type="String">PMP</Data></Cell>
+    <Cell><Data ss:Type="String">ListDate</Data></Cell>
+    <Cell><Data ss:Type="String">StatusDate</Data></Cell>
+    <Cell><Data ss:Type="String">Agreement of Sale/Signed Lease Date</Data></Cell>
+    <Cell><Data ss:Type="String">MLS_SettledDate</Data></Cell>
+    <Cell><Data ss:Type="String">FloorNumber</Data></Cell>
+    <Cell><Data ss:Type="String">#ofStories</Data></Cell>
+    <Cell><Data ss:Type="String">County</Data></Cell>
+    <Cell><Data ss:Type="String">MLSArea</Data></Cell>
+    <Cell><Data ss:Type="String">MLSAreaName</Data></Cell>
+    <Cell><Data ss:Type="String">MLS_Subdivision</Data></Cell>
+    <Cell><Data ss:Type="String">SchoolDistrict</Data></Cell>
+    <Cell><Data ss:Type="String">Schools-Elementary</Data></Cell>
+    <Cell><Data ss:Type="String">Schools-Middle</Data></Cell>
+    <Cell><Data ss:Type="String">Schools-HighSchool</Data></Cell>
+    <Cell><Data ss:Type="String">ListOfficeName</Data></Cell>
+    <Cell><Data ss:Type="String">ListOfficePhone</Data></Cell>
+    <Cell><Data ss:Type="String">ListAgentName</Data></Cell>
+    <Cell><Data ss:Type="String">ListAgentPhone</Data></Cell>
+    <Cell><Data ss:Type="String">PublicRemarks</Data></Cell>
+    <Cell><Data ss:Type="String">Model</Data></Cell>
+    <Cell><Data ss:Type="String">BuildingName</Data></Cell>
+    <Cell><Data ss:Type="String">NewConstruction</Data></Cell>
+    <Cell><Data ss:Type="String">HomeBuilt</Data></Cell>
+    <Cell><Data ss:Type="String">AdditionalBankOwned</Data></Cell>
+    <Cell><Data ss:Type="String">AdditionalThirdPartyApproval</Data></Cell>
+    <Cell><Data ss:Type="String">AdditionalShortSale</Data></Cell>
+    <Cell><Data ss:Type="String">SellerConcessionYN</Data></Cell>
+    <Cell><Data ss:Type="String">Concessions Remarks</Data></Cell>
+    <Cell><Data ss:Type="String">SellerConcessionsAmount</Data></Cell>
+    <Cell><Data ss:Type="String">FinalFinancing</Data></Cell>
+    <Cell><Data ss:Type="String">FinalShortSale</Data></Cell>
+    <Cell><Data ss:Type="String">FinalThirdPartyApproval</Data></Cell>
+    <Cell><Data ss:Type="String">FinalBankOwned</Data></Cell>
+    <Cell><Data ss:Type="String">Acres </Data></Cell>
+    <Cell><Data ss:Type="String">Lot SqFt (Approx)</Data></Cell>
+    <Cell><Data ss:Type="String">Lot Dimensions</Data></Cell>
+    <Cell><Data ss:Type="String">LotDescription</Data></Cell>
+    <Cell><Data ss:Type="String">ShoreWater</Data></Cell>
+    <Cell><Data ss:Type="String">Ownership</Data></Cell>
+    <Cell><Data ss:Type="String">HouseForOlderPersons</Data></Cell>
+    <Cell><Data ss:Type="String">MLS_CondoAssociation</Data></Cell>
+    <Cell><Data ss:Type="String">HOA</Data></Cell>
+    <Cell><Data ss:Type="String">AssociationFee</Data></Cell>
+    <Cell><Data ss:Type="String">AssociationFeeFrequency</Data></Cell>
+    <Cell><Data ss:Type="String">FeeIncludes</Data></Cell>
+    <Cell><Data ss:Type="String">ExtraFee(s)</Data></Cell>
+    <Cell><Data ss:Type="String">Age</Data></Cell>
+    <Cell><Data ss:Type="String">PropertyCondition</Data></Cell>
+    <Cell><Data ss:Type="String">Room Count</Data></Cell>
+    <Cell><Data ss:Type="String">Bedrooms</Data></Cell>
+    <Cell><Data ss:Type="String">Baths</Data></Cell>
+    <Cell><Data ss:Type="String">BathsFull</Data></Cell>
+    <Cell><Data ss:Type="String">PartialBaths</Data></Cell>
+    <Cell><Data ss:Type="String">Design</Data></Cell>
+    <Cell><Data ss:Type="String">Style</Data></Cell>
+    <Cell><Data ss:Type="String">Cooling</Data></Cell>
+    <Cell><Data ss:Type="String">PrimaryHeat</Data></Cell>
+    <Cell><Data ss:Type="String">HeatDelivery</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell><Data ss:Type="String">ElectricalSystem</Data></Cell>
+    <Cell><Data ss:Type="String">Water</Data></Cell>
+    <Cell><Data ss:Type="String">Sewer</Data></Cell>
+    <Cell><Data ss:Type="String">FireplaceCount</Data></Cell>
+    <Cell><Data ss:Type="String">KitchenAppliancesFeatures</Data></Cell>
+    <Cell><Data ss:Type="String">CookingFuel</Data></Cell>
+    <Cell><Data ss:Type="String">Other Rooms</Data></Cell>
+    <Cell><Data ss:Type="String">LaundryHookUps</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell><Data ss:Type="String">BasementType</Data></Cell>
+    <Cell><Data ss:Type="String">BasementDescription</Data></Cell>
+    <Cell><Data ss:Type="String">BasementFootprintPct</Data></Cell>
+    <Cell><Data ss:Type="String">BasementFinishedPct</Data></Cell>
+    <Cell><Data ss:Type="String">Garage</Data></Cell>
+    <Cell><Data ss:Type="String">GarageSpaces</Data></Cell>
+    <Cell><Data ss:Type="String">GarageFeatures</Data></Cell>
+    <Cell><Data ss:Type="String">Parking</Data></Cell>
+    <Cell><Data ss:Type="String">ExteriorFeatures</Data></Cell>
+    <Cell><Data ss:Type="String">ExteriorMaterial</Data></Cell>
+    <Cell><Data ss:Type="String">Main Roof</Data></Cell>
+    <Cell><Data ss:Type="String">Foundation</Data></Cell>
+    <Cell><Data ss:Type="String">PorchDeck</Data></Cell>
+    <Cell><Data ss:Type="String">SwimmingPoolType</Data></Cell>
+    <Cell><Data ss:Type="String">OtherStructures</Data></Cell>
+    <Cell><Data ss:Type="String">OriginatingMLS</Data></Cell>
+    <Cell><Data ss:Type="String">PR_PropDoNotMail</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerLabelName</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerNames</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerCareOf</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerAddress</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerCityState</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerZipCode</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerZip4</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerCarrierRoute</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerDoNotMail</Data></Cell>
+    <Cell><Data ss:Type="String">PR_OwnerOccupied</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Municipality</Data></Cell>
+    <Cell><Data ss:Type="String">PR_SubdivisionNeighborhood</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxID</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxMap</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Block</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Lot</Data></Cell>
+    <Cell><Data ss:Type="String">PR_QualCode</Data></Cell>
+    <Cell><Data ss:Type="String">PR_CensusTractBlock</Data></Cell>
+    <Cell><Data ss:Type="String">PR_CensusTractBlock_Z_4</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxYear</Data></Cell>
+    <Cell><Data ss:Type="String">PR_AnnualTax</Data></Cell>
+    <Cell><Data ss:Type="String">PR_CountyTax</Data></Cell>
+    <Cell><Data ss:Type="String">PR_MunicipalTax</Data></Cell>
+    <Cell><Data ss:Type="String">PR_SchoolTax</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxableLandAsmt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxableBldgAsmt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_TaxableTotalAsmt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_DeedRecordDate</Data></Cell>
+    <Cell><Data ss:Type="String">PR_SettleDate</Data></Cell>
+    <Cell><Data ss:Type="String">PR_SaleAmt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_SaleType</Data></Cell>
+    <Cell><Data ss:Type="String">PR_PropertyClass</Data></Cell>
+    <Cell><Data ss:Type="String">PR_CondoYN</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LandUse</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotDescription</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotShape</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotAcres</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotSqFt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotFrontage</Data></Cell>
+    <Cell><Data ss:Type="String">PR_LotDepth</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Zoning</Data></Cell>
+    <Cell><Data ss:Type="String">PR_BldgSqFtTotal</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Stories</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Bedrooms</Data></Cell>
+    <Cell><Data ss:Type="String">PR_Exterior</Data></Cell>
+    <Cell><Data ss:Type="String">PR_BsmtDesc</Data></Cell>
+    <Cell><Data ss:Type="String">PR_FireplaceTotal</Data></Cell>
+    <Cell><Data ss:Type="String">PR_GrgType</Data></Cell>
+    <Cell><Data ss:Type="String">PR_PoolType</Data></Cell>
+    <Cell><Data ss:Type="String">PR_HeatDelivery</Data></Cell>
+    <Cell><Data ss:Type="String">PR_YearBuilt</Data></Cell>
+    <Cell><Data ss:Type="String">PR_YearRemod</Data></Cell>
+    <Cell><Data ss:Type="String">PR_CountyBldgDesc  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH915652</Data></Cell>
+    <Cell><Data ss:Type="String">6233 N 6Th</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19126</Data></Cell>
+    <Cell><Data ss:Type="Number">3802</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">ComingSoon</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s62"><Data ss:Type="Number">265000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-16T00:00:00.000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Lower1,Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19126</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">OAK LANE</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">RE/MAX Elite</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 328-4800</Data></Cell>
+    <Cell><Data ss:Type="String">Alena Stolyar</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 669-7658</Data></Cell>
+    <Cell><Data ss:Type="String">Wonderful opportunity to make this sprawling rancher with garage and long driveway your own. Great treelined street! Covered porch entry leads to a spacious foyer with slate flooring and large coat closet. Large living room featured big windows and a wood burning fireplace. Dining room is open to the kitchen and will be the center of any family gatherings. The master bedroom is spacious with hardwood floors and a full bath. 2 additional bedrooms share the hall bath. Full unfinished basement for all your storage needs! Many updates have been made which include new HVAC, new central air, newer windows and more!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.24</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">87.00 x 119.20</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1960</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">One</Data></Cell>
+    <Cell><Data ss:Type="String">Rancher</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Central,ForcedAir</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSeptic</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Stone</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Darlene Wilmington</Data></Cell>
+    <Cell><Data ss:Type="String">WILMINGTON Darlene</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6233 N 6Th St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19126</Data></Cell>
+    <Cell><Data ss:Type="Number">3802</Data></Cell>
+    <Cell><Data ss:Type="String">C009</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">611126500</Data></Cell>
+    <Cell><Data ss:Type="String">137N7</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">59</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">270.00099999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">270.00099999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">3119</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1407</Data></Cell>
+    <Cell><Data ss:Type="Number">1711</Data></Cell>
+    <Cell><Data ss:Type="Number">33420</Data></Cell>
+    <Cell><Data ss:Type="Number">189380</Data></Cell>
+    <Cell><Data ss:Type="Number">222800</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2019-06-12T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2019-05-20T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">104500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Det, 1 Sty, Stone</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">0.23799999999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">10370</Data></Cell>
+    <Cell><Data ss:Type="Number">87</Data></Cell>
+    <Cell><Data ss:Type="Number">119.2</Data></Cell>
+    <Cell><Data ss:Type="String">RSD3      </Data></Cell>
+    <Cell><Data ss:Type="Number">1540</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Stone</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1960</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH914086</Data></Cell>
+    <Cell><Data ss:Type="String">6208 Oakley</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19111</Data></Cell>
+    <Cell><Data ss:Type="Number">5626</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">ComingSoon</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s62"><Data ss:Type="Number">129900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-12T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19111</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">LAWNDALE</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Keller Williams Real Estate-Langhorne</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 757-6100</Data></Cell>
+    <Cell><Data ss:Type="String">Nancy Aulett</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 514-3528</Data></Cell>
+    <Cell><Data ss:Type="String">First time offered in 58 years! Come see this cute three bedroom, one and a half bath porch front row located in Lawndale. Living room with ceiling fan and a decorative fireplace, dining room with chandelier, oat closet, A/C unit in the dining room window, remodeled eat-in kitchen with solid wood cabinets, gas range, dishwasher, stainless steel sink, and ceramic tile floor. Exit to a fenced rear yard and a detached one-car garage. The second floor has three nice sized bedrooms, a remodeled hall bath, and the lower level is semi-finished with a powder room and a laundry area. Featuring newer vinyl windows and hardwood floors under the carpets. Heating system is approximately six years old and the roof is approximately seven years old. Convenient location to schools, shopping, and transportation. This home just sparkles and is in &quot;Move In&quot; Condition. Settlement needs to be August 30th or later. Please note there is no sale sign on property and property is being sold in &quot;AS IS&quot; Condition.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.05</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.04 x 141.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">LowFlrLndry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full,PartiallyFinished</Data></Cell>
+    <Cell><Data ss:Type="String">Full,PartiallyFinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="93"><Data ss:Type="String">Sidewalks,StreetLights</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Anne T Nyce</Data></Cell>
+    <Cell><Data ss:Type="String">NYCE Anne T</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6208 Oakley St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19111</Data></Cell>
+    <Cell><Data ss:Type="Number">5626</Data></Cell>
+    <Cell><Data ss:Type="String">C012</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">353212200</Data></Cell>
+    <Cell><Data ss:Type="String">138N13</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">313</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">306.00400000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">306.00400000000002</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1615</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">729</Data></Cell>
+    <Cell><Data ss:Type="Number">886</Data></Cell>
+    <Cell><Data ss:Type="Number">22502</Data></Cell>
+    <Cell><Data ss:Type="Number">92898</Data></Cell>
+    <Cell><Data ss:Type="Number">115400</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1991-03-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1991-02-27T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Det Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">4.8599999999999997E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">2121</Data></Cell>
+    <Cell><Data ss:Type="Number">15.04</Data></Cell>
+    <Cell><Data ss:Type="Number">141</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1200</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Detached</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH913184</Data></Cell>
+    <Cell><Data ss:Type="String">4909 N Lawrence</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19120</Data></Cell>
+    <Cell><Data ss:Type="Number">3815</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">ComingSoon</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s62"><Data ss:Type="Number">95000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-30T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19120</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">NONE AVAILABLE</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">BHHS Fox &amp; Roach-Christiana</Data></Cell>
+    <Cell><Data ss:Type="String">(302) 368-1621</Data></Cell>
+    <Cell><Data ss:Type="String">Gary Williams</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 768-7409</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">19.50 x 100.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Colonial</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">ForcedAir</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full,Unfinished</Data></Cell>
+    <Cell><Data ss:Type="String">Full,Unfinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Ruby Lee Lindsay</Data></Cell>
+    <Cell><Data ss:Type="String">LINDSAY Ruby Lee</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">4909 N Lawrence St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19120</Data></Cell>
+    <Cell><Data ss:Type="Number">3815</Data></Cell>
+    <Cell><Data ss:Type="String">C030</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">422475100</Data></Cell>
+    <Cell><Data ss:Type="String">123N1</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">155</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">286.005</Data></Cell>
+    <Cell><Data ss:Type="Number">286.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1067</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">481</Data></Cell>
+    <Cell><Data ss:Type="Number">585</Data></Cell>
+    <Cell><Data ss:Type="Number">11430</Data></Cell>
+    <Cell><Data ss:Type="Number">64770</Data></Cell>
+    <Cell><Data ss:Type="Number">76200</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1998-05-11T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1998-04-15T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">4.4699999999999997E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">19.5</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1116</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH912912</Data></Cell>
+    <Cell><Data ss:Type="String">1116 Pierce</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19148</Data></Cell>
+    <Cell><Data ss:Type="Number">1502</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">ComingSoon</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s62"><Data ss:Type="Number">295000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-08T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19148</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">NONE AVAILABLE</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">Andrew Jackson</Data></Cell>
+    <Cell><Data ss:Type="String">Southwark School</Data></Cell>
+    <Cell><Data ss:Type="String">South Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">Keller Williams Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 627-3500</Data></Cell>
+    <Cell><Data ss:Type="String">Joseph Siligato</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 475-8888</Data></Cell>
+    <Cell><Data ss:Type="String">This is an estate sale. Home is liveable. Home is being sold As Is.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">16.00 x 50.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">WallUnit</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Radiator</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">100AmpService</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Asphalt</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Carmela Procopio &amp; Assunta &amp; Anthony J Siligato</Data></Cell>
+    <Cell><Data ss:Type="String">PROCOPIO Carmela &amp; SILIGATO Assunta &amp; Anthony J</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">1116 Pierce St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19148</Data></Cell>
+    <Cell><Data ss:Type="Number">1502</Data></Cell>
+    <Cell><Data ss:Type="String">C016</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">394547100</Data></Cell>
+    <Cell><Data ss:Type="String">13S11</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">84</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">28.004999999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">28.021999999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">4006</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1808</Data></Cell>
+    <Cell><Data ss:Type="Number">2198</Data></Cell>
+    <Cell><Data ss:Type="Number">65541</Data></Cell>
+    <Cell><Data ss:Type="Number">220659</Data></Cell>
+    <Cell><Data ss:Type="Number">286200</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2017-02-15T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2017-02-07T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">132500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">1.83E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">800</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1248</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot/Warm Air</Data></Cell>
+    <Cell><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH916290</Data></Cell>
+    <Cell><Data ss:Type="String">2732 Earp</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19146</Data></Cell>
+    <Cell><Data ss:Type="Number">3714</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">162000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">162000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-17T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19146</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">POINT BREEZE</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Simple Choice Realty</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 326-2414</Data></Cell>
+    <Cell><Data ss:Type="String">Christopher J Carr</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 326-2414</Data></Cell>
+    <Cell><Data ss:Type="String">This 3 bedroom home has a full bathroom on the 1st floor and a half bath on the 2nd floor. The kitchen and bathroom has new cabinetry and flooring. The larger bedroom also has a new floor. There are renovations and new construction in the immediate area.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">14.00 x 50.00</Data></Cell>
+    <Cell><Data ss:Type="String">RearYard</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1923</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Colonial</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="76"><Data ss:Type="String">100AmpService</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Microwave, Refrigerator</Data></Cell>
+    <Cell><Data ss:Type="String">Microwave, Refrigerator</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">Hookup</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Brick</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell><Data ss:Type="String">Slab,Stone</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Equity Trust Company Custodian Fbo David Scann</Data></Cell>
+    <Cell><Data ss:Type="String">SCANNAPIECO David</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">2432 E Norris St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19125</Data></Cell>
+    <Cell><Data ss:Type="Number">2940</Data></Cell>
+    <Cell><Data ss:Type="String">C021</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">362109700</Data></Cell>
+    <Cell><Data ss:Type="String">10S6</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">188</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">33.003</Data></Cell>
+    <Cell><Data ss:Type="Number">33.003</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1001</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">452</Data></Cell>
+    <Cell><Data ss:Type="Number">549</Data></Cell>
+    <Cell><Data ss:Type="Number">17203</Data></Cell>
+    <Cell><Data ss:Type="Number">54297</Data></Cell>
+    <Cell><Data ss:Type="Number">71500</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2013-11-12T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2013-09-23T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">17000</Data></Cell>
+    <Cell><Data ss:Type="String">REO Sale</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">1.6E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">700</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">784</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1923</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH916090</Data></Cell>
+    <Cell><Data ss:Type="String">4625 Silverwood</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19128</Data></Cell>
+    <Cell><Data ss:Type="Number">4614</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">245000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">245000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-17T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19128</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">MANAYUNK</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">KW Greater West Chester</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 436-6500</Data></Cell>
+    <Cell><Data ss:Type="String">Scott F Gullaksen</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 453-9898</Data></Cell>
+    <Cell><Data ss:Type="String">Nice 3 bedroom, 2 bathroom brick twin on a great street in Roxborough/Manayunk.   This home features a beautiful covered front porch, hardwood floors throughout, updated kitchen cabinets, granite countertops, a breakfast bar, and a gorgeous rear flagstone patio that is very private.   The basement is partially finished an and has plenty of room for storage, a laundry area, and a 2nd full bathroom.    Walking distance to Main Street Manayunk and close to Gorgas Park and public transportation.  Schedule your appointment today.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.05</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">18.62 x 110.34</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Oven/Range - Gas</Data></Cell>
+    <Cell><Data ss:Type="String">Oven/Range - Gas</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Brick</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Robert W Gasper</Data></Cell>
+    <Cell><Data ss:Type="String">GASPER Robert W</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">4625 Silverwood St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19128</Data></Cell>
+    <Cell><Data ss:Type="Number">4614</Data></Cell>
+    <Cell><Data ss:Type="String">C037</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">211539900</Data></Cell>
+    <Cell><Data ss:Type="String">93N4</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">58</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">213.005</Data></Cell>
+    <Cell><Data ss:Type="Number">213.005</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">3395</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1532</Data></Cell>
+    <Cell><Data ss:Type="Number">1863</Data></Cell>
+    <Cell><Data ss:Type="Number">34510</Data></Cell>
+    <Cell><Data ss:Type="Number">207990</Data></Cell>
+    <Cell><Data ss:Type="Number">242500</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2010-08-13T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2010-08-05T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">157000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Semi-Det, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">4.7100000000000003E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">2055</Data></Cell>
+    <Cell><Data ss:Type="Number">18.62</Data></Cell>
+    <Cell><Data ss:Type="Number">110.34</Data></Cell>
+    <Cell><Data ss:Type="String">RSA3      </Data></Cell>
+    <Cell><Data ss:Type="Number">1230</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH915326</Data></Cell>
+    <Cell><Data ss:Type="String">1815 W Cayuga</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19140</Data></Cell>
+    <Cell><Data ss:Type="Number">1037</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">149900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">149900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-15T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-16T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19140</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">GERMANTOWN</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">Edward T Steel School</Data></Cell>
+    <Cell><Data ss:Type="String">Edward T Steel School</Data></Cell>
+    <Cell><Data ss:Type="String">Simon Gratz</Data></Cell>
+    <Cell><Data ss:Type="String">Quality Real Estate-Broad St</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 457-2600</Data></Cell>
+    <Cell><Data ss:Type="String">Celenia Martinez</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 694-0246</Data></Cell>
+    <Cell><Data ss:Type="String">Corner Commercial Mixed used building for sale. First floor Store front currently rented until 9/1/2020 for  at 750 per month. Being used and still set up as a Beauty Salon. Store front offers, seating area, hair stations with chairs &amp; mirrors, power outlets, shampoo stations, rest rooms, windows displays and much more. Washer and dryer hook up available. 2nd fl Vacant , perfect for any potential owner occupant looking to live and work at one location or allow the commercial rent to pay the monthly mortgage.  2nd fl has a bi level 3 bedroom apt with eat in kitchen, dining room, separate entrance, spacious bedrooms. Both 1st &amp; 2nd floors ave separate electric &amp; gas meters, Also separate Washer &amp; dryer hook ups. Property has been freshly painted,In move inn condition. Ready to show! Great income producing investment.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.50 x 62.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Bilevel</Data></Cell>
+    <Cell><Data ss:Type="String">CeilingFans</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Radiant</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">100AmpService,150Amps</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Stove</Data></Cell>
+    <Cell><Data ss:Type="String">Stove</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">Hookup</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Combination</Data></Cell>
+    <Cell><Data ss:Type="String">Combination</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="93"><Data ss:Type="String">ExteriorLighting,Sidewalks,StreetLights</Data></Cell>
+    <Cell><Data ss:Type="String">Block,Combination,Masonry,Other</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Marcia C Garbutt</Data></Cell>
+    <Cell><Data ss:Type="String">GARBUTT Marcia C</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">1815 W Cayuga St</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">    </Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">871519780</Data></Cell>
+    <Cell><Data ss:Type="String">102N4</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">204.006</Data></Cell>
+    <Cell><Data ss:Type="Number">204.001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">711</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">321</Data></Cell>
+    <Cell><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">10160</Data></Cell>
+    <Cell><Data ss:Type="Number">40640</Data></Cell>
+    <Cell><Data ss:Type="Number">50800</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2020-04-29T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2020-04-24T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Mixed Use</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Mix: Row Ofc/Store w/ Dwlg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.1999999999999999E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">961</Data></Cell>
+    <Cell><Data ss:Type="Number">15.5</Data></Cell>
+    <Cell><Data ss:Type="Number">62</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1505</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH914604</Data></Cell>
+    <Cell><Data ss:Type="String">8053 Rodney</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19150</Data></Cell>
+    <Cell><Data ss:Type="Number">3018</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">269000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">269000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-13T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-15T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19150</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">MT AIRY (EAST)</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Century 21 Advantage Gold-Elkins Park</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 887-4653</Data></Cell>
+    <Cell><Data ss:Type="String">Denise McLean</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 429-1510</Data></Cell>
+    <Cell><Data ss:Type="String">Come see this well cared for twin in this sought after East Mt Airy neighborhood where pride of home ownership is evident. Same owner for over 50 years.  Enter home from the side entrance into foyer with powder room and closet.  Living room to the left and dining room to the right.  Straight ahead you will find the stairwell taking you to the second floor where three nice size bedrooms, hall bath and master bath awaits.  There are newer windows throughout.  Eat-in kitchen offers plenty of cabinet space, and new laminate flooring.  Exit kitchen door on the side takes you to the back of the house to the garage or around the front to the covered patio.   For your peace of mind, seller is offering a one year home warranty.  Move right in and bring your cosmetic flair to make this house yours!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.06</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">24.50 x 102.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">ForcedAir</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full</Data></Cell>
+    <Cell><Data ss:Type="String">Full</Data></Cell>
+    <Cell ss:Index="88"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">B Rogers &amp; Evelyn Robert</Data></Cell>
+    <Cell><Data ss:Type="String">ROBERT B Rogers &amp; Evelyn</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">8053 Rodney St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19150</Data></Cell>
+    <Cell><Data ss:Type="Number">3018</Data></Cell>
+    <Cell><Data ss:Type="String">C043</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">502046400</Data></Cell>
+    <Cell><Data ss:Type="String">146N16</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">125</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">261.00099999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">261.00099999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2366</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1068</Data></Cell>
+    <Cell><Data ss:Type="Number">1298</Data></Cell>
+    <Cell><Data ss:Type="Number">25350</Data></Cell>
+    <Cell><Data ss:Type="Number">143650</Data></Cell>
+    <Cell><Data ss:Type="Number">169000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1967-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1967-07-14T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Semi-Det w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">5.7299999999999997E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">2499</Data></Cell>
+    <Cell><Data ss:Type="Number">24.5</Data></Cell>
+    <Cell><Data ss:Type="Number">102</Data></Cell>
+    <Cell><Data ss:Type="String">RSA3      </Data></Cell>
+    <Cell><Data ss:Type="Number">1452</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot/Warm Air</Data></Cell>
+    <Cell><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH912946</Data></Cell>
+    <Cell><Data ss:Type="String">1520 W Dauphin</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19132</Data></Cell>
+    <Cell><Data ss:Type="Number">4424</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">160000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">160000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">168</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-15T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-15T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19132</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">TEMPLE UNIVERSITY</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Coldwell Banker Preferred-OC</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 923-7600</Data></Cell>
+    <Cell><Data ss:Type="String">Philip R Cavalcanto</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 681-6610</Data></Cell>
+    <Cell><Data ss:Type="String">Just a few blocks north from the heart of Temple University lies 1520 W Dauphin St! An excellent investment property in an up and coming neighborhood. With a 7.4% cap rate, great equity potential, and a monthly average rent ranging from 1600-1800 per month, making money has never been easier!! It features four beds, two full baths, and a back patio, making 1520 W Dauphin St very accommodating to any renters needs. Get your offers in! This will not last long!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">VeryGood,Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">14.00 x 55.16</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="String">VeryGood,Good,Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Traditional</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full</Data></Cell>
+    <Cell><Data ss:Type="String">Full</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Rishit G Shah &amp; Ashka Vakil</Data></Cell>
+    <Cell><Data ss:Type="String">SHAH Rishit G &amp; VAKIL Ashka</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">1373 Deroche Ct</Data></Cell>
+    <Cell><Data ss:Type="String">SUNNYVALE CA</Data></Cell>
+    <Cell><Data ss:Type="Number">94087</Data></Cell>
+    <Cell><Data ss:Type="Number">3012</Data></Cell>
+    <Cell><Data ss:Type="String">C011</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">161264500</Data></Cell>
+    <Cell><Data ss:Type="String">29N22</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">325</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">167.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">167.024</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2087</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">942</Data></Cell>
+    <Cell><Data ss:Type="Number">1145</Data></Cell>
+    <Cell><Data ss:Type="Number">21197</Data></Cell>
+    <Cell><Data ss:Type="Number">127903</Data></Cell>
+    <Cell><Data ss:Type="Number">149100</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2018-01-25T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2018-01-16T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">135000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">1.77E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">772</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">55.16</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1288</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH915074</Data></Cell>
+    <Cell><Data ss:Type="String">6261 N 18Th</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19141</Data></Cell>
+    <Cell><Data ss:Type="Number">1425</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">115000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">115000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19141</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">OGONTZ</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">Prince Hall School</Data></Cell>
+    <Cell><Data ss:Type="String">General Louis Wagner</Data></Cell>
+    <Cell><Data ss:Type="String">Martin L. King</Data></Cell>
+    <Cell><Data ss:Type="String">HomeSmart Realty Advisors</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 604-1191</Data></Cell>
+    <Cell><Data ss:Type="String">Dalissa Carmichael</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 592-6523</Data></Cell>
+    <Cell><Data ss:Type="String">Amazing opportunity hitting the market! Perfect for a starter home or investment property. This home is awaiting your final touches! Unlike other places, this unique rowhome in Ogontz features a lofty living area on the second floor, accompanied by 2 spacious bedrooms. The ideas for use are endless! In the basement you~ll find an additional bedroom with its own full bathroom. If this wasn't enough, this house even comes with a fenced yard area in the rear. Future BBQ area equals BONUS!!! Come check out this gem today!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.00 x 114.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Traditional</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">PartiallyFinished</Data></Cell>
+    <Cell><Data ss:Type="String">PartiallyFinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Marcia Nance</Data></Cell>
+    <Cell><Data ss:Type="String">NANCE Marcia</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">Po Box 834</Data></Cell>
+    <Cell><Data ss:Type="String">BLUE BELL PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19422</Data></Cell>
+    <Cell><Data ss:Type="Number">834</Data></Cell>
+    <Cell><Data ss:Type="String">B030</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">172269500</Data></Cell>
+    <Cell><Data ss:Type="String">143N14</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">43</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">277.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">277.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1323</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">597</Data></Cell>
+    <Cell><Data ss:Type="Number">726</Data></Cell>
+    <Cell><Data ss:Type="Number">14175</Data></Cell>
+    <Cell><Data ss:Type="Number">80325</Data></Cell>
+    <Cell><Data ss:Type="Number">94500</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2006-05-27T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2006-05-19T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">98000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.9199999999999999E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1710</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">114</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1140</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH914722</Data></Cell>
+    <Cell><Data ss:Type="String">6417 Large</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19149</Data></Cell>
+    <Cell><Data ss:Type="Number">2747</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">210000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">210000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19149</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">CASTOR GARDENS</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">Spruance</Data></Cell>
+    <Cell><Data ss:Type="String">Spruance</Data></Cell>
+    <Cell><Data ss:Type="String">Ne</Data></Cell>
+    <Cell><Data ss:Type="String">Keller Williams Real Estate Tri-County</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 464-8800</Data></Cell>
+    <Cell><Data ss:Type="String">Monica Duluc</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 235-4667</Data></Cell>
+    <Cell><Data ss:Type="String">INVESTORS Welcome ! 3 BED 2.5 BATH with an EFFICIENCY Apartment WOW!  The apartment  has a  separate entrance and  private parking.This property has a spacious Deck!  ** Make your offer on this 1560 Sq ft property . Property has a homestead exemption .Tenant current lease until May 2021 collecting $1300. Previously rented both top &amp; bottom collected $1550 easily .  The tenant pays the water which gives this property a 6% Cap Rate in a steady growing area. *4 minute walk to Middle and Elementary school.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">20.00 x 84.75</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">AirLite</Data></Cell>
+    <Cell><Data ss:Type="String">WallUnit</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">ForcedAir</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished,Improved,OutsideEntrance,RearEntrance</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished,Improved,OutsideEntrance,RearEntrance</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Yoginder &amp; Neelam Bhardwaj</Data></Cell>
+    <Cell><Data ss:Type="String">BHARDWAJ Yoginder &amp; Neelam</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6417 Large St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19149</Data></Cell>
+    <Cell><Data ss:Type="Number">2747</Data></Cell>
+    <Cell><Data ss:Type="String">C059</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">541193100</Data></Cell>
+    <Cell><Data ss:Type="String">143N9</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">307</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">313.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">313.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1891</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">853</Data></Cell>
+    <Cell><Data ss:Type="Number">1038</Data></Cell>
+    <Cell><Data ss:Type="Number">20669</Data></Cell>
+    <Cell><Data ss:Type="Number">114431</Data></Cell>
+    <Cell><Data ss:Type="Number">135100</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2003-06-23T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2002-11-22T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">23223</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.8899999999999997E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1695</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">84.75</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1560</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot/Warm Air</Data></Cell>
+    <Cell><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH914636</Data></Cell>
+    <Cell><Data ss:Type="String">4238 Markland</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19124</Data></Cell>
+    <Cell><Data ss:Type="Number">4916</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">140000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">140000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19124</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">JUNIATA</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Keller Williams Real Estate Tri-County</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 464-8800</Data></Cell>
+    <Cell><Data ss:Type="String">Stephanie L Roldan</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 234-4371</Data></Cell>
+    <Cell><Data ss:Type="String">Check out this Lovely Juniata Home that awaits you, its NEW Owner! As you approach the home you'll find a welcoming  Front Patio which is such a great space to  enjoy these summer days outdoors. Next enter into the spacious Living Room which is a nice quiet space to relax after a long day. The Dining Room offers a great space to enjoy dinner &amp; to gather with friends &amp; family.  Just off of the Dining Room is the kitchen. The second level of the home offers three Bedrooms and a Full Bathroom. The master bedroom has a very large closet for plenty of storage. The lower level offers a Finished Basement with brand new carpeting and tile walkway. There is a door leading out to the back Driveway and garage from this level as well. Freshly painted throughout, Roof was replaced in 2019 with a new chimney liner and rain cap as well, New boiler 2019, New water heater 7/2020.  Don't Delay, Schedule TODAY!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">17.91 x 60.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Traditional</Data></Cell>
+    <Cell><Data ss:Type="String">WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">Oil</Data></Cell>
+    <Cell><Data ss:Type="String">Radiant,Radiator</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished,GarageAccess,RearEntrance,WalkoutLevel</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished,GarageAccess,RearEntrance,WalkoutLevel</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="91"><Data ss:Type="String">SharedDriveway</Data></Cell>
+    <Cell><Data ss:Type="String">SharedDriveway</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Alex Romero &amp; Milagros Delvalle</Data></Cell>
+    <Cell><Data ss:Type="String">ROMERO Alex &amp; DELVALLE Milagros</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">4238 Markland St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19124</Data></Cell>
+    <Cell><Data ss:Type="Number">4916</Data></Cell>
+    <Cell><Data ss:Type="String">C016</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">332496700</Data></Cell>
+    <Cell><Data ss:Type="String">104N23</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">51</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">190.00700000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">190.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1383</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">624</Data></Cell>
+    <Cell><Data ss:Type="Number">759</Data></Cell>
+    <Cell><Data ss:Type="Number">14761</Data></Cell>
+    <Cell><Data ss:Type="Number">84039</Data></Cell>
+    <Cell><Data ss:Type="Number">98800</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2005-04-07T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2005-03-31T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">74500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.46E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1075</Data></Cell>
+    <Cell><Data ss:Type="Number">17.91</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="String">RM1       </Data></Cell>
+    <Cell><Data ss:Type="Number">1183</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH913622</Data></Cell>
+    <Cell><Data ss:Type="String">2543 S 11Th</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19148</Data></Cell>
+    <Cell><Data ss:Type="Number">4405</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">299000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">299000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-10T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19148</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">PHILA (SOUTH)</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">P C First Realty Inc</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 625-8953</Data></Cell>
+    <Cell><Data ss:Type="String">Yaozong Yuan</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 992-4578</Data></Cell>
+    <Cell><Data ss:Type="String">Beautiful townhouse with all hardwood floor through out. Features 3 bedrooms and 1.5 bath, a large throughout living room. Newly updated kitchen with access to your private space backyard. Plenty of storage rooms to use in your basement. Schedule your showing today.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.33 x 58.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">AirLite,StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Central</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">PartiallyFinished</Data></Cell>
+    <Cell><Data ss:Type="String">PartiallyFinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Lin Lam &amp; Kuan Fong Lam</Data></Cell>
+    <Cell><Data ss:Type="String">LIN Junbin &amp; LAM Kuan F</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">5142 Haverford Ave</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19139</Data></Cell>
+    <Cell><Data ss:Type="Number">1511</Data></Cell>
+    <Cell><Data ss:Type="String">C007</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">394184800</Data></Cell>
+    <Cell><Data ss:Type="String">30S22</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">187</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">40.021999999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">40.021999999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2846</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1284</Data></Cell>
+    <Cell><Data ss:Type="Number">1562</Data></Cell>
+    <Cell><Data ss:Type="Number">45132</Data></Cell>
+    <Cell><Data ss:Type="Number">158168</Data></Cell>
+    <Cell><Data ss:Type="Number">203300</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2009-04-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2009-04-06T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">133000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.0400000000000001E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">889</Data></Cell>
+    <Cell><Data ss:Type="Number">15.33</Data></Cell>
+    <Cell><Data ss:Type="Number">58</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1098</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot/Warm Air</Data></Cell>
+    <Cell><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH913096</Data></Cell>
+    <Cell><Data ss:Type="String">6439 Tulip</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell><Data ss:Type="Number">3324</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">179000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">179000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-14T00:00:00.000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">TACONY</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Elfant Wissahickon-Chestnut Hill</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 247-3600</Data></Cell>
+    <Cell><Data ss:Type="String">Jesse Guillermo Carpenter</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 978-3391</Data></Cell>
+    <Cell><Data ss:Type="String">Beautiful spacious open front porch twin in Tacony that mixes old-world charm with today's open floorplan lifestyle. The house if full of natural light with large windows and high ceilings. Walk into a large living room with an archway that opens into an additional living space and dining room with a convenient first-floor powder room. Bamboo hardwood flooring graces the downstairs living rooms as well as the dining room. Open kitchen with oak cabinets and granite countertops. Appliances include over the range microwave, range with self-cleaning oven, dishwasher, and side by side refrigerator. The upper level has 3 bedrooms with ceiling fans and new carpeting and an attic space great for storage or closet space. A gigantic well lit unfinished basement for even more storage. Private fenced in yard with covered wooden deck great for cookouts. Close to SEPTA and highways. Just minutes from NJ so this would be a perfect spot for quick access to NJ. The property was rented for $1,300.00 a month for the last 4 years.~Whether you're looking for a starter home that you can make your own with a little TLC or an investment property this 3 Bed 1.5 Bath home is ready for its next chapter.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.06</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">24.33 x 100.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Microwave, Oven/Range - Gas, Refrigerator</Data></Cell>
+    <Cell><Data ss:Type="String">Microwave, Oven/Range - Gas, Refrigerator</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">Hookup</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full,Unfinished</Data></Cell>
+    <Cell><Data ss:Type="String">Full,Unfinished</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="91"><Data ss:Type="String">Free</Data></Cell>
+    <Cell><Data ss:Type="String">Free</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="97"><Data ss:Type="String">Porches</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Nicholas A Anhalt</Data></Cell>
+    <Cell><Data ss:Type="String">ANHALT Nicholas A</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6439 Tulip St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell><Data ss:Type="Number">3324</Data></Cell>
+    <Cell><Data ss:Type="String">C011</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">411448600</Data></Cell>
+    <Cell><Data ss:Type="String">111N16</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">127</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">323.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">323.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2135</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">963</Data></Cell>
+    <Cell><Data ss:Type="Number">1171</Data></Cell>
+    <Cell><Data ss:Type="Number">29432</Data></Cell>
+    <Cell><Data ss:Type="Number">123068</Data></Cell>
+    <Cell><Data ss:Type="Number">152500</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2012-06-12T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2012-06-08T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">159900</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Semi-Det, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">5.5800000000000002E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">2433</Data></Cell>
+    <Cell><Data ss:Type="Number">24.33</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="String">RSA3      </Data></Cell>
+    <Cell><Data ss:Type="Number">1280</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910176</Data></Cell>
+    <Cell><Data ss:Type="String">6851 Upland</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell><Data ss:Type="Number">1220</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">89900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">89900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">ELMWOOD PARK</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Keller Williams Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 627-3500</Data></Cell>
+    <Cell><Data ss:Type="String">Nathan S Naness</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 847-9562</Data></Cell>
+    <Cell><Data ss:Type="String">Here is your opportunity in growing Southwest Philly, Elmwood Park to own a 3 bedroom, 15-foot-wide and 90 foot long house, with a front yard and porch.  2 story, tall basement and Grandma's house condition, you also get the second chance of buying the neighboring home, 6853 Upland so you can benefit with lower costs by doing 2 homes at the same time, saving by economies of scale.  Great for flips or rentals.  Will not last.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.03</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.00 x 90.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Traditional</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Radiator</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="93"><Data ss:Type="String">Sidewalks,StreetLights</Data></Cell>
+    <Cell><Data ss:Type="String">Brick,Frame,Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Kebede M Kenfu</Data></Cell>
+    <Cell><Data ss:Type="String">KENFU Kebede M</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6853 Upland St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell><Data ss:Type="Number">1220</Data></Cell>
+    <Cell><Data ss:Type="String">C009</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">403255300</Data></Cell>
+    <Cell><Data ss:Type="String">29S23</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">82</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">64.003</Data></Cell>
+    <Cell><Data ss:Type="Number">64.003</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">910</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">411</Data></Cell>
+    <Cell><Data ss:Type="Number">499</Data></Cell>
+    <Cell><Data ss:Type="Number">9750</Data></Cell>
+    <Cell><Data ss:Type="Number">55250</Data></Cell>
+    <Cell><Data ss:Type="Number">65000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1999-09-10T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1999-08-31T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">20000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.09E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1350</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">90</Data></Cell>
+    <Cell><Data ss:Type="String">RM1       </Data></Cell>
+    <Cell><Data ss:Type="Number">1020</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910260</Data></Cell>
+    <Cell><Data ss:Type="String">6853 Upland</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell><Data ss:Type="Number">1220</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">89900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">89900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-09T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">ELMWOOD PARK</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Keller Williams Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 627-3500</Data></Cell>
+    <Cell><Data ss:Type="String">Nathan S Naness</Data></Cell>
+    <Cell><Data ss:Type="String">(267) 847-9562</Data></Cell>
+    <Cell><Data ss:Type="String">Here is your opportunity in growing Southwest Philly, Elmwood Park to own a 3 bedroom, 15-foot-wide and 90 foot long house, with a front yard and porch.  2 story, tall basement and Grandma's house condition, you also get the second chance of buying the neighboring home, 6851 Upland so you can benefit with lower costs by doing 2 homes at the same time, saving by economies of scale.  Great for flips or rentals.  Will not last.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.03</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.00 x 90.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">Traditional</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Radiator</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="93"><Data ss:Type="String">ExteriorLighting,Sidewalks</Data></Cell>
+    <Cell><Data ss:Type="String">Brick,Frame,Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Kebede M Kenfu</Data></Cell>
+    <Cell><Data ss:Type="String">KENFU Kebede M</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">2239 S 63Rd St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19142</Data></Cell>
+    <Cell><Data ss:Type="Number">2303</Data></Cell>
+    <Cell><Data ss:Type="String">C015</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">403255400</Data></Cell>
+    <Cell><Data ss:Type="String">29S23</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">83</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">64.003</Data></Cell>
+    <Cell><Data ss:Type="Number">64.003</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">910</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">411</Data></Cell>
+    <Cell><Data ss:Type="Number">499</Data></Cell>
+    <Cell><Data ss:Type="Number">9750</Data></Cell>
+    <Cell><Data ss:Type="Number">55250</Data></Cell>
+    <Cell><Data ss:Type="Number">65000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2003-02-19T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2002-07-01T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">20000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.09E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1350</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">90</Data></Cell>
+    <Cell><Data ss:Type="String">RM1       </Data></Cell>
+    <Cell><Data ss:Type="Number">1020</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH912342</Data></Cell>
+    <Cell><Data ss:Type="String">3227 Hurley</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">1718</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">60000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">60000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-08T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-08T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">KENSINGTON</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Aarch Realty</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 728-1101</Data></Cell>
+    <Cell><Data ss:Type="String">Michael A Gordon</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 370-0993</Data></Cell>
+    <Cell><Data ss:Type="String">Three bedrooms two bath house for sale in Kensington. The single-family house used as Duplex,  and was rented for  $1400   monthly.  The new owner will be responsible to obtain Use &amp; Occupancy  Certificate/ City Certificate if needed. The property will be sold in  &quot;' AS IS CONDITIONS&quot; .    Seller will do no repairs ,house was renovated by previous owner . Make an appointment to show , combo lockbox. Showing will start  Saturday 7/11/20  early morning.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">15.00 x 44.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1945</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">Electric</Data></Cell>
+    <Cell><Data ss:Type="String">BaseboardElectric</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Christopher Amore</Data></Cell>
+    <Cell><Data ss:Type="String">AMORE Christopher</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">3227 Hurley St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">1718</Data></Cell>
+    <Cell><Data ss:Type="String">C017</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">73141500</Data></Cell>
+    <Cell><Data ss:Type="String">39N23</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">86</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">177.006</Data></Cell>
+    <Cell><Data ss:Type="Number">177.02500000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">644</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">291</Data></Cell>
+    <Cell><Data ss:Type="Number">353</Data></Cell>
+    <Cell><Data ss:Type="Number">11546</Data></Cell>
+    <Cell><Data ss:Type="Number">34454</Data></Cell>
+    <Cell><Data ss:Type="Number">46000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2014-08-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2014-08-15T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">23500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Apt(s) Converted Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">1.5100000000000001E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">660</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">44</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1022</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1945</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910114</Data></Cell>
+    <Cell><Data ss:Type="String">3553 Stouton</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">2025</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">95000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">95000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-07T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-07T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">HARROWGATE</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Keller Williams Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 627-3500</Data></Cell>
+    <Cell><Data ss:Type="String">Francis E Meekins</Data></Cell>
+    <Cell><Data ss:Type="String">(240) 421-1023</Data></Cell>
+    <Cell><Data ss:Type="String">Investor or First Time Buyer Alert! Great  opportunity  to make the place your own in the  transitioning neighborhood of Harrowgate.  Come soon and take a look.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">14.58 x 56.50</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="91"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Latisha McNeill</Data></Cell>
+    <Cell><Data ss:Type="String">MCNEILL Lakisha T</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">3553 Stouton St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">2025</Data></Cell>
+    <Cell><Data ss:Type="String">C004</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">452392400</Data></Cell>
+    <Cell><Data ss:Type="String">26N22</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">132</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">188.00800000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">188.00299999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">736</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">332</Data></Cell>
+    <Cell><Data ss:Type="Number">404</Data></Cell>
+    <Cell><Data ss:Type="Number">7852</Data></Cell>
+    <Cell><Data ss:Type="Number">44748</Data></Cell>
+    <Cell><Data ss:Type="Number">52600</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2001-05-29T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2001-03-29T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">41500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">824</Data></Cell>
+    <Cell><Data ss:Type="Number">14.58</Data></Cell>
+    <Cell><Data ss:Type="Number">56.5</Data></Cell>
+    <Cell><Data ss:Type="String">RM1       </Data></Cell>
+    <Cell><Data ss:Type="Number">1008</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Finished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH911812</Data></Cell>
+    <Cell><Data ss:Type="String">5516 Cedar</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19143</Data></Cell>
+    <Cell><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">145000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">145000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-06T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-06T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19143</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">WEST PHILADELPHIA</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">Harrity Wm</Data></Cell>
+    <Cell><Data ss:Type="String">Samuel B Huey School</Data></Cell>
+    <Cell><Data ss:Type="String">West Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">Home Real Estate Professionals</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 424-4663</Data></Cell>
+    <Cell><Data ss:Type="String">Nancy Boyd</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 317-3652</Data></Cell>
+    <Cell><Data ss:Type="String">West Philadelphia beautiful tree lined street twin house.  Large rooms and high ceilings 4 bedrooms, 1.5 baths. Nice size back yard. This house has good bones just needs a little TLC. Come see. Wont Last . Property is occupied. Owners are flexible and need to move.  Please wear your masks and have a business card</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">20.00 x 80.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">BacktoBack</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell ss:Index="76"><Data ss:Type="String">100AmpService</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">DirtFloor</Data></Cell>
+    <Cell><Data ss:Type="String">DirtFloor</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Evelyn Christian</Data></Cell>
+    <Cell><Data ss:Type="String">CHRISTIAN Evelyn</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">5516 Cedar Ave</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19143</Data></Cell>
+    <Cell><Data ss:Type="Number">1930</Data></Cell>
+    <Cell><Data ss:Type="String">C005</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">463049000</Data></Cell>
+    <Cell><Data ss:Type="String">22S20</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">46</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">81.001999999999995</Data></Cell>
+    <Cell><Data ss:Type="Number">81.024000000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1533</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">692</Data></Cell>
+    <Cell><Data ss:Type="Number">841</Data></Cell>
+    <Cell><Data ss:Type="Number">16384</Data></Cell>
+    <Cell><Data ss:Type="Number">93116</Data></Cell>
+    <Cell><Data ss:Type="Number">109500</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1990-04-02T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">1990-03-29T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Semi-Det, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.6700000000000003E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1600</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="String">RSA3      </Data></Cell>
+    <Cell><Data ss:Type="Number">1650</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910890</Data></Cell>
+    <Cell><Data ss:Type="String">6743 Gillespie</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell><Data ss:Type="Number">2205</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">159900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">156900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">159900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-05T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-05T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">TACONY</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Philly Real Estate</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 722-0800</Data></Cell>
+    <Cell><Data ss:Type="String">xiong Dong</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 554-5322</Data></Cell>
+    <Cell><Data ss:Type="String">Great opportunity to own a Interior Row/Townhouse in the heart of Mayfair. This is three bedrooms, one bathroom, finished basement with one car garage. The living room, dining room and three bedrooms are all hardwood floors. The house sells the &quot;AS-IS&quot; condition, window units for cooler. This house one block away from the park,  playground, and very close by  Frankford  Ave.   Please schedule your appointment today.</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.03</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">16.00 x 90.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="61"><Data ss:Type="String">None</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">AirLite</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC,WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">ForcedAir</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">110Volts</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished</Data></Cell>
+    <Cell><Data ss:Type="String">FullyFinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Zheng Yu Ying</Data></Cell>
+    <Cell><Data ss:Type="String">ZHENG Yu Y</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">6743 Gillespie St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19135</Data></Cell>
+    <Cell><Data ss:Type="Number">2205</Data></Cell>
+    <Cell><Data ss:Type="String">C001</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">552452200</Data></Cell>
+    <Cell><Data ss:Type="String">115N6</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">308</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">325.00700000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">325.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1844</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">832</Data></Cell>
+    <Cell><Data ss:Type="Number">1012</Data></Cell>
+    <Cell><Data ss:Type="Number">29501</Data></Cell>
+    <Cell><Data ss:Type="Number">102199</Data></Cell>
+    <Cell><Data ss:Type="Number">131700</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2004-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2004-06-15T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">102000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.3000000000000002E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1440</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">90</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1170</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1950</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910966</Data></Cell>
+    <Cell><Data ss:Type="String">1752 N Peach</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell><Data ss:Type="Number">3322</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">145000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">145000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">215</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-04T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">WYNNEFIELD</Data></Cell>
+    <Cell ss:Index="29"><Data ss:Type="String">Dimmer Beeber</Data></Cell>
+    <Cell><Data ss:Type="String">Overbrook</Data></Cell>
+    <Cell><Data ss:Type="String">Opus Elite Real Estate</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 395-6277</Data></Cell>
+    <Cell><Data ss:Type="String">Lauren Day</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 247-7618</Data></Cell>
+    <Cell><Data ss:Type="String">Welcome home to this well maintained 3 bedroom home in the beautiful Wynnefield section of Philadelphia, waiting for you to call it your own!  Enter into a beautiful sun room that offers additional living space to enjoy your morning coffee.  First floor features a living room, dining room and updated kitchen.  This property has wall to wall carpet throughout both floors.  Second floor offers an updated bathroom as well as 3 spacious bedrooms with plenty of natural light and ample closet space.   The unfinished basement offers laundry and additional storage space.  The basement also provides access to the garage, as well as to the alley, where you will find another parking space for your convenience.  Make your appointment to see this lovely home today!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.03</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">16.25 x 75.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="String">Excellent,VeryGood,Good,Average</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">CentralAC</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell ss:Index="77"><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Built-In Microwave, Dishwasher, Dryer - Electric, Oven/Range - Gas, Refrigerator, Washer, Water Heater</Data></Cell>
+    <Cell><Data ss:Type="String">Built-In Microwave, Dishwasher, Dryer - Electric, Oven/Range - Gas, Refrigerator, Washer, Water Heater</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Partial,Unfinished</Data></Cell>
+    <Cell><Data ss:Type="String">Partial,Unfinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Kristin Bond</Data></Cell>
+    <Cell><Data ss:Type="String">BOND Kristin</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">1752 N Peach St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell><Data ss:Type="Number">3322</Data></Cell>
+    <Cell><Data ss:Type="String">C019</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">521344100</Data></Cell>
+    <Cell><Data ss:Type="String">99N23</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">95</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">119.005</Data></Cell>
+    <Cell><Data ss:Type="Number">119.002</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2240</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1011</Data></Cell>
+    <Cell><Data ss:Type="Number">1229</Data></Cell>
+    <Cell><Data ss:Type="Number">22799</Data></Cell>
+    <Cell><Data ss:Type="Number">137201</Data></Cell>
+    <Cell><Data ss:Type="Number">160000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2010-04-27T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2010-04-19T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">124500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.7900000000000001E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1219</Data></Cell>
+    <Cell><Data ss:Type="Number">16.25</Data></Cell>
+    <Cell><Data ss:Type="Number">75</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1040</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1920</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910204</Data></Cell>
+    <Cell><Data ss:Type="String">5415 Arlington</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell><Data ss:Type="Number">3114</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">220000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">220000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-02T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-03T00:00:00.000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">WYNNEFIELD</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Long &amp; Foster Real Estate, Inc.</Data></Cell>
+    <Cell><Data ss:Type="String">(610) 489-2100</Data></Cell>
+    <Cell><Data ss:Type="String">Linda G Allebach</Data></Cell>
+    <Cell><Data ss:Type="String">(484) 902-1925</Data></Cell>
+    <Cell><Data ss:Type="String">Welcome to Your New Home Sweet Home! ***Seller's Top 10 Favorites *** 1) Seconds from Fairmount Park with lots to do and see with the Mann Music Center, Centennial Arboretum, Softball fields, Please Touch Museum, Historical Home and trails for running and biking, 2) Lots of Light and many renovations makes this home move-in ready and very cheerful. 3) Open Layout is great for entertaining and relaxing. 4) Flex use of space with Living Room open to Family Room 5) Lots space in the basement for storage or man cave. 6) Bonus Room in back has as lot of uses. 7)Lots of great places to eat around this neighborhood like, Wynnefield Pizza and Landmark America. 8) Great location, 30 Minutes from Center City, Philadelphia Airport and Sports Arenas. 9) Very accessible to Public Transporation with the 52nd Line acessed on 54th Street and Overbrook Station.  10) Easy Access to lots of highways like Route 1 and Route 30 and Close to St. Joseph's University.  Recent Updates include: Fresh Neutral Paint, New Carpet, New Kitchen Cabinets and Counters, New Bathroom, Newer Water Heater and Bathroom. Come see today and find your favorites!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">VeryGood,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">16.00 x 107.00</Data></Cell>
+    <Cell><Data ss:Type="String">FrontYard,Landscaping,Open,RoadFrontage</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">VeryGood,Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Three</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru</Data></Cell>
+    <Cell><Data ss:Type="String">WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">Steam</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">CircuitBreakers</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Dryer, Dryer - Front Loading, Oven/Range - Gas, Washer</Data></Cell>
+    <Cell><Data ss:Type="String">Dryer, Dryer - Front Loading, Oven/Range - Gas, Washer</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry,DryerInUnit,WasherInUnit</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Full,PartiallyFinished</Data></Cell>
+    <Cell><Data ss:Type="String">Full,PartiallyFinished</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="91"><Data ss:Type="String">ConcreteDriveway</Data></Cell>
+    <Cell><Data ss:Type="String">ConcreteDriveway</Data></Cell>
+    <Cell><Data ss:Type="String">ExteriorLighting,SatelliteDish,Sidewalks,StreetLights</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry,VinylSiding</Data></Cell>
+    <Cell><Data ss:Type="String">Flat,Shingle</Data></Cell>
+    <Cell><Data ss:Type="String">Stone</Data></Cell>
+    <Cell><Data ss:Type="String">Porches</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">A Levetter Cleora</Data></Cell>
+    <Cell><Data ss:Type="String">LEVETTER Cleora A</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">5413 Arlington St</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19131</Data></Cell>
+    <Cell><Data ss:Type="Number">3114</Data></Cell>
+    <Cell><Data ss:Type="String">C062</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">522062600</Data></Cell>
+    <Cell><Data ss:Type="String">110N7</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">114</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">118.002</Data></Cell>
+    <Cell><Data ss:Type="Number">118.002</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">984</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">444</Data></Cell>
+    <Cell><Data ss:Type="Number">540</Data></Cell>
+    <Cell><Data ss:Type="Number">11526</Data></Cell>
+    <Cell><Data ss:Type="Number">58774</Data></Cell>
+    <Cell><Data ss:Type="Number">70300</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2009-07-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2009-06-29T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Nominal</Data></Cell>
+    <Cell><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.9300000000000002E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1712</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">107</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1402</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Yes (Type Unknown)</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910728</Data></Cell>
+    <Cell><Data ss:Type="String">120 Dickinson Unit#G</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19147</Data></Cell>
+    <Cell><Data ss:Type="Number">6100</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">599999</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">590000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">599999</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-02T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-02T00:00:00.000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Main,Upper1,Upper2,Upper3</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19147</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">PENNSPORT</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">Sell Your Home Services</Data></Cell>
+    <Cell><Data ss:Type="String">(877) 893-6566</Data></Cell>
+    <Cell><Data ss:Type="String">Daniel Demers</Data></Cell>
+    <Cell><Data ss:Type="String">(877) 893-6566</Data></Cell>
+    <Cell><Data ss:Type="String">Don't miss this this extra-wide (20'), corner-lot townhome in the quiet community of Pennsport! This property combines three large bedrooms and 2 ~ bathrooms across four levels of living space. The 1st Floor features a multi-purpose room with French doors that lead out to your private patio. While you're there take a dip in your new four person Jacuzzi. The 1st floor also includes a large foyer, double door coat closet, ~ bath, and garage access. Moving up to your airy open-concept 2nd floor living room, dining room, and kitchen. The kitchen features granite countertops, a breakfast bar with seating for three, pantry, and a Energy Star LG stainless steel appliance package with gas range, built-in microwave, dishwasher and French-door refrigerator. The sunny living room has a large bay window and beautiful gas fireplace. The 3rd floor features two large bedrooms both with walk-in closets - complete with built in-adjustable shelving, laundry closet including Samsung washer and gas dryer, large walk-in linen closet and full bath. On to your 4th floor master suite featuring a large master bath with double vanity and tile shower. Step out to your large roof-top deck with skyline views. The master suite also features a linen closet and large walk-in closet with built-in adjustable shelving. Other thoughtful touches include the gated entry, remote-controlled garage door, hardwood floors, recessed lighting, ceiling fans, Nest Thermostat, Nest Protect (Smoke/Carbon Dioxide Detectors), Nest Video Doorbell, Yale Smart Lock and Solar System to help reduce your energy cost. You will be blocks away from East Passyunk Avenue, recognized as one of the &quot;Ten Best Foodie Streets in America&quot; by Food and Wine Magazine, and have convenient shopping like Ikea, Target, Lowe's, Home Depot, and Acme right in your neighborhood. Check out this incredible home today!</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">20.00 x 54.00</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="String">Annually</Data></Cell>
+    <Cell><Data ss:Type="String">CommonAreaMaint,SecurityGate,SnowRemoval</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">2006</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Four</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">CeilingFans,CentralAC,HeatPumps,ProgrammableThermostat</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas,Solar</Data></Cell>
+    <Cell><Data ss:Type="String">HeatPumps,Other,ProgrammableThermostat,SolarOnGrid</Data></Cell>
+    <Cell><Data ss:Type="String">60PlusGallonTank,NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">200PlusAmpService,CircuitBreakers,Underground</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Built-In Microwave, Dishwasher, Disposal, Dryer - Front Loading, Dryer - Gas, Energy Efficient Appliances, ENERGY STAR Clothes Washer, ENERGY STAR Dishwasher, ENERGY STAR Refrigerator, Icemaker, Oven/Range - Gas, Refrigerator, Stainless Steel Appliances, Washer - Front Loading, Water Heater, Water Heater - High-Efficiency</Data></Cell>
+    <Cell><Data ss:Type="String">Built-In Microwave, Dishwasher, Disposal, Dryer - Front Loading, Dryer - Gas, Energy Efficient Appliances, ENERGY STAR Clothes Washer, ENERGY STAR Dishwasher, ENERGY STAR Refrigerator, Icemaker, Oven/Range - Gas, Refrigerator, Stainless Steel Appliances, Washer - Front Loading, Water Heater, Water Heater - High-Efficiency</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">UpprFlrLndry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="93"><Data ss:Type="String">HotTub</Data></Cell>
+    <Cell><Data ss:Type="String">BrickFront,Stucco</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="97"><Data ss:Type="String">Decks,Patios</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Rocshae S &amp; Brian S Flanary</Data></Cell>
+    <Cell><Data ss:Type="String">FLANARY Rocshae S &amp; Brian S</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">120 Dickinson St Apt G</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia Pa</Data></Cell>
+    <Cell><Data ss:Type="Number">19147</Data></Cell>
+    <Cell><Data ss:Type="Number">6100</Data></Cell>
+    <Cell><Data ss:Type="String">C032</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">11028585</Data></Cell>
+    <Cell><Data ss:Type="String">11S9</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">306</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">27.001000000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">27.021000000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">6447</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2910</Data></Cell>
+    <Cell><Data ss:Type="Number">3538</Data></Cell>
+    <Cell><Data ss:Type="Number">120677</Data></Cell>
+    <Cell><Data ss:Type="Number">339923</Data></Cell>
+    <Cell><Data ss:Type="Number">460600</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2015-11-12T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2015-10-17T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">453500</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Grg, 3.5 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.47E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1080</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">54</Data></Cell>
+    <Cell><Data ss:Type="String">I2        </Data></Cell>
+    <Cell><Data ss:Type="Number">2960</Data></Cell>
+    <Cell><Data ss:Type="Number">3.5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Att/BuiltIn/Bsmt</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot/Warm Air</Data></Cell>
+    <Cell><Data ss:Type="Number">2006</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH910092</Data></Cell>
+    <Cell><Data ss:Type="String">3127 Aramingo</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">4421</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">164900</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">164900</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-04T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-07-04T00:00:00.000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">Lower1,Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">PORT RICHMOND</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">RE/MAX Access</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 400-2600</Data></Cell>
+    <Cell><Data ss:Type="String">Chuong Van Tran</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 519-5057</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">14.33 x 68.31</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="String">Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="70"><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">StraightThru,Transitional</Data></Cell>
+    <Cell><Data ss:Type="String">None</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">HotWater</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">CircuitBreakers</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="84"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Thomas A &amp; Noreen M Heffner</Data></Cell>
+    <Cell><Data ss:Type="String">HEFFNER Thomas A &amp; Noreen M</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">3127 Aramingo Ave</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19134</Data></Cell>
+    <Cell><Data ss:Type="Number">4421</Data></Cell>
+    <Cell><Data ss:Type="String">C003</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">251463800</Data></Cell>
+    <Cell><Data ss:Type="String">23N18</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">291</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">179.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">179.00200000000001</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">1296</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">585</Data></Cell>
+    <Cell><Data ss:Type="Number">711</Data></Cell>
+    <Cell><Data ss:Type="Number">19446</Data></Cell>
+    <Cell><Data ss:Type="Number">73154</Data></Cell>
+    <Cell><Data ss:Type="Number">92600</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2004-06-29T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2004-06-25T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">64900</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">2.24E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">979</Data></Cell>
+    <Cell><Data ss:Type="Number">14.33</Data></Cell>
+    <Cell><Data ss:Type="Number">68.31</Data></Cell>
+    <Cell><Data ss:Type="String">RSA5      </Data></Cell>
+    <Cell><Data ss:Type="Number">1086</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Unfinished</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="151"><Data ss:Type="String">Hot Water/Steam</Data></Cell>
+    <Cell><Data ss:Type="Number">1925</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">PAPH909216</Data></Cell>
+    <Cell><Data ss:Type="String">3246 Chesterfield</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIAPA</Data></Cell>
+    <Cell><Data ss:Type="String">PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19114</Data></Cell>
+    <Cell><Data ss:Type="Number">1524</Data></Cell>
+    <Cell><Data ss:Type="String">RES</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="Number">225000</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="Number">225000</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-06-27T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="DateTime">2020-06-30T00:00:00.000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Main,Upper1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia, PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19115</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">MODENA PARK</Data></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">RE LINC Real Estate Group</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 914-0300</Data></Cell>
+    <Cell><Data ss:Type="String">Luigi Rosmini</Data></Cell>
+    <Cell><Data ss:Type="String">(215) 914-0300</Data></Cell>
+    <Cell><Data ss:Type="String">Get your pre approval and don't wait, I know, I know you hear it all the time.....&quot;it wont last&quot;. Guess what it wont. This home is minutes from the Bucks County border, a short walk to a bus stop, just a little bit longer of a walk to a train station. This home is minutes away from I-95, and the PA turnpike. Shopping you say? Well.........markets, playgrounds, rec center, parks, places to eat, shop, and even a golf course are close by. The home has a fire hydrant directly across the street and the 8th district police station around the corner. Great starter home or perfect for downsizing. The home features living room, dinning room, kitchen, powder room, head upstairs to three bedrooms, a full bathroom and an additional powder room. Basement has plenty of room  for storage as does the garage which has room in the driveway for 2-3 more cars as well as off street parking, and a fenced  in yard. Seller is motivated so what are you waiting for?</Data></Cell>
+    <Cell ss:Index="38"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell ss:Index="47"><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="String">Standard</Data></Cell>
+    <Cell><Data ss:Type="Number">0.04</Data></Cell>
+    <Cell ss:Index="52"><Data ss:Type="String">19.99 x 86.70</Data></Cell>
+    <Cell ss:Index="55"><Data ss:Type="String">FeeSimple</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:Index="63"><Data ss:Type="Number">1965</Data></Cell>
+    <Cell><Data ss:Type="String">Good,Average</Data></Cell>
+    <Cell ss:Index="66"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Two</Data></Cell>
+    <Cell><Data ss:Type="String">AirLite</Data></Cell>
+    <Cell><Data ss:Type="String">WindowUnits</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">BaseboardHotWater</Data></Cell>
+    <Cell><Data ss:Type="String">NaturalGas</Data></Cell>
+    <Cell><Data ss:Type="String">100AmpService</Data></Cell>
+    <Cell><Data ss:Type="String">Public</Data></Cell>
+    <Cell><Data ss:Type="String">PublicSewer</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="83"><Data ss:Type="String">BsmtLaundry</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Partial</Data></Cell>
+    <Cell><Data ss:Type="String">Partial</Data></Cell>
+    <Cell ss:Index="89"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="94"><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell><Data ss:Type="String">Asphalt,Flat</Data></Cell>
+    <Cell ss:Index="100"><Data ss:Type="String">BRIGHT</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">Glenn S Elliott Jr</Data></Cell>
+    <Cell><Data ss:Type="String">ELLIOTT JR Glenn S</Data></Cell>
+    <Cell ss:Index="105"><Data ss:Type="String">3246 Chesterfield Rd</Data></Cell>
+    <Cell><Data ss:Type="String">PHILADELPHIA PA</Data></Cell>
+    <Cell><Data ss:Type="Number">19114</Data></Cell>
+    <Cell><Data ss:Type="Number">1524</Data></Cell>
+    <Cell><Data ss:Type="String">C038</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell><Data ss:Type="String">Philadelphia</Data></Cell>
+    <Cell ss:Index="114"><Data ss:Type="Number">661031700</Data></Cell>
+    <Cell><Data ss:Type="String">158N16</Data></Cell>
+    <Cell ss:Index="117"><Data ss:Type="Number">94</Data></Cell>
+    <Cell ss:Index="119"><Data ss:Type="Number">353.02199999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">353.02199999999999</Data></Cell>
+    <Cell><Data ss:Type="Number">2020</Data></Cell>
+    <Cell><Data ss:Type="Number">2923</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1319</Data></Cell>
+    <Cell><Data ss:Type="Number">1604</Data></Cell>
+    <Cell><Data ss:Type="Number">62640</Data></Cell>
+    <Cell><Data ss:Type="Number">146160</Data></Cell>
+    <Cell><Data ss:Type="Number">208800</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2011-04-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2011-03-30T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="Number">190000</Data></Cell>
+    <Cell ss:Index="133"><Data ss:Type="String">Residential</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">Res: Row w/ Bsmt Grg, 2 Sty, Masonry</Data></Cell>
+    <Cell ss:Index="137"><Data ss:Type="String">Rectangle</Data></Cell>
+    <Cell><Data ss:Type="Number">3.9699999999999999E-2</Data></Cell>
+    <Cell><Data ss:Type="Number">1733</Data></Cell>
+    <Cell><Data ss:Type="Number">19.989999999999998</Data></Cell>
+    <Cell><Data ss:Type="Number">86.7</Data></Cell>
+    <Cell><Data ss:Type="String">RSA4      </Data></Cell>
+    <Cell><Data ss:Type="Number">1540</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Masonry</Data></Cell>
+    <Cell ss:Index="148"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Basement</Data></Cell>
+    <Cell ss:Index="152"><Data ss:Type="Number">1965</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

@@ -1,0 +1,27 @@
+tr:nth-child(even) {
+    background-color: #D0DFED !important;
+}
+
+tr:nth-child(odd) {
+    background-color: #DBEFED !important;
+}
+
+.navbar {
+    height: 5%;
+}
+
+.navbar-brand {
+    color: rgb(66, 163, 144);
+}
+
+.tableheading {
+    color: white;
+    background-color: rgb(66, 163, 144);
+}
+
+ /* td:nth-child(even) { */
+    /* background-color: rgb(189, 209, 236); */
+/* } */
+table {
+    border-spacing: 0px;
+}

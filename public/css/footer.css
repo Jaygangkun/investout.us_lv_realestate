@@ -1,0 +1,167 @@
+.say-about {
+    height: 525px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 15px 0.6px rgba(0, 0, 0, .4);
+    z-index: 18;
+}
+
+.say-about {
+    padding: 2em;
+}
+
+.say-about span {
+    color: white;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+}
+
+.asq {
+    font-size: 1em !important;
+}
+
+.asq {
+    display: inline-block;
+    border-bottom: 3px solid #0b2a4a;
+    line-height: 1em;
+}
+
+.feedback-desc {
+    text-align: center;
+    background-color: #0b2a4a;
+    opacity: .7;
+    color: white;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding: 10px 15px;
+    line-height: 1.7em;
+    font-size: 1.2em;
+    font-family: unisansthinitalicitalic;
+}
+
+.ceo-part-main {
+    background-color: #909394;
+    opacity: .8;
+    color: #0b2a4a;
+    border-radius: 5px;
+    padding: 10px 15px;
+    line-height: 1.2em;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.signup-action {
+    color: white;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    font-size: 2em;
+    text-align: center;
+    background-color: #0b2a4a;
+}
+
+.f-footer {
+    text-align: center;
+    background-color: #0b2a4a;
+    color: white;
+    padding-top: 5px;
+}
+
+.sign-up-btn {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #2f9684;
+    color: white;
+    padding: 3px 35px;
+    font-size: 1em;
+    border-radius: 8px;
+    text-align: center;
+    border: none;
+}
+
+.seller-footer {
+    background-color: #181818;
+    color: white;
+    padding-top: 3.5em;
+    padding-bottom: 2em;
+    box-shadow: 0px -5px 20px 0.6px rgba(0, 0, 0, .4);
+    z-index: 18
+}
+
+.sel-head {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: .4em;
+}
+
+.seller-footer span {
+    display: block;
+    font-family: unisansbookregular
+}
+
+.sel-head {
+    font-family: unisanssemiboldbold !important
+}
+
+.seller-footer p {
+    font-family: unisansbookregular
+}
+
+.seller-footer div {
+    padding-top: 3em;
+    line-height: 1.7em;
+}
+
+.seller-footer div:first-of-type {
+    padding-top: 0px;
+}
+
+@media (max-width:625px) {
+    .how-it-works>div:first-of-type img:first-of-type,
+    img:last-of-type {
+        width: 20%;
+    }
+    .home-rev span {
+        font-size: 2.5em !important
+    }
+    .how-it-works>div:first-of-type img:nth-of-type(2) {
+        width: 4%;
+    }
+    .signup-action {
+        font-size: 2rem
+    }
+}
+
+@media (max-width:768px) {
+    .carousel-indicators {
+        bottom: 8%;
+    }
+}
+
+@media (max-width:540px) and (min-width:440px) {
+    .say-about {
+        height: 650px;
+    }
+}
+
+@media (max-width:440px) and (min-width:376px) {
+    .say-about {
+        height: 630px;
+    }
+}
+
+@media (max-width:375px) and (min-width:320px) {
+    .say-about {
+        height: 800px;
+    }
+}
+
+a {
+    color: white
+}
+
+a:hover {
+    color: white;
+    text-decoration: none
+}

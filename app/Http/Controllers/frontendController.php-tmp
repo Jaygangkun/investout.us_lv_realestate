@@ -1,0 +1,186 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Property;
+use Illuminate\Http\Request;
+
+class frontendController extends Controller {
+	public function seller_index() {
+		return view('front_end.pages.seller');
+	}
+
+	public function how_it_works_index() {
+		return view('front_end.pages.how_it_works');
+	}
+	public function investor_index() {
+		return view('front_end.pages.investor');
+	}
+
+	public function training_index() {
+		return view('front_end.pages.training');
+	}
+
+	public function realtor_index() {
+		return view('front_end.pages.realtor');
+	}
+
+	public function contact_index() {
+		return view('front_end.pages.contact');
+	}
+	public function property_lists(Request $request) {
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->orderBy('propertiesID', 'DESC')
+		->limit(3)
+		->get();
+		return view('front_end.pages.property_lists', compact('properties'));
+	}
+	public function loadDataAjax(Request $request) {
+		$id         = $request->id;
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->where('properties.id', '<', $id)
+		->orderBy('propertiesID', 'DESC')
+		->limit(3)
+		->get();
+		$html = '';
+		if (!$properties->isEmpty()) {
+			foreach ($properties as $property) {
+				if (isset($property->images()->first()->image)) {
+					$src = asset('properties/'.$property->propertiesID.'/images/'.$property->images()->first()->image);
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				if (file_exists($src)) {
+					$src = $src;
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				$html .= '<div class="col-md-4"><div class="card-box-a card-shadow"><div lass="img-box-a"><img src='.$src.' alt="" class="img-a img-fluid" style="height: 450px;"></div><div class="card-overlay"><div class="card-overlay-a-content"><div class="card-header-a"><h2 class="card-title-a"><p><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample'.$property->propertiesID.'" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-address-card" aria-hidden="true" title="View address"></i></a></p><div class="collapse" id="collapseExample'.$property->propertiesID.'"><div class="card card-body">'.$property->address.'</div></div></h2></div><div class="card-body-a"><div class="price-box d-flex"><span class="price-a">Investment Prce | $ '.$property->investment_price.'</span></div><a href='.route("property_single_page", ['pid' => $property->propertiesID]).' class="link-a">  Click here to view <span class="ion-ios-arrow-forward"></span> </a></div><div class="card-footer-a"><ul class="card-info d-flex justify-content-around"><li><h4 class="card-info-title">Bed</h4><span> '.$property->bedroom.' </span></li><li><h4 class="card-info-title">Floors</h4><span>'.$property->floors.' </span></li><li><h4 class="card-info-title">Sqr.Ft. </h4><span>'.$property->square_footage.' </span></li><li><h4 class="card-info-title">ARV Price </h4><span>'.$property->arv_price.'</span></li></ul></div></div></div></div></div>';
+
+			}
+			$html .= '<div id="remove-row" class="rm-row col-md-12">
+                            <button id="btn-more" style="width: 15%;" data-id="'.$property->id.'" class="btn site-btn m-b-sm nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Load More </button>
+                        </div>';
+			echo $html;
+		}
+	}
+	public function keywordSearch(Request $request) {
+		if ($request->has('keyword')) {
+			$keyword = $request->keyword;
+		} else {
+			return "Not Found";
+		}
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->orderBy('propertiesID', 'DESC')
+		->where('properties.address', 'LIKE', "%{$keyword}%")
+		->get();
+		$html = '';
+		if (!$properties->isEmpty()) {
+			foreach ($properties as $property) {
+				if (isset($property->images()->first()->image)) {
+					$src = asset('properties/'.$property->propertiesID.'/images/'.$property->images()->first()->image);
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				if (file_exists($src)) {
+					$src = $src;
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				$html .= '<div class="col-md-4"><div class="card-box-a card-shadow"><div lass="img-box-a"><img src='.$src.' alt="" class="img-a img-fluid" style="height: 450px;"></div><div class="card-overlay"><div class="card-overlay-a-content"><div class="card-header-a"><h2 class="card-title-a"><p><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample'.$property->propertiesID.'" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-address-card" aria-hidden="true" title="View address"></i></a></p><div class="collapse" id="collapseExample'.$property->propertiesID.'"><div class="card card-body">'.$property->address.'</div></div></h2></div><div class="card-body-a"><div class="price-box d-flex"><span class="price-a">Investment Prce | $ '.$property->investment_price.'</span></div><a href='.route("property_single_page", ['pid' => $property->propertiesID]).' class="link-a">  Click here to view <span class="ion-ios-arrow-forward"></span> </a></div><div class="card-footer-a"><ul class="card-info d-flex justify-content-around"><li><h4 class="card-info-title">Bed</h4><span> '.$property->bedroom.' </span></li><li><h4 class="card-info-title">Floors</h4><span>'.$property->floors.' </span></li><li><h4 class="card-info-title">Sqr.Ft. </h4><span>'.$property->square_footage.' </span></li><li><h4 class="card-info-title">ARV Price </h4><span>'.$property->arv_price.'</span></li></ul></div></div></div></div></div>';
+
+			}
+			$html .= '<div id="remove-row" class="rm-row col-md-12">
+                            <button id="btn-more" style="width: 15%;" data-id="'.$property->id.'" class="btn site-btn m-b-sm nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Load More </button>
+                        </div>';
+			return response()->json(['status' => true, 'data' => $html]);
+		} else {
+			return response()->json(['status' => false, 'message' => 'Not found!']);
+		}
+	}
+	public function invtAmountRange(Request $request) {
+		if ($request->has('from_amount') && $request->has('to_amount')) {
+			$from_amount = $request->from_amount;
+			$to_amount   = $request->to_amount;
+		} else {
+			return "Please send required parameters from_amount, to_amount !";
+		}
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->orderBy('propertiesID', 'DESC')
+		->whereBetween('property_details.investment_price', [$from_amount, $to_amount])
+		->get();
+		$html = '';
+		if (!$properties->isEmpty()) {
+			foreach ($properties as $property) {
+				if (isset($property->images()->first()->image)) {
+					$src = asset('properties/'.$property->propertiesID.'/images/'.$property->images()->first()->image);
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				if (file_exists($src)) {
+					$src = $src;
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				$html .= '<div class="col-md-4"><div class="card-box-a card-shadow"><div lass="img-box-a"><img src='.$src.' alt="" class="img-a img-fluid" style="height: 450px;"></div><div class="card-overlay"><div class="card-overlay-a-content"><div class="card-header-a"><h2 class="card-title-a"><p><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample'.$property->propertiesID.'" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-address-card" aria-hidden="true" title="View address"></i></a></p><div class="collapse" id="collapseExample'.$property->propertiesID.'"><div class="card card-body">'.$property->address.'</div></div></h2></div><div class="card-body-a"><div class="price-box d-flex"><span class="price-a">Investment Prce | $ '.$property->investment_price.'</span></div><a href='.route("property_single_page", ['pid' => $property->propertiesID]).' class="link-a">  Click here to view <span class="ion-ios-arrow-forward"></span> </a></div><div class="card-footer-a"><ul class="card-info d-flex justify-content-around"><li><h4 class="card-info-title">Bed</h4><span> '.$property->bedroom.' </span></li><li><h4 class="card-info-title">Floors</h4><span>'.$property->floors.' </span></li><li><h4 class="card-info-title">Sqr.Ft. </h4><span>'.$property->square_footage.' </span></li><li><h4 class="card-info-title">ARV Price </h4><span>'.$property->arv_price.'</span></li></ul></div></div></div></div></div>';
+
+			}
+			$html .= '<div id="remove-row" class="rm-row col-md-12">
+                            <button id="btn-more" style="width: 15%;" data-id="'.$property->id.'" class="btn site-btn m-b-sm nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Load More </button>
+                        </div>';
+			return response()->json(['status' => true, 'data' => $html]);
+		} else {
+			return response()->json(['status' => false, 'message' => 'Not found!']);
+		}
+	}
+	public function ArvBrvRange(Request $request) {
+		if ($request->has('arv_amount') && $request->has('brv_amount')) {
+			$arv_amount = $request->arv_amount;
+			$brv_amount = $request->brv_amount;
+		} else {
+			return "Please send required parameters arv_amount, brv_amount !";
+		}
+		$properties = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->orderBy('propertiesID', 'DESC')
+		->where('property_details.brv_price', '>', $arv_amount)
+		->where('property_details.arv_price', '<', $brv_amount)
+		->get();
+		$html = '';
+		if (!$properties->isEmpty()) {
+			foreach ($properties as $property) {
+				if (isset($property->images()->first()->image)) {
+					$src = asset('properties/'.$property->propertiesID.'/images/'.$property->images()->first()->image);
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				if (file_exists($src)) {
+					$src = $src;
+				} else {
+					$src = asset("property/assets/img/property-1.jpg");
+				}
+				$html .= '<div class="col-md-4"><div class="card-box-a card-shadow"><div lass="img-box-a"><img src='.$src.' alt="" class="img-a img-fluid" style="height: 450px;"></div><div class="card-overlay"><div class="card-overlay-a-content"><div class="card-header-a"><h2 class="card-title-a"><p><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample'.$property->propertiesID.'" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-address-card" aria-hidden="true" title="View address"></i></a></p><div class="collapse" id="collapseExample'.$property->propertiesID.'"><div class="card card-body">'.$property->address.'</div></div></h2></div><div class="card-body-a"><div class="price-box d-flex"><span class="price-a">Investment Prce | $ '.$property->investment_price.'</span></div><a href='.route("property_single_page", ['pid' => $property->propertiesID]).' class="link-a">  Click here to view <span class="ion-ios-arrow-forward"></span> </a></div><div class="card-footer-a"><ul class="card-info d-flex justify-content-around"><li><h4 class="card-info-title">Bed</h4><span> '.$property->bedroom.' </span></li><li><h4 class="card-info-title">Floors</h4><span>'.$property->floors.' </span></li><li><h4 class="card-info-title">Sqr.Ft. </h4><span>'.$property->square_footage.' </span></li><li><h4 class="card-info-title">ARV Price </h4><span>'.$property->arv_price.'</span></li></ul></div></div></div></div></div>';
+
+			}
+			$html .= '<div id="remove-row" class="rm-row col-md-12">
+                            <button id="btn-more" style="width: 15%;" data-id="'.$property->id.'" class="btn site-btn m-b-sm nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Load More </button>
+                        </div>';
+			return response()->json(['status' => true, 'data' => $html]);
+		} else {
+			return response()->json(['status' => false, 'message' => 'Not found!']);
+		}
+	}
+	public function property_single_page(Request $request) {
+		$id       = $request->id;
+		$property = Property::select('properties.*', 'properties.id as propertiesID', 'property_details.*', 'property_details.id as property_detailsID')
+		->join('property_details', 'property_details.property_id', '=', 'properties.id')
+		->where('properties.id', $id)
+		->first();
+		return view('front_end.pages.property_single_page', compact('id', 'property'));
+	}
+
+}
