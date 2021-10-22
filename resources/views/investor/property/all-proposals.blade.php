@@ -660,7 +660,7 @@
                                         <input type="text" class="form-control amountComma" name="seller_net_profit" id="seller_net_profit" value="0" readonly>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 d-none">
+                                <div class="form-group col-md-4">
                                     <label for="seller_gross_profit"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Gross Profit:</label>
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
@@ -766,6 +766,7 @@
         }
     </script>
     <script>
+        var investorProposals_list_data_value = null;
         var chart;
         var chartOne;
         var chartTwo;
@@ -804,7 +805,7 @@
                         console.log(response.data);
                         $.each(response.data, function(index, value){
 
-
+                            investorProposals_list_data_value = value;
                             /*
                             let seller_ask_price = parseInt(($('#seller_ask_price').text()).replace(/,/g, ""));
                         let seller_arv = parseInt(($('#seller_arv').text()).replace(/,/g, ""));
@@ -867,19 +868,25 @@
                             total_profit = Math.round(arv - (brv + est_repair_cost));
                             seller_share_profit = (total_profit * seller_share) / 100;
                             seller_gross_profit = Math.round(brv+seller_share_profit);
-                            investor_share_profit = value.investor_projected_profit;
-
+                            let c22 = parseFloat(value.gross_profit);
+                            let c24 = parseFloat(value.rule_percentage);
+                            let c25 = c24 * c22 / 100;
                             let c26 = seller_share / 100;
                             let c17 = arv;
                             let c18 = est_repair_cost;
-                            let c19 = parseFloat(value.holding_cost);
-                            let c20 = parseFloat(value.resale_fee);
-                            let c21 = parseFloat(value.loan_cost);
+                            let c19 = parseInt(value.holding_cost);
+                            let c20 = parseInt(value.resale_fee);
+                            let c21 = parseInt(value.loan_cost);
 
-                            let c22 = c17 - (c18 + c19 + c20 + c21);
-                            let c24 = parseFloat(value.rule_percentage) / 100;
-                            let c25 = c24 * c22;
                             let c27 = c26 * c17;
+                            seller_gross_profit = c25 + c27;
+                            
+                            investor_share_profit = value.investor_projected_profit;
+
+                            c22 = c17 - (c18 + c19 + c20 + c21);
+                            c24 = parseInt(value.rule_percentage) / 100;
+                            c25 = c24 * c22;
+                            c27 = c26 * c17;
                             
                             investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
 
@@ -919,7 +926,7 @@
                                 $('#investor_share_range_value').val(value.investor_share);
                                 $('#ref_proposal').val(value.id);
                                 $('#total_projected_profit').val(numberWithCommas(total_profit));
-                                $('#investor_profit').val(numberWithCommas(investor_share_profit));
+                                $('#investor_profit').val(numberWithCommas(investor_share_profit.toFixed(2)));
                                 $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
                                 $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
 
@@ -1005,7 +1012,7 @@
                                     html +='<tr>'
                                     +'<td rowspan=' + (rowspan_count-1) + '><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> ' + (<?php echo auth()->user()->id?> === value.from_user ? value.receiver_name + ' <sub>(Seller)</sub>' : (value.sender_name) + ' <sub>(Seller)</sub>' ) + '</a></td>'
                                 +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'">Investor\'s Projected Profit</a></td>'
-                                +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> $ '+ numberWithCommas(investor_share_profit) +'</a></td>'
+                                +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> $ '+ numberWithCommas(investor_share_profit.toFixed(2)) +'</a></td>'
                                 +'</tr>'
                                 +'<tr>'
                                 +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'">Investor\'s ROI:</a></td>'
@@ -1016,7 +1023,7 @@
                             else
                                 {
                                     html +='<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'">Investor\'s Projected Profit:</a></td>'
-                                        +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> $ '+ numberWithCommas(investor_share_profit) +'</a></td>'
+                                        +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> $ '+ numberWithCommas(investor_share_profit.toFixed(2)) +'</a></td>'
                                         +'<td rowspan=' + rowspan_count + '><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'">Sent At: '+ moment(value.created_at).format("MM/DD/YYYY hh:mm:ss A") + '</a></td>'
                                         +'<td rowspan=' + rowspan_count + '>'
                                         +'<div class="proposal_document">';
@@ -1041,7 +1048,7 @@
                                     +'<tr>'
                                     +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> '+ (<?php echo auth()->user()->id?> === value.from_user ? value.receiver_name + ' <sub>(Seller)</sub>' : (value.sender_name)+ ' <sub>(Seller)</sub>') + '</a></td>'
                                 +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'">Investor\'s ROI:</a></td>'
-                                +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> $ '+ (typeof partner_roi == NaN ? 0.00 : partner_roi) +'%</a></td>'
+                                +'<td><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ value.id +'" aria-expanded="true" aria-controls="collapse_'+ value.id +'"> '+ (typeof partner_roi == NaN ? 0.00 : partner_roi) +'%</a></td>'
                                 +'</tr>';
                                 }
                             }
@@ -1207,8 +1214,7 @@
                         $('#investor_share').val(seller_partnership_investor);
                         $('#investor_share_range_value').val(seller_partnership_investor);
                         $('#total_projected_profit').val(numberWithCommas(total_profit));
-                        $('#investor_profit').val(numberWithCommas(investor_share_profit));
-                        $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
+                        $('#investor_profit').val(numberWithCommas(investor_share_profit.toFixed(2)));
                         $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
                         $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
                     }
@@ -1248,6 +1254,18 @@
             var total_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost))*percent_rule/100);
             var seller_share_profit = (total_profit * seller_share) / 100;
             var seller_gross_profit = Math.round(brv + seller_share_profit);
+            
+            let c22 = parseFloat(investorProposals_list_data_value.gross_profit);
+            let c24 = parseFloat(investorProposals_list_data_value.rule_percentage);;
+            let c25 = c24 * c22 / 100;
+            let c26 = seller_share / 100;
+            let c17 = arv;
+            let c18 = est_repair_cost;
+            let c19 = parseInt(holding_cost);
+            let c20 = parseInt(resale_cost);
+            let c21 = parseInt(loan_cost);
+            let c27 = c26 * c17;
+            seller_gross_profit = c25 + c27;
 
             var wholeseller_offer =  $("#wholeseller_offer").val().replace(/,/g, "");
             //var wholeseller_offer =  total_profit + total_profit*seller_share/100;
@@ -1568,9 +1586,10 @@
             let c25 = c24 * c22;
             let c27 = c26 * c17;
             
+            seller_gross_profit = c25 + c27;
+
             investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            //$('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
+            $('#investor_profit').val(numberWithCommas(investor_share_profit.toFixed(2)));
             $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
             $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
 

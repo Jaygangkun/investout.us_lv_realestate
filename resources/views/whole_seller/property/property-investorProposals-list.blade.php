@@ -443,7 +443,7 @@
                                     <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="street_no_name">Home Owner's Offer Price: $ </label>
+                                    <label for="street_no_name">Home Owner's Offer Price: </label>
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
                                         <input type="text" class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
@@ -471,6 +471,13 @@
                                     <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
                                     <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
+                                <div class="form-group col-md-4">
+                                    <label for="investor_profit">Investor's Profit:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1">$</span>
+                                        <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
+                                    </div>
+                                </div>
                                 <div class="form-group col-md-4 d-none">
                                     <label for="street_no_name">Investor's Profit Share: </label>
                                     <div class="input-group">
@@ -489,13 +496,6 @@
                                 </div>
                             </div>
                             <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <div class="form-group col-md-4 d-none">
-                                    <label for="investor_profit">Investor's Profit:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
-                                    </div>
-                                </div>
                                 <div class="form-group col-md-4">
                                     <label for="seller_net_profit">Wholeseller's Fee:</label>
                                     <div class="input-group">
@@ -648,9 +648,21 @@
                             let c22 = parseFloat(value.gross_profit);
                             let c24 = parseFloat(value.rule_percentage);
                             let c25 = c24 * c22 / 100;
-                            let c27 = seller_share_profit;
+                            
+                            let c26 = seller_share / 100;
+                            let c17 = arv;
+                            let c18 = est_repair_cost;
+                            let c19 = parseInt(value.holding_cost);
+                            let c20 = parseInt(value.resale_fee);
+                            let c21 = parseInt(value.loan_cost);
+
+                            let c27 = c26 * c17;
                             seller_gross_profit = c25 + c27;
                             investor_share_profit =   investor_share_profit = value.investor_projected_profit; //Math.round((total_profit * investor_share) / 100);
+                            
+
+                            investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+
                             flip_total_cost = Math.round(brv + est_repair_cost);
                             flip_profit = total_profit;
                             partner_total_cost = est_repair_cost;
@@ -1200,6 +1212,16 @@
 
             let investor_share_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
 
+                            
+            let c26 = seller_share / 100;
+            let c17 = arv;
+            let c18 = est_repair_cost;
+            let c19 = holding_cost;
+            let c20 = resale_cost;
+            let c21 = loan_cost;
+            
+            investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+            
             //alert("1:"+investor_share_profit);
 
             var flip_total_cost = Math.round(brv + est_repair_cost);
