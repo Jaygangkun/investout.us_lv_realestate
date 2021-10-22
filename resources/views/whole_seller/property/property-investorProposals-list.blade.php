@@ -1652,9 +1652,12 @@
             var proposal_id = $(this).attr("id").split('_');
 
             $.ajax({
-                url: '{{ route("seller.proposal.setAccept") }}',
+                url: '{{ route("whole-seller.proposal.setAccept") }}',
                 method: 'POST',
-                data: { id: proposal_id[2], _token:"{{csrf_token()}}" },
+                data: { id: proposal_id[2] },
+                headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                },
                 dataType: 'json',
                 success: function(response)
                 {

@@ -1633,6 +1633,34 @@
             parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             return parts.join(".");
         }
+
+        $(document).on("click", "a[id^='accept_proposal_']", function(){
+            console.log($(this).attr('id'));
+            var proposal_id = $(this).attr("id").split('_');
+
+            $.ajax({
+                url: '{{ route("whole-seller.proposal.setAccept") }}',
+                method: 'POST',
+                data: { id: proposal_id[2] },
+                headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}"
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    if(response.status)
+                    {
+                        console.log(".accept_proposal_"+response.id);
+                        $("#accept_proposal_"+response.id).parent(".proposal_document").append("<a href='javascript:void(0);' class='accepted_proposal'>Accepted</a>");
+                        setTimeout(() => {
+                            $("a[id^='accept_proposal_']").remove();
+                            $('.send-proposal-div').hide();
+                        }, 1000);
+                    }
+                }
+            });
+
+        });
     </script>
     <script>
         // In this example, we center the map, and add a marker, using a LatLng object
