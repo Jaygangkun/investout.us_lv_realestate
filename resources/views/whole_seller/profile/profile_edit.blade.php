@@ -412,7 +412,7 @@ right: -11px;
                             <h3 class="control-label">Facebook</h3>
                         </div>
                         <div class="col-md-9 col-sm-9 m-b">
-                            <input type="url" class="form-control" name="socialmedia" placeholder="https://www.facebook.com/jiang.meng.146" value="{{session('profile')->socialmedia}}">
+                            <input type="url" class="form-control" name="socialmedia" placeholder="" value="{{session('profile')->socialmedia}}">
                             <small class="text-danger">{{ $errors->first('socialmedia') }}</small>
                         </div>
                     </div>

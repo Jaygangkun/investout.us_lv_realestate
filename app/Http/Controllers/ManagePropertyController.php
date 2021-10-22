@@ -423,8 +423,8 @@ class ManagePropertyController extends Controller
                     $propertyData['user_id'] = $request['property_owner_select'] == null ? auth()->user()->id : $request['property_owner_select'];
                     $propertyData['is_submitted'] = 2;
 
-                    $propertyData['contract_start'] = date('Y-m-d');
-                    $propertyData['contract_end']   = date('Y-m-d');
+                    // $propertyData['contract_start'] = date('Y-m-d');
+                    // $propertyData['contract_end']   = date('Y-m-d');
                     //$propertyData['resale_fees']   = date('Y-m-d');
 
                     $property = Property::create($propertyData);

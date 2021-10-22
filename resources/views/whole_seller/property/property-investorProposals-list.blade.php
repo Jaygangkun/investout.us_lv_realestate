@@ -359,8 +359,8 @@
                                         <div class="col-sm-3">
                                             <span id="seller_partnership_seller">{{ $details->partnership_seller ?? '0' }}</span> %
                                             </div>
-                                        <label for="arv" class="col-sm-3 col-form-label">Investor's Profit Share(%)</label>
-                                        <div class="col-sm-3">
+                                        <label for="arv" class="col-sm-3 col-form-label d-none">Investor's Profit Share(%)</label>
+                                        <div class="col-sm-3 d-none">
                                             <span id="seller_partnership_investor">{{ $details->partnership_investor ?? '0' }}</span> %
                                             </div>
                                     </div>
@@ -463,7 +463,7 @@
                             </div>
                             <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
                                 <div class="form-group col-md-4">
-                                    <label for="street_no_name">Wholeseller's Fee: </label>
+                                    <label for="street_no_name">Wholeseller's Fee: <small>(As a % of ARV)</small></label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
                                         <span class="input-group-addon" id="basic-addon1">%</span>
@@ -471,7 +471,7 @@
                                     <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
                                     <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 d-none">
                                     <label for="street_no_name">Investor's Profit Share: </label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" min="1" max="99" name='investor_share_range_value' id='investor_share_range_value' data-id='investor_share'>
@@ -593,6 +593,7 @@
         }
     </script>
     <script>
+        var investorProposals_list_data_value = null;
         var chart;
         var chartOne;
         var chartTwo;
@@ -634,7 +635,7 @@
                             console.log("typeof ask_price = ", typeof ask_price);
                             console.log("ask_price", ask_price);
                             // alert(ask_price);
-
+                            investorProposals_list_data_value = value;
                             arv = value.arv;
                             brv = value.brv;
                             est_repair_cost = value.est_repair_cost;
@@ -642,7 +643,13 @@
                             investor_share = value.investor_share;
                             total_profit = Math.round(arv - (brv + est_repair_cost));
                             seller_share_profit = value.wholeseller_profit;
+                            seller_share_profit = value.arv * value.seller_share / 100;
                             seller_gross_profit = value.wholeseller_profit;
+                            let c22 = parseFloat(value.gross_profit);
+                            let c24 = parseFloat(value.rule_percentage);
+                            let c25 = c24 * c22 / 100;
+                            let c27 = seller_share_profit;
+                            seller_gross_profit = c25 + c27;
                             investor_share_profit =   investor_share_profit = value.investor_projected_profit; //Math.round((total_profit * investor_share) / 100);
                             flip_total_cost = Math.round(brv + est_repair_cost);
                             flip_profit = total_profit;
@@ -653,7 +660,8 @@
                             if(response.data.length == index+1)
                             {
                                 send_proposal_div = (<?php echo auth()->user()->id?> === value.from_user ? false : true);
-                                if(<?php echo auth()->user()->id?> !== value.from_user)
+                                //if(<?php echo auth()->user()->id?> !== value.from_user)
+                                if(true)
                                 {
                                     if(ask_price > 0)
                                     {
@@ -667,7 +675,11 @@
                                     $('#arv_range_value').val(numberWithCommas(value.arv));
                                     $('#brv').attr("max",Math.round(value.brv + value.brv/2));
                                     $('#brv').val(value.brv);
-                                    $('#brv_range_value').val(numberWithCommas(value.brv));
+                                    let brv_range_value = c25;
+                                    $('#brv').attr("max",Math.round(brv_range_value * 1.5));
+                                    $('#brv').attr("min",Math.round(brv_range_value * 0.5));
+                                    $('#brv').val(Math.round(brv_range_value));
+                                    $('#brv_range_value').val(numberWithCommas(brv_range_value));
                                     $('#est_repair_cost').attr("max",Math.round(value.est_repair_cost + value.est_repair_cost/2));
                                     $('#est_repair_cost').val(value.est_repair_cost);
                                     $('#est_repair_cost_range_value').val(numberWithCommas(value.est_repair_cost));
@@ -881,7 +893,11 @@
                         }
                         else
                         {
-                            $('.send-proposal-div').hide();
+                            $('.send-proposal-div').show();
+                            $('.send-proposal-div input').attr('readonly', true);
+                            $('.send-proposal-div input').attr('disabled', true);
+                            $('.send-proposal-div textarea').attr('readonly', true);
+                            $('.send-proposal-div textarea').attr('disabled', true);
                         }
 
                     }
@@ -1172,6 +1188,13 @@
             var seller_share_profit = (total_profit * seller_share) / 100;
             var seller_gross_profit = Math.round(brv + seller_share_profit);
 
+            seller_share_profit = arv * seller_share / 100;
+            let c22 = parseFloat(investorProposals_list_data_value.gross_profit);
+            let c24 = parseFloat(investorProposals_list_data_value.rule_percentage);
+            let c25 = c24 * c22 / 100;
+            let c27 = seller_share_profit;
+            seller_gross_profit = c25 + c27;
+            
             var wholeseller_offer =  total_profit + total_profit*seller_share/100;
             $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
 
@@ -1547,6 +1570,13 @@
 
             let investor_share_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
             // alert("2:"+investor_share_profit);
+
+            seller_share_profit = arv * seller_share / 100;
+            let c22 = parseFloat(investorProposals_list_data_value.gross_profit);
+            let c24 = parseFloat(investorProposals_list_data_value.rule_percentage);
+            let c25 = c24 * c22 / 100;
+            let c27 = seller_share_profit;
+            seller_gross_profit = c25 + c27;
 
             var flip_total_cost = brv + est_repair_cost;
             var flip_profit = total_profit;

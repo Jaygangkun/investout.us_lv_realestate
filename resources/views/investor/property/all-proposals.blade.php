@@ -602,7 +602,7 @@
                                     <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
                                     <small class="text-danger">{{ $errors->first('seller_share') }}</small>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3 d-none">
                                     <label for="street_no_name">Investor's Profit: </label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" min="1" max="99"  name='investor_share_range_value' id='investor_share_range_value' data-id='investor_share'>
@@ -611,7 +611,9 @@
                                     <input type="range" min="1" max="99" name='investor_share' id='investor_share' class='form-control'>
                                     <small class="text-danger">{{ $errors->first('investor_share') }}</small>
                                 </div>
+                                <div class="form-group col-md-3">
 
+                                </div>
                                 <div class="form-group col-md-3">
 
                                 </div>
@@ -829,7 +831,7 @@
                         var wholeseller_offer =  total_profit + total_profit*seller_partnership_seller/100;
                         $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
 
-                        let investor_share_profit = Math.round((seller_arv - ( seller_est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
+                        let investor_share_profit = Math.round((seller_arv - ( seller_brv + seller_est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
                         //alert("3:"+investor_share_profit);
 
 
@@ -866,6 +868,21 @@
                             seller_share_profit = (total_profit * seller_share) / 100;
                             seller_gross_profit = Math.round(brv+seller_share_profit);
                             investor_share_profit = value.investor_projected_profit;
+
+                            let c26 = seller_share / 100;
+                            let c17 = arv;
+                            let c18 = est_repair_cost;
+                            let c19 = parseFloat(value.holding_cost);
+                            let c20 = parseFloat(value.resale_fee);
+                            let c21 = parseFloat(value.loan_cost);
+
+                            let c22 = c17 - (c18 + c19 + c20 + c21);
+                            let c24 = parseFloat(value.rule_percentage) / 100;
+                            let c25 = c24 * c22;
+                            let c27 = c26 * c17;
+                            
+                            investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+
                             flip_total_cost = Math.round(brv + est_repair_cost);
                             flip_profit = total_profit;
                             partner_total_cost = est_repair_cost;
@@ -874,6 +891,8 @@
                             partner_roi = value.investor_roi;//(partner_profit/partner_total_cost).toFixed(2);
 
                             var wholeseller_offer =  total_profit + total_profit*seller_share/100;
+
+                            wholeseller_offer = c26 * c17;
 
                             if(response.data.length == index+1)
                             {
@@ -901,9 +920,10 @@
                                 $('#ref_proposal').val(value.id);
                                 $('#total_projected_profit').val(numberWithCommas(total_profit));
                                 $('#investor_profit').val(numberWithCommas(investor_share_profit));
-                                $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
                                 $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
                                 $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
+
+                                $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
                             }
 
 
@@ -1125,7 +1145,11 @@
                         }
                         else
                         {
-                            $('.send-proposal-div').hide();
+                            $('.send-proposal-div').show();
+                            $('.send-proposal-div input').attr('readonly', true);
+                            $('.send-proposal-div input').attr('disabled', true);
+                            $('.send-proposal-div textarea').attr('readonly', true);
+                            $('.send-proposal-div textarea').attr('disabled', true);
                         }
 
                     }
@@ -1213,7 +1237,7 @@
             console.log("arv", arv);
             var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
             var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
-            var seller_share = parseInt($("#seller_share_range_value").val());
+            var seller_share = parseFloat($("#seller_share_range_value").val());
             var holding_cost = parseInt(($("#holding_cost").val()).replace(/,/g, ""));
             var resale_cost = parseInt(($("#resale_fees").val()).replace(/,/g, ""));
             var loan_cost = parseInt(($("#loan_cost").val()).replace(/,/g, ""));
@@ -1240,8 +1264,8 @@
             var flip_roi = (flip_profit/flip_total_cost).toFixed(2);
             var partner_roi = (partner_profit/partner_total_cost).toFixed(2);
             $('#total_projected_profit').val(numberWithCommas(total_profit));
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
+            //$('#investor_profit').val(numberWithCommas(investor_share_profit));
+            //$('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
             $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
             $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
 
@@ -1498,6 +1522,7 @@
 
         function updateCharts()
         {
+            console.log("UpdateCharts>>>>>>>>>>");
             var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
             var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
             var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
@@ -1518,6 +1543,9 @@
 
             var wholeseller_offer =  $("#wholeseller_offer").val().replace(/,/g, "");
             //var wholeseller_offer =  total_profit + total_profit*seller_share/100;
+            let c26 = seller_share / 100;
+            let c17 = arv;
+            wholeseller_offer = c26 * c17;
             $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
 
             let investor_share_profit = Math.round((parseInt(arv) - ( parseInt(est_repair_cost) + parseInt(holding_cost) + parseInt(resale_cost) + parseInt(loan_cost) + parseInt(wholeseller_offer))));
@@ -1530,8 +1558,19 @@
             var flip_roi = (flip_profit/flip_total_cost).toFixed(2);
             var partner_roi = (partner_profit/partner_total_cost).toFixed(2);
             $('#total_projected_profit').val(numberWithCommas(total_profit));
+            let c18 = est_repair_cost;
+            let c19 = holding_cost;
+            let c20 = resale_cost;
+            let c21 = loan_cost;
+
+            let c22 = c17 - (c18 + c19 + c20 + c21);
+            let c24 = percent_rule / 100;
+            let c25 = c24 * c22;
+            let c27 = c26 * c17;
+            
+            investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
             $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
+            //$('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
             $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
             $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
 

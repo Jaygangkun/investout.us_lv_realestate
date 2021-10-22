@@ -1,3 +1,4 @@
+var initialLoad = true;
 function new_calculations() {
     // Get Sell Price.
     let sell_price = ($("#investment_price").val() == "" ? "0" : $("#investment_price").val()); //Property selling price.
@@ -25,8 +26,14 @@ function new_calculations() {
     console.log("home_condition_price", home_condition_price);
 
     // Calculate the Estimated repair cost using the Squaare Footage and Home Condition Price.
-    let estimated_repair_cost = $("#estimated_repair_cost").val();
-    estimated_repair_cost = (sqr_ft != 0 && home_condition_price != 0 ? parseFloat((sqr_ft * home_condition_price).toFixed(2)) : estimated_repair_cost );
+    let estimated_repair_cost = $("#estimated_repair_cost").val().replace(/,/g, '');
+    if(!initialLoad) {
+        estimated_repair_cost = (sqr_ft != 0 && home_condition_price != 0 ? parseFloat((sqr_ft * home_condition_price).toFixed(2)) : estimated_repair_cost );
+    }
+    else {
+        initialLoad = false;
+    }
+    
     console.log("estimated_repair_cost", estimated_repair_cost);
 
     //purchase Rule value is 70%.
@@ -49,10 +56,10 @@ function new_calculations() {
 
     // Calculate the BRV value using the ARV, Estimated Repair Cost and Purchase Rule
     //let brv = (arv != 0 && estimated_repair_cost != 0 ? parseFloat(((arv * purchase_rule) - estimated_repair_cost).toFixed(2)) : 0);
-    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : '0');
+    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : 0);
     console.log("brv", brv);
 
-    let partnership_seller = parseFloat($("#partnership_seller").val());
+    let partnership_seller = parseFloat($("#partnership_seller").val().replace(/,/g, ""));
     let partnership_seller_price = parseFloat(arv * parseFloat(partnership_seller/100).toFixed(2));
     $("#partnership_seller_price").val(partnership_seller_price);
 
@@ -65,7 +72,7 @@ function new_calculations() {
     console.log("roi", roi);
 
     // Get Seller's Profit Share percentage.
-    let seller_profit_share = parseFloat(($("#partnership_seller").val() == "" ? 0 : parseFloat($("#partnership_seller").val()).toFixed(2)));
+    let seller_profit_share = parseFloat(($("#partnership_seller").val() == "" ? 0 : parseFloat($("#partnership_seller").val().replace(/,/g, "")).toFixed(2)));
     console.log("seller_profit_share", seller_profit_share);
 
 
@@ -124,10 +131,34 @@ function new_calculations() {
 
 
     //let partnership_seller_price    = $("#partnership_seller_price").val();
-    let investor_asking             = parseFloat(parseFloat(brv) + parseFloat(partnership_seller_price));
+    let investor_asking             = parseFloat(parseFloat(brv) + parseFloat(partnership_seller_price) + parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost));
+    let c22 = gross_profit;
+    let c24 = parseFloat(rule_percentage/100);
+    let c25 = c24 * c22;
+    let c26 = parseFloat(partnership_seller/100);
+    let c17 = parseFloat(arv);
+    let c27 = c26 * c17;
+    investor_asking = c25 + c27;
     $("#investor_asking").val(numberWithCommas(investor_asking));
 
     let investor_projected_profit   = parseFloat(parseFloat(arv) - parseFloat(investor_asking));
+    let c18 = parseFloat(estimated_repair_cost);
+    let c19 = parseFloat(holding_cost);
+    let c20 = parseFloat(resale_fees);
+    let c21 = parseFloat(loan_cost);
+
+    investor_projected_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+    console.log('new_calculations >> c17:', c17);
+    console.log('new_calculations >> c18:', c18);
+    console.log('new_calculations >> c19:', c19);
+    console.log('new_calculations >> c20:', c20);
+    console.log('new_calculations >> c21:', c21);
+    console.log('new_calculations >> c22:', c22);
+    console.log('new_calculations >> c24:', c24);
+    console.log('new_calculations >> c25:', c25);
+    console.log('new_calculations >> c26:', c26);
+    console.log('new_calculations >> c27:', c27);
+
     $("#investor_projected_profit").val(numberWithCommas(investor_projected_profit));
 
     let investor_roi = (parseFloat(parseFloat(investor_projected_profit)/parseFloat(arv))*100);
@@ -163,7 +194,7 @@ function new_calculations1() {
 
     // Calculate the BRV value using the ARV, Estimated Repair Cost and Purchase Rule
     //let brv = (arv != 0 && estimated_repair_cost != 0 ? parseFloat(((arv * purchase_rule) - estimated_repair_cost).toFixed(2)) : 0);
-    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : '0');
+    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : 0);
 
     let partnership_seller = parseFloat($("#partnership_seller").val());
     let partnership_seller_price = parseFloat(arv * parseFloat(partnership_seller/100).toFixed(2));
@@ -234,9 +265,33 @@ function new_calculations1() {
 
     //let partnership_seller_price    = $("#partnership_seller_price").val();
     let investor_asking             = parseFloat(parseFloat(brv) + parseFloat(partnership_seller_price));
+    let c22 = gross_profit;
+    let c24 = parseFloat(rule_percentage/100);
+    let c25 = c24 * c22;
+    let c26 = parseFloat(partnership_seller/100);
+    let c17 = parseFloat(arv);
+    let c27 = c26 * c17;
+    investor_asking = c25 + c27;
     $("#investor_asking").val(numberWithCommas(investor_asking));
 
     let investor_projected_profit   = parseFloat(parseFloat(arv) - parseFloat(investor_asking));
+    let c18 = parseFloat(estimated_repair_cost);
+    let c19 = parseFloat(holding_cost);
+    let c20 = parseFloat(resale_fees);
+    let c21 = parseFloat(loan_cost);
+
+    investor_projected_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+    console.log('new_calculations1 >> c17:', c17);
+    console.log('new_calculations1 >> c18:', c18);
+    console.log('new_calculations1 >> c19:', c19);
+    console.log('new_calculations1 >> c20:', c20);
+    console.log('new_calculations1 >> c21:', c21);
+    console.log('new_calculations1 >> c22:', c22);
+    console.log('new_calculations1 >> c24:', c24);
+    console.log('new_calculations1 >> c25:', c25);
+    console.log('new_calculations1 >> c26:', c26);
+    console.log('new_calculations1 >> c27:', c27);
+
     $("#investor_projected_profit").val(numberWithCommas(investor_projected_profit));
 
     let investor_roi = (parseFloat(parseFloat(investor_projected_profit)/parseFloat(arv))*100);
@@ -278,7 +333,7 @@ function new_calculations2() {
 
     // Calculate the BRV value using the ARV, Estimated Repair Cost and Purchase Rule
     //let brv = (arv != 0 && estimated_repair_cost != 0 ? parseFloat(((arv * purchase_rule) - estimated_repair_cost).toFixed(2)) : 0);
-    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : '0');
+    let brv = (arv != 0 ? (parseFloat(arv - (parseFloat(estimated_repair_cost) + parseFloat(holding_cost) + parseFloat(resale_fees) + parseFloat(loan_cost)))*parseFloat(rule_percentage/100)) : 0);
 
     let partnership_seller = parseFloat($("#partnership_seller").val());
     let partnership_seller_price = parseFloat(arv * parseFloat(partnership_seller/100).toFixed(2));
@@ -350,9 +405,33 @@ function new_calculations2() {
 
     //let partnership_seller_price    = $("#partnership_seller_price").val();
     let investor_asking             = parseFloat(parseFloat(brv) + parseFloat(partnership_seller_price));
+    let c22 = gross_profit;
+    let c24 = parseFloat(rule_percentage/100);
+    let c25 = c24 * c22;
+    let c26 = parseFloat(partnership_seller/100);
+    let c17 = parseFloat(arv);
+    let c27 = c26 * c17;
+    investor_asking = c25 + c27;
     $("#investor_asking").val(numberWithCommas(investor_asking));
 
     let investor_projected_profit   = parseFloat(parseFloat(arv) - parseFloat(investor_asking));
+    let c18 = parseFloat(estimated_repair_cost);
+    let c19 = parseFloat(holding_cost);
+    let c20 = parseFloat(resale_fees);
+    let c21 = parseFloat(loan_cost);
+
+    investor_projected_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
+    console.log('new_calculations2 >> c17:', c17);
+    console.log('new_calculations2 >> c18:', c18);
+    console.log('new_calculations2 >> c19:', c19);
+    console.log('new_calculations2 >> c20:', c20);
+    console.log('new_calculations2 >> c21:', c21);
+    console.log('new_calculations2 >> c22:', c22);
+    console.log('new_calculations2 >> c24:', c24);
+    console.log('new_calculations2 >> c25:', c25);
+    console.log('new_calculations2 >> c26:', c26);
+    console.log('new_calculations2 >> c27:', c27);
+
     $("#investor_projected_profit").val(numberWithCommas(investor_projected_profit));
 
     let investor_roi = (parseFloat(parseFloat(investor_projected_profit)/parseFloat(arv))*100);

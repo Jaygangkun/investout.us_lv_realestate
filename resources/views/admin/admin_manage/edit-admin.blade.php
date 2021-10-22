@@ -151,7 +151,7 @@
                             <label class="ng-binding">facebook</label>
                         </div>
                         <div class="col-md-5">
-                            <input type="url" class="form-control" name="socialmedia" placeholder="https://www.facebook.com/jiang.meng.146" value="{{$profile_data->socialmedia}}">
+                            <input type="url" class="form-control" name="socialmedia" placeholder="" value="{{$profile_data->socialmedia}}">
                             <small class="text-danger">{{ $errors->first('socialmedia') }}</small>
                         </div>
                     </div>
