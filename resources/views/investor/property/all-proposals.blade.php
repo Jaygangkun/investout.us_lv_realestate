@@ -661,7 +661,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="seller_gross_profit"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Gross Profit:</label>
+                                    <label for="seller_gross_profit">Revised Offer price to Wholesaler:</label>
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
                                         <input type="text" class="form-control amountComma" name="seller_gross_profit" id="seller_gross_profit" value="0" readonly>

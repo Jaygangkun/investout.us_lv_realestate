@@ -511,7 +511,7 @@
                   }
                   ?>
 
-                  <div class="col-sm-12">
+                  <div class="col-sm-12" style="display: none">
                     <div class="col-md-4 text-left" style='padding:0px'>
                       <h3>Proposal Received</h3>
                     </div>
