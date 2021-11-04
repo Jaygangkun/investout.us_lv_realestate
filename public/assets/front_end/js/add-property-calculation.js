@@ -1,4 +1,82 @@
 var initialLoad = true;
+function calculations()
+{
+    // Get ARV value
+    let arv_c17 = $("#arv_price").val() == "" ? "0" : $("#arv_price").val().replace(/,/g, "");
+    arv_c17 = parseFloat(arv_c17);
+
+    // Get Home Condition type.
+    let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+    console.log("home_condition", home_condition);
+
+    // Get Home Condition Price
+    let home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : (parseInt(home_condition) == 3 ? 75 : parseFloat(Number($("#other_home_condition_value").val()).toFixed(2))))));
+
+    // Get Square|_footage
+    let sqr_ft = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+    sqr_ft = parseFloat(sqr_ft);
+
+    // Calculate the Estimated repair cost using the Squaare Footage and Home Condition Price.
+    let estimated_repair_cost_c18 = $("#estimated_repair_cost").val().replace(/,/g, '');
+    if(!initialLoad) {
+        estimated_repair_cost_c18 = sqr_ft != 0 && home_condition_price != 0 ? sqr_ft * home_condition_price : (estimated_repair_cost_c18 == "" ? 0 : parseFloat(estimated_repair_cost_c18));
+    }
+    else {
+        initialLoad = false;
+        estimated_repair_cost_c18 = parseFloat(estimated_repair_cost_c18);
+    }
+    $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_c18));
+
+
+    // Get Holding Cost
+    let holding_cost_c19    = $("#holding_cost").val().replace(/,/g, "");
+    holding_cost_c19 = parseFloat(holding_cost_c19);
+
+    // Get Resale Fees
+    let resale_fees_c20     = $("#resale_fees").val().replace(/,/g, "");
+    resale_fees_c20 = parseFloat(resale_fees_c20);
+
+    // Get Loan Cost
+    let loan_cost_c21       = $("#loan_cost").val().replace(/,/g, "");
+    loan_cost_c21 = parseFloat(loan_cost_c21);
+
+    // Calculate Gross Profit
+    let gross_profit_c22 = arv_c17 - (estimated_repair_cost_c18 + holding_cost_c19 + resale_fees_c20 + loan_cost_c21);
+    $("#gross_profit").val(numberWithCommas(gross_profit_c22));
+
+    // Get Rule
+    let rule_percentage_24 = parseFloat($("#rule_percentage").val().replace(/,/g, "")) / 100;
+
+    // Calculate Maximum Offer Price to Seller
+    let brv_price_25 = rule_percentage_24 * gross_profit_c22;
+    $("#brv_price").val(numberWithCommas(brv_price_25));
+
+    // Get Wholesaler Fee %
+    let partnership_seller_c26 = parseFloat($("#partnership_seller").val().replace(/,/g, "")) / 100;
+
+    // Calculate Wholesaler Profit
+    let partnership_seller_price_c27 = partnership_seller_c26 * arv_c17;
+    $("#partnership_seller_price").val(numberWithCommas(partnership_seller_price_c27));
+
+    // Calculate Asking Price to Invester
+    let investor_asking_c28 = brv_price_25 + partnership_seller_price_c27;
+    $("#investor_asking").val(numberWithCommas(investor_asking_c28));
+
+    // Calculate Investor's Projected Profit
+    let investor_projected_profit_c29 = arv_c17 - (brv_price_25 + partnership_seller_price_c27 + estimated_repair_cost_c18 + holding_cost_c19 + resale_fees_c20 + loan_cost_c21);
+    $("#investor_projected_profit").val(numberWithCommas(investor_projected_profit_c29));
+
+    // Calculate Investor's Return On Investment
+    let investor_roi_c30;
+    if(arv_c17 != 0) {
+        investor_roi_c30 = investor_projected_profit_c29 / arv_c17 * 100;
+    }
+    else {
+        investor_roi_c30 = 0;
+    }
+    $("#investor_roi").val(numberWithCommas(investor_roi_c30));
+    
+}
 function new_calculations() {
     // Get Sell Price.
     let sell_price = ($("#investment_price").val() == "" ? "0" : $("#investment_price").val()); //Property selling price.
