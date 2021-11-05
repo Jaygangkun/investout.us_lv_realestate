@@ -37,7 +37,7 @@ function calculationsWholesaler()
 {
     // Get ARV value
     let arv_c17 = $("#arv_price").val() == "" ? "0" : $("#arv_price").val().replace(/,/g, "");
-    arv_c17 = parseFloat(arv_c17);
+    arv_c17 = str2Float(arv_c17);
 
     // Get Home Condition type.
     let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
@@ -48,50 +48,37 @@ function calculationsWholesaler()
 
     // Get Square|_footage
     let sqr_ft = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
-    sqr_ft = parseFloat(sqr_ft);
+    sqr_ft = str2Float(sqr_ft);
 
     // Calculate the Estimated repair cost using the Squaare Footage and Home Condition Price.
     let estimated_repair_cost_c18 = $("#estimated_repair_cost").val().replace(/,/g, '');
-    if(!initialLoad) {
-        estimated_repair_cost_c18 = sqr_ft != 0 && home_condition_price != 0 ? sqr_ft * home_condition_price : (estimated_repair_cost_c18 == "" ? 0 : parseFloat(estimated_repair_cost_c18));
-    }
-    else {
-        initialLoad = false;
-        if(estimated_repair_cost_c18 == "") {
-            estimated_repair_cost_c18 = 0;
-        }
-        else {
-            estimated_repair_cost_c18 = parseFloat(estimated_repair_cost_c18);
-        }
-    }
-    $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_c18));
-
+    estimated_repair_cost_c18 = str2Float(estimated_repair_cost_c18);
 
     // Get Holding Cost
     let holding_cost_c19    = $("#holding_cost").val().replace(/,/g, "");
-    holding_cost_c19 = parseFloat(holding_cost_c19);
+    holding_cost_c19 = str2Float(holding_cost_c19);
 
     // Get Resale Fees
     let resale_fees_c20     = $("#resale_fees").val().replace(/,/g, "");
-    resale_fees_c20 = parseFloat(resale_fees_c20);
+    resale_fees_c20 = str2Float(resale_fees_c20);
 
     // Get Loan Cost
     let loan_cost_c21       = $("#loan_cost").val().replace(/,/g, "");
-    loan_cost_c21 = parseFloat(loan_cost_c21);
+    loan_cost_c21 = str2Float(loan_cost_c21);
 
     // Calculate Gross Profit
     let gross_profit_c22 = arv_c17 - (estimated_repair_cost_c18 + holding_cost_c19 + resale_fees_c20 + loan_cost_c21);
     $("#gross_profit").val(numberWithCommas(gross_profit_c22));
 
     // Get Rule
-    let rule_percentage_24 = parseFloat($("#rule_percentage").val().replace(/,/g, "")) / 100;
+    let rule_percentage_24 = str2Float($("#rule_percentage").val().replace(/,/g, "")) / 100;
 
     // Calculate Maximum Offer Price to Seller
     let brv_price_25 = rule_percentage_24 * gross_profit_c22;
     $("#brv_price").val(numberWithCommas(brv_price_25));
 
     // Get Wholesaler Fee %
-    let partnership_seller_c26 = parseFloat($("#partnership_seller").val().replace(/,/g, "")) / 100;
+    let partnership_seller_c26 = str2Float($("#partnership_seller").val().replace(/,/g, "")) / 100;
 
     // Calculate Wholesaler Profit
     let partnership_seller_price_c27 = partnership_seller_c26 * arv_c17;

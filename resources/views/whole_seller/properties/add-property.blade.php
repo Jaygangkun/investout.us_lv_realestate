@@ -287,7 +287,7 @@
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-6">
                                             <label for="">Sqr.Ft*</label> <br>
-                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                             <small class="text-danger">{{ $errors->first('square_footage') }}</small>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -335,11 +335,11 @@
                                                     </div>
                                                     @if($details->home_condition == '4')
                                                         <div class="form-group col-md-offset-10 col-md-2 other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @else
                                                         <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @endif
                                                 @else
@@ -368,7 +368,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                     </div>
                                                 @endif
                                             <!-- </div>
@@ -732,6 +732,29 @@
             calculationsWholesaler();
         });  
 
+        function calcERC() {
+            // Get Home Condition type.
+            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+            console.log("home_condition", home_condition);
+
+            // Get Home Condition Price
+            let home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : (parseInt(home_condition) == 3 ? 75 : parseFloat(Number($("#other_home_condition_value").val()).toFixed(2))))));
+
+            // Get Square|_footage
+            let sqr_ft = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+            sqr_ft = parseFloat(sqr_ft);
+
+            if(sqr_ft != 0 && home_condition_price != 0) {
+                let estimated_repair_cost_c18 = sqr_ft * home_condition_price;
+                $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_c18));
+            }
+        }
+
+        $('.erc-calc-trigger').on("keyup", function(){
+            calcERC();
+            calculationsWholesaler();
+        });
+
         $('.calc-trigger').on("keyup", function(){
             calculationsWholesaler();
         });
@@ -959,8 +982,8 @@
                     $(".other_home_condition").addClass("d-none");
                     $("#other_home_condition_value").val("0");
                 }
-                // calculationsWholesaler();
-                calculationsWholesaler();
+
+                calcERC();
             }
         });
     </script>
