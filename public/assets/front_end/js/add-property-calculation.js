@@ -1,5 +1,39 @@
 var initialLoad = true;
-function calculations()
+$(document).ready(function() {
+    $(".amountComma").on('keyup', function(){
+        var num = $(this).val().replace(/,/g , '');
+        num = num.replace(/[^0-9.]/g,'');
+        var commaNum = numberWithCommas(num);
+        $(this).val(commaNum);
+    });
+
+    $(".amountComma").each(function() {
+        var num = $(this).val().replace(/,/g, "");
+        if(num == "") {
+            num = 0;
+        }
+        else {
+            num = parseFloat(num);
+        }
+
+        var commaNum = numberWithCommas(num);
+        $(this).val(commaNum);
+    });
+
+    $('.content').summernote();
+    $('.textbelow').summernote();
+
+    $("#property-form").validationEngine('attach', {
+        promptPosition : "inline", 
+        scroll: false
+    });
+
+    $("[class^='step-']").addClass("d-none");
+    $(".step-1").removeClass("d-none");
+
+})
+
+function calculationsWholesaler()
 {
     // Get ARV value
     let arv_c17 = $("#arv_price").val() == "" ? "0" : $("#arv_price").val().replace(/,/g, "");
@@ -23,7 +57,12 @@ function calculations()
     }
     else {
         initialLoad = false;
-        estimated_repair_cost_c18 = parseFloat(estimated_repair_cost_c18);
+        if(estimated_repair_cost_c18 == "") {
+            estimated_repair_cost_c18 = 0;
+        }
+        else {
+            estimated_repair_cost_c18 = parseFloat(estimated_repair_cost_c18);
+        }
     }
     $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_c18));
 
@@ -77,6 +116,11 @@ function calculations()
     $("#investor_roi").val(numberWithCommas(investor_roi_c30));
     
 }
+
+function calculationsHomeowner() {
+
+}
+
 function new_calculations() {
     // Get Sell Price.
     let sell_price = ($("#investment_price").val() == "" ? "0" : $("#investment_price").val()); //Property selling price.

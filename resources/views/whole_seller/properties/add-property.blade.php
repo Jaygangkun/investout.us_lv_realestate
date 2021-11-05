@@ -1050,14 +1050,6 @@
 <script src="{{ URL::asset('assets/front_end/js/chartjs-plugin-datalabels.js') }}"></script>
 
     <script>
-        
-        $(".amountComma").on('keyup', function(){
-            var num = $(this).val().replace(/,/g , '');
-            num = num.replace(/[^0-9.]/g,'');
-            var commaNum = numberWithCommas(num);
-            $(this).val(commaNum);
-        });
-
         $(document).ready(function() {
 
             $('.datepicker').datepicker({
@@ -1072,64 +1064,32 @@
                 $('.partner_up_row').hide();
             }
 
-            $(".amountComma").each(function() {
-                var num = $(this).val().replace(/,/g, "");
-                if(num == "") {
-                    num = 0;
-                }
-                else {
-                    num = parseFloat(num);
-                }
-
-                var commaNum = numberWithCommas(num);
-                $(this).val(commaNum);
-            });
-
-            $('.content').summernote();
-            $('.textbelow').summernote(); +
-            // $.validator.addMethod('latCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((8[0-5]?)|([0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Latitude format has error.')
-
-            // $.validator.addMethod('longCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((0?[8-9][0-9])|180|([0-1]?[0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Longitude format has error.')
-            $("#property-form").validationEngine('attach', {
-                promptPosition : "inline", 
-                scroll: false
-            });
-
-            $("[class^='step-']").addClass("d-none");
-            $(".step-1").removeClass("d-none");
-
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            calculations();
+            // calculationsWholesaler();
+            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
+            calculationsWholesaler();
         });  
 
         $("#square_footage, #other_home_condition_value, #investment_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            calculations();
+            // calculationsWholesaler();
+            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
+            calculationsWholesaler();
         });
 
         $("#rule_percentage").on('change',function(){
-            calculations();
+            calculationsWholesaler();
         });
 
         $("#estimated_repair_cost, #arv_price, #holding_cost, #resale_fees, #loan_cost").on("keyup", function(){
-            // calculations();
+            // calculationsWholesaler();
             // The below function new_calculations1() is located into "public/assets/front_end/js/add-property-calculation.js" file.
 
-            calculations();
+            calculationsWholesaler();
         });
 
         $("#brv_price, #partnership_seller").on("keyup", function(){
-            // calculations();
+            // calculationsWholesaler();
             // The below function new_calculations2() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            calculations();
+            calculationsWholesaler();
         });        
 
         $(".btn-next-form").click(function(){
@@ -1371,8 +1331,8 @@
                     $(".other_home_condition").addClass("d-none");
                     $("#other_home_condition_value").val("0");
                 }
-                // calculations();
-                calculations();
+                // calculationsWholesaler();
+                calculationsWholesaler();
             }
         });
     </script>
