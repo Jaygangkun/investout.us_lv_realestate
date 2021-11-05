@@ -118,7 +118,84 @@ function calculationsWholesaler()
 }
 
 function calculationsHomeowner() {
+    // Get Square|_footage
+    let sqr_ft_b4 = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+    sqr_ft_b4 = parseFloat(sqr_ft_b4);
 
+    // Get Home Condition type.
+    let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+    console.log("home_condition", home_condition);
+
+    // Get Home Condition Price
+    let home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : (parseInt(home_condition) == 3 ? 75 : parseFloat(Number($("#other_home_condition_value").val()).toFixed(2))))));
+
+    // Calculate the Estimated repair cost using the Squaare Footage and Home Condition Price.
+    let estimated_repair_cost_b10 = $("#estimated_repair_cost").val().replace(/,/g, '');
+    if(!initialLoad) {
+        estimated_repair_cost_b10 = sqr_ft_b4 != 0 && home_condition_price != 0 ? sqr_ft_b4 * home_condition_price : (estimated_repair_cost_b10 == "" ? 0 : parseFloat(estimated_repair_cost_b10));
+    }
+    else {
+        initialLoad = false;
+        if(estimated_repair_cost_b10 == "") {
+            estimated_repair_cost_b10 = 0;
+        }
+        else {
+            estimated_repair_cost_b10 = parseFloat(estimated_repair_cost_b10);
+        }
+    }
+    $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_b10));
+
+    // Get ARV value
+    let arv_e10 = $("#arv_price").val() == "" ? "0" : $("#arv_price").val().replace(/,/g, "");
+    arv_e10 = parseFloat(arv_e10);
+
+    // Get Seller
+    let partnership_seller_b21 = $("#partnership_seller").val() == "" ? "0" : $("#partnership_seller").val().replace(/,/g, "");
+    partnership_seller_b21 = parseFloat(partnership_seller_b21) / 100;
+
+    // Get Investor
+    let partnership_investor_c21 = $("#partnership_investor").val() == "" ? "0" : $("#partnership_investor").val().replace(/,/g, "");
+    partnership_investor_c21 = parseFloat(partnership_investor_c21) / 100;
+    
+    // Get 70% Rule
+    let rule_percentage_e14 = $("#rule_percentage").val() == "" ? "0" : $("#rule_percentage").val().replace(/,/g, "");
+    rule_percentage_e14 = parseFloat(rule_percentage_e14) / 100;
+
+    // Calculate Before Renovation Value (BRV)
+    let brv_b14 = (arv_e10 - estimated_repair_cost_b10) * rule_percentage_e14
+    $("#brv_price").val(numberWithCommas(brv_b14));
+
+    // Calculate Price Per Sqr.Ft
+    let price_per_sqft_d4 = brv_b14 / sqr_ft_b4;
+    $("#price_per_sqft").val(numberWithCommas(price_per_sqft_d4));
+    
+    // Calulate Total Profit
+    let total_profit_b17 = arv_e10 - brv_b14;
+    $("#total_profit").val(numberWithCommas(total_profit_b17));
+
+    // Calculate Total
+    let total_profit_share_d21 = partnership_seller_b21 + partnership_investor_c21;
+    $("#total_profit_share").val(numberWithCommas(total_profit_share_d21 * 100));
+
+    // Calculate Seller's Profit Increase
+    let seller_profit_b24 = partnership_seller_b21 * total_profit_b17;
+    $("#seller_profit").val(numberWithCommas(seller_profit_b24));
+
+    // Calculate Seller's Total Profit
+    let increased_profit_b27 = brv_b14 + seller_profit_b24;
+    $("#increased_profit").val(numberWithCommas(increased_profit_b27));
+
+    // Calculate Increased ROI
+    let increased_roi_d24;
+    if(increased_profit_b27 == 0) {
+        increased_roi_d24 = 0;
+    }
+    else {
+        increased_roi_d24 = seller_profit_b24 / increased_profit_b27
+    }
+
+    $("#increased_roi").val(numberWithCommas(increased_roi_d24 * 100));
+    
 }
 
 function new_calculations() {

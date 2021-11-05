@@ -701,7 +701,7 @@
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-6">
                                             <label for="">Sqr.Ft*</label> <br>
-                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             <small class="text-danger">{{ $errors->first('square_footage') }}</small>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -749,11 +749,11 @@
                                                     </div>
                                                     @if($details->home_condition == '4')
                                                         <div class="form-group col-md-offset-10 col-md-2 other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                         </div>
                                                     @else
                                                         <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                         </div>
                                                     @endif
                                                 @else
@@ -782,7 +782,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                     </div>
                                                 @endif
                                             <!-- </div>
@@ -794,7 +794,7 @@
                                             <label for="">Estimated Repair Cost* <i class="fa fa-info-circle" title="Estimated cost of all of the repairs required to maximize the sale price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input readonly type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('estimated_repair_cost') }}</small>
                                         </div>
@@ -802,7 +802,7 @@
                                             <label for="">Estimated After Renovation Value (ARV)* <i class="fa fa-info-circle" title="This the value the home could sell for once the home has been renovated to the expected level. This will be potentially the list price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
@@ -813,7 +813,27 @@
                                             <label for="">Before Renovation Value (BRV)* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input readonly type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                            </div>
+                                            
+                                            <small class="text-danger">{{ $errors->first('brv_price') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">70% Rule* <i class="fa fa-info-circle" title="This rule is used for valuation, choose a value between 50-80%"></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage ?? "70"}}' class='form-control  validate[min[50],max[90]] calc-trigger'>
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('arv_price') }}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Total Profit </label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input readonly type="text" name='total_profit' id='total_profit' value='0' class='form-control amountComma validate[min[0],maxSize[10]]'>
                                             </div>
                                             
                                             <small class="text-danger">{{ $errors->first('brv_price') }}</small>
@@ -828,24 +848,24 @@
                                         <div class="form-group col-md-4">
                                             <label for="seller">Seller*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' id="partnership_seller" class="form-control validate[required,maxSize[2]]">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' id="partnership_seller" class="form-control validate[required,maxSize[2]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="investor">Investor*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]]" readOnly>
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_investor') }}</small>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="investor">Total</label>
                                             <div class="input-group">
-                                                <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" disabled placeholder="Calculated">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" disabled value="0">
                                             </div>
                                         </div>
                                     </div>
@@ -862,14 +882,13 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
                                                 <input type="text" id='seller_profit' name='seller_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
-                                                <input type="hidden" id='total_profit' name='total_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="">Increasd ROI </label> <br>
                                             <div class="input-group">
-                                                <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>
                                             
                                         </div>
@@ -931,18 +950,6 @@
 
     <script>
 
-        function numberWithCommas(number) {
-            var parts = number.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
-        }
-        $(".amountComma").on('keyup', function(){
-            var num = $(this).val().replace(/,/g , '');
-            num = num.replace(/[^0-9.]/g,'');
-            var commaNum = numberWithCommas(num);
-            $(this).val(commaNum);
-        });
-
         $(document).ready(function() {
 
             let partnerUp = $('input[type=radio][name=partner_up]:checked').val();
@@ -951,136 +958,13 @@
                 $('.partner_up_row').hide();
             }
 
-            $(".amountComma").each(function() {
-                var num = $(this).val();
-                var commaNum = numberWithCommas(num);
-                $(this).val(commaNum);
-            });
-
-            $('.content').summernote();
-            $('.textbelow').summernote(); +
-            // $.validator.addMethod('latCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((8[0-5]?)|([0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Latitude format has error.')
-
-            // $.validator.addMethod('longCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((0?[8-9][0-9])|180|([0-1]?[0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Longitude format has error.')
-            $("#property-form").validationEngine('attach', {
-                promptPosition : "inline", 
-                scroll: false
-            });
-
-            $("[class^='step-']").addClass("d-none");
-            $(".step-1").removeClass("d-none");
-
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations();
+            calculationsHomeowner();
         });  
 
-        $("#square_footage, #other_home_condition_value, #investment_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations();
+        $('.calc-trigger').on("keyup", function(){
+            calculationsHomeowner();
         });
 
-        $("#estimated_repair_cost, #arv_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations1() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations1();
-        });
-
-        $("#brv_price, #partnership_seller").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations2() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations2();
-        });
-
-        function calculations()
-        {
-            let brv = ($("#brv_price").val() == "" ? '0' : $("#brv_price").val());
-            brv = (typeof parseInt(brv.replace(",", "")) == NaN ? 0 : parseInt(brv.replace(",", "")));
-            console.log("brv", brv);
-            let arv = ($("#arv_price").val() == "" ? '0' : $("#arv_price").val());
-            arv = (typeof parseInt(arv.replace(",", "")) == NaN ? 0 : parseInt(arv.replace(",", "")));
-            console.log("arv", arv);
-            let sqft = ($("#square_footage").val() == "" ? '0' : $("#square_footage").val());
-            sqft = (typeof parseInt(sqft.replace(",", "")) == NaN ? 0 : parseInt(sqft.replace(",", "")));
-            console.log("sqft", sqft);
-            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
-            home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : 75)));
-            console.log("home_condition_price", home_condition_price);
-            let price_per_sqft = 0;
-            if(arv != 0 && sqft != 0)
-            {
-                price_per_sqft = parseFloat((arv/sqft).toFixed(2));
-            }
-            console.log("price_per_sqft", price_per_sqft);
-
-            let cost_of_repair = 0;
-            if(sqft != 0 && home_condition_price != 0)
-            {
-                cost_of_repair = sqft * home_condition_price;
-            }
-            console.log("cost_of_repair", cost_of_repair);
-
-            let est_repair_cost = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0)
-            {
-                est_repair_cost = parseFloat((arv - ((brv + cost_of_repair) * 0.65)).toFixed(2));
-            }
-            console.log("est_repair_cost", est_repair_cost);
-
-            let seller_profit_share = parseInt(($("#partnership_seller").val() == "" ? '0' : $("#partnership_seller").val()));
-            console.log("seller_profit_share", seller_profit_share);
-
-            let investor_profit_share = 0;
-            let total_profit_share = 0;
-            if(seller_profit_share != 0)
-            {
-                investor_profit_share = 100 - seller_profit_share;
-                total_profit_share = seller_profit_share + investor_profit_share;
-            }
-            console.log("investor_profit_share", investor_profit_share);
-            console.log("total_profit_share", total_profit_share);
-
-            let increased_profit = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0 && seller_profit_share !=0)
-            {
-                increased_profit = parseFloat((arv - ((brv + cost_of_repair) * (seller_profit_share/100))).toFixed(2));
-            }
-            console.log("increased_profit", increased_profit);
-
-            let total_profit = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                total_profit = parseFloat((arv - (brv + increased_profit)).toFixed(2));
-            }
-            console.log("total_profit", total_profit);
-
-            let increased_roi = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                increased_roi = parseFloat((brv / (brv + increased_profit)).toFixed(2));
-            }
-            console.log("increased_roi", increased_roi);
-
-
-            // Set Calculated Values.
-            $("#price_per_sqft").val(numberWithCommas(price_per_sqft));
-            $("#estimated_repair_cost").val(numberWithCommas(est_repair_cost));
-            $("#partnership_investor").val(investor_profit_share);
-            $("#total_profit_share").val(total_profit_share);
-            $("#increased_profit").val(numberWithCommas(increased_profit));
-            $("#total_profit").val(numberWithCommas(total_profit));
-            $("#increased_roi").val(numberWithCommas(increased_roi));
-            
-        }
-
-        
 
         $(".btn-next-form").click(function(){
             console.log($(this).attr("data-current-active"));
@@ -1164,23 +1048,6 @@
                 e.preventDefault();
             }
         });
-
-        $(".seller_profit_share #partnership_seller").on("change", function(){
-            console.log($(this).val());
-            let seller = parseInt($(this).val());
-            let investor = 100 - seller;
-            $("#partnership_investor").val(investor);
-            $("#total_profit_share").val(seller + investor);
-        });
-
-        $(".seller_profit_share #partnership_investor").on("change", function(){
-            console.log($(this).val());
-            let investor = parseInt($(this).val());
-            let seller = 100 - investor;
-            $("#partnership_seller").val(seller);
-            $("#total_profit_share").val(seller + investor);
-        });
-
         
         $("select[name=state]").on('change', function(){
             state_name = $(this).find("option:selected").text();
@@ -1322,10 +1189,11 @@
                     $("#other_home_condition_value").val("0");
                 }
                 // calculations();
-                new_calculations();
+                calculationsHomeowner();
             }
         });
     </script>
+<script src="{{ URL::asset('assets/front_end/js/global.js') }}"></script>
 <script src="{{ URL::asset('assets/front_end/js/add-property-calculation.js') }}"></script>
       
 @endsection
