@@ -534,19 +534,13 @@
                                     </div>
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-4">
-                                            <label for="">Seller's Total Profit </label> <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" id='increased_profit' name='increased_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
-                                            </div>  
-                                        </div>
-                                        <div class="form-group col-md-4">
                                             <label for="">Seller's Profit Increase </label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
                                                 <input type="text" id='seller_profit' name='seller_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-4"></div>
                                         <div class="form-group col-md-4">
                                             <label for="">Increasd ROI </label> <br>
                                             <div class="input-group">
@@ -554,6 +548,15 @@
                                                 <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>
                                             
+                                        </div>
+                                    </div>
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">Seller's Total Profit </label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" id='increased_profit' name='increased_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
+                                            </div>  
                                         </div>
                                     </div>
                                 </div>
@@ -640,12 +643,13 @@
                 let estimated_repair_cost_b10 = sqr_ft_b4 * home_condition_price;
 
                 $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_b10));
+
+                calculationsHomeowner();
             }
         }
 
         $('.erc-calc-trigger').on("keyup", function(){
             calcERC();
-            calculationsHomeowner();
         });
 
         $('.calc-trigger').on("keyup", function(){

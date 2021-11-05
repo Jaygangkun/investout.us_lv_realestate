@@ -679,12 +679,12 @@
                 let estimated_repair_cost_b10 = sqr_ft_b4 * home_condition_price;
 
                 $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_b10));
+                calculationsRealtor();
             }
         }
 
         $('.erc-calc-trigger').on("keyup", function(){
             calcERC();
-            calculationsRealtor();
         });
 
         $('.calc-trigger').on("keyup", function(){
