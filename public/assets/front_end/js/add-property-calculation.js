@@ -275,6 +275,83 @@ function calculationsRealtor() {
     
 }
 
+function calculationsInvestor() {
+    // Get Square|_footage
+    let sqr_ft_b4 = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+    sqr_ft_b4 = str2Float(sqr_ft_b4);
+
+    // Get Home Condition type.
+    let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+    console.log("home_condition", home_condition);
+
+    // Get the Estimated repair cost using the Squaare Footage and Home Condition Price.
+    let estimated_repair_cost_b10 = $("#estimated_repair_cost").val().replace(/,/g, '');
+    estimated_repair_cost_b10 = str2Float(estimated_repair_cost_b10);
+
+    // Get ARV value
+    let arv_e10 = $("#arv_price").val() == "" ? "0" : $("#arv_price").val().replace(/,/g, "");
+    arv_e10 = str2Float(arv_e10);
+
+    // Get Seller
+    let partnership_seller_b21 = $("#partnership_seller").val() == "" ? "0" : $("#partnership_seller").val().replace(/,/g, "");
+    partnership_seller_b21 = str2Float(partnership_seller_b21) / 100;
+
+    // Get Investor
+    let partnership_investor_c21 = $("#partnership_investor").val() == "" ? "0" : $("#partnership_investor").val().replace(/,/g, "");
+    partnership_investor_c21 = str2Float(partnership_investor_c21) / 100;
+    
+    // Get 70% Rule
+    let rule_percentage_e14 = $("#rule_percentage").val() == "" ? "0" : $("#rule_percentage").val().replace(/,/g, "");
+    rule_percentage_e14 = str2Float(rule_percentage_e14) / 100;
+
+    // Calculate Before Renovation Value (BRV)
+    let brv_b14 = (arv_e10 - estimated_repair_cost_b10) * rule_percentage_e14
+    $("#brv_price").val(numberWithCommas(brv_b14));
+
+    // Calculate Price Per Sqr.Ft
+    let price_per_sqft_d4;
+    if(sqr_ft_b4 == 0) {
+        price_per_sqft_d4 = 0;
+    }
+    else {
+        if(sqr_ft_b4 == 0) {
+            price_per_sqft_d4 = 0;
+        }
+        else {
+            price_per_sqft_d4 = brv_b14 / sqr_ft_b4;
+        }
+    }
+    $("#price_per_sqft").val(numberWithCommas(price_per_sqft_d4));
+    
+    // Calulate Total Profit
+    let total_profit_b17 = arv_e10 - brv_b14;
+    $("#total_profit").val(numberWithCommas(total_profit_b17));
+
+    // Calculate Total
+    let total_profit_share_d21 = partnership_seller_b21 + partnership_investor_c21;
+    $("#total_profit_share").val(numberWithCommas(total_profit_share_d21 * 100));
+
+    // Calculate Seller's Profit Increase
+    let seller_profit_b24 = partnership_seller_b21 * total_profit_b17;
+    $("#seller_profit").val(numberWithCommas(seller_profit_b24));
+
+    // Calculate Seller's Total Profit
+    let increased_profit_b27 = brv_b14 + seller_profit_b24;
+    $("#increased_profit").val(numberWithCommas(increased_profit_b27));
+
+    // Calculate Increased ROI
+    let increased_roi_d24;
+    if(increased_profit_b27 == 0) {
+        increased_roi_d24 = 0;
+    }
+    else {
+        increased_roi_d24 = seller_profit_b24 / increased_profit_b27
+    }
+
+    $("#increased_roi").val(numberWithCommas(increased_roi_d24 * 100));
+    
+}
+
 function new_calculations() {
     // Get Sell Price.
     let sell_price = ($("#investment_price").val() == "" ? "0" : $("#investment_price").val()); //Property selling price.

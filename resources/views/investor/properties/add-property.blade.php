@@ -1,341 +1,4 @@
 @extends('layouts.investor-layout')
-@section('style')
-
-  <style media="screen">
-    .form-page {
-        padding: 50px;
-        background-color: #ffffff;
-    }
-    .form-content h2 {
-        font-family: Campton-Bold;
-        font-size: 32px;
-        color: #2C3B54;
-    }
-    .form-content .property-icon {
-        height: 50px;
-        width: 65px;
-        background-image: url("/assets/front_end/img/seller/add_property/property_icon.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-right: 10px;
-        display:inline-block;
-    }
-
-    .step-1, .step-2, .step-3 {
-        padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px;
-    }
-    #new-property-form {
-        /* padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px; */
-    }
-    #new-property-form .form-group label, #new-property-form .form-group input {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-    #new-property-form .form-group label{
-        text-transform: capitalize;
-    }
-    #new-property-form select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-    }
-    #new-property-form .dropdown-icon {
-        position: absolute;
-        right: 14px;
-        top: 14px;
-        pointer-events: none;
-    }
-    #new-property-form  select::-ms-expand {
-        display: none;
-    }
-    #new-property-form .form-group input {
-        padding: 10px 15px;
-        border-radius: 9px;
-    }
-    #new-property-form .dropdown-select {
-        position: relative;
-    }
-    #new-property-form select.form-control:not([size]):not([multiple]) {
-        
-        border-radius: 10px;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-        cursor: pointer;
-    } 
-    #new-property-form .form-group {
-        margin-bottom: 9px;
-    }
-    .sale-div h6 {
-        color: #707070;
-        font-family: Campton-Bold;
-        font-size: 24px;
-    }
-    .yes a, .no a {
-        display: flex;
-        align-items: center;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-    }
-    .yesIcon, .noIcon {
-        height: 40px;
-        width: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    .yesIcon { background-image: url("/assets/front_end/img/seller/add_property/yes-icon.png"); }
-    .noIcon { background-image: url("/assets/front_end/img/seller/add_property/no-icon.png"); }
-    .next-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-    .previous-form-btn {
-        left: 83px !important;
-        transform-origin: left center;
-        transform: rotate(180deg);
-        bottom: 15px;
-    }
-
-    .submit-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-
-    .next-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .btn-sumit-form {
-        height: 50px;
-        margin-top: 20px;
-        display:inline-block;
-        cursor: pointer;
-        background-color: #44a494;
-        color: white;
-        font-weight: bold;
-    }
-
-    .prev-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        left: 83px !important;
-        
-        transform: rotate(180deg);
-        bottom: 15px;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .sale-div [type=radio] { 
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* IMAGE STYLES */
-    .sale-div [type=radio] + img {
-    cursor: pointer;
-    }
-
-    /* CHECKED STYLES */
-    .sale-div [type=radio]:checked + img {
-    outline: 2px solid #a8d3cc;
-    }
-
-    .sale-div img{
-        height: 40px;
-    }
-
-    .d-none {
-        display: none;
-    }
-
-    .d-flex {
-        display: flex;
-    }
-
-    .home-condition h4 {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-
-    .home-condition div .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home-condition div .container input[type=checkbox] {
-        transform: scale(2.5);
-        margin-top: 20px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    #new-property-form .form-group label {
-        white-space: nowrap;
-    }
-
-    .home-condition div .container input[type=checkbox]:checked:after {
-        display: block;
-    }
-
-    .home-condition div .container input[type=checkbox]::after {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 50%;
-        left: 50%;
-        height: 50%;
-        width: 50%;
-        background-image: url("/assets/front_end/img/seller/add_property/cross.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        display: none;
-    }
-
-    .home-condition div .container input[type=checkbox]::before {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        border-radius: 2px;
-        border: 1px solid #ced4da;
-    }
-
-    .step-4 .best-deal {
-        height: 60px;
-        width: 240px;
-        background-image: url("/assets/front_end/img/seller/add_property/bestdeal.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-left: 30px;
-        display: inline-block;
-    }
-
-    .step-4 .row-bg-color {
-        background-color: #f6fcfc !important;
-        border-radius: 15px;
-        z-index: 1;
-        border: 1px solid #ced4da;
-        padding-bottom: 12px;
-    }
-
-    .step-4 .align-items-end {
-        -webkit-box-align: end!important;
-        -ms-flex-align: end!important;
-        align-items: flex-end!important;
-    }
-
-    .step-4 .flex-column {
-        -webkit-box-orient: vertical!important;
-        -webkit-box-direction: normal!important;
-        -ms-flex-direction: column!important;
-        flex-direction: column!important;
-    }
-
-    .form-row {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -5px;
-        margin-left: -5px;
-    }
-    .ml-4, .mx-4 {
-        margin-left: 1.5rem!important;
-    }
-
-    .mt-4 {
-        margin-top: 1.5rem!important;
-    }
-
-    .mt-5 {
-        margin-top: 3rem!important;
-    }
-
-    .mb-5 {
-        margin-bottom: 3rem!important;
-    }
-
-    #new-property-form .form-group input {
-        padding: 5px 15px;
-        border-radius: 9px;
-    }
-
-    .step-4 .charts-row h4 {
-        font-family: Campton-SemiBold !important;
-        font-size: 26px;
-    }
-
-    .align-items-center {
-        display: flex;
-        align-items: center;
-    }
-
-    .aminities input[type=checkbox] {
-        height: 20px;
-        width: 20px;
-        margin: 0px;
-        float: left;
-    }
-
-    .aminities .amenities_label {
-        vertical-align: top;
-        margin-left: 5px;
-    }
-
-    .font-20 {
-        font-size: 20px;
-    }
-
-    .font-15 {
-        font-size: 15px;
-    }
-
-    .input-group-addon {
-        background-color: #eee !important;
-        border: 1px solid #ccc !important;
-    }
-    
-
-    @media (min-width: 500px) {
-        .home-condition {
-            flex-wrap: wrap;
-        }
-    }
-  </style>
-
-@endsection
 @section('body')
 <div id="" class="seller_detail min_height_974px">
     <div class="wrapper wrapper-content custom-container-a">
@@ -701,7 +364,7 @@
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-6">
                                             <label for="">Sqr.Ft*</label> <br>
-                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                             <small class="text-danger">{{ $errors->first('square_footage') }}</small>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -749,11 +412,11 @@
                                                     </div>
                                                     @if($details->home_condition == '4')
                                                         <div class="form-group col-md-offset-10 col-md-2 other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @else
                                                         <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @endif
                                                 @else
@@ -782,7 +445,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                     </div>
                                                 @endif
                                             <!-- </div>
@@ -794,7 +457,7 @@
                                             <label for="">Estimated Repair Cost* <i class="fa fa-info-circle" title="Estimated cost of all of the repairs required to maximize the sale price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('estimated_repair_cost') }}</small>
                                         </div>
@@ -802,7 +465,7 @@
                                             <label for="">Estimated After Renovation Value (ARV)* <i class="fa fa-info-circle" title="This the value the home could sell for once the home has been renovated to the expected level. This will be potentially the list price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
@@ -813,13 +476,32 @@
                                             <label for="">Before Renovation Value (BRV)* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]' readonly>
+                                            </div>
+                                            
+                                            <small class="text-danger">{{ $errors->first('brv_price') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">70% Rule* <i class="fa fa-info-circle" title="This rule is used for valuation, choose a value between 50-80%"></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage ?? "70"}}' class='form-control  validate[min[50],max[90]] calc-trigger'>
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('rule_percentage') }}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Total Profit </label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input readonly type="text" name='total_profit' id='total_profit' value='0' class='form-control amountComma validate[min[0],maxSize[10]]'>
                                             </div>
                                             
                                             <small class="text-danger">{{ $errors->first('brv_price') }}</small>
                                         </div>
                                     </div>
-
                                     
                                     <div class="form-row seller_profit_share partner_up_row">
                                         <div class="col-md-12">
@@ -828,25 +510,43 @@
                                         <div class="form-group col-md-4">
                                             <label for="seller">Seller*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' id="partnership_seller" class="form-control validate[required,maxSize[2]]">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' id="partnership_seller" class="form-control validate[required,maxSize[2]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="investor">Investor*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]]" readOnly>
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_investor') }}</small>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="investor">Total</label>
                                             <div class="input-group">
-                                                <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" disabled placeholder="Calculated">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-4">
+                                            <label for="">Seller's Profit Increase </label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" id='seller_profit' name='seller_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4"></div>
+                                        <div class="form-group col-md-4">
+                                            <label for="">Increasd ROI </label> <br>
+                                            <div class="input-group">
+                                                <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="form-row partner_up_row">
@@ -856,22 +556,6 @@
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
                                                 <input type="text" id='increased_profit' name='increased_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>  
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="">Seller's Profit Increase </label> <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" id='seller_profit' name='seller_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
-                                                <input type="hidden" id='total_profit' name='total_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="">Increasd ROI </label> <br>
-                                            <div class="input-group">
-                                                <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
-                                                <span class="input-group-addon" id="basic-addon1">%</span>
-                                            </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -931,18 +615,6 @@
 
     <script>
 
-        function numberWithCommas(number) {
-            var parts = number.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
-        }
-        $(".amountComma").on('keyup', function(){
-            var num = $(this).val().replace(/,/g , '');
-            num = num.replace(/[^0-9.]/g,'');
-            var commaNum = numberWithCommas(num);
-            $(this).val(commaNum);
-        });
-
         $(document).ready(function() {
 
             let partnerUp = $('input[type=radio][name=partner_up]:checked').val();
@@ -951,133 +623,37 @@
                 $('.partner_up_row').hide();
             }
 
-            $(".amountComma").each(function() {
-                var num = $(this).val();
-                var commaNum = numberWithCommas(num);
-                $(this).val(commaNum);
-            });
-
-            $('.content').summernote();
-            $('.textbelow').summernote(); +
-            // $.validator.addMethod('latCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((8[0-5]?)|([0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Latitude format has error.')
-
-            // $.validator.addMethod('longCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((0?[8-9][0-9])|180|([0-1]?[0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Longitude format has error.')
-            $("#property-form").validationEngine('attach', {
-                promptPosition : "inline", 
-                scroll: false
-            });
-
-            $("[class^='step-']").addClass("d-none");
-            $(".step-1").removeClass("d-none");
-
             // calculations();
-            new_calculations();
+            calculationsInvestor();
         });  
 
-        $("#square_footage, #other_home_condition_value, #investment_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations();
-        });
-
-        $("#estimated_repair_cost, #arv_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations1() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations1();
-        });
-
-        $("#brv_price, #partnership_seller").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations2() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations2();
-        });
-
-        function calculations()
-        {
-            let brv = ($("#brv_price").val() == "" ? '0' : $("#brv_price").val());
-            brv = (typeof parseInt(brv.replace(",", "")) == NaN ? 0 : parseInt(brv.replace(",", "")));
-            console.log("brv", brv);
-            let arv = ($("#arv_price").val() == "" ? '0' : $("#arv_price").val());
-            arv = (typeof parseInt(arv.replace(",", "")) == NaN ? 0 : parseInt(arv.replace(",", "")));
-            console.log("arv", arv);
-            let sqft = ($("#square_footage").val() == "" ? '0' : $("#square_footage").val());
-            sqft = (typeof parseInt(sqft.replace(",", "")) == NaN ? 0 : parseInt(sqft.replace(",", "")));
-            console.log("sqft", sqft);
-            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
-            home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : 75)));
-            console.log("home_condition_price", home_condition_price);
-            let price_per_sqft = 0;
-            if(arv != 0 && sqft != 0)
-            {
-                price_per_sqft = parseFloat((arv/sqft).toFixed(2));
-            }
-            console.log("price_per_sqft", price_per_sqft);
-
-            let cost_of_repair = 0;
-            if(sqft != 0 && home_condition_price != 0)
-            {
-                cost_of_repair = sqft * home_condition_price;
-            }
-            console.log("cost_of_repair", cost_of_repair);
-
-            let est_repair_cost = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0)
-            {
-                est_repair_cost = parseFloat((arv - ((brv + cost_of_repair) * 0.65)).toFixed(2));
-            }
-            console.log("est_repair_cost", est_repair_cost);
-
-            let seller_profit_share = parseInt(($("#partnership_seller").val() == "" ? '0' : $("#partnership_seller").val()));
-            console.log("seller_profit_share", seller_profit_share);
-
-            let investor_profit_share = 0;
-            let total_profit_share = 0;
-            if(seller_profit_share != 0)
-            {
-                investor_profit_share = 100 - seller_profit_share;
-                total_profit_share = seller_profit_share + investor_profit_share;
-            }
-            console.log("investor_profit_share", investor_profit_share);
-            console.log("total_profit_share", total_profit_share);
-
-            let increased_profit = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0 && seller_profit_share !=0)
-            {
-                increased_profit = parseFloat((arv - ((brv + cost_of_repair) * (seller_profit_share/100))).toFixed(2));
-            }
-            console.log("increased_profit", increased_profit);
-
-            let total_profit = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                total_profit = parseFloat((arv - (brv + increased_profit)).toFixed(2));
-            }
-            console.log("total_profit", total_profit);
-
-            let increased_roi = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                increased_roi = parseFloat((brv / (brv + increased_profit)).toFixed(2));
-            }
-            console.log("increased_roi", increased_roi);
-
-
-            // Set Calculated Values.
-            $("#price_per_sqft").val(numberWithCommas(price_per_sqft));
-            $("#estimated_repair_cost").val(numberWithCommas(est_repair_cost));
-            $("#partnership_investor").val(investor_profit_share);
-            $("#total_profit_share").val(total_profit_share);
-            $("#increased_profit").val(numberWithCommas(increased_profit));
-            $("#total_profit").val(numberWithCommas(total_profit));
-            $("#increased_roi").val(numberWithCommas(increased_roi));
+        function calcERC() {
+            // Get Square|_footage
+            let sqr_ft_b4 = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+            sqr_ft_b4 = str2Float(sqr_ft_b4);
             
+            // Get Home Condition type.
+            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+            console.log("home_condition", home_condition);
+
+            // Get Home Condition Price
+            let home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : (parseInt(home_condition) == 3 ? 75 : parseFloat(Number($("#other_home_condition_value").val()).toFixed(2))))));
+
+            if(sqr_ft_b4 != 0 && home_condition_price != 0) {
+                let estimated_repair_cost_b10 = sqr_ft_b4 * home_condition_price;
+
+                $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_b10));
+                calculationsInvestor();
+            }
         }
+
+        $('.erc-calc-trigger').on("keyup", function(){
+            calcERC();
+        });
+
+        $('.calc-trigger').on("keyup", function(){
+            calculationsInvestor();
+        });
 
         $(".btn-next-form").click(function(){
             console.log($(this).attr("data-current-active"));
@@ -1161,23 +737,6 @@
                 e.preventDefault();
             }
         });
-
-        $(".seller_profit_share #partnership_seller").on("change", function(){
-            console.log($(this).val());
-            let seller = parseInt($(this).val());
-            let investor = 100 - seller;
-            $("#partnership_investor").val(investor);
-            $("#total_profit_share").val(seller + investor);
-        });
-
-        $(".seller_profit_share #partnership_investor").on("change", function(){
-            console.log($(this).val());
-            let investor = parseInt($(this).val());
-            let seller = 100 - investor;
-            $("#partnership_seller").val(seller);
-            $("#total_profit_share").val(seller + investor);
-        });
-
         
         $("select[name=state]").on('change', function(){
             state_name = $(this).find("option:selected").text();
@@ -1319,10 +878,11 @@
                     $("#other_home_condition_value").val("0");
                 }
                 // calculations();
-                new_calculations();
+                calcERC();
             }
         });
     </script>
+    <script src="{{ URL::asset('assets/front_end/js/global.js') }}"></script>
     <script src="{{ URL::asset('assets/front_end/js/add-property-calculation.js') }}"></script>
 
       
