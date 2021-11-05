@@ -1,340 +1,6 @@
 @extends('layouts.whole-seller-layout')
 @section('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style media="screen">
-    .form-page {
-        padding: 50px;
-        background-color: #ffffff;
-    }
-    .form-content h2 {
-        font-family: Campton-Bold;
-        font-size: 32px;
-        color: #2C3B54;
-    }
-    .form-content .property-icon {
-        height: 50px;
-        width: 65px;
-        background-image: url("/assets/front_end/img/seller/add_property/property_icon.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-right: 10px;
-        display:inline-block;
-    }
-
-    .step-1, .step-2, .step-3 {
-        padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px;
-    }
-    #new-property-form {
-        /* padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px; */
-    }
-    #new-property-form .form-group label, #new-property-form .form-group input {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-    #new-property-form .form-group label{
-        text-transform: capitalize;
-    }
-    #new-property-form select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-    }
-    #new-property-form .dropdown-icon {
-        position: absolute;
-        right: 14px;
-        top: 14px;
-        pointer-events: none;
-    }
-    #new-property-form  select::-ms-expand {
-        display: none;
-    }
-    #new-property-form .form-group input {
-        padding: 10px 15px;
-        border-radius: 9px;
-    }
-    #new-property-form .dropdown-select {
-        position: relative;
-    }
-    #new-property-form select.form-control:not([size]):not([multiple]) {
-        
-        border-radius: 10px;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-        cursor: pointer;
-    } 
-    #new-property-form .form-group {
-        margin-bottom: 9px;
-    }
-    .sale-div h6 {
-        color: #707070;
-        font-family: Campton-Bold;
-        font-size: 24px;
-    }
-    .yes a, .no a {
-        display: flex;
-        align-items: center;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-    }
-    .yesIcon, .noIcon {
-        height: 40px;
-        width: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    .yesIcon { background-image: url("/assets/front_end/img/seller/add_property/yes-icon.png"); }
-    .noIcon { background-image: url("/assets/front_end/img/seller/add_property/no-icon.png"); }
-    .next-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-    .previous-form-btn {
-        left: 83px !important;
-        transform-origin: left center;
-        transform: rotate(180deg);
-        bottom: 15px;
-    }
-
-    .submit-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-
-    .next-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .btn-sumit-form {
-        height: 50px;
-        margin-top: 20px;
-        display:inline-block;
-        cursor: pointer;
-        background-color: #44a494;
-        color: white;
-        font-weight: bold;
-    }
-
-    .prev-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        left: 83px !important;
-        
-        transform: rotate(180deg);
-        bottom: 15px;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .sale-div [type=radio] { 
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* IMAGE STYLES */
-    .sale-div [type=radio] + img {
-    cursor: pointer;
-    }
-
-    /* CHECKED STYLES */
-    .sale-div [type=radio]:checked + img {
-    outline: 2px solid #a8d3cc;
-    }
-
-    .sale-div img{
-        height: 40px;
-    }
-
-    .d-none {
-        display: none;
-    }
-
-    .d-flex {
-        display: flex;
-    }
-
-    .home-condition h4 {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-
-    .home-condition div .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home-condition div .container input[type=checkbox] {
-        transform: scale(2.5);
-        margin-top: 20px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    #new-property-form .form-group label {
-        white-space: nowrap;
-    }
-
-    .home-condition div .container input[type=checkbox]:checked:after {
-        display: block;
-    }
-
-    .home-condition div .container input[type=checkbox]::after {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 50%;
-        left: 50%;
-        height: 50%;
-        width: 50%;
-        background-image: url("/assets/front_end/img/seller/add_property/cross.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        display: none;
-    }
-
-    .home-condition div .container input[type=checkbox]::before {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        border-radius: 2px;
-        border: 1px solid #ced4da;
-    }
-
-    .step-4 .best-deal {
-        height: 60px;
-        width: 240px;
-        background-image: url("/assets/front_end/img/seller/add_property/bestdeal.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-left: 30px;
-        display: inline-block;
-    }
-
-    .step-4 .row-bg-color {
-        background-color: #f6fcfc !important;
-        border-radius: 15px;
-        z-index: 1;
-        border: 1px solid #ced4da;
-        padding-bottom: 12px;
-    }
-
-    .step-4 .align-items-end {
-        -webkit-box-align: end!important;
-        -ms-flex-align: end!important;
-        align-items: flex-end!important;
-    }
-
-    .step-4 .flex-column {
-        -webkit-box-orient: vertical!important;
-        -webkit-box-direction: normal!important;
-        -ms-flex-direction: column!important;
-        flex-direction: column!important;
-    }
-
-    .form-row {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -5px;
-        margin-left: -5px;
-    }
-    .ml-4, .mx-4 {
-        margin-left: 1.5rem!important;
-    }
-
-    .mt-4 {
-        margin-top: 1.5rem!important;
-    }
-
-    .mt-5 {
-        margin-top: 3rem!important;
-    }
-
-    .mb-5 {
-        margin-bottom: 3rem!important;
-    }
-
-    #new-property-form .form-group input {
-        padding: 5px 15px;
-        border-radius: 9px;
-    }
-
-    .step-4 .charts-row h4 {
-        font-family: Campton-SemiBold !important;
-        font-size: 26px;
-    }
-
-    .align-items-center {
-        display: flex;
-        align-items: center;
-    }
-
-    .aminities input[type=checkbox] {
-        height: 20px;
-        width: 20px;
-        margin: 0px;
-        float: left;
-    }
-
-    .aminities .amenities_label {
-        vertical-align: top;
-        margin-left: 5px;
-    }
-
-    .font-20 {
-        font-size: 20px;
-    }
-
-    .font-15 {
-        font-size: 15px;
-    }
-
-    .input-group-addon {
-        background-color: #eee !important;
-        border: 1px solid #ccc !important;
-    }
-    
-
-    @media (min-width: 500px) {
-        .home-condition {
-            flex-wrap: wrap;
-        }
-    }
-  </style>
-
 @endsection
 @section('body')
 <div id="" class="seller_detail min_height_974px">
@@ -357,7 +23,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 form-content">
-                            <h2 class="text-capitalize pl-4"><span class="property-icon"></span><?php echo (app('request')->input('pid') !== null ? "Edit Property:".app('request')->input('pid') : "Add new property New")  ?></h2>
+                            <h2 class="text-capitalize pl-4"><span class="property-icon"></span><?php echo (app('request')->input('pid') !== null ? "Edit Property:".app('request')->input('pid') : "Add new property")  ?></h2>
                             <form action="{{ route('SellerStoreProerpty') }}" method="post" id="property-form" class="mt-4" enctype="multipart/form-data">
                             @csrf
                             <input type='hidden' name='phase' value='{{$redirect_var}}'>
@@ -621,7 +287,7 @@
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-6">
                                             <label for="">Sqr.Ft*</label> <br>
-                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             <small class="text-danger">{{ $errors->first('square_footage') }}</small>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -669,11 +335,11 @@
                                                     </div>
                                                     @if($details->home_condition == '4')
                                                         <div class="form-group col-md-offset-10 col-md-2 other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                         </div>
                                                     @else
                                                         <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                         </div>
                                                     @endif
                                                 @else
@@ -702,7 +368,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                                     </div>
                                                 @endif
                                             <!-- </div>
@@ -714,7 +380,7 @@
                                             <label for="">Estimated Repair Cost* <i class="fa fa-info-circle" title="Estimated cost of all of the repairs required to maximize the sale price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('estimated_repair_cost') }}</small>
                                         </div>
@@ -722,7 +388,7 @@
                                             <label for="">Estimated After Renovation Value (ARV)* <i class="fa fa-info-circle" title="This the value the home could sell for once the home has been renovated to the expected level. This will be potentially the list price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='arv_price' id='arv_price' value='{{$details->arv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
@@ -730,7 +396,7 @@
                                             <label for="">70% Rule* <i class="fa fa-info-circle" title="This rule is used for valuation, choose a value between 50-80%"></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
-                                                <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage ?? "70"}}' class='form-control  validate[min[50],max[90]]'>
+                                                <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage ?? "70"}}' class='form-control  validate[min[50],max[90]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
@@ -746,7 +412,7 @@
                                             <label for="holding_cost">Holding Cost*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name="holding_cost" id="holding_cost" value='{{$details->holding_cost ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                                <input type="text" name="holding_cost" id="holding_cost" value='{{$details->holding_cost ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('holding_cost') }}</small>
                                         </div>
@@ -754,7 +420,7 @@
                                             <label for="seller">Resale Fees*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" id="resale_fees" name="resale_fees" value='{{$details->resale_fees ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                                <input type="text" id="resale_fees" name="resale_fees" value='{{$details->resale_fees ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('resale_fees') }}</small>
                                         </div>
@@ -763,7 +429,7 @@
                                             <label for="investor">Loan Cost*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name="loan_cost" id="loan_cost" value='{{$details->loan_cost ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                                <input type="text" name="loan_cost" id="loan_cost" value='{{$details->loan_cost ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('loan_cost') }}</small>
                                         </div>
@@ -780,7 +446,7 @@
                                             <label for="">Maximum Offer Price to Seller* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input readonly type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]' onKeyup="getShareAmount()">
+                                                <input readonly type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
                                             </div>
 
                                             <small class="text-danger">{{ $errors->first('brv_price') }}</small>
@@ -804,7 +470,7 @@
                                             <label for="seller">Wholesaler Fee*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
-                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' class="form-control validate[required,maxSize[2]]" onKeyup="getShareAmount()">
+                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' class="form-control validate[required,maxSize[2]] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
                                         </div>
@@ -1057,41 +723,19 @@
 
             });
 
-            getShareAmount();
             let partnerUp = $('input[type=radio][name=partner_up]:checked').val();
             if(partnerUp == 0)
             {
                 $('.partner_up_row').hide();
             }
 
-            // calculationsWholesaler();
-            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
             calculationsWholesaler();
         });  
 
-        $("#square_footage, #other_home_condition_value, #investment_price").on("keyup", function(){
-            // calculationsWholesaler();
-            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
+        $('.calc-trigger').on("keyup", function(){
             calculationsWholesaler();
         });
-
-        $("#rule_percentage").on('change',function(){
-            calculationsWholesaler();
-        });
-
-        $("#estimated_repair_cost, #arv_price, #holding_cost, #resale_fees, #loan_cost").on("keyup", function(){
-            // calculationsWholesaler();
-            // The below function new_calculations1() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-
-            calculationsWholesaler();
-        });
-
-        $("#brv_price, #partnership_seller").on("keyup", function(){
-            // calculationsWholesaler();
-            // The below function new_calculations2() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            calculationsWholesaler();
-        });        
-
+        
         $(".btn-next-form").click(function(){
             console.log($(this).attr("data-current-active"));
             let active_form = parseInt($(this).attr("data-current-active")) + 1;
@@ -1173,22 +817,6 @@
             {
                 e.preventDefault();
             }
-        });
-
-        $(".seller_profit_share #partnership_seller").on("change", function(){
-            console.log($(this).val());
-            let seller = parseInt($(this).val());
-            let investor = 100 - seller;
-            $("#partnership_investor").val(investor);
-            $("#total_profit_share").val(seller + investor);
-        });
-
-        $(".seller_profit_share #partnership_investor").on("change", function(){
-            console.log($(this).val());
-            let investor = parseInt($(this).val());
-            let seller = 100 - investor;
-            $("#partnership_seller").val(seller);
-            $("#total_profit_share").val(seller + investor);
         });
 
         

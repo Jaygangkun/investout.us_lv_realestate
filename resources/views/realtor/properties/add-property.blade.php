@@ -1,6 +1,6 @@
-@extends('layouts.realtor-layout')
+@extends('layouts.whole-seller-layout')
 @section('style')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style media="screen">
     .form-page {
         padding: 50px;
@@ -357,7 +357,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 form-content">
-                            <h2 class="text-capitalize pl-4"><span class="property-icon"></span><?php echo (app('request')->input('pid') !== null ? "Edit Property:".app('request')->input('pid') : "Add new property")  ?></h2>
+                            <h2 class="text-capitalize pl-4"><span class="property-icon"></span><?php echo (app('request')->input('pid') !== null ? "Edit Property:".app('request')->input('pid') : "Add new property New")  ?></h2>
                             <form action="{{ route('SellerStoreProerpty') }}" method="post" id="property-form" class="mt-4" enctype="multipart/form-data">
                             @csrf
                             <input type='hidden' name='phase' value='{{$redirect_var}}'>
@@ -524,7 +524,8 @@
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
+                                        <input type="hidden" name="for_sale" id="" value="0">
+                                        <!-- <div class="form-group col-md-6">
                                             <div class="">
                                                 <label for="">For Sale</label> <br>
                                                 <label class="radio-inline">
@@ -551,9 +552,30 @@
                                                 </label>
                                                 <small class="text-danger">{{ $errors->first('for_sale') }}</small>
                                             </div>
+                                        </div> -->
+                                        <div class="form-group col-md-3">
+                                            <label for="contract_start">Contract Start</label> <br>
+                                            <div class="input-group date" data-provide="datepicker">
+
+                                                <input type="text" class="form-control" id="contract_start" name="contract_start" value="{{\Carbon\Carbon::parse($edit_properties->contract_start ?? '')->format('m/d/Y')}}">
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="contract_end">Contract End</label> <br>
+                                            <div class="input-group date" data-provide="datepicker">
+
+                                                <input type="text" class="form-control "  id="contract_end" name="contract_end" value="{{\Carbon\Carbon::parse($edit_properties->contract_end ?? '')->format('m/d/Y')}}">
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-row">
+                                    <input type="hidden" name='investment_price' id='investment_price' value='{{$details->investment_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                    <!-- <div class="form-row">
                                         <div class="form-group col-md-6 for_sale_row">
                                             <label for="">Ask Price*</label> <br>
                                             <div class="input-group">
@@ -563,113 +585,11 @@
                                             
                                             <small class="text-danger">{{ $errors->first('investment_price') }}</small>
                                         </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <h3><b>Images</b></h3>
-                                            <label class="filename_label" for="filename">Select Property Images</label>
-                                            <input type="file" id="filename" name="filename[]" class="form-control" multiple>
-                                            <small class="text-danger">{{ $errors->first('filename') }}</small>
-                                            <div id="gallery-img"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row aminities">
-                                        <div class="col-md-12">
-                                            <h3><b>Amenities</b></h3>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="burglar_alarm">Burglar Alarm</label>
-                                            <input type="checkbox" name='burglar_alarm' value="1" @isset($items) {{$items->burglar_alarm == 1 ? 'checked' : ''}} @endisset id="burglar_alarm">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="smoke_detector">Smoke Detector</label>
-                                            <input type="checkbox" name='smoke_detector' value="1"  @isset($items) {{$items->smoke_detector == 1 ? 'checked' : ''}} @endisset id='smoke_detector'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="fire_alarm">Fire Alarm</label>
-                                            <input type="checkbox" name='fire_alarm' value="1" @isset($items) {{$items->fire_alarm == 1 ? 'checked' : ''}} @endisset id='fire_alarm'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="central_air">Central Air</label>
-                                            <input type="checkbox" name='central_air' value="1"  @isset($items) {{$items->central_air == 1 ? 'checked' : ''}} @endisset id='central_air'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="central_heating">Central Heating</label>
-                                            <input type="checkbox" name='central_heating' value="1"  @isset($items) {{$items->central_heating == 1 ? 'checked' : ''}} @endisset id='central_heating'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="window_ac">Window AC</label>
-                                            <input type="checkbox" name='window_ac' value="1"  @isset($items) {{$items->window_ac == 1 ? 'checked' : ''}} @endisset id='window_ac'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="dishwasher">Dishwasher</label>
-                                            <input type="checkbox" name='dishwasher' value="1"  @isset($items) {{$items->dishwasher == 1 ? 'checked' : ''}} @endisset id='dishwasher'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="trash_compactor">Trash Compactor</label>
-                                            <input type="checkbox" name='trash_compactor' value="1"  @isset($items) {{$items->trash_compactor == 1 ? 'checked' : ''}} @endisset id='trash_compactor'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="garbage_disposal">Garbage Disposal</label>
-                                            <input type="checkbox" name='garbage_disposal' value="1"  @isset($items) {{$items->garbage_disposal == 1 ? 'checked' : ''}} @endisset id='garbage_disposal'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="oven">Oven</label>
-                                            <input type="checkbox" name='oven' value="1"  @isset($items) {{$items->oven == 1 ? 'checked' : ''}} @endisset id='oven'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="microwave">Microwave</label>
-                                            <input type="checkbox" name='microwave' value="1"  @isset($items) {{$items->microwave == 1 ? 'checked' : ''}} @endisset id='microwave'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="tv_antenna">TV Antenna</label>
-                                            <input type="checkbox" name='tv_antenna' value="1"  @isset($items) {{$items->tv_antenna == 1 ? 'checked' : ''}} @endisset id='tv_antenna'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="satelite_dish">Satelite Dish</label>
-                                            <input type="checkbox" name='satelite_dish' value="1"  @isset($items) {{$items->satelite_dish == 1 ? 'checked' : ''}} @endisset id='satelite_dish'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="intercom_system">Intercom System</label>
-                                            <input type="checkbox" name='intercom_system' value="1"  @isset($items) {{$items->intercom_system == 1 ? 'checked' : ''}} @endisset id='intercom_system'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="pool">Pool</label>
-                                            <input type="checkbox" name='pool' value="1"  @isset($items) {{$items->pool == 1 ? 'checked' : ''}} @endisset id='pool'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="washer_dryer">Washer Dryer</label>
-                                            <input type="checkbox" name='washer_dryer' value="1"  @isset($items) {{$items->washer_dryer == 1 ? 'checked' : ''}} @endisset id='washer_dryer'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="hot_tub">Hot Tub</label>
-                                            <input type="checkbox" name='hot_tub' value="1"  @isset($items) {{$items->hot_tub == 1 ? 'checked' : ''}} @endisset id='hot_tub'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="washer">Washer</label>
-                                            <input type="checkbox" name='washer' value="1"  @isset($items) {{$items->washer == 1 ? 'checked' : ''}} @endisset id='washer'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="dryer">Dryer</label>
-                                            <input type="checkbox" name='dryer' value="1"  @isset($items) {{$items->dryer == 1 ? 'checked' : ''}} @endisset id='dryer'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="refrigerator">Refrigerator</label>
-                                            <input type="checkbox" name='refrigerator' value="1"  @isset($items) {{$items->refrigerator == 1 ? 'checked' : ''}} @endisset id='refrigerator'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="pool_barrier">Pool Barrier</label>
-                                            <input type="checkbox" name='pool_barrier' value="1"  @isset($items) {{$items->pool_barrier == 1 ? 'checked' : ''}} @endisset id='pool_barrier'>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="amenities_label" for="safety_cover_hottub">Safety Cover Hottub</label>
-                                            <input type="checkbox" name='safety_cover_hottub' value="1"  @isset($items) {{$items->safety_cover_hottub == 1 ? 'checked' : ''}} @endisset id='safety_cover_hottub'>
-                                        </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="step-2">
                                     <div class="form-row">
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12 d-none">
                                             <div class="">
                                                 <label for="" class="font-20">Partner Up</label> <br>
                                                 <label class="radio-inline font-15">
@@ -790,7 +710,7 @@
                                     </div>
                                     <hr class="partner_up_row">
                                     <div class="form-row partner_up_row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="">Estimated Repair Cost* <i class="fa fa-info-circle" title="Estimated cost of all of the repairs required to maximize the sale price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
@@ -798,7 +718,7 @@
                                             </div>
                                             <small class="text-danger">{{ $errors->first('estimated_repair_cost') }}</small>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="">Estimated After Renovation Value (ARV)* <i class="fa fa-info-circle" title="This the value the home could sell for once the home has been renovated to the expected level. This will be potentially the list price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
@@ -806,42 +726,48 @@
                                             </div>
                                             <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
-                                    </div>
-
-                                    <div class="form-row partner_up_row">
-                                        <div class="form-group col-md-6">
-                                            <label for="">Before Renovation Value (BRV)* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
+                                        <div class="form-group col-md-4">
+                                            <label for="">70% Rule* <i class="fa fa-info-circle" title="This rule is used for valuation, choose a value between 50-80%"></i></label> <br>
                                             <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage ?? "70"}}' class='form-control  validate[min[50],max[90]]'>
                                             </div>
-                                            
-                                            <small class="text-danger">{{ $errors->first('brv_price') }}</small>
+                                            <small class="text-danger">{{ $errors->first('arv_price') }}</small>
                                         </div>
                                     </div>
 
-                                    
+
+
                                     <div class="form-row seller_profit_share partner_up_row">
                                         <div class="col-md-12">
-                                            <h3 class="text-capitalize"><b>%Profit Share</b></h3>
+                                            <h3 class="text-capitalize"><b>Fees & Costs</b></h3>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="seller">Seller*</label>
+                                            <label for="holding_cost">Holding Cost*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' id="partnership_seller" class="form-control validate[required,maxSize[2]]">
-                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" name="holding_cost" id="holding_cost" value='{{$details->holding_cost ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
                                             </div>
-                                            <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
+                                            <small class="text-danger">{{ $errors->first('holding_cost') }}</small>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="investor">Investor*</label>
+                                            <label for="seller">Resale Fees*</label>
                                             <div class="input-group">
-                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]]" readOnly>
-                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" id="resale_fees" name="resale_fees" value='{{$details->resale_fees ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
                                             </div>
-                                            <small class="text-danger">{{ $errors->first('partnership_investor') }}</small>
+                                            <small class="text-danger">{{ $errors->first('resale_fees') }}</small>
                                         </div>
+
                                         <div class="form-group col-md-4">
+                                            <label for="investor">Loan Cost*</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" name="loan_cost" id="loan_cost" value='{{$details->loan_cost ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('loan_cost') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-4" style="display: none;">
                                             <label for="investor">Total</label>
                                             <div class="input-group">
                                                 <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" disabled placeholder="Calculated">
@@ -850,6 +776,199 @@
                                         </div>
                                     </div>
                                     <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Maximum Offer Price to Seller* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input readonly type="text" name='brv_price' id='brv_price' value='{{$details->brv_price ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]' onKeyup="getShareAmount()">
+                                            </div>
+
+                                            <small class="text-danger">{{ $errors->first('brv_price') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-6" style="display: none;">
+                                            <label for="">Gross Profit <i class="fa fa-info-circle" title="This is gross profit amount."></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" name='gross_profit' id='gross_profit' value='{{$details->gross_profit ?? "0"}}'  readonly class='amountComma form-control amountComma'>
+                                            </div>
+
+                                            <small class="text-danger">{{ $errors->first('gross_profit') }}</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row seller_profit_share partner_up_row">
+                                        <div class="col-md-12">
+                                            <h3 class="text-capitalize"><b>%Profit Share</b></h3>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="seller">Wholesaler Fee*</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' class="form-control validate[required,maxSize[2]]" onKeyup="getShareAmount()">
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="seller">Wholesaler Profit</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input readonly type="text" id="partnership_seller_price" name="wholeseller_profit" value='{{$details->partnership_seller ?? "0"}}' class="amountComma form-control validate[required]">
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-4" style="display: none;">
+                                            <label for="investor">Investor*</label>
+                                            <div class="input-group">
+                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]]" readOnly>
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                            </div>
+                                            <small class="text-danger">{{ $errors->first('partnership_investor') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-4" style="display: none;">
+                                            <label for="investor">Total</label>
+                                            <div class="input-group">
+                                                <input type="text" name="total_profit_share" id="total_profit_share" id="total_profit_share" class="form-control validate[required]" disabled placeholder="Calculated">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Asking Price to Investor* <i class="fa fa-info-circle" title="This the amount the homeowner is guaranteed to receive after the home has been renovated and sold. Regardless of how much additional value was created in the home due to the renovation, the homeowner will receive this, the BRV amount."></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" name='investor_asking' id='investor_asking' value='{{$details->investor_asking ?? "0"}}' class='form-control amountComma' readonly>
+                                            </div>
+
+                                            <small class="text-danger">{{ $errors->first('investor_asking') }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row partner_up_row">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Investor's Projected Profit* <i class="fa fa-info-circle" title="This the investors projected profit."></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                                <input type="text" name='investor_projected_profit' id='investor_projected_profit' value='{{$details->investor_projected_profit ?? "0"}}' class='form-control amountComma' readonly>
+                                            </div>
+
+                                            <small class="text-danger">{{ $errors->first('investor_projected_profit') }}</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Investor's Return On Investment* <i class="fa fa-info-circle" title="Investors return on investment"></i></label> <br>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon1">%</span>
+                                                <input type="text" name='investor_roi' id='investor_roi' value='{{$details->investor_roi ?? "0"}}' class='form-control amountComma' readonly>
+                                            </div>
+
+                                            <small class="text-danger">{{ $errors->first('investor_roi') }}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <h3><b>Images</b></h3>
+                                            <label class="filename_label" for="filename">Select Property Images</label>
+                                            <input type="file" id="filename" name="filename[]" class="form-control" multiple>
+                                            <small class="text-danger">{{ $errors->first('filename') }}</small>
+                                            <div id="gallery-img"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row aminities">
+                                        <div class="col-md-12">
+                                            <h3><b>Amenities</b></h3>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="burglar_alarm">Burglar Alarm</label>
+                                            <input type="checkbox" name='burglar_alarm' value="1" @isset($items) {{$items->burglar_alarm == 1 ? 'checked' : ''}} @endisset id="burglar_alarm">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="smoke_detector">Smoke Detector</label>
+                                            <input type="checkbox" name='smoke_detector' value="1"  @isset($items) {{$items->smoke_detector == 1 ? 'checked' : ''}} @endisset id='smoke_detector'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="fire_alarm">Fire Alarm</label>
+                                            <input type="checkbox" name='fire_alarm' value="1" @isset($items) {{$items->fire_alarm == 1 ? 'checked' : ''}} @endisset id='fire_alarm'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="central_air">Central Air</label>
+                                            <input type="checkbox" name='central_air' value="1"  @isset($items) {{$items->central_air == 1 ? 'checked' : ''}} @endisset id='central_air'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="central_heating">Central Heating</label>
+                                            <input type="checkbox" name='central_heating' value="1"  @isset($items) {{$items->central_heating == 1 ? 'checked' : ''}} @endisset id='central_heating'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="window_ac">Window AC</label>
+                                            <input type="checkbox" name='window_ac' value="1"  @isset($items) {{$items->window_ac == 1 ? 'checked' : ''}} @endisset id='window_ac'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="dishwasher">Dishwasher</label>
+                                            <input type="checkbox" name='dishwasher' value="1"  @isset($items) {{$items->dishwasher == 1 ? 'checked' : ''}} @endisset id='dishwasher'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="trash_compactor">Trash Compactor</label>
+                                            <input type="checkbox" name='trash_compactor' value="1"  @isset($items) {{$items->trash_compactor == 1 ? 'checked' : ''}} @endisset id='trash_compactor'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="garbage_disposal">Garbage Disposal</label>
+                                            <input type="checkbox" name='garbage_disposal' value="1"  @isset($items) {{$items->garbage_disposal == 1 ? 'checked' : ''}} @endisset id='garbage_disposal'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="oven">Oven</label>
+                                            <input type="checkbox" name='oven' value="1"  @isset($items) {{$items->oven == 1 ? 'checked' : ''}} @endisset id='oven'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="microwave">Microwave</label>
+                                            <input type="checkbox" name='microwave' value="1"  @isset($items) {{$items->microwave == 1 ? 'checked' : ''}} @endisset id='microwave'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="tv_antenna">TV Antenna</label>
+                                            <input type="checkbox" name='tv_antenna' value="1"  @isset($items) {{$items->tv_antenna == 1 ? 'checked' : ''}} @endisset id='tv_antenna'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="satelite_dish">Satelite Dish</label>
+                                            <input type="checkbox" name='satelite_dish' value="1"  @isset($items) {{$items->satelite_dish == 1 ? 'checked' : ''}} @endisset id='satelite_dish'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="intercom_system">Intercom System</label>
+                                            <input type="checkbox" name='intercom_system' value="1"  @isset($items) {{$items->intercom_system == 1 ? 'checked' : ''}} @endisset id='intercom_system'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="pool">Pool</label>
+                                            <input type="checkbox" name='pool' value="1"  @isset($items) {{$items->pool == 1 ? 'checked' : ''}} @endisset id='pool'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="washer_dryer">Washer Dryer</label>
+                                            <input type="checkbox" name='washer_dryer' value="1"  @isset($items) {{$items->washer_dryer == 1 ? 'checked' : ''}} @endisset id='washer_dryer'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="hot_tub">Hot Tub</label>
+                                            <input type="checkbox" name='hot_tub' value="1"  @isset($items) {{$items->hot_tub == 1 ? 'checked' : ''}} @endisset id='hot_tub'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="washer">Washer</label>
+                                            <input type="checkbox" name='washer' value="1"  @isset($items) {{$items->washer == 1 ? 'checked' : ''}} @endisset id='washer'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="dryer">Dryer</label>
+                                            <input type="checkbox" name='dryer' value="1"  @isset($items) {{$items->dryer == 1 ? 'checked' : ''}} @endisset id='dryer'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="refrigerator">Refrigerator</label>
+                                            <input type="checkbox" name='refrigerator' value="1"  @isset($items) {{$items->refrigerator == 1 ? 'checked' : ''}} @endisset id='refrigerator'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="pool_barrier">Pool Barrier</label>
+                                            <input type="checkbox" name='pool_barrier' value="1"  @isset($items) {{$items->pool_barrier == 1 ? 'checked' : ''}} @endisset id='pool_barrier'>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="amenities_label" for="safety_cover_hottub">Safety Cover Hottub</label>
+                                            <input type="checkbox" name='safety_cover_hottub' value="1"  @isset($items) {{$items->safety_cover_hottub == 1 ? 'checked' : ''}} @endisset id='safety_cover_hottub'>
+                                        </div>
+                                    </div>
+                                    <div class="form-row partner_up_row" style="display: none;">
                                         <div class="form-group col-md-4">
                                             <label for="">Seller's Total Profit </label> <br>
                                             <div class="input-group">
@@ -857,7 +976,7 @@
                                                 <input type="text" id='increased_profit' name='increased_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>  
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-4" style="display: none;">
                                             <label for="">Seller's Profit Increase </label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
@@ -865,7 +984,7 @@
                                                 <input type="hidden" id='total_profit' name='total_profit' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-4" style="display: none;">
                                             <label for="">Increasd ROI </label> <br>
                                             <div class="input-group">
                                                 <input type="text" id='increased_roi' name='increased_roi' value='0' class='form-control amountComma validate[maxSize[10]]' readOnly>
@@ -922,6 +1041,7 @@
 <!-- include summernote css/js -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Font Awesome JS -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
@@ -930,154 +1050,47 @@
 <script src="{{ URL::asset('assets/front_end/js/chartjs-plugin-datalabels.js') }}"></script>
 
     <script>
-
-        function numberWithCommas(number) {
-            var parts = number.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
-        }
-        $(".amountComma").on('keyup', function(){
-            var num = $(this).val().replace(/,/g , '');
-            num = num.replace(/[^0-9.]/g,'');
-            var commaNum = numberWithCommas(num);
-            $(this).val(commaNum);
-        });
-
         $(document).ready(function() {
 
+            $('.datepicker').datepicker({
+                format: 'mm/dd/yyyy'
+
+            });
+
+            getShareAmount();
             let partnerUp = $('input[type=radio][name=partner_up]:checked').val();
             if(partnerUp == 0)
             {
                 $('.partner_up_row').hide();
             }
 
-            $(".amountComma").each(function() {
-                var num = $(this).val();
-                var commaNum = numberWithCommas(num);
-                $(this).val(commaNum);
-            });
-
-            $('.content').summernote();
-            $('.textbelow').summernote(); +
-            // $.validator.addMethod('latCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((8[0-5]?)|([0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Latitude format has error.')
-
-            // $.validator.addMethod('longCoord', function(value, element) {
-            //     return this.optional(element) ||
-            //     value.length >= 4 && /^(?=.)-?((0?[8-9][0-9])|180|([0-1]?[0-7]?[0-9]))?(?:\.[0-9]{1,20})?$/.test(value);
-            // }, 'Your Longitude format has error.')
-            $("#property-form").validationEngine('attach', {
-                promptPosition : "inline", 
-                scroll: false
-            });
-
-            $("[class^='step-']").addClass("d-none");
-            $(".step-1").removeClass("d-none");
-
-            // calculations();
-            new_calculations();
+            // calculationsWholesaler();
+            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
+            calculationsWholesaler();
         });  
 
         $("#square_footage, #other_home_condition_value, #investment_price").on("keyup", function(){
-            // calculations();
-            // The below function new_calculations() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations();
+            // calculationsWholesaler();
+            // The below function new_calculationsWholesaler() is located into "public/assets/front_end/js/add-property-calculation.js" file.
+            calculationsWholesaler();
         });
 
-        $("#estimated_repair_cost, #arv_price").on("keyup", function(){
-            // calculations();
+        $("#rule_percentage").on('change',function(){
+            calculationsWholesaler();
+        });
+
+        $("#estimated_repair_cost, #arv_price, #holding_cost, #resale_fees, #loan_cost").on("keyup", function(){
+            // calculationsWholesaler();
             // The below function new_calculations1() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations1();
+
+            calculationsWholesaler();
         });
 
         $("#brv_price, #partnership_seller").on("keyup", function(){
-            // calculations();
+            // calculationsWholesaler();
             // The below function new_calculations2() is located into "public/assets/front_end/js/add-property-calculation.js" file.
-            new_calculations2();
-        });
-
-        function calculations()
-        {
-            let brv = ($("#brv_price").val() == "" ? '0' : $("#brv_price").val());
-            brv = (typeof parseInt(brv.replace(",", "")) == NaN ? 0 : parseInt(brv.replace(",", "")));
-            console.log("brv", brv);
-            let arv = ($("#arv_price").val() == "" ? '0' : $("#arv_price").val());
-            arv = (typeof parseInt(arv.replace(",", "")) == NaN ? 0 : parseInt(arv.replace(",", "")));
-            console.log("arv", arv);
-            let sqft = ($("#square_footage").val() == "" ? '0' : $("#square_footage").val());
-            sqft = (typeof parseInt(sqft.replace(",", "")) == NaN ? 0 : parseInt(sqft.replace(",", "")));
-            console.log("sqft", sqft);
-            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
-            home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : 75)));
-            console.log("home_condition_price", home_condition_price);
-            let price_per_sqft = 0;
-            if(arv != 0 && sqft != 0)
-            {
-                price_per_sqft = parseFloat((arv/sqft).toFixed(2));
-            }
-            console.log("price_per_sqft", price_per_sqft);
-
-            let cost_of_repair = 0;
-            if(sqft != 0 && home_condition_price != 0)
-            {
-                cost_of_repair = sqft * home_condition_price;
-            }
-            console.log("cost_of_repair", cost_of_repair);
-
-            let est_repair_cost = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0)
-            {
-                est_repair_cost = parseFloat((arv - ((brv + cost_of_repair) * 0.65)).toFixed(2));
-            }
-            console.log("est_repair_cost", est_repair_cost);
-
-            let seller_profit_share = parseInt(($("#partnership_seller").val() == "" ? '0' : $("#partnership_seller").val()));
-            console.log("seller_profit_share", seller_profit_share);
-
-            let investor_profit_share = 0;
-            let total_profit_share = 0;
-            if(seller_profit_share != 0)
-            {
-                investor_profit_share = 100 - seller_profit_share;
-                total_profit_share = seller_profit_share + investor_profit_share;
-            }
-            console.log("investor_profit_share", investor_profit_share);
-            console.log("total_profit_share", total_profit_share);
-
-            let increased_profit = 0;
-            if(arv != 0 && brv != 0 && cost_of_repair != 0 && seller_profit_share !=0)
-            {
-                increased_profit = parseFloat((arv - ((brv + cost_of_repair) * (seller_profit_share/100))).toFixed(2));
-            }
-            console.log("increased_profit", increased_profit);
-
-            let total_profit = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                total_profit = parseFloat((arv - (brv + increased_profit)).toFixed(2));
-            }
-            console.log("total_profit", total_profit);
-
-            let increased_roi = 0;
-            if(arv != 0 && brv != 0 && increased_profit)
-            {
-                increased_roi = parseFloat((brv / (brv + increased_profit)).toFixed(2));
-            }
-            console.log("increased_roi", increased_roi);
-
-
-            // Set Calculated Values.
-            $("#price_per_sqft").val(numberWithCommas(price_per_sqft));
-            $("#estimated_repair_cost").val(numberWithCommas(est_repair_cost));
-            $("#partnership_investor").val(investor_profit_share);
-            $("#total_profit_share").val(total_profit_share);
-            $("#increased_profit").val(numberWithCommas(increased_profit));
-            $("#total_profit").val(numberWithCommas(total_profit));
-            $("#increased_roi").val(numberWithCommas(increased_roi));
-            
-        }
+            calculationsWholesaler();
+        });        
 
         $(".btn-next-form").click(function(){
             console.log($(this).attr("data-current-active"));
@@ -1194,25 +1207,25 @@
         });
 
         <?php
-            if(isset($edit_properties)) {
-            ?>
-            $('#gallery-img').html("Loading Images..");
-            $.ajax({
-                type    : 'POST',
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                url     : '{{ route("getProerptyImages") }}',
-                data    : {pid: parseInt(<?php echo app('request')->input('pid'); ?>)},
-                success : function(response) {
-                if (response.status == true) {
-                    $('#gallery-img').html(response.data);
-                }
-                else{
-                    $('#gallery-img').html("No Images found");
-                }
-                }
-            });
-        <?php
+        if(isset($edit_properties)) {
+        ?>
+        $('#gallery-img').html("Loading Images..");
+        $.ajax({
+            type    : 'POST',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            url     : '{{ route("getProerptyImages") }}',
+            data    : {pid: parseInt(<?php echo app('request')->input('pid'); ?>)},
+            success : function(response) {
+              if (response.status == true) {
+                $('#gallery-img').html(response.data);
+              }
+              else{
+                $('#gallery-img').html("No Images found");
+              }
             }
+        });
+        <?php
+        }
         ?>
         $(document).on("click", ".deleteImage", function(){
             $("#DeleteImageButton").click();
@@ -1318,11 +1331,11 @@
                     $(".other_home_condition").addClass("d-none");
                     $("#other_home_condition_value").val("0");
                 }
-                // calculations();
-                new_calculations();
+                // calculationsWholesaler();
+                calculationsWholesaler();
             }
         });
     </script>
+<script src="{{ URL::asset('assets/front_end/js/global.js') }}"></script>
 <script src="{{ URL::asset('assets/front_end/js/add-property-calculation.js') }}"></script>
-      
 @endsection

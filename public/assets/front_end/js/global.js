@@ -1,11 +1,3 @@
-function getShareAmount()
-{
-    var askingP = $('#brv_price').val().replace(/,/g, '');
-    var pShare = $("#partnership_seller").val();
-    $("#partnership_seller_price").val(numberWithCommas(Math.round(parseInt(askingP)*(parseInt(pShare)/100))));
-
-}
-
 function numberWithCommas(number) {
     number = Math.round(number * 100) / 100;
     var parts = number.toString().split(".");
