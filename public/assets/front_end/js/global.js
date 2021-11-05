@@ -4,3 +4,7 @@ function numberWithCommas(number) {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }
+
+function str2Float(str) {
+    return str == '' ? 0 : parseFloat(str);
+}

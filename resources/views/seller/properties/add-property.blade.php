@@ -1,341 +1,4 @@
 @extends('layouts.seller-layout')
-@section('style')
-
-  <style media="screen">
-    .form-page {
-        padding: 50px;
-        background-color: #ffffff;
-    }
-    .form-content h2 {
-        font-family: Campton-Bold;
-        font-size: 32px;
-        color: #2C3B54;
-    }
-    .form-content .property-icon {
-        height: 50px;
-        width: 65px;
-        background-image: url("/assets/front_end/img/seller/add_property/property_icon.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-right: 10px;
-        display:inline-block;
-    }
-
-    .step-1, .step-2, .step-3 {
-        padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px;
-    }
-    #new-property-form {
-        /* padding: 30px 50px 30px 30px;
-        border: solid 2px #a8d3cc;
-        border-radius: 15px; */
-    }
-    #new-property-form .form-group label, #new-property-form .form-group input {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-    #new-property-form .form-group label{
-        text-transform: capitalize;
-    }
-    #new-property-form select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-    }
-    #new-property-form .dropdown-icon {
-        position: absolute;
-        right: 14px;
-        top: 14px;
-        pointer-events: none;
-    }
-    #new-property-form  select::-ms-expand {
-        display: none;
-    }
-    #new-property-form .form-group input {
-        padding: 10px 15px;
-        border-radius: 9px;
-    }
-    #new-property-form .dropdown-select {
-        position: relative;
-    }
-    #new-property-form select.form-control:not([size]):not([multiple]) {
-        
-        border-radius: 10px;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-        cursor: pointer;
-    } 
-    #new-property-form .form-group {
-        margin-bottom: 9px;
-    }
-    .sale-div h6 {
-        color: #707070;
-        font-family: Campton-Bold;
-        font-size: 24px;
-    }
-    .yes a, .no a {
-        display: flex;
-        align-items: center;
-        font-family: Campton-Light;
-        font-size: 15px;
-        color: #707070;
-    }
-    .yesIcon, .noIcon {
-        height: 40px;
-        width: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    .yesIcon { background-image: url("/assets/front_end/img/seller/add_property/yes-icon.png"); }
-    .noIcon { background-image: url("/assets/front_end/img/seller/add_property/no-icon.png"); }
-    .next-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-    .previous-form-btn {
-        left: 83px !important;
-        transform-origin: left center;
-        transform: rotate(180deg);
-        bottom: 15px;
-    }
-
-    .submit-form-btn {
-        right: 35px;
-        bottom: 10px;
-        text-align:right;
-    }
-
-    .next-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .btn-sumit-form {
-        height: 50px;
-        margin-top: 20px;
-        display:inline-block;
-        cursor: pointer;
-        background-color: #44a494;
-        color: white;
-        font-weight: bold;
-    }
-
-    .prev-icon {
-        height: 50px;
-        width: 50px;
-        margin-top: 20px;
-        background-image: url("/assets/front_end/img/seller/add_property/navigation.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        left: 83px !important;
-        
-        transform: rotate(180deg);
-        bottom: 15px;
-        display:inline-block;
-        cursor: pointer;
-    }
-
-    .sale-div [type=radio] { 
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* IMAGE STYLES */
-    .sale-div [type=radio] + img {
-    cursor: pointer;
-    }
-
-    /* CHECKED STYLES */
-    .sale-div [type=radio]:checked + img {
-    outline: 2px solid #a8d3cc;
-    }
-
-    .sale-div img{
-        height: 40px;
-    }
-
-    .d-none {
-        display: none;
-    }
-
-    .d-flex {
-        display: flex;
-    }
-
-    .home-condition h4 {
-        color: #707070;
-        font-family: Campton-Light;
-        font-size: 15px;
-    }
-
-    .home-condition div .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home-condition div .container input[type=checkbox] {
-        transform: scale(2.5);
-        margin-top: 20px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    #new-property-form .form-group label {
-        white-space: nowrap;
-    }
-
-    .home-condition div .container input[type=checkbox]:checked:after {
-        display: block;
-    }
-
-    .home-condition div .container input[type=checkbox]::after {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 50%;
-        left: 50%;
-        height: 50%;
-        width: 50%;
-        background-image: url("/assets/front_end/img/seller/add_property/cross.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        display: none;
-    }
-
-    .home-condition div .container input[type=checkbox]::before {
-        content: '';
-        position: absolute;
-        background-color: #ffffff;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        z-index: 0;
-        border-radius: 2px;
-        border: 1px solid #ced4da;
-    }
-
-    .step-4 .best-deal {
-        height: 60px;
-        width: 240px;
-        background-image: url("/assets/front_end/img/seller/add_property/bestdeal.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        margin-left: 30px;
-        display: inline-block;
-    }
-
-    .step-4 .row-bg-color {
-        background-color: #f6fcfc !important;
-        border-radius: 15px;
-        z-index: 1;
-        border: 1px solid #ced4da;
-        padding-bottom: 12px;
-    }
-
-    .step-4 .align-items-end {
-        -webkit-box-align: end!important;
-        -ms-flex-align: end!important;
-        align-items: flex-end!important;
-    }
-
-    .step-4 .flex-column {
-        -webkit-box-orient: vertical!important;
-        -webkit-box-direction: normal!important;
-        -ms-flex-direction: column!important;
-        flex-direction: column!important;
-    }
-
-    .form-row {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -5px;
-        margin-left: -5px;
-    }
-    .ml-4, .mx-4 {
-        margin-left: 1.5rem!important;
-    }
-
-    .mt-4 {
-        margin-top: 1.5rem!important;
-    }
-
-    .mt-5 {
-        margin-top: 3rem!important;
-    }
-
-    .mb-5 {
-        margin-bottom: 3rem!important;
-    }
-
-    #new-property-form .form-group input {
-        padding: 5px 15px;
-        border-radius: 9px;
-    }
-
-    .step-4 .charts-row h4 {
-        font-family: Campton-SemiBold !important;
-        font-size: 26px;
-    }
-
-    .align-items-center {
-        display: flex;
-        align-items: center;
-    }
-
-    .aminities input[type=checkbox] {
-        height: 20px;
-        width: 20px;
-        margin: 0px;
-        float: left;
-    }
-
-    .aminities .amenities_label {
-        vertical-align: top;
-        margin-left: 5px;
-    }
-
-    .font-20 {
-        font-size: 20px;
-    }
-
-    .font-15 {
-        font-size: 15px;
-    }
-
-    .input-group-addon {
-        background-color: #eee !important;
-        border: 1px solid #ccc !important;
-    }
-    
-
-    @media (min-width: 500px) {
-        .home-condition {
-            flex-wrap: wrap;
-        }
-    }
-  </style>
-
-@endsection
 @section('body')
 <div id="" class="seller_detail min_height_974px">
     <div class="wrapper wrapper-content custom-container-a">
@@ -701,7 +364,7 @@
                                     <div class="form-row partner_up_row">
                                         <div class="form-group col-md-6">
                                             <label for="">Sqr.Ft*</label> <br>
-                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                            <input type="text" step=".01" name='square_footage' id='square_footage' value='{{$details->square_footage ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                             <small class="text-danger">{{ $errors->first('square_footage') }}</small>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -749,11 +412,11 @@
                                                     </div>
                                                     @if($details->home_condition == '4')
                                                         <div class="form-group col-md-offset-10 col-md-2 other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='{{$details->other_home_condition_value ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @else
                                                         <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                            <input type="text" name='other_home_condition_value' id='other_home_condition_value' value='0' class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                         </div>
                                                     @endif
                                                 @else
@@ -782,7 +445,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group col-md-offset-10 col-md-2 d-none other_home_condition">
-                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
+                                                        <input type="text" name='other_home_condition_value' id='other_home_condition_value' value="0" class='form-control amountComma validate[min[0],maxSize[10]] erc-calc-trigger'>
                                                     </div>
                                                 @endif
                                             <!-- </div>
@@ -794,7 +457,7 @@
                                             <label for="">Estimated Repair Cost* <i class="fa fa-info-circle" title="Estimated cost of all of the repairs required to maximize the sale price of the home."></i></label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input readonly type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]'>
+                                                <input type="text" name='estimated_repair_cost' id='estimated_repair_cost' value='{{$details->estimated_repair_cost ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]] calc-trigger'>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('estimated_repair_cost') }}</small>
                                         </div>
@@ -960,6 +623,30 @@
 
             calculationsHomeowner();
         });  
+
+        function calcERC() {
+            // Get Square|_footage
+            let sqr_ft_b4 = $("#square_footage").val() == "" ? "0" : $("#square_footage").val().replace(/,/g, ""); //Total sqare footage. 
+            sqr_ft_b4 = str2Float(sqr_ft_b4);
+            
+            // Get Home Condition type.
+            let home_condition = (typeof $('[name="home_condition"]:checked').val() == 'undefined' ? 0 : $('[name="home_condition"]:checked').val());
+            console.log("home_condition", home_condition);
+
+            // Get Home Condition Price
+            let home_condition_price = (parseInt(home_condition) == 0 ? 0 : (parseInt(home_condition) == 1 ? 25 : (parseInt(home_condition) == 2 ? 50 : (parseInt(home_condition) == 3 ? 75 : parseFloat(Number($("#other_home_condition_value").val()).toFixed(2))))));
+
+            if(sqr_ft_b4 != 0 && home_condition_price != 0) {
+                let estimated_repair_cost_b10 = sqr_ft_b4 * home_condition_price;
+
+                $("#estimated_repair_cost").val(numberWithCommas(estimated_repair_cost_b10));
+            }
+        }
+
+        $('.erc-calc-trigger').on("keyup", function(){
+            calcERC();
+            calculationsHomeowner();
+        });
 
         $('.calc-trigger').on("keyup", function(){
             calculationsHomeowner();
@@ -1189,7 +876,7 @@
                     $("#other_home_condition_value").val("0");
                 }
                 // calculations();
-                calculationsHomeowner();
+                calcERC();
             }
         });
     </script>
