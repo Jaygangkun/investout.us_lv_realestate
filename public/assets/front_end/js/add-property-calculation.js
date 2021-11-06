@@ -153,7 +153,7 @@ function calculationsHomeowner() {
     $("#price_per_sqft").val(numberWithCommas(price_per_sqft_d4));
     
     // Calulate Total Profit
-    let total_profit_b17 = arv_e10 - brv_b14;
+    let total_profit_b17 = arv_e10 - (brv_b14 + estimated_repair_cost_b10);
     $("#total_profit").val(numberWithCommas(total_profit_b17));
 
     // Calculate Total
@@ -230,7 +230,7 @@ function calculationsRealtor() {
     $("#price_per_sqft").val(numberWithCommas(price_per_sqft_d4));
     
     // Calulate Total Profit
-    let total_profit_b17 = arv_e10 - brv_b14;
+    let total_profit_b17 = arv_e10 - (brv_b14 + estimated_repair_cost_b10);
     $("#total_profit").val(numberWithCommas(total_profit_b17));
 
     // Calculate Total
@@ -324,7 +324,7 @@ function calculationsInvestor() {
     $("#price_per_sqft").val(numberWithCommas(price_per_sqft_d4));
     
     // Calulate Total Profit
-    let total_profit_b17 = arv_e10 - brv_b14;
+    let total_profit_b17 = arv_e10 - (brv_b14 + estimated_repair_cost_b10);
     $("#total_profit").val(numberWithCommas(total_profit_b17));
 
     // Calculate Total
