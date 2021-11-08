@@ -358,7 +358,7 @@
                     ?>
                     <input type="hidden" id="seller_ask_price" value="{{ ($details->investor_asking) ?? '0' }}" name="seller_ask_price"/>
                     <div class="col-sm-3 hide">
-                        $ <span id="seller_brv">{{ (number_format($details->brv_price)) ?? '0' }}</span>
+                        $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
                     </div>
 
                     <div class="col-md-12">
@@ -372,7 +372,7 @@
                                         <label for="arv" class="col-sm-3 col-form-label">Investor's Counter Offer </label>
                                     <!-- <?php echo $roleName; ?>'s Suggested Ask Price -->
                                         <div class="col-sm-3">
-                                            $ <span id="seller_askPrice">{{ (number_format($details->investor_asking)) ?? '0' }}</span>
+                                            $ <span id="seller_askPrice">{{ (number_format(floatval($details->investor_asking))) ?? '0' }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -381,7 +381,7 @@
                                     <div class="form-group row">
                                         <label for="arv" class="col-sm-3 col-form-label"><?php echo $roleName; ?>'s Estimated ARV Selling Price</label>
                                         <div class="col-sm-3">
-                                            $ <span id="seller_arv">{{ (number_format($details->arv_price)) ?? '0' }}</span>
+                                            $ <span id="seller_arv">{{ (number_format(floatval($details->arv_price))) ?? '0' }}</span>
                                         </div>
                                         <?php
                                         if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
@@ -394,23 +394,23 @@
                                         {
                                         ?>
                                         <div class="col-sm-3 hide">
-                                            $ <span id="seller_brv">{{ (number_format($details->brv_price)) ?? '0' }}</span>
+                                            $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
                                         </div>
                                         <?php
                                         }
                                         ?>
                                         {{--<div class="col-sm-3">
-                                            $ <span id="seller_brv">{{ (number_format($details->brv_price)) ?? '0' }}</span>
+                                            $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
                                         </div> --}}
                                     </div>
                                     <div class="form-group row">
                                         <label for="arv" class="col-sm-3 col-form-label"><?php echo $roleName; ?>'s Estimated Repair Cost</label>
                                         <div class="col-sm-3">
-                                            $ <span id="seller_est_repair_cost">{{ (number_format($details->estimated_repair_cost)) ?? '0' }}</span>
+                                            $ <span id="seller_est_repair_cost">{{ (number_format(floatval($details->estimated_repair_cost))) ?? '0' }}</span>
                                         </div>
                                         <label for="arv" class="col-sm-3 col-form-label">Investor's Projected Profit</label>
                                         <div class="col-sm-3">
-                                            $ <span id="investor_projected_profit">{{ number_format($details->investor_projected_profit) ?? '0' }}</span>
+                                            $ <span id="investor_projected_profit">{{ number_format(floatval($details->investor_projected_profit)) ?? '0' }}</span>
                                         </div>
 
                                     </div>
@@ -434,7 +434,7 @@
                                             {
                                             ?>
                                         <div class="col-sm-3">
-                                            $ <span id="seller_partnership_seller_amount">{{ number_format($details->wholeseller_profit) ?? '0' }}</span>
+                                            $ <span id="seller_partnership_seller_amount">{{ number_format(floatval($details->wholeseller_profit)) ?? '0' }}</span>
                                             <span class="hide" id="seller_partnership_seller">{{$details->partnership_seller}}</span>
                                         </div>
                                             <?php
@@ -548,7 +548,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="holding_cost">Holding Cost*</label>
                                     <div class="input-group">
-                                        <input type="text" name="holding_cost" id="holding_cost" value='{{number_format($details->holding_cost) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                        <input type="text" name="holding_cost" id="holding_cost" value='{{number_format(floatval($details->holding_cost)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
                                     </div>
                                     <small class="text-danger">{{ $errors->first('holding_cost') }}</small>
@@ -556,7 +556,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="seller">Resale Fees*</label>
                                     <div class="input-group">
-                                        <input type="text" id="resale_fees" name="resale_fees" value='{{number_format($details->resale_fees) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                        <input type="text" id="resale_fees" name="resale_fees" value='{{number_format(floatval($details->resale_fees)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
                                     </div>
                                     <small class="text-danger">{{ $errors->first('resale_fees') }}</small>
@@ -565,7 +565,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="investor">Loan Cost*</label>
                                     <div class="input-group">
-                                        <input type="text" name="loan_cost" id="loan_cost" value='{{number_format($details->loan_cost) ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                        <input type="text" name="loan_cost" id="loan_cost" value='{{number_format(floatval($details->loan_cost)) ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
                                         <span class="input-group-addon" id="basic-addon1">$</span>
                                     </div>
                                     <small class="text-danger">{{ $errors->first('loan_cost') }}</small>
