@@ -95,7 +95,7 @@ function calculationsWholesaler()
     // Calculate Investor's Return On Investment
     let investor_roi_c30;
     if(arv_c17 != 0) {
-        investor_roi_c30 = investor_projected_profit_c29 / arv_c17 * 100;
+        investor_roi_c30 = investor_projected_profit_c29 / (investor_asking_c28 + estimated_repair_cost_c18 + holding_cost_c19 + resale_fees_c20 + loan_cost_c21) * 100;
     }
     else {
         investor_roi_c30 = 0;
