@@ -1,251 +1,6 @@
 @extends('layouts.investor-layout')
 @section('style')
-    <style>
-        .quicksummary{
-            background: #f6f6f6;
-            padding: 15px;
-            border: 1px solid #e5e5e5;
-        }
-        .OwnerDetailsClass{
-            border-top: 1px solid #e5e5e5;
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-
-        .btn.btn-primary{
-            background-color: #2cbdb8;
-            border-color: #2cbdb8;
-        }
-        .btn.btn-primary:hover{
-            background-color: #2cbdb8;
-            border-color: #2cbdb8;
-        }
-        .lbl_partnership{
-
-            position: absolute;
-            right: 22px;
-            top: 0;
-            font-weight: bold;
-        }
-
-        .intro-single .property-price {
-            padding: 1rem 0 1rem 2rem;
-        }
-
-        #main .property-proposals-list {
-            padding-bottom: 3rem;
-        }
-
-        .best-deal {
-            height: 60px;
-            width: 240px;
-            background-image: url("/assets/front_end/img/seller/add_property/bestdeal.png");
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            margin-left: 30px;
-            display: inline-block;
-        }
-        .panel-group .panel {
-            margin-bottom: 0;
-            border-radius: 4px;
-        }
-        .panel-default {
-            border-color: #ddd !important;
-        }
-        .panel {
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-            box-shadow: 0 1px 1px rgba(0,0,0,.05);
-        }
-        /* .panel-default>.panel-heading {
-            color: #333;
-            background-color: #f5f5f5;
-            border-color: #ddd;
-        } */
-        .panel-default>.proposal_send{
-            color: #fff;
-            background-color: #0b2a4a;
-            border-color: #ddd;
-        }
-        .panel-default>.proposal_received{
-            color: #fff;
-            background-color: #2cbdb8;
-            border-color: #ddd;
-        }
-        .panel-default>.best_deal{
-            color: #fff;
-            background-color: #007bff9e;
-            border-color: #ddd;
-        }
-        .panel-group .panel-heading {
-            border-bottom: 0;
-        }
-        .panel-heading {
-            padding: 10px 15px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-        }
-        .panel-title {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 16px;
-            color: inherit;
-        }
-
-        .panel-title a {
-            color: #fff!important;
-        }
-
-        .panel-body {
-            padding: 15px;
-        }
-
-        .form-group{
-            margin-bottom: 0rem;
-        }
-
-        .table_panel_heading tr td .proposal_document a{
-            font-size: 20px;
-            color: white;
-            padding: 3px;
-        }
-
-        .font-weight-bold, .font-weight-bold h4{
-            font-weight: bold!important;
-        }
-        .align-items-center {
-            -ms-flex-align: center!important;
-            align-items: center!important;
-        }
-        .justify-content-start {
-            -ms-flex-pack: start!important;
-            justify-content: flex-start!important;
-        }
-        .d-flex {
-            display: -ms-flexbox!important;
-            display: flex!important;
-        }
-        h5{
-            font-size: 18px;
-        }
-        .form-control {
-            display: block;
-            width: 100%;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
-            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-        }
-        .form-control-plaintext {
-            display: block;
-            width: 100%;
-            margin-bottom: 0;
-            line-height: 1.5;
-            color: #212529;
-            background-color: transparent;
-            border: solid transparent;
-            border-width: 1px 0;
-        }
-        label{
-            margin-bottom: 0px;
-        }
-        input#send_proposal{
-            margin-top: 20px;
-            color: white;
-        }
-        .width-100 {
-            width: 100px;
-        }
-        .margin-0{
-            margin: 0;
-        }
-        #property_seller_suggested_offer label, #property_seller_suggested_offer div span{
-            font-size: 15px;
-        }
-        .input-group-addon {
-            background-color: #eee !important;
-            border: 1px solid #ccc !important;
-        }
-        .d-none{
-            display: none;
-        }
-        .send-proposal-div h6{
-            font-size: 16px;
-        }
-        .px-3{
-            border-top: 3px solid #eee;
-        }
-
-        .panel-collapse .col-md-12 h6{
-            font-size: 16px !important;
-        }
-
-        .icon-d {
-            color: yellow;
-            font-size: 22px;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: orange;
-        }
-
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 10px;
-            background: #0B2A4A;
-            outline: none;
-            opacity: 1;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-            margin-top: 10px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #008A8A;
-            cursor: pointer;
-        }
-
-        input[type=range]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: #008A8A;
-            cursor: pointer;
-        }
-
-        table{
-            width:100%;
-        }
-
-        table tr td{
-            width: 19%
-        }
-        table tr td:first-child
-        {
-            width: 5% !important
-        }
-
-        .table_panel_heading tr td a{
-            color: #fff;
-            font-size: 15px;
-        }
-    </style>
+    
 
 
 @section('body')
@@ -268,10 +23,6 @@
                         <div class="title-single-box">
                             <?php
                             $title = '';
-                            // if(isset($details) && $details->bedroom != '')
-                            // {
-                            //   $title .= $details->bedroom."BHK ";
-                            // }
                             if(isset($details) && $details->property_type != '')
                             {
                                 $title .= $details->property_type;
@@ -325,27 +76,9 @@
                             </div>
                         </div>
                     </div>
-
-                <!--
-                <div class="col-md-12 col-lg-4">
-                    <div class="property-price d-flex justify-content-center foo">
-                        <div class="card-header-c d-flex">
-                            <div class="card-title-c align-self-center">
-                                <h5>Asking Price</h5>
-                                <h5 class="title-c">$ <span class="priceNew" id="seller_ask_price">{{ ($details->investment_price) ?? '0' }}</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
                 </div>
                 <hr class="px-3">
                 <div class="row">
-                    <!--<div class="col-md-12">
-                        <div class="title-single-box d-flex justify-content-start align-items-center">
-                            <h2 class="margin-0"><strong>Property Seller Suggested Offer</strong></h2>
-                            <span class="best-deal"></span>
-                        </div>
-                    </div> -->
                     <?php
                     if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
                     {
@@ -370,7 +103,6 @@
                                             <h2 class="margin-0"><strong></strong></h2>
                                         </div>
                                         <label for="arv" class="col-sm-3 col-form-label">Investor's Counter Offer </label>
-                                    <!-- <?php echo $roleName; ?>'s Suggested Ask Price -->
                                         <div class="col-sm-3">
                                             $ <span id="seller_askPrice">{{ (number_format(floatval($details->investor_asking))) ?? '0' }}</span>
                                         </div>
@@ -386,22 +118,17 @@
                                         <?php
                                         if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
                                         {
-                                        ?>
-                                        {{--  <label for="arv" class="col-sm-3 col-form-label">Seller's Asking Price</label> --}}
-                                        <?php
+
                                         }
                                         else
                                         {
-                                        ?>
-                                        <div class="col-sm-3 hide">
-                                            $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
-                                        </div>
-                                        <?php
+                                            ?>
+                                            <div class="col-sm-3 hide">
+                                                $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
+                                            </div>
+                                            <?php
                                         }
                                         ?>
-                                        {{--<div class="col-sm-3">
-                                            $ <span id="seller_brv">{{ (number_format(floatval($details->brv_price))) ?? '0' }}</span>
-                                        </div> --}}
                                     </div>
                                     <div class="form-group row">
                                         <label for="arv" class="col-sm-3 col-form-label"><?php echo $roleName; ?>'s Estimated Repair Cost</label>
@@ -418,28 +145,26 @@
                                         <?php
                                         if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
                                         {
-                                        ?>
-                                       {{-- <label for="arv" class="col-sm-3 col-form-label">Wholesaler's Profit</label> --}}
-                                        <?php
+                                            
                                         }
                                         else
                                         {
+                                            ?>
+                                            <label for="arv" class="col-sm-3 col-form-label"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit </label>
+                                            <?php
+                                        }
                                         ?>
-                                        <label for="arv" class="col-sm-3 col-form-label"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit </label>
+                                        <?php
+                                        if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
+                                        {
+                                        ?>
+                                            <div class="col-sm-3">
+                                                $ <span id="seller_partnership_seller_amount">{{ number_format(floatval($details->wholeseller_profit)) ?? '0' }}</span>
+                                                <span class="hide" id="seller_partnership_seller">{{$details->partnership_seller}}</span>
+                                            </div>
                                         <?php
                                         }
                                         ?>
-                                            <?php
-                                            if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
-                                            {
-                                            ?>
-                                        <div class="col-sm-3">
-                                            $ <span id="seller_partnership_seller_amount">{{ number_format(floatval($details->wholeseller_profit)) ?? '0' }}</span>
-                                            <span class="hide" id="seller_partnership_seller">{{$details->partnership_seller}}</span>
-                                        </div>
-                                            <?php
-                                            }
-                                            ?>
                                         <label for="arv" class="col-sm-3 col-form-label">Estimated Misc Cost</label>
                                         <div class="col-sm-3">
                                             $ <span id="estimated_misc_cost">{{ number_format(floatval($details->holding_cost)+floatval($details->resale_fees)+floatval($details->loan_cost)) ?? '0' }}</span>
@@ -512,15 +237,6 @@
                                     <input type="range" min="0" max="10000000" name='arv' id='arv' class='form-control'>
                                     <small class="text-danger">{{ $errors->first('arv') }}</small>
                                 </div>
-                                <!-- <div class="form-group col-md-3">
-                                    <label for="street_no_name">Maximum Offer Price for property: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="hidden"  class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
-                                    </div>
-                                    <input type="range" min="0" max="10000000" name='brv' id='brv' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('brv') }}</small>
-                                </div> -->
                                 <input type="hidden"  class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
                                 <div class="form-group col-md-3">
                                     <label for="street_no_name">Investor's Suggested Repair Cost: </label>
@@ -584,13 +300,13 @@
                                     if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
                                     {
                                     ?>
-                                    <label for="street_no_name">Wholesaler's Fee(%): </label>
+                                        <label for="street_no_name">Wholesaler's Fee(%): </label>
                                     <?php
                                     }
                                     else
                                     {
                                     ?>
-                                    <label for="street_no_name"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit Share: </label>
+                                        <label for="street_no_name"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit Share: </label>
                                     <?php
                                     }
                                     ?>
@@ -806,59 +522,6 @@
                         $.each(response.data, function(index, value){
 
                             investorProposals_list_data_value = value;
-                            /*
-                            let seller_ask_price = parseInt(($('#seller_ask_price').text()).replace(/,/g, ""));
-                        let seller_arv = parseInt(($('#seller_arv').text()).replace(/,/g, ""));
-                        let seller_brv = parseInt(($('#seller_brv').text()).replace(/,/g, ""));
-                        let seller_est_repair_cost = parseInt(($('#seller_est_repair_cost').text()).replace(/,/g, ""));
-                        let seller_partnership_seller = parseInt(($('#seller_partnership_seller').text()).replace(/,/g, ""));
-                        let seller_partnership_investor = parseInt(($('#seller_partnership_investor').text()).replace(/,/g, ""));
-
-                        var holding_cost = parseInt(($("#holding_cost").val()).replace(/,/g, ""));
-                        var resale_cost = parseInt(($("#resale_fees").val()).replace(/,/g, ""));
-                        var loan_cost = parseInt(($("#loan_cost").val()).replace(/,/g, ""));
-                        var percent_rule = parseInt(($("#rule_percentage").val()).replace(/,/g, ""));
-
-
-                        var total_profit = Math.round((seller_arv - ( seller_est_repair_cost + holding_cost+resale_cost+loan_cost))*percent_rule/100);
-
-
-
-
-                        //let total_profit = Math.round($('#seller_arv').val() - ($('#seller_arv').val() + $('#seller_est_repair_cost').val()));
-
-                        let seller_share_profit = Math.round((total_profit * parseInt($('#seller_partnership_seller').val())) / 100);
-
-                        var wholeseller_offer =  total_profit + total_profit*seller_partnership_seller/100;
-                        $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
-
-                        let investor_share_profit = Math.round((seller_arv - ( seller_brv + seller_est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
-                        //alert("3:"+investor_share_profit);
-
-
-                        let seller_gross_profit = Math.round($('#seller_brv').val() + seller_share_profit);
-                        $('#ask_price').attr("max",Math.round(seller_ask_price + seller_ask_price/2));
-                        $('#ask_price').val(seller_ask_price);
-                        $('#ask_price_range_value').val(numberWithCommas(seller_ask_price));
-                        $('#arv').attr("max",Math.round(seller_arv + seller_arv/2));
-                        $('#arv').val(seller_arv);
-                        $('#arv_range_value').val(numberWithCommas(seller_arv));
-                        $('#brv').attr("max",Math.round(seller_brv + seller_brv/2));
-                        $('#brv').val(seller_brv);
-                        $('#brv_range_value').val(numberWithCommas(seller_brv));
-                        $('#est_repair_cost').attr("max",Math.round(seller_est_repair_cost + seller_est_repair_cost/2));
-                        $('#est_repair_cost').val(seller_est_repair_cost);
-                        $('#est_repair_cost_range_value').val(numberWithCommas(seller_est_repair_cost));
-                        $('#seller_share').val(seller_partnership_seller);
-                        $('#seller_share_range_value').val(seller_partnership_seller);
-                        $('#investor_share').val(seller_partnership_investor);
-                        $('#investor_share_range_value').val(seller_partnership_investor);
-                        $('#total_projected_profit').val(numberWithCommas(total_profit));
-                        $('#investor_profit').val(numberWithCommas(investor_share_profit));
-                        $('input[id=investor_profit]').val(investor_share_profit);
-                        $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
-                        $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
-                             */
                             ask_price = ((value.investor_asking == null || value.investor_asking == '') ? 0 : parseInt(value.investor_asking));
                             arv = value.arv;
                             brv = value.brv;
