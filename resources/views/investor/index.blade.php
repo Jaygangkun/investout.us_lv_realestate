@@ -415,6 +415,17 @@
                                             </div>
                                         <?php
                                         }
+                                        if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
+                                        {
+                                            ?>
+                                            <div class="m-t-xs">
+                                                <b>Investor profit - </b> ${{ isset($property->detail->investor_projected_profit) ? number_format(($property->detail->investor_projected_profit)) : '0' }}
+                                            </div>
+                                            <div class="m-t-xs">
+                                                <b>Investor's Return On Investment - </b> {{ isset($property->detail->investor_roi) ? number_format($property->detail->investor_roi) : '0' }} %
+                                            </div>
+                                            <?php
+                                        }
                                         if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
                                         {
                                         ?>
@@ -431,16 +442,14 @@
                                                 {
                                                 ?>
                                                     <b>Partnership Share (Seller/Investor)%  - </b> 
+                                                    {{ $property->detail->partnership_seller }}/{{$property->detail->partnership_investor}} %
                                                 <?php
                                                 }
                                                 else
                                                 {
-                                                ?>
-                                                    <b>Partnership Share (Wholesaler/Investor)%  - </b> 
-                                                <?php
                                                 }
                                                 ?>
-                                                {{ $property->detail->partnership_seller }}/{{$property->detail->partnership_investor}} %
+                                                
                                             </div>
                                             <div class="m-t-xs">
                                                 <b>Cost of Repair - </b> {{ (isset($property->detail->estimated_repair_cost) && $property->detail->estimated_repair_cost != '') ? number_format($property->detail->estimated_repair_cost) : '-' }}
