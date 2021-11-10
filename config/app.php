@@ -212,6 +212,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Talk'      => Nahid\Talk\Facades\Talk::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Helper' => App\Helper\Helper::class,
     ],
 
     'basepath' => [

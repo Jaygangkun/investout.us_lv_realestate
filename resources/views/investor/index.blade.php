@@ -399,10 +399,10 @@
 
                                         </div>
                                         <div class="m-t-xs">
-                                            <b>Est. BVR - </b> ${{number_format((isset($property->detail) && isset($property->detail->brv_price)) ? $property->detail->brv_price : 0) }}
+                                            <b>Est. BVR - </b> ${{Helper::numberWithCommas((isset($property->detail) && isset($property->detail->brv_price)) ? $property->detail->brv_price : 0) }}
                                         </div>
                                         <div class="m-t-xs">
-                                            <b>Est. AVR - </b> ${{number_format((isset($property->detail) && isset($property->detail->arv_price)) ? $property->detail->arv_price : 0) }}
+                                            <b>Est. AVR - </b> ${{Helper::numberWithCommas((isset($property->detail) && isset($property->detail->arv_price)) ? $property->detail->arv_price : 0) }}
                                         </div>
                                         <div class="m-t-xs">
                                             <b>For Sale - </b> {{ (isset($property->detail->for_sale) && $property->detail->for_sale == 1)  ? 'Yes' : 'No' }}
@@ -411,7 +411,7 @@
                                         if(isset($property->detail->for_sale) && $property->detail->for_sale == 1){
                                         ?>
                                             <div class="m-t-xs">
-                                                <b>Investment Price - </b> ${{number_format($property->detail->investment_price) }}
+                                                <b>Investment Price - </b> ${{Helper::numberWithCommas($property->detail->investment_price) }}
                                             </div>
                                         <?php
                                         }
@@ -419,10 +419,10 @@
                                         {
                                             ?>
                                             <div class="m-t-xs">
-                                                <b>Investor profit - </b> ${{ isset($property->detail->investor_projected_profit) ? number_format(($property->detail->investor_projected_profit)) : '0' }}
+                                                <b>Investor profit - </b> ${{ isset($property->detail->investor_projected_profit) ? Helper::numberWithCommas(($property->detail->investor_projected_profit)) : '0' }}
                                             </div>
                                             <div class="m-t-xs">
-                                                <b>Investor's Return On Investment - </b> {{ isset($property->detail->investor_roi) ? number_format($property->detail->investor_roi) : '0' }} %
+                                                <b>Investor's Return On Investment - </b> {{ isset($property->detail->investor_roi) ? Helper::numberWithCommas($property->detail->investor_roi) : '0' }} %
                                             </div>
                                             <?php
                                         }
@@ -452,7 +452,7 @@
                                                 
                                             </div>
                                             <div class="m-t-xs">
-                                                <b>Cost of Repair - </b> {{ (isset($property->detail->estimated_repair_cost) && $property->detail->estimated_repair_cost != '') ? number_format($property->detail->estimated_repair_cost) : '-' }}
+                                                <b>Cost of Repair - </b> {{ (isset($property->detail->estimated_repair_cost) && $property->detail->estimated_repair_cost != '') ? Helper::numberWithCommas($property->detail->estimated_repair_cost) : '-' }}
                                             </div>
                                         <?php
                                         }
