@@ -413,12 +413,11 @@
             {
                 if(response.status)
                 {
-                    console.log(".accept_proposal_"+response.id);
-                    $("#accept_proposal_"+response.id).parent(".proposal_document").append("<a href='javascript:void(0);' class='accepted_proposal'>Accepted</a>");
-                    setTimeout(() => {
-                        $("a[id^='accept_proposal_']").remove();
-                        $('.send-proposal-div').hide();
-                    }, 1000);
+                    $("a[id^='accept_proposal_']").hide();
+                    $('.send-proposal-div').hide();
+                    $("#accept_proposal_"+response.id).show();
+                    $("#accept_proposal_"+response.id).text('Accepted');
+                    $("#accept_proposal_"+response.id).addClass('accepted_proposal');
                 }
             }
         });
