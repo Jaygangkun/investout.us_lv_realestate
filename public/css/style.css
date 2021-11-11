@@ -10602,7 +10602,7 @@ outline: 2px solid #a8d3cc;
 }
 
 .form-group{
-    margin-bottom: 0rem;
+    /* margin-bottom: 0rem; */
 }
 
 .table_panel_heading tr td .proposal_document a{
@@ -10741,4 +10741,17 @@ table tr td:first-child
 .table_panel_heading tr td a{
     color: #fff;
     font-size: 15px;
+}
+
+.btn-accept {
+    padding:0px 10px; 
+    border-radius:3px; 
+    background:#fff;
+    color: #000000 !important;
+}
+
+.btn-accept.accepted_proposal {
+    padding: 0px;
+    background: transparent;
+    color: #ffffff !important;
 }

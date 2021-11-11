@@ -1,252 +1,4 @@
 @extends('layouts.whole-seller-layout')
-@section('style')
-    <style>
-        .quicksummary{
-            background: #f6f6f6;
-            padding: 15px;
-            border: 1px solid #e5e5e5;
-        }
-        .OwnerDetailsClass{
-            border-top: 1px solid #e5e5e5;
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-
-        .btn.btn-primary{
-            background-color: #2cbdb8;
-            border-color: #2cbdb8;
-        }
-        .btn.btn-primary:hover{
-            background-color: #2cbdb8;
-            border-color: #2cbdb8;
-        }
-        .lbl_partnership{
-
-            position: absolute;
-            right: 22px;
-            top: 0;
-            font-weight: bold;
-        }
-
-        .intro-single .property-price {
-            padding: 1rem 0 1rem 2rem;
-        }
-
-        #main .property-proposals-list {
-            padding-bottom: 3rem;
-        }
-
-        .best-deal {
-            height: 60px;
-            width: 240px;
-            background-image: url("/assets/front_end/img/seller/add_property/bestdeal.png");
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            margin-left: 30px;
-            display: inline-block;
-        }
-        .panel-group .panel {
-            margin-bottom: 0;
-            border-radius: 4px;
-        }
-        .panel-default {
-            border-color: #ddd !important;
-        }
-        .panel {
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-            box-shadow: 0 1px 1px rgba(0,0,0,.05);
-        }
-        /* .panel-default>.panel-heading {
-            color: #333;
-            background-color: #f5f5f5;
-            border-color: #ddd;
-        } */
-        .panel-default>.proposal_send{
-            color: #fff;
-            background-color: #0b2a4a;
-            border-color: #ddd;
-        }
-        .panel-default>.proposal_received{
-            color: #fff;
-            background-color: #2cbdb8;
-            border-color: #ddd;
-        }
-        .panel-default>.best_deal{
-            color: #fff;
-            background-color: #007bff9e;
-            border-color: #ddd;
-        }
-        .panel-group .panel-heading {
-            border-bottom: 0;
-        }
-        .panel-heading {
-            padding: 10px 15px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-        }
-        .panel-title {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 16px;
-            color: inherit;
-        }
-
-        .panel-title a {
-            color: #fff!important;
-        }
-
-        .panel-body {
-            padding: 15px;
-        }
-
-        .form-group{
-            margin-bottom: 0rem;
-        }
-
-        .table_panel_heading tr td .proposal_document a{
-            font-size: 20px;
-            color: white;
-            padding: 3px;
-        }
-        .font-weight-bold, .font-weight-bold h4{
-            font-weight: bold!important;
-        }
-        .align-items-center {
-            -ms-flex-align: center!important;
-            align-items: center!important;
-        }
-        .justify-content-start {
-            -ms-flex-pack: start!important;
-            justify-content: flex-start!important;
-        }
-        .d-flex {
-            display: -ms-flexbox!important;
-            display: flex!important;
-        }
-        h5{
-            font-size: 18px;
-        }
-        .form-control {
-            display: block;
-            width: 100%;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075); */
-            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-        }
-        .form-control-plaintext {
-            display: block;
-            width: 100%;
-            margin-bottom: 0;
-            line-height: 1.5;
-            color: #212529;
-            background-color: transparent;
-            border: solid transparent;
-            border-width: 1px 0;
-        }
-        label{
-            margin-bottom: 0px;
-        }
-        input#send_proposal{
-            margin-top: 20px;
-            color: white;
-        }
-        .width-100 {
-            width: 100px;
-        }
-        .margin-0{
-            margin: 0;
-        }
-        #property_seller_suggested_offer label, #property_seller_suggested_offer div span{
-            font-size: 15px;
-        }
-        .input-group-addon {
-            background-color: #eee !important;
-            border: 1px solid #ccc !important;
-        }
-        .d-none{
-            display: none;
-        }
-
-        .send-proposal-div h6{
-            font-size: 16px;
-        }
-        .px-3{
-            border-top: 3px solid #eee;
-        }
-
-        .panel-collapse .col-md-12 h6{
-            font-size: 16px !important;
-        }
-
-        .icon-d {
-            color: yellow;
-            font-size: 22px;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: orange;
-        }
-
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 10px;
-            background: #0B2A4A;
-            outline: none;
-            opacity: 1;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-            margin-top: 10px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #008A8A;
-            cursor: pointer;
-        }
-
-        input[type=range]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: #008A8A;
-            cursor: pointer;
-        }
-        table{
-            width:100%;
-        }
-
-        table tr td{
-            width: 19%
-        }
-        table tr td:first-child
-        {
-            width: 5% !important
-        }
-
-        .table_panel_heading tr td a{
-            color: #fff;
-            font-size: 15px;
-        }
-    </style>
-@endsection
-
 @section('body')
 
     <div class="wrapper wrapper-content">
@@ -273,10 +25,6 @@
                         <div class="title-single-box">
                             <?php
                             $title = '';
-                            // if(isset($details) && $details->bedroom != '')
-                            // {
-                            //   $title .= $details->bedroom."BHK ";
-                            // }
                             if(isset($details) && $details->property_type != '')
                             {
                                 $title .= $details->property_type;
@@ -303,33 +51,14 @@
                             </div>
                         </div>
                     </div>
-                <!--<div class="col-md-12 col-lg-4">
-                        <div class="property-price d-flex justify-content-center foo">
-                            <div class="card-header-c d-flex">
-                                <div class="card-title-c align-self-center">
-                                    <h5>Asking Price</h5>
-                                    <h5 class="title-c">$ <span class="priceNew" id="seller_ask_price">{{ number_format($details->investment_price) ?? '0' }}</span></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="row ">
                     <hr class="px-3">
-                    {{--                    <div class="col-md-12">
-                    {{--                        <div class="title-single-box d-flex justify-content-start align-items-center">--}}
-                    {{--                            <h2 class="margin-0"><strong>Property Seller Suggested Offer</strong></h2>--}}
-                    {{--                            <span class="best-deal"></span>--}}
-                    {{--                        </div>--}}
-                    {{--                   </div>--}}
                     <div class="col-md-12">
                         <div class="title-single-box">
                             <form id="property_seller_suggested_offer">
                                 <div class="{{ $details->for_sale == '0' ? 'hide' : '' }}">
                                     <div class="form-group row">
-                                        {{--                                        <div class="col-md-12">--}}
-                                        {{--                                            <h2 class="margin-0"><strong>For Ask Price</strong></h2>--}}
-                                        {{--                                        </div>--}}
                                         <label for="arv" class="col-sm-3 col-form-label">Investor's Counter Offer</label>
                                         <div class="col-sm-3">
                                             $ <span id="seller_askPrice">{{ number_format($details->investor_asking) ?? '0' }}</span>
@@ -339,7 +68,7 @@
                                 <hr class="{{ $details->for_sale == '1' && $details->partner_up == '1' ? '' : 'hide' }}">
                                 <div class="{{ $details->partner_up == '0' ? 'hide' : '' }}">
                                     <div class="form-group row">
-                                        <label for="arv" class="col-sm-3 col-form-label">Wholeseller's Estimated ARV - Selling Price</label>
+                                        <label for="arv" class="col-sm-3 col-form-label">Wholesaler's Estimated ARV - Selling Price</label>
                                         <div class="col-sm-3">
                                             $ <span id="seller_arv">{{ number_format($details->arv_price) ?? '0' }}</span>
                                         </div>
@@ -355,7 +84,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="arv" class="col-sm-3 col-form-label">Wholeseller's Fee(%)</label>
+                                        <label for="arv" class="col-sm-3 col-form-label">Wholesaler's Fee(%)</label>
                                         <div class="col-sm-3">
                                             <span id="seller_partnership_seller">{{ $details->partnership_seller ?? '0' }}</span> %
                                             </div>
@@ -410,127 +139,90 @@
                             <input type="hidden" class="form-control" id="to_user" name="to_user" value="{{ $investor->id }}">
                             <input type="hidden" class="form-control" id="is_investor" name="is_investor" value="0">
                             <input type="hidden" class="form-control" id="ref_proposal" name="ref_proposal" value="">
-                            <input type="hidden" class="form-control" id="holding_cost" name="holding_cost" value="{{$details->holding_cost}}">
-                            <input type="hidden" class="form-control" id="resale_fees" name="resale_fees" value="{{$details->resale_fees}}">
-                            <input type="hidden" class="form-control" id="loan_cost" name="loan_cost" value="{{$details->loan_cost}}">
                             <input type="hidden" class="form-control" id="rule_percentage" name="rule_percentage" value="{{$details->rule_percentage}}">
 
-
-
-                            <div class="row {{ $details->for_sale == '0' ? 'hide' : '' }}">
-                                {{--                                <div class="col-md-12">--}}
-                                {{--                                    <h6><strong>For Sale</strong></h6>--}}
-                                {{--                                </div>--}}
-                                <div class="form-group col-md-4">
-                                    <label for="suggest_ask_price">Suggest Ask Price: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" readonly class='form-control amountComma' min="0" max="10000000" name='ask_price_range_value' id='ask_price_range_value' data-id='ask_price'>
-                                    </div>
-                                    <input type="range" min="0" max="10000000" name='ask_price' id='ask_price' class='form-control hide'>
-                                    <small class="text-danger">{{ $errors->first('ask_price') }}</small>
-                                </div>
-                            </div>
-                            <hr class="{{ $details->for_sale == '1' && $details->partner_up == '1' ? '' : 'hide' }}">
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                            <div class="row">
                                 <div class="form-group col-md-4">
                                     <label for="street_no_name">Investor's Suggested ARV: </label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text"  readonly class='form-control amountComma' min="0" max="10000000" name='arv_range_value' id='arv_range_value' data-id='arv'>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class='form-control amountComma' name='arv' id='arv' readonly>
                                     </div>
-                                    <input type="range" min="0" max="10000000" name='arv' id='arv' class='form-control hide'>
-                                    <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="street_no_name">Home Owner's Offer Price: </label>
+                                    <label for="street_no_name">Home Seller's Offer Price: </label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class='form-control amountComma'name='seller_offer_price' id='seller_offer_price' readonly>
                                     </div>
-                                    <input type="range" min="0" max="10000000" name='brv' id='brv' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="street_no_name">Investor's Suggested Repair Cost: </label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" readonly class='form-control amountComma' min="0" max="10000000" name='est_repair_cost_range_value' id='est_repair_cost_range_value' data-id="est_repair_cost">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" readonly class='form-control amountComma' name='est_repair_cost' id='est_repair_cost'>
                                     </div>
-                                    <input type="range"min="0" max="10000000" name='est_repair_cost' id='est_repair_cost' class='form-control hide'>
-                                    <small class="text-danger">{{ $errors->first('address') }}</small>
                                 </div>
                             </div>
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                            <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label for="street_no_name">Wholeseller's Fee: <small>(As a % of ARV)</small></label>
+                                    <label for="street_no_name">Holding Cost</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
-                                        <span class="input-group-addon" id="basic-addon1">%</span>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control" name='holding_cost' id='holding_cost' readonly>
                                     </div>
-                                    <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('address') }}</small>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="street_no_name">Resale Fees</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control"name='resale_fees' id='resale_fees' readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="street_no_name">Loan Cost</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control"name='loan_cost' id='loan_cost' readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="street_no_name">Wholesaler's Fee: <small>(As a % of ARV)</small></label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">%</span>
+                                        <input type="text" class="form-control calc-trigger" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
+                                    </div>
+                                    <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control range-trigger'>
+                                    <small class="text-danger">{{ $errors->first('wholesaler_fee') }}</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="investor_profit">Investor's Profit:</label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
+                                        <span class="input-group-addon">$</span>
                                         <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 d-none">
-                                    <label for="street_no_name">Investor's Profit Share: </label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" min="1" max="99" name='investor_share_range_value' id='investor_share_range_value' data-id='investor_share'>
-                                        <span class="input-group-addon" id="basic-addon1">%</span>
-                                    </div>
-                                    <input type="range" min="1" max="99" name='investor_share' id='investor_share' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('address') }}</small>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label class="hide" for="total_projected_profit">Total Projected Profit (Property Sale):</label>
-                                    <div class="input-group hide">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="total_projected_profit" id="total_projected_profit" value="0" readonly>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                            <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label for="seller_net_profit">Wholeseller's Fee:</label>
+                                    <label for="seller_net_profit">Wholesaler's Profit:</label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="seller_net_profit" id="seller_net_profit" value="0" readonly>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control amountComma" name="wholesaler_profit" id="wholesaler_profit" value="0" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="seller_gross_profit">Revised Asking Price to Investor:</label>
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="seller_gross_profit" id="seller_gross_profit" value="0" readonly>
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control amountComma calc-trigger" name="revised_price_range_value" id="revised_price_range_value" value="0" data-id='revised_price'>
                                     </div>
-                                </div>
-                                <br />
-                                <br />
-                            </div>
-                            <div class="row hide {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <div class="col-lg-12 chart-bg-overlay">
-                                    <div class="form-row mt-lg-5 charts-row">
-                                        <div class="col-lg-4">
-                                            <h4 class="text-center text-capitalize mb-3">Seller Profit Options</h4>
-                                            <canvas id="ctx" style="width: 100%; height: 200px"></canvas>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h4 class="text-center text-capitalize mb-3">investor options</h4>
-                                            <canvas id="ctxOne" style="width: 100%; height: 200px"></canvas>
-                                        </div>
-                                        <div class="col-lg-4 pl-3">
-                                            <h4 class="text-center text-capitalize mb-3">return on investment</h4>
-                                            <canvas id="ctxTwo" style="width: 100%; height: 200px"></canvas>
-                                        </div>
-                                    </div>
+                                    <input type="range" min="1" max="10000000" name='revised_price' id='revised_price' class='form-control range-trigger'>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label for="street_no_name">Select Document:</label>
@@ -556,7 +248,71 @@
         </section>
 
     </div>
-
+    <div class="d-none" id="panel_template">
+        <div class="panel panel-default">
+            <div class="panel-heading proposal_received proposal_send" role="tab" id="headingOne" data-type="received, send">
+                <table class="table_panel_heading">
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="">
+                                    <img src="https://investout.us/sitefront/best_deal.png" class="" height="50px" width="50px">
+                                </a>
+                            </td>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="title">Received From</a>
+                            </td>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="">Wholesaler's Profit:</a>
+                            </td>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class=""> $ <span class="wholesaler-profit">98,939.88</span></a>
+                            </td>
+                            <td rowspan="2">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="">Sent At: <span class="received-from-date">11/11/2021 01:13:47 AM</span></a>
+                            </td>
+                            <td rowspan="2">
+                                <div class="proposal_document">
+                                    <a class="btn-accept" style="" href="javascript:void(0);" id="accept_proposal_110">Accept</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="name"> tyrone glover <sub>(Investor)</sub></a>
+                            </td>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="">Maximum Offer Price to Seller:</a>
+                            </td>
+                            <td>
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class=""> $ <span class="max-offer-seller">467,306.48</span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="collapse_110" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true" style="">
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="arv" class="col-sm-3 col-form-label">Estimated ARV - Selling Price</label>
+                            <div class="col-sm-3">$ <span id="seller_arv_110" class="arv">549,666</span></div>
+                            <label for="arv" class="col-sm-3 col-form-label">Revised Asking Price to Investor: </label>
+                            <div class="col-sm-3"> $ <span id="seller_brv_110" class="revised-asking-investor">0</span></div>
+                            <label for="arv" class="col-sm-3 col-form-label">Renovation  Cost</label>
+                            <div class="col-sm-3">$ <span id="seller_est_repair_cost_110" class="renovation-cost">15,428</span></div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="arv" class="col-sm-3 col-form-label">Wholesaler's Fee(%)</label>
+                            <div class="col-sm-3"><span id="seller_partnership_seller_110" class="wholesaler-fee">18</span> %</div>
+                            <label for="arv" class="col-sm-3 col-form-label">Investor's Projected Profit</label>
+                            <div class="col-sm-3">$ <span id="seller_partnership_investor_110" class="investor-projected-profit">0</span></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script')
@@ -569,6 +325,7 @@
             defer
     ></script>
     <script>
+        var details = JSON.parse('<?php echo json_encode($details)?>');
         function getOwnerDetails(id) {
             $("#preloder").css({"display": "block", "opacity": "0.7"});
             $(".loader").css({"display": "block", "opacity": "0.7"});
@@ -598,6 +355,8 @@
         var chartOne;
         var chartTwo;
         var base_url = "{{asset('/')}}";
+        var initRange = false;
+
         $(document).ready(function(){
             let property_id = <?php echo $property->id;?>;
             let investor_id = <?php echo $investor->id;?>;
@@ -629,7 +388,94 @@
                         var partner_profit = 0;
                         var flip_roi = 0;
                         var partner_roi = 0;
+                        var hasAcceptedProposal = false;
                         $.each(response.data, function(index, value){
+                            panel = $('#panel_template').clone();
+                            if(<?php echo auth()->user()->id?> === value.from_user) {
+                                $(panel).find('.title').text('Sent To');
+                                $(panel).find('.panel-heading').attr('class', 'panel-heading proposal_send');
+                                $(panel).find('.panel-heading').attr('data-type', 'send');
+                                $(panel).find('.btn-accept').hide();
+
+                                $(panel).find('.name').html(value.receiver_name + '<sub>(Investor)</sub>');
+                            }
+                            else {
+                                $(panel).find('.title').text('Received From');
+                                $(panel).find('.panel-heading').attr('class', 'panel-heading proposal_received');
+                                $(panel).find('.panel-heading').attr('data-type', 'received');
+
+                                $(panel).find('.name').html(value.sender_name + '<sub>(Investor)</sub>');
+                            }
+
+                            if(value.is_accepted == '1') {
+                                $(panel).find('.btn-accept').show();
+                                $(panel).find('.btn-accept').text('Accepted');
+                                $(panel).find('.btn-accept').addClass('accepted_proposal');
+                                $(panel).find('.btn-accept').attr('id', '');
+                                hasAcceptedProposal = true;
+                            }
+                            else {
+                                $(panel).find('.btn-accept').attr('id', 'accept_proposal_' + value.id);
+                            }
+                            
+                            $(panel).find('[role="button"]').attr('href', '#collapse_' + value.id);
+                            $(panel).find('[role="button"]').attr('aria-controls', 'collapse_' + value.id);
+                            $(panel).find('[role="tabpanel"]').attr('id', 'collapse_' + value.id);                            
+
+                            $(panel).find('.sent-at-date').text(moment(value.created_at).format("MM/DD/YYYY hh:mm:ss A"));
+
+                            let calc = calcWholesaler({
+                                arv_c17: str2Float(value.arv),
+                                est_repair_cost_c18: str2Float(value.est_repair_cost),
+                                rule_percentage_c24: str2Float(value.rule_percentage),
+                                holding_cost_c19: str2Float(value.holding_cost),
+                                resale_fees_c20: str2Float(value.resale_fee),
+                                loan_cost_c21: str2Float(value.loan_cost),
+                                wholesaler_fee_c26: str2Float(value.seller_share),
+                            });
+
+                            $(panel).find('.wholesaler-profit').text(numberWithCommas(calc.wholesaler_profit_c27));
+                            $(panel).find('.max-offer-seller').text(numberWithCommas(calc.max_offer_seller_c25));
+                            $(panel).find('.arv').text(numberWithCommas(str2Float(value.arv)));
+                            $(panel).find('.revised-asking-investor').text(numberWithCommas(str2Float(value.revised_price)));
+                            $(panel).find('.renovation-cost').text(numberWithCommas(str2Float(value.est_repair_cost)));
+                            $(panel).find('.wholesaler-fee').text(numberWithCommas(value.seller_share));
+                            $(panel).find('.investor-projected-profit').text(numberWithCommas(calc.investor_projected_profit_c29));
+
+                            if(response.max_proposal_id != value.id) {
+                                $(panel).find('img').addClass('hide');
+                            }
+
+                            html += $(panel).html();
+
+                            if(response.data.length == index+1)
+                            {
+                                updateCalcFields({
+                                    arv_c17: str2Float(value.arv),
+                                    est_repair_cost_c18: str2Float(value.est_repair_cost),
+                                    rule_percentage_c24: str2Float(value.rule_percentage),
+                                    holding_cost_c19: str2Float(value.holding_cost),
+                                    resale_fees_c20: str2Float(value.resale_fee),
+                                    loan_cost_c21: str2Float(value.loan_cost),
+                                    wholesaler_fee_c26: str2Float(value.seller_share),
+                                })
+
+                                $("#revised_price_range_value").val(numberWithCommas(value.revised_price));
+                                $("#revised_price").val(numberWithCommas(value.revised_price));
+
+                                $('#rule_percentage').val(value.rule_percentage);
+
+                                let enableSend = (<?php echo auth()->user()->id?> === value.from_user ? false : true) && <?php echo (isset($accepted_proposal) ? 1 : 0)?> == 0;
+                                if(!enableSend) {
+                                    $('.send-proposal-div input').attr('readonly', true);
+                                    $('.send-proposal-div input').attr('disabled', true);
+                                    $('.send-proposal-div textarea').attr('readonly', true);
+                                    $('.send-proposal-div textarea').attr('disabled', true);
+                                }
+                            }
+
+                            return;
+                            
                             console.log("typeof value.ask_price",value.ask_price == null ? 0 : value.ask_price);
                             ask_price = (value.ask_price == null ? 0 : parseInt(value.ask_price));
                             console.log("typeof ask_price = ", typeof ask_price);
@@ -642,9 +488,9 @@
                             seller_share = value.seller_share;
                             investor_share = value.investor_share;
                             total_profit = Math.round(arv - (brv + est_repair_cost));
-                            seller_share_profit = value.wholeseller_profit;
+                            seller_share_profit = value.Wholesaler_profit;
                             seller_share_profit = value.arv * value.seller_share / 100;
-                            seller_gross_profit = value.wholeseller_profit;
+                            seller_gross_profit = value.Wholesaler_profit;
                             let c22 = parseFloat(value.gross_profit);
                             let c24 = parseFloat(value.rule_percentage);
                             let c25 = c24 * c22 / 100;
@@ -897,24 +743,41 @@
                         $('.proposals-list .col-md-12').empty();
                         $('.proposals-list .col-md-12').removeClass('text-center');
                         $('.proposals-list .col-md-12').append(html);
+
+                        if(hasAcceptedProposal) {
+                            $('.btn-accept[id^="accept_proposal_"]').hide();
+                            $('.send-proposal-div').hide();
+                        }
+                        
                         $(".collapse").collapse('hide');
-                        console.log("send_proposal_div",send_proposal_div);
-                        if(send_proposal_div && <?php echo (isset($accepted_proposal) ? 1 : 0)?> == 0)
-                        {
-                            $('.send-proposal-div').show();
-                        }
-                        else
-                        {
-                            $('.send-proposal-div').show();
-                            $('.send-proposal-div input').attr('readonly', true);
-                            $('.send-proposal-div input').attr('disabled', true);
-                            $('.send-proposal-div textarea').attr('readonly', true);
-                            $('.send-proposal-div textarea').attr('disabled', true);
-                        }
+                        // console.log("send_proposal_div",send_proposal_div);
+                        // if(send_proposal_div && <?php echo (isset($accepted_proposal) ? 1 : 0)?> == 0)
+                        // {
+                        //     $('.send-proposal-div').show();
+                        // }
+                        // else
+                        // {
+                        //     // $('.send-proposal-div').show();
+                        //     // $('.send-proposal-div input').attr('readonly', true);
+                        //     // $('.send-proposal-div input').attr('disabled', true);
+                        //     // $('.send-proposal-div textarea').attr('readonly', true);
+                        //     // $('.send-proposal-div textarea').attr('disabled', true);
+                        // }
 
                     }
                     else
                     {
+                        updateCalcFields({
+                            arv_c17: str2Float(details.arv_price),
+                            est_repair_cost_c18: str2Float(details.estimated_repair_cost),
+                            rule_percentage_c24: str2Float(details.rule_percentage),
+                            holding_cost_c19: str2Float(details.holding_cost),
+                            resale_fees_c20: str2Float(details.resale_fees),
+                            loan_cost_c21: str2Float(details.loan_cost),
+                            wholesaler_fee_c26: str2Float(details.partnership_seller),
+                        })
+                        
+                        return;
                         var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
                         let seller_ask_price = parseInt(($('#seller_ask_price').text()).replace(/,/g, ""));
                         let seller_arv = parseInt(($('#seller_arv').text()).replace(/,/g, ""));
@@ -958,9 +821,7 @@
                         $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
                         $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
                     }
-                    setTimeout(() => {
-                        setCharts();
-                    }, 200);
+
                 },
                 complete: function(){
                     $("#preloder").css({"display": "none"});
@@ -978,653 +839,80 @@
             $(this).val(commaNum);
         });
 
-        function setCharts2(){
-            var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
-            console.log("arv", arv);
-            var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
-            var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
-            var seller_share = parseInt($("#seller_share_range_value").val());
-            console.log("seller_share", seller_share);
-            var investor_share = parseInt($("#investor_share_range_value").val());
-            var total_profit = Math.round(arv - (brv + est_repair_cost));
-            var seller_share_profit = Math.round((total_profit * seller_share) / 100);
-            var seller_gross_profit = Math.round(brv+seller_share_profit);
-            var investor_share_profit = Math.round((total_profit * investor_share) / 100);
-            var flip_total_cost = Math.round(brv + est_repair_cost);
-            var flip_profit = total_profit;
-            var partner_total_cost = est_repair_cost;
-            var partner_profit = investor_share_profit;
-            var flip_roi = ((flip_profit/flip_total_cost).toFixed(2)) * 100;
-            console.log("flip_roi", flip_roi);
-            var partner_roi = ((partner_profit/partner_total_cost).toFixed(2)) * 100;
-            console.log("partner_roi", partner_roi);
-            $('#total_projected_profit').val(numberWithCommas(total_profit));
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
-            $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
-
-
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Current Value', 'Projected Profit'],
-                    datasets: [{
-                        label: 'As Is Profit',
-                        data: [brv, seller_share_profit],
-                        backgroundColor: '#002060'
-                    }, {
-                        label: 'Partnered Increase',
-                        data: [0, brv],
-                        backgroundColor: '#009999'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#fff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                // // Include a dollar sign in the ticks
-                                callback: function(value, index, values) {
-                                    // return '$' + value.toFixed(decimals);
-                                    if (parseInt(value) >= 1000) {
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    } else {
-                                        return '$' + value;
-                                    }
-                                },
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
+        $('.calc-trigger').on("keyup", function(){
+            $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
+            updateCalcFields({
+                arv_c17: str2Float($('#arv').val().replace(/,/g, "")),
+                est_repair_cost_c18: str2Float($('#est_repair_cost').val().replace(/,/g, "")),
+                rule_percentage_c24: str2Float($('#rule_percentage').val().replace(/,/g, "")),
+                holding_cost_c19: str2Float($('#holding_cost').val().replace(/,/g, "")),
+                resale_fees_c20: str2Float($('#resale_fees').val().replace(/,/g, "")),
+                loan_cost_c21: str2Float($('#loan_cost').val().replace(/,/g, "")),
+                wholesaler_fee_c26: str2Float($('#seller_share_range_value').val().replace(/,/g, "")),
             });
-            chartOne = new Chart(ctxOne, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        ['Flip Tot.', 'Cost'],
-                        ['Profit', 'From Flip'],
-                        ['Pertnered', 'Cost'],
-                        ['Pertner', 'Profit']
-                    ],
-                    datasets: [{
-                        label: 'Cost From Flip',
-                        data: [flip_total_cost, 0, partner_total_cost, 0],
-                        backgroundColor: '#ff0000'
-                    }, {
-                        label: '',
-                        data: [0, total_profit, 0, 0],
-                        backgroundColor: '#002060'
-                    }, {
-                        label: 'Investor\'s Profit',
-                        data: [0, 0, 0, partner_profit, 350000],
-                        backgroundColor: '#009999'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#ffffff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                            ticks: {
-                                display: true,
-                                stepSize: 0,
-                                min: 0,
-                                autoSkip: false,
-                                fontSize: 11,
-
-                                maxRotation: 0,
-                                minRotation: 0,
-                            }
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                // // Include a dollar sign in the ticks
-                                callback: function(value, index, values) {
-                                    // return '$' + value.toFixed(decimals);
-                                    if (parseInt(value) >= 1000) {
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    } else {
-                                        return '$' + value;
-                                    }
-                                },
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
-            });
-            chartTwo = new Chart(ctxTwo, {
-                type: 'bar',
-                data: {
-                    labels: ['Fix & Flip', 'Partner'],
-                    datasets: [{
-                        label: '',
-                        data: [flip_roi, 0, 10],
-                        backgroundColor: '#009999'
-                    }, {
-                        label: '',
-                        data: [0, partner_roi],
-                        backgroundColor: '#002060'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#fff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                callback: function(value, index, values) {
-                                    var strng = value+'%';
-                                    // if (value < 10) {
-                                    //     strng = '0.' + value + '0%';
-                                    // } else {
-                                    //     strng = '1.00%';
-                                    // }
-                                    return strng;
-                                }
-
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Hundreds'
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
-            });
-        }
-        function setCharts(){
-            var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
-            console.log("arv", arv);
-            var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
-            var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
-            var seller_share = parseInt($("#seller_share_range_value").val());
-            var holding_cost = parseInt(($("#holding_cost").val()).replace(/,/g, ""));
-            var resale_cost = parseInt(($("#resale_fees").val()).replace(/,/g, ""));
-            var loan_cost = parseInt(($("#loan_cost").val()).replace(/,/g, ""));
-            var percent_rule = parseInt(($("#rule_percentage").val()).replace(/,/g, ""));
-
-            console.log("seller_share", seller_share);
-            var investor_share = parseInt($("#investor_share_range_value").val());
-            var total_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost))*percent_rule/100);
-
-            var seller_share_profit = (total_profit * seller_share) / 100;
-            var seller_gross_profit = Math.round(brv + seller_share_profit);
-
-            seller_share_profit = arv * seller_share / 100;
-            let c22 = parseFloat(investorProposals_list_data_value.gross_profit);
-            let c24 = parseFloat(investorProposals_list_data_value.rule_percentage);
-            let c25 = c24 * c22 / 100;
-            let c27 = seller_share_profit;
-            seller_gross_profit = c25 + c27;
-            
-            var wholeseller_offer =  total_profit + total_profit*seller_share/100;
-            $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
-
-            let investor_share_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
-
-                            
-            let c26 = seller_share / 100;
-            let c17 = arv;
-            let c18 = est_repair_cost;
-            let c19 = holding_cost;
-            let c20 = resale_cost;
-            let c21 = loan_cost;
-            
-            investor_share_profit = c17 - (c25 + c27 + c18 + c19 + c20 + c21);
-            
-            //alert("1:"+investor_share_profit);
-
-            var flip_total_cost = Math.round(brv + est_repair_cost);
-            var flip_profit = total_profit;
-            var partner_total_cost = est_repair_cost;
-            var partner_profit = investor_share_profit;
-            var flip_roi = (flip_profit/flip_total_cost).toFixed(2);
-            var partner_roi = (partner_profit/partner_total_cost).toFixed(2);
-            $('#total_projected_profit').val(numberWithCommas(total_profit));
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
-            $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
-            $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
-
-
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Current Value', 'Projected Profit'],
-                    datasets: [{
-                        label: 'As Is Profit',
-                        data: [brv, seller_share_profit],
-                        backgroundColor: '#002060'
-                    }, {
-                        label: 'Partnered Increase',
-                        data: [0,brv],
-                        backgroundColor: '#009999'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#fff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                // // Include a dollar sign in the ticks
-                                callback: function(value, index, values) {
-                                    // return '$' + value.toFixed(decimals);
-                                    if (parseInt(value) >= 1000) {
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    } else {
-                                        return '$' + value;
-                                    }
-                                },
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
-            });
-
-            chartOne = new Chart(ctxOne, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        ['Flip Tot.', 'Cost'],
-                        ['Profit', 'From Flip'],
-                        ['Pertnered', 'Cost'],
-                        ['Pertner', 'Profit']
-                    ],
-                    datasets: [{
-                        label: 'Cost From Flip',
-                        data: [flip_total_cost, 0, partner_total_cost, 0],
-                        backgroundColor: '#ff0000'
-                    }, {
-                        label: '',
-                        data: [0, total_profit, 0, 0],
-                        backgroundColor: '#002060'
-                    }, {
-                        label: 'Investor\'s Profit',
-                        data: [0, 0, 0, partner_profit, 350000],
-                        backgroundColor: '#009999'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#fff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                            ticks: {
-                                display: true,
-                                stepSize: 0,
-                                min: 0,
-                                autoSkip: false,
-                                fontSize: 11,
-
-                                maxRotation: 0,
-                                minRotation: 0,
-                            }
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                // // Include a dollar sign in the ticks
-                                callback: function(value, index, values) {
-                                    // return '$' + value.toFixed(decimals);
-                                    if (parseInt(value) >= 1000) {
-                                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                    } else {
-                                        return '$' + value;
-                                    }
-                                },
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
-            });
-            chartTwo = new Chart(ctxTwo, {
-                type: 'bar',
-                data: {
-                    labels: ['Fix & Flip', 'Partner'],
-                    datasets: [{
-                        label: '',
-                        data: [flip_roi, 0, 10],
-                        backgroundColor: '#009999'
-                    }, {
-                        label: '',
-                        data: [0, partner_roi],
-                        backgroundColor: '#002060'
-                    }]
-                },
-                options: {
-                    responsive: false,
-                    legend: {
-                        display: false,
-                        labels: {
-                            fontColor: '#fff'
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            stacked: true,
-                            maxBarThickness: 60, // this should be set to make the bars stacked
-                            gridLines: {
-                                display: false,
-                            },
-                        }],
-                        yAxes: [{
-                            stacked: true, // this also..
-                            ticks: {
-                                callback: function(value, index, values) {
-                                    console.log("value", value);
-                                    console.log("index", index);
-                                    console.log("values", values);
-                                    // var strng = value+'%';
-                                    if (value < 10) {
-                                        strng = '0.' + value + '0%';
-                                    } else {
-                                        strng = '1.00%';
-                                    }
-                                    console.log('strng', strng);
-                                    return strng;
-                                }
-
-                            },
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Hundreds'
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                            },
-                        }],
-
-                    }
-                }
-            });
-        }
-
-        $('#ask_price, #arv, #brv, #est_repair_cost, #seller_share, #investor_share, #holding_cost, #resale_fees, #loan_cost,#rule_percentage ').on("input", function(){
-            console.log($(this).attr("id"));
-            console.log("value", $(this).val());
-            $("#brv_range_value").val(numberWithCommas( parseFloat(((parseFloat($("#rule_percentage").val().replace(",",""))/100) *parseFloat((parseFloat($("#arv_range_value").val().replace(",","")) - parseFloat($("#holding_cost").val().replace(",","")) - parseFloat($("#resale_fees").val().
-            replace(",","")) - parseFloat($("#loan_cost").val().replace(",","")) - parseFloat($("#est_repair_cost_range_value").val().replace(",",""))).toFixed(2)) ).toFixed(2))));
-
-
-            if($(this).attr("id") === 'seller_share')
-            {
-                $('#'+$(this).attr("id")+'_range_value').val($(this).val());
-                $('#investor_share').val(100 - parseInt($(this).val()));
-                $('#investor_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else if($(this).attr("id") === 'investor_share')
-            {
-                $('#'+$(this).attr("id")+'_range_value').val($(this).val());
-                $('#seller_share').val(100 - parseInt($(this).val()));
-                $('#seller_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else
-            {
-                $('#'+$(this).attr("id")+'_range_value').val(numberWithCommas($(this).val()));
-            }
-
-            setTimeout(() => {
-                updateCharts();
-            }, 2000);
         });
-
-        $('#ask_price_range_value,#arv_range_value, #brv_range_value, #est_repair_cost_range_value, #seller_share_range_value, #investor_share_range_value').on("input", function(){
-            console.log($(this).attr("id"));
-            console.log("value", $(this).val() == "");
-
-            if($(this).attr("data-id") === 'seller_share' && $(this).val() != '')
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
-                $('#investor_share').val(100 - parseInt($(this).val()));
-                $('#investor_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else if($(this).attr("data-id") === 'investor_share' && $(this).val() != '')
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val().replace(/,/g, "")));
-                $('#seller_share').val(100 - parseInt($(this).val()));
-                $('#seller_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
-            }
-
-            setTimeout(() => {
-                updateCharts();
-            }, 2000);
-        });
-        /*
-
-        $('#ask_price, #arv, #brv, #est_repair_cost, #seller_share, #investor_share').on("input", function(){
-            console.log($(this).attr("id"));
-            console.log("value", typeof $(this).val());
-            if($(this).attr("id") === 'seller_share')
-            {
-                $('#'+$(this).attr("id")+'_range_value').val($(this).val());
-                $('#investor_share').val(100 - parseInt($(this).val()));
-                $('#investor_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else if($(this).attr("id") === 'investor_share')
-            {
-                $('#'+$(this).attr("id")+'_range_value').val($(this).val());
-                $('#seller_share').val(100 - parseInt($(this).val()));
-                $('#seller_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else
-            {
-                $('#'+$(this).attr("id")+'_range_value').val(numberWithCommas($(this).val()));
-            }
-
-            setTimeout(() => {
-                updateCharts();
-            }, 2000);
-        });
-
-        $('#ask_price_range_value, #arv_range_value, #brv_range_value, #est_repair_cost_range_value, #seller_share_range_value, #investor_share_range_value').on("input", function(){
-            console.log($(this).attr("id"));
-            console.log("value", $(this).val() == "");
-
-            if($(this).attr("data-id") === 'seller_share' && $(this).val() != '')
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
-                $('#investor_share').val(100 - parseInt($(this).val()));
-                $('#investor_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else if($(this).attr("data-id") === 'investor_share' && $(this).val() != '')
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val().replace(/,/g, "")));
-                $('#seller_share').val(100 - parseInt($(this).val()));
-                $('#seller_share_range_value').val(100 - parseInt($(this).val()));
-            }
-            else
-            {
-                $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
-            }
-
-            setTimeout(() => {
-                updateCharts();
-            }, 2000);
-        }); */
-
-        function updateCharts2()
-        {
-            var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
-            var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
-            var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
-            var seller_share = parseInt($("#seller_share_range_value").val());
-            var investor_share = parseInt($("#investor_share_range_value").val());
-            var total_profit = Math.round(arv - (brv + est_repair_cost));
-            var seller_share_profit = Math.round((total_profit * seller_share) / 100);
-            var seller_gross_profit = Math.round(brv + seller_share_profit);
-            var investor_share_profit = Math.round((total_profit * investor_share) / 100);
-            var flip_total_cost = brv + est_repair_cost;
-            var flip_profit = total_profit;
-            var partner_total_cost = est_repair_cost;
-            var partner_profit = investor_share_profit;
-            var flip_roi = ((flip_profit/flip_total_cost).toFixed(2)) * 100;
-            var partner_roi = ((partner_profit/partner_total_cost).toFixed(2)) * 100;
-            $('#total_projected_profit').val(numberWithCommas(total_profit));
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
-            $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
-
-            chart.data.datasets[0].data = [brv, seller_share_profit];
-            chart.data.datasets[1].data = [0, brv];
-            chart.update();
-
-            chartOne.data.datasets[0].data = [flip_total_cost, 0, partner_total_cost, 0];
-            chartOne.data.datasets[1].data = [0, total_profit, 0, 0];
-            chartOne.data.datasets[2].data = [0, 0, 0, partner_profit, 350000];
-            chartOne.update();
-
-            chartTwo.data.datasets[0].data = [flip_roi, 0, 10];
-            chartTwo.data.datasets[1].data = [0, partner_roi];
-            chartTwo.update();
-        }
-
-        function updateCharts()
-        {
-            var arv = parseInt(($("#arv_range_value").val()).replace(/,/g, ""));
-            var brv = parseInt(($("#brv_range_value").val()).replace(/,/g, ""));
-            var est_repair_cost = parseInt(($("#est_repair_cost_range_value").val()).replace(/,/g, ""));
-            var seller_share = parseInt($("#seller_share_range_value").val());
-            var investor_share = parseInt($("#investor_share_range_value").val());
-
-            var holding_cost = parseInt(($("#holding_cost").val()).replace(/,/g, ""));
-            var resale_cost = parseInt(($("#resale_fees").val()).replace(/,/g, ""));
-            var loan_cost = parseInt(($("#loan_cost").val()).replace(/,/g, ""));
-            var percent_rule = parseInt(($("#rule_percentage").val()).replace(/,/g, ""));
+        
+        $('.range-trigger').on('input', function(){
+            $('#'+$(this).attr("id")+'_range_value').val(numberWithCommas($(this).val()));
+            updateCalcFields({
+                arv_c17: str2Float($('#arv').val().replace(/,/g, "")),
+                est_repair_cost_c18: str2Float($('#est_repair_cost').val().replace(/,/g, "")),
+                rule_percentage_c24: str2Float($('#rule_percentage').val().replace(/,/g, "")),
+                holding_cost_c19: str2Float($('#holding_cost').val().replace(/,/g, "")),
+                resale_fees_c20: str2Float($('#resale_fees').val().replace(/,/g, "")),
+                loan_cost_c21: str2Float($('#loan_cost').val().replace(/,/g, "")),
+                wholesaler_fee_c26: str2Float($('#seller_share_range_value').val().replace(/,/g, "")),
+            });
+        })
+        
+        // $('#ask_price, #arv, #brv, #est_repair_cost, #seller_share, #investor_share, #holding_cost, #resale_fees, #loan_cost,#rule_percentage ').on("input", function(){
+        //     console.log($(this).attr("id"));
+        //     console.log("value", $(this).val());
+        //     $("#brv_range_value").val(numberWithCommas( parseFloat(((parseFloat($("#rule_percentage").val().replace(",",""))/100) *parseFloat((parseFloat($("#arv_range_value").val().replace(",","")) - parseFloat($("#holding_cost").val().replace(",","")) - parseFloat($("#resale_fees").val().
+        //     replace(",","")) - parseFloat($("#loan_cost").val().replace(",","")) - parseFloat($("#est_repair_cost_range_value").val().replace(",",""))).toFixed(2)) ).toFixed(2))));
 
 
-            var total_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost))*percent_rule/100);
+        //     if($(this).attr("id") === 'seller_share')
+        //     {
+        //         $('#'+$(this).attr("id")+'_range_value').val($(this).val());
+        //         $('#investor_share').val(100 - parseInt($(this).val()));
+        //         $('#investor_share_range_value').val(100 - parseInt($(this).val()));
+        //     }
+        //     else if($(this).attr("id") === 'investor_share')
+        //     {
+        //         $('#'+$(this).attr("id")+'_range_value').val($(this).val());
+        //         $('#seller_share').val(100 - parseInt($(this).val()));
+        //         $('#seller_share_range_value').val(100 - parseInt($(this).val()));
+        //     }
+        //     else
+        //     {
+        //         $('#'+$(this).attr("id")+'_range_value').val(numberWithCommas($(this).val()));
+        //     }
+        // });
 
+        // $('#ask_price_range_value,#arv_range_value, #brv_range_value, #est_repair_cost_range_value, #seller_share_range_value, #investor_share_range_value').on("input", function(){
+        //     console.log($(this).attr("id"));
+        //     console.log("value", $(this).val() == "");
 
+        //     if($(this).attr("data-id") === 'seller_share' && $(this).val() != '')
+        //     {
+        //         $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
+        //         $('#investor_share').val(100 - parseInt($(this).val()));
+        //         $('#investor_share_range_value').val(100 - parseInt($(this).val()));
+        //     }
+        //     else if($(this).attr("data-id") === 'investor_share' && $(this).val() != '')
+        //     {
+        //         $('#'+$(this).attr("data-id")).val(($(this).val().replace(/,/g, "")));
+        //         $('#seller_share').val(100 - parseInt($(this).val()));
+        //         $('#seller_share_range_value').val(100 - parseInt($(this).val()));
+        //     }
+        //     else
+        //     {
+        //         $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
+        //     }
 
+        // });
 
-            var seller_share_profit = Math.round((total_profit * seller_share) / 100);
-            var seller_gross_profit = Math.round(brv + seller_share_profit);
-
-
-            var wholeseller_offer =  total_profit + total_profit*seller_share/100;
-            $('#wholeseller_offer').val(numberWithCommas(wholeseller_offer));
-
-            let investor_share_profit = Math.round((arv - ( est_repair_cost + holding_cost+resale_cost+loan_cost+wholeseller_offer)));
-            // alert("2:"+investor_share_profit);
-
-            seller_share_profit = arv * seller_share / 100;
-            let c22 = parseFloat(investorProposals_list_data_value.gross_profit);
-            let c24 = parseFloat(investorProposals_list_data_value.rule_percentage);
-            let c25 = c24 * c22 / 100;
-            let c27 = seller_share_profit;
-            seller_gross_profit = c25 + c27;
-
-            var flip_total_cost = brv + est_repair_cost;
-            var flip_profit = total_profit;
-            var partner_total_cost = est_repair_cost;
-            var partner_profit = investor_share_profit;
-            var flip_roi = (flip_profit/flip_total_cost).toFixed(2);
-            var partner_roi = (partner_profit/partner_total_cost).toFixed(2);
-            $('#total_projected_profit').val(numberWithCommas(total_profit));
-            $('#investor_profit').val(numberWithCommas(investor_share_profit));
-            $('input[id=investor_profit]').val(numberWithCommas(investor_share_profit));
-            $('#seller_net_profit').val(numberWithCommas(seller_share_profit));
-            $('#seller_gross_profit').val(numberWithCommas(seller_gross_profit));
-
-            chart.data.datasets[0].data = [brv, seller_share_profit];
-            chart.data.datasets[1].data = [0, brv];
-            chart.update();
-
-            chartOne.data.datasets[0].data = [flip_total_cost, 0, partner_total_cost, 0];
-            chartOne.data.datasets[1].data = [0, total_profit, 0, 0];
-            chartOne.data.datasets[2].data = [0, 0, 0, partner_profit, 350000];
-            chartOne.update();
-
-            chartTwo.data.datasets[0].data = [flip_roi, 0, 10];
-            chartTwo.data.datasets[1].data = [0, partner_roi];
-            chartTwo.update();
-        }
 
         $(document).on("show.bs.collapse", ".collapse", function (event) {
             var proposal_id = $(this).attr("id").split('_');
@@ -1675,11 +963,36 @@
 
         });
 
-        function numberWithCommas(number) {
-            var parts = number.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
+        function updateCalcFields(data) {
+
+            let calc = calcWholesaler({
+                arv_c17: data.arv_c17,
+                est_repair_cost_c18: data.est_repair_cost_c18,
+                rule_percentage_c24: data.rule_percentage_c24,
+                holding_cost_c19: data.holding_cost_c19,
+                resale_fees_c20: data.resale_fees_c20,
+                loan_cost_c21: data.loan_cost_c21,
+                wholesaler_fee_c26: data.wholesaler_fee_c26,
+            });
+
+            $('#arv').val(numberWithCommas(data.arv_c17));
+
+            $('#seller_offer_price').val(numberWithCommas(calc.max_offer_seller_c25));
+            $('#est_repair_cost').val(numberWithCommas(data.est_repair_cost_c18));
+
+            $('#holding_cost').val(numberWithCommas(data.holding_cost_c19));
+            $('#resale_fees').val(numberWithCommas(data.resale_fees_c20));
+            $('#loan_cost').val(numberWithCommas(data.loan_cost_c21));
+            
+            $('#seller_share').val(data.wholesaler_fee_c26);
+            $('#seller_share_range_value').val(numberWithCommas(data.wholesaler_fee_c26));
+            
+            $('#investor_profit').val(numberWithCommas(calc.investor_projected_profit_c29));
+
+            $('#wholesaler_profit').val(numberWithCommas(calc.wholesaler_profit_c27));
+
         }
+        
     </script>
     <script>
         // In this example, we center the map, and add a marker, using a LatLng object
@@ -1713,4 +1026,5 @@
             });
         }
     </script>
+    <script src="{{ URL::asset('assets/front_end/js/global.js') }}"></script>
 @endsection

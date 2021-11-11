@@ -493,7 +493,7 @@ class ProposalController extends Controller
         $pro->investor_projected_profit=str_replace(",","",$request->investor_profit);
         $pro->investor_roi=round((int)$pro->investor_projected_profit*100/((int)$pro->est_repair_cost+ (int)$pro->holding_cost+ (int)$pro->resale_fee+ (int)$pro->loan_cost+ (int)$pro->investor_asking));
 
-
+        $pro->revised_price=str_replace(",","",$request->revised_price_range_value);
 
         if($request->hasFile('proposal'))
         {

@@ -202,208 +202,222 @@
                             <input type="hidden" class="form-control" id="to_user" name="to_user" value="{{ $property->user_id }}">
                             <input type="hidden" class="form-control" id="is_investor" name="is_investor" value="1">
                             <input type="hidden" class="form-control" id="ref_proposal" name="ref_proposal" value="">
-                            <div class="row {{ $details->for_sale == '0' ? 'hide' : '' }}">
-                                <div class="col-md-12">
-                                    <h6><strong>For Sale</strong></h6>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="suggest_ask_price">Suggest Ask Price: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class='form-control amountComma' min="0" max="10000000" name='ask_price_range_value' id='ask_price_range_value' data-id='ask_price'>
-                                    </div>
-                                    <input type="range" min="0" max="10000000" name='ask_price' id='ask_price' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('ask_price') }}</small>
-                                </div>
-                            </div>
-                            <hr class="{{ $details->for_sale == '1' && $details->partner_up == '1' ? '' : 'hide' }}">
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <?php
-                                if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
-                                {
+
+                            <?php
+                            if ($roleName == 'Wholesaler') {
+                                // investor wholesaler
                                 ?>
-                                <div class="col-md-12">
-                                    <h6><strong>For Partner Up</strong></h6>
-                                </div>
+                                @include('investor.property.wholesaler')
                                 <?php
-                                }
+                            }
+                            else {
                                 ?>
-                                <div class="form-group col-md-3">
-                                    <label for="street_no_name">Investor's Suggested ARV: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" min="0" max="10000000" name='arv_range_value' id='arv_range_value' data-id="arv">
+                                <div class="row {{ $details->for_sale == '0' ? 'hide' : '' }}">
+                                    <div class="col-md-12">
+                                        <h6><strong>For Sale</strong></h6>
                                     </div>
-                                    <input type="range" min="0" max="10000000" name='arv' id='arv' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('arv') }}</small>
-                                </div>
-                                <input type="hidden"  class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
-                                <div class="form-group col-md-3">
-                                    <label for="street_no_name">Investor's Suggested Repair Cost: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class='form-control amountComma' min="0" max="10000000" name='est_repair_cost_range_value' id='est_repair_cost_range_value' data-id="est_repair_cost">
-                                    </div>
-                                    <input type="range" min="0" max="10000000" name='est_repair_cost' id='est_repair_cost' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('est_repair_cost') }}</small>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="70_rule">70% Rule: </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">%</span>
-                                        <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage && intval($details->rule_percentage)>0?intval($details->rule_percentage): "70"}}' class='form-control  validate[min[50],max[90]]'>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="text-capitalize"><b>Fees & Costs</b></h3>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="holding_cost">Holding Cost*</label>
-                                    <div class="input-group">
-                                        <input type="text" name="holding_cost" id="holding_cost" value='{{number_format(floatval($details->holding_cost)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                    </div>
-                                    <small class="text-danger">{{ $errors->first('holding_cost') }}</small>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="seller">Resale Fees*</label>
-                                    <div class="input-group">
-                                        <input type="text" id="resale_fees" name="resale_fees" value='{{number_format(floatval($details->resale_fees)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                    </div>
-                                    <small class="text-danger">{{ $errors->first('resale_fees') }}</small>
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="investor">Loan Cost*</label>
-                                    <div class="input-group">
-                                        <input type="text" name="loan_cost" id="loan_cost" value='{{number_format(floatval($details->loan_cost)) ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                    </div>
-                                    <small class="text-danger">{{ $errors->first('loan_cost') }}</small>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="investor">Total Misc Cost</label>
-                                    <div class="input-group">
-                                        <input type="text" name="total_misc_cost" id="total_misc_cost"  class="form-control validate[required]" value="{{ number_format(floatval($details->holding_cost)+floatval($details->resale_fees)+floatval($details->loan_cost)) }}" disabled placeholder="Calculated">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
+                                    <div class="form-group col-md-4">
+                                        <label for="suggest_ask_price">Suggest Ask Price: </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class='form-control amountComma' min="0" max="10000000" name='ask_price_range_value' id='ask_price_range_value' data-id='ask_price'>
+                                        </div>
+                                        <input type="range" min="0" max="10000000" name='ask_price' id='ask_price' class='form-control'>
+                                        <small class="text-danger">{{ $errors->first('ask_price') }}</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <div class="form-group col-md-3">
+                                <hr class="{{ $details->for_sale == '1' && $details->partner_up == '1' ? '' : 'hide' }}">
+                                <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
                                     <?php
-                                    if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
+                                    if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
                                     {
                                     ?>
-                                        <label for="street_no_name">Wholesaler's Fee(%): </label>
-                                    <?php
-                                    }
-                                    else
-                                    {
-                                    ?>
-                                        <label for="street_no_name"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit Share: </label>
+                                    <div class="col-md-12">
+                                        <h6><strong>For Partner Up</strong></h6>
+                                    </div>
                                     <?php
                                     }
                                     ?>
-
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
-                                        <span class="input-group-addon" id="basic-addon1">%</span>
-                                    </div>
-                                    <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('seller_share') }}</small>
-                                </div>
-                                <div class="form-group col-md-3 d-none">
-                                    <label for="street_no_name">Investor's Profit: </label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" min="1" max="99"  name='investor_share_range_value' id='investor_share_range_value' data-id='investor_share'>
-                                        <span class="input-group-addon" id="basic-addon1">%</span>
-                                    </div>
-                                    <input type="range" min="1" max="99" name='investor_share' id='investor_share' class='form-control'>
-                                    <small class="text-danger">{{ $errors->first('investor_share') }}</small>
-                                </div>
-                                <div class="form-group col-md-3">
-
-                                </div>
-                                <div class="form-group col-md-3">
-
-                                </div>
-
-
-                                <div class="form-group col-md-3">
-                                    <label for="total_projected_profit">Investor's Projected Profit:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
-                                    </div>
-
-                                    <div class="input-group hide">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="total_projected_profit" id="total_projected_profit" value="0" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-3">
-                                    <label for="street_no_name">Estimated Offer to Wholesaler: </label>
-                                    <div class="input-group">
-                                        <input readonly type="text" class="form-control" min="1"  name='wholeseller_offer' id='wholeseller_offer' value="{{$details->investor_asking}}" data-id='investor_share'>
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-
-                            <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <div class="form-group col-md-4 d-none">
-                                    <label for="investor_profit">Investor's Profit:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 d-none">
-                                    <label for="seller_net_profit"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Net Profit:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="seller_net_profit" id="seller_net_profit" value="0" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="seller_gross_profit">Revised Offer price to Wholesaler:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">$</span>
-                                        <input type="text" class="form-control amountComma" name="seller_gross_profit" id="seller_gross_profit" value="0" readonly>
-                                    </div>
-                                </div>
-                                <br />
-                                <br />
-                            </div>
-                            <div class="row hide {{ $details->partner_up == '0' ? 'hide' : '' }}">
-                                <div class="col-lg-12 chart-bg-overlay">
-                                    <div class="form-row mt-lg-5 charts-row">
-                                        <div class="col-lg-4">
-                                            <h4 class="text-center text-capitalize mb-3"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?> Profit Options</h4>
-                                            <canvas id="ctx" style="width: 100%; height: 200px"></canvas>
+                                    <div class="form-group col-md-3">
+                                        <label for="street_no_name">Investor's Suggested ARV: </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" min="0" max="10000000" name='arv_range_value' id='arv_range_value' data-id="arv">
                                         </div>
-                                        <div class="col-lg-4">
-                                            <h4 class="text-center text-capitalize mb-3">investor options</h4>
-                                            <canvas id="ctxOne" style="width: 100%; height: 200px"></canvas>
+                                        <input type="range" min="0" max="10000000" name='arv' id='arv' class='form-control'>
+                                        <small class="text-danger">{{ $errors->first('arv') }}</small>
+                                    </div>
+                                    <input type="hidden"  class='form-control amountComma' min="0" max="10000000" name='brv_range_value' id='brv_range_value' data-id='brv'>
+                                    <div class="form-group col-md-3">
+                                        <label for="street_no_name">Investor's Suggested Repair Cost: </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class='form-control amountComma' min="0" max="10000000" name='est_repair_cost_range_value' id='est_repair_cost_range_value' data-id="est_repair_cost">
                                         </div>
-                                        <div class="col-lg-4 pl-3">
-                                            <h4 class="text-center text-capitalize mb-3">return on investment</h4>
-                                            <canvas id="ctxTwo" style="width: 100%; height: 200px"></canvas>
+                                        <input type="range" min="0" max="10000000" name='est_repair_cost' id='est_repair_cost' class='form-control'>
+                                        <small class="text-danger">{{ $errors->first('est_repair_cost') }}</small>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="70_rule">70% Rule: </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">%</span>
+                                            <input type="number" min="50" max="80" name='rule_percentage' id='rule_percentage' value='{{$details->rule_percentage && intval($details->rule_percentage)>0?intval($details->rule_percentage): "70"}}' class='form-control  validate[min[50],max[90]]'>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-capitalize"><b>Fees & Costs</b></h3>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="holding_cost">Holding Cost*</label>
+                                        <div class="input-group">
+                                            <input type="text" name="holding_cost" id="holding_cost" value='{{number_format(floatval($details->holding_cost)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                        </div>
+                                        <small class="text-danger">{{ $errors->first('holding_cost') }}</small>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="seller">Resale Fees*</label>
+                                        <div class="input-group">
+                                            <input type="text" id="resale_fees" name="resale_fees" value='{{number_format(floatval($details->resale_fees)) ?? "0"}}' class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                        </div>
+                                        <small class="text-danger">{{ $errors->first('resale_fees') }}</small>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="investor">Loan Cost*</label>
+                                        <div class="input-group">
+                                            <input type="text" name="loan_cost" id="loan_cost" value='{{number_format(floatval($details->loan_cost)) ?? "0"}}' id="loan_cost" class="amountComma form-control validate[required,min[0],maxSize[10]]">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                        </div>
+                                        <small class="text-danger">{{ $errors->first('loan_cost') }}</small>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="investor">Total Misc Cost</label>
+                                        <div class="input-group">
+                                            <input type="text" name="total_misc_cost" id="total_misc_cost"  class="form-control validate[required]" value="{{ number_format(floatval($details->holding_cost)+floatval($details->resale_fees)+floatval($details->loan_cost)) }}" disabled placeholder="Calculated">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                                    <div class="form-group col-md-3">
+                                        <?php
+                                        if($property->seller()->first()->roles()->first()->slug == 'wholeseller')
+                                        {
+                                        ?>
+                                            <label for="street_no_name">Wholesaler's Fee(%): </label>
+                                        <?php
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                            <label for="street_no_name"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Profit Share: </label>
+                                        <?php
+                                        }
+                                        ?>
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
+                                            <span class="input-group-addon" id="basic-addon1">%</span>
+                                        </div>
+                                        <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control'>
+                                        <small class="text-danger">{{ $errors->first('seller_share') }}</small>
+                                    </div>
+                                    <div class="form-group col-md-3 d-none">
+                                        <label for="street_no_name">Investor's Profit: </label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" min="1" max="99"  name='investor_share_range_value' id='investor_share_range_value' data-id='investor_share'>
+                                            <span class="input-group-addon" id="basic-addon1">%</span>
+                                        </div>
+                                        <input type="range" min="1" max="99" name='investor_share' id='investor_share' class='form-control'>
+                                        <small class="text-danger">{{ $errors->first('investor_share') }}</small>
+                                    </div>
+                                    <div class="form-group col-md-3">
+
+                                    </div>
+                                    <div class="form-group col-md-3">
+
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="total_projected_profit">Investor's Projected Profit:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
+                                        </div>
+
+                                        <div class="input-group hide">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" name="total_projected_profit" id="total_projected_profit" value="0" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label for="street_no_name">Estimated Offer to Wholesaler: </label>
+                                        <div class="input-group">
+                                            <input readonly type="text" class="form-control" min="1"  name='wholeseller_offer' id='wholeseller_offer' value="{{$details->investor_asking}}" data-id='investor_share'>
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                                    <div class="form-group col-md-4 d-none">
+                                        <label for="investor_profit">Investor's Profit:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 d-none">
+                                        <label for="seller_net_profit"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?>'s Net Profit:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" name="seller_net_profit" id="seller_net_profit" value="0" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="seller_gross_profit">Revised Offer price to Wholesaler:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">$</span>
+                                            <input type="text" class="form-control amountComma" name="seller_gross_profit" id="seller_gross_profit" value="0" readonly>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                </div>
+                                <div class="row hide {{ $details->partner_up == '0' ? 'hide' : '' }}">
+                                    <div class="col-lg-12 chart-bg-overlay">
+                                        <div class="form-row mt-lg-5 charts-row">
+                                            <div class="col-lg-4">
+                                                <h4 class="text-center text-capitalize mb-3"><?php echo ucfirst($property->seller()->first()->roles()->first()->slug); ?> Profit Options</h4>
+                                                <canvas id="ctx" style="width: 100%; height: 200px"></canvas>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <h4 class="text-center text-capitalize mb-3">investor options</h4>
+                                                <canvas id="ctxOne" style="width: 100%; height: 200px"></canvas>
+                                            </div>
+                                            <div class="col-lg-4 pl-3">
+                                                <h4 class="text-center text-capitalize mb-3">return on investment</h4>
+                                                <canvas id="ctxTwo" style="width: 100%; height: 200px"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label for="street_no_name">Select Document:</label>
@@ -482,12 +496,14 @@
         }
     </script>
     <script>
+        var details = JSON.parse('<?php echo json_encode($details)?>');
         var investorProposals_list_data_value = null;
         var chart;
         var chartOne;
         var chartTwo;
         var base_url = "{{asset('/')}}";
         $(document).ready(function(){
+            return;
             let property_id = <?php echo $property->id;?>;
             console.log("property_id", property_id);
             $.ajax({
@@ -1290,13 +1306,6 @@
             }
         });
 
-
-        function numberWithCommas(number) {
-            var parts = number.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
-        }
-
         $(document).on("click", "a[id^='accept_proposal_']", function(){
             console.log($(this).attr('id'));
             var proposal_id = $(this).attr("id").split('_');
@@ -1357,4 +1366,5 @@
             });
         }
     </script>
+    <script src="{{ URL::asset('assets/front_end/js/global.js') }}"></script>
 @endsection
