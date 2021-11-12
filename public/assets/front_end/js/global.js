@@ -1,5 +1,5 @@
 function numberWithCommas(number) {
-    number = Math.round(number * 100) / 100;
+    number = Math.round(number);
     var parts = number.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
