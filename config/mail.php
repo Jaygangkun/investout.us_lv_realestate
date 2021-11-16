@@ -63,7 +63,7 @@ return [
     //],
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'investout63@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'newioproperty@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'InvestOut'),
 
     ],
