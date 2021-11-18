@@ -138,29 +138,34 @@
                                                           <tr>
                                                               <th>No</th>
                                                               <th>Proposal Sender</th>
-                                                              <th>Project Total Profit($)</th>
-                                                              <th>BRV($)</th>
-                                                              <th>Increased Profit($)</th>
-                                                              <th>Seller Profit Share(%)</th>
-                                                              <th>Investor Profit Share(%)</th>
-                                                              <!-- <th>Last Proposal At</th> -->
+                                                              <th>Wholesaler Profit($)</th>
+                                                              <th>ARV($)</th>
+                                                              <th>Maximum Offer Price to Homeseller($)</th>
                                                               <th style='width:100px'>Accepted</th>
-                                                              <!-- <th style='width:100px'>Deny</th> -->
                                                               <th>Action</th>
                                                           </tr>
                                                       </thead>
                                                       <tbody>
                                                               @foreach ($proposalsLists as $key=>$proposal )
+                                                                <?php
+                                                                $calc = Helper::calcWholesaler(array(
+                                                                  'arv_c17' => floatval($proposal->arv),
+                                                                  'est_repair_cost_c18' => floatval($proposal->est_repair_cost),
+                                                                  'rule_percentage_c24' => floatval($proposal->rule_percentage),
+                                                                  'holding_cost_c19' => floatval($proposal->holding_cost),
+                                                                  'resale_fees_c20' => floatval($proposal->resale_fee),
+                                                                  'loan_cost_c21' => floatval($proposal->loan_cost),
+                                                                  'wholesaler_fee_c26' => floatval($proposal->seller_share)
+                                                                ));
+                                                                ?>
                                                                   <tr class="allproperty_row">
                                                                       <td class="text_center">{{$key+1}}</td>
                                                                       <td>
                                                                         {{$proposal->fromUser->first_name}} {{$proposal->fromUser->last_name}}
                                                                       </td>
-                                                                      <td>$ {{ number_format(round($proposal->total_projected_profit))}}</td>
-                                                                      <td>$ {{ number_format(round($proposal->brv))}}</td>
-                                                                      <td>$ {{ number_format(round($proposal->increased_profit))}}</td>
-                                                                      <td>{{$proposal->seller_share}} %</td>
-                                                                      <td>{{100 - $proposal->seller_share}} %</td>
+                                                                      <td>$ {{ Helper::numberWithCommas($calc['wholesaler_profit_c27']) }}</td>
+                                                                      <td>$ {{ Helper::numberWithCommas($proposal->arv)}}</td>
+                                                                      <td>$ {{ Helper::numberWithCommas($calc['max_offer_seller_c25']) }}</td>
                                                                       <!-- <td>
                                                                         {{$proposal->created_at}}
                                                                       </td> -->
