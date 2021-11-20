@@ -54,6 +54,16 @@ function calculationsWholesaler()
     let estimated_repair_cost_c18 = $("#estimated_repair_cost").val().replace(/,/g, '');
     estimated_repair_cost_c18 = str2Float(estimated_repair_cost_c18);
 
+    // Calculate Price Per Sqr.Ft
+    let price_per_sqft;
+    if(sqr_ft == 0) {
+        price_per_sqft = 0;
+    }
+    else {
+        price_per_sqft = arv_c17 / sqr_ft;
+    }
+    $("#price_per_sqft").val(numberWithCommas(price_per_sqft));
+
     // Get Holding Cost
     let holding_cost_c19    = $("#holding_cost").val().replace(/,/g, "");
     holding_cost_c19 = str2Float(holding_cost_c19);
