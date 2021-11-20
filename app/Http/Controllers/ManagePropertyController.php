@@ -477,7 +477,7 @@ class ManagePropertyController extends Controller
 
                     // Send mail to tye.
                     $user = auth()->user();
-                    Mail::to('info@investout.us')->send(new addPropertyMail($user, $property, $propertyDetailsData));
+                    // Mail::to('newioproperty@gmail.com')->send(new addPropertyMail($user, $property, $propertyDetailsData));
                     
                 }
                 else{
