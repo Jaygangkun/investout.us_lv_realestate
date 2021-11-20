@@ -70,21 +70,21 @@
         <label for="street_no_name">Wholesaler's Fee(%): </label>
         <div class="input-group">
             <span class="input-group-addon" >%</span>
-            <input type="text" class="form-control calc-trigger" min="1" max="99" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
+            <input type="text" class="form-control calc-trigger" name='seller_share_range_value' id='seller_share_range_value' data-id='seller_share'>
         </div>
-        <input type="range" min="1" max="99" name='seller_share' id='seller_share' class='form-control range-trigger'>
+        <input type="range" min="0.01" max="99.99" step="0.01" name='seller_share' id='seller_share' class='form-control range-trigger' style="display: none">
         <small class="text-danger">{{ $errors->first('seller_share') }}</small>
     </div>
     <div class="form-group col-md-3">
         <label for="total_projected_profit">Investor's Projected Profit:</label>
         <div class="input-group">
             <span class="input-group-addon" >$</span>
-            <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="0" readonly>
+            <input type="text" class="form-control amountComma" name="investor_profit" id="investor_profit" value="" readonly>
         </div>
 
         <div class="input-group hide">
             <span class="input-group-addon" >$</span>
-            <input type="text" class="form-control amountComma" name="total_projected_profit" id="total_projected_profit" value="0" readonly>
+            <input type="text" class="form-control amountComma" name="total_projected_profit" id="total_projected_profit" value="" readonly>
         </div>
     </div>
 </div>
@@ -93,7 +93,7 @@
         <label for="street_no_name">Estimated Offer to Wholesaler: </label>
         <div class="input-group">
             <span class="input-group-addon" >$</span>
-            <input readonly type="text" class="form-control" min="1"  name='wholeseller_offer' id='wholeseller_offer' value="{{$details->investor_asking}}" data-id='investor_share'>
+            <input readonly type="text" class="form-control" min="1"  name='wholeseller_offer' id='wholeseller_offer' value="" data-id='investor_share'>
         </div>
 
     </div>
@@ -103,9 +103,9 @@
         <label for="revised_price">Revised Offer price to Wholesaler:</label>
         <div class="input-group">
             <span class="input-group-addon" >$</span>
-            <input type="text" class="form-control amountComma calc-trigger" name="revised_price_range_value" id="revised_price_range_value" value="0" data-id="revised_price">
+            <input type="text" class="form-control amountComma calc-trigger" name="revised_price_range_value" id="revised_price_range_value" value="" data-id="revised_price">
         </div>
-        <input type="range" min="1" max="10000000" name='revised_price' id='revised_price' class='form-control range-trigger' value="0">
+        <input type="range" min="1" max="10000000" step="0.01" name='revised_price' id='revised_price' class='form-control range-trigger'>
     </div>
 </div>
 <div class="d-none" id="panel_template">
@@ -129,7 +129,7 @@
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class=""> $ <span class="investor-projected-profit">58,931.52</span></a>
                         </td>
                         <td rowspan="2">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class="">Sent At: <span class="sent-at-date">11/11/2021 01:13:47 AM</span></a>
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_110" aria-expanded="true" aria-controls="collapse_110" class=""><span class="sent-at-title">Sent At</span>: <span class="sent-at-date">11/11/2021 01:13:47 AM</span></a>
                         </td>
                         <td rowspan="2">
                             <div class="proposal_document">
@@ -175,7 +175,10 @@
     var details = JSON.parse('<?php echo json_encode($details)?>');
     var base_url = "{{asset('/')}}";
     var initRange = false;
-
+    var calc_params = {};
+    var calc_results = {};
+    var is_update_revised_asking_price_investor = true;
+    
     $(document).ready(function(){
         let property_id = <?php echo $property->id;?>;
         console.log("property_id", property_id);
@@ -199,11 +202,13 @@
                             $(panel).find('.panel-heading').attr('class', 'panel-heading proposal_send');
                             $(panel).find('.panel-heading').attr('data-type', 'send');
                             $(panel).find('.btn-accept').hide();
+                            $(panel).find('.sent-at-title').text('Sent At');
                         }
                         else {
                             $(panel).find('.title').text('Received From');
                             $(panel).find('.panel-heading').attr('class', 'panel-heading proposal_received');
                             $(panel).find('.panel-heading').attr('data-type', 'received');
+                            $(panel).find('.sent-at-title').text('Received At');
                         }
                         
                         if(value.is_accepted == '1') {
@@ -223,7 +228,7 @@
                         
                         $(panel).find('.sent-at-date').text(moment(value.created_at).format("MM/DD/YYYY hh:mm:ss A"));
 
-                        let calc = calcWholesaler({
+                        calc_params = {
                             arv_c17: str2Float(value.arv),
                             est_repair_cost_c18: str2Float(value.est_repair_cost),
                             rule_percentage_c24: str2Float(value.rule_percentage),
@@ -231,7 +236,10 @@
                             resale_fees_c20: str2Float(value.resale_fee),
                             loan_cost_c21: str2Float(value.loan_cost),
                             wholesaler_fee_c26: str2Float(value.seller_share),
-                        });
+                        };
+
+                        let calc = calcWholesaler(calc_params);
+                        calc_results = calc;
 
                         $(panel).find('.investor-projected-profit').text(numberWithCommas(calc.investors_projected_profit_c24_2));
                         $(panel).find('.investor-roi').text(numberWithCommas(calc.investor_roi_c30));
@@ -244,21 +252,13 @@
                         }
 
                         html += $(panel).html();
-
+                        
                         if(response.data.length == index+1)
                         {
-                            updateCalcFields({
-                                arv_c17: str2Float(value.arv),
-                                est_repair_cost_c18: str2Float(value.est_repair_cost),
-                                rule_percentage_c24: str2Float(value.rule_percentage),
-                                holding_cost_c19: str2Float(value.holding_cost),
-                                resale_fees_c20: str2Float(value.resale_fee),
-                                loan_cost_c21: str2Float(value.loan_cost),
-                                wholesaler_fee_c26: str2Float(value.seller_share),
-                            })
+                            updateCalcFields(calc_params)
 
-                            $("#revised_price_range_value").val(numberWithCommas(value.revised_price));
-                            $("#revised_price").val(numberWithCommas(value.revised_price));
+                            // $("#revised_price_range_value").val(numberWithCommas(value.revised_price));
+                            // $("#revised_price").val(numberWithCommas(value.revised_price));
 
                             // $("#description").val(value.description);
 
@@ -292,7 +292,7 @@
                 else
                 {
 
-                    updateCalcFields({
+                    calc_params = {
                         arv_c17: str2Float(details.arv_price),
                         est_repair_cost_c18: str2Float(details.estimated_repair_cost),
                         rule_percentage_c24: str2Float(details.rule_percentage),
@@ -300,7 +300,11 @@
                         resale_fees_c20: str2Float(details.resale_fees),
                         loan_cost_c21: str2Float(details.loan_cost),
                         wholesaler_fee_c26: str2Float(details.partnership_seller),
-                    })
+                    }
+                    let calc = calcWholesaler(calc_params);
+                    calc_results = calc;
+
+                    updateCalcFields(calc_params);
                 }
             },
             complete: function(){
@@ -321,6 +325,31 @@
             wholesaler_fee_c26: data.wholesaler_fee_c26,
         });
 
+        if(is_update_revised_asking_price_investor) {
+            $("#revised_price").val(calc.asking_price_investor_c28);
+            $("#revised_price_range_value").val(numberWithCommasAndDecimals(calc.asking_price_investor_c28));
+
+            $('#wholeseller_offer').val(numberWithCommasAndDecimals(calc.asking_price_investor_c28));
+            calc_results.asking_price_investor_c28 = calc.asking_price_investor_c28;
+        }
+
+        let wholesaler_fee = calcWholesalerFeeFromRevisedAskingPrice({
+            new_asking_price_investor_h28: str2Float($('#revised_price_range_value').val().replace(/,/g, "")),
+            asking_price_investor_c28: calc_results.asking_price_investor_c28,
+            wholesaler_fee_c26: calc_params.wholesaler_fee_c26,
+            arv_c17: data.arv_c17
+        });
+        
+        calc = calcWholesaler({
+            arv_c17: data.arv_c17,
+            est_repair_cost_c18: data.est_repair_cost_c18,
+            rule_percentage_c24: data.rule_percentage_c24,
+            holding_cost_c19: data.holding_cost_c19,
+            resale_fees_c20: data.resale_fees_c20,
+            loan_cost_c21: data.loan_cost_c21,
+            wholesaler_fee_c26: wholesaler_fee.updated_wholesaler_fee_h30,
+        });
+        
         if(!initRange) {
             $('#arv').attr("max",Math.round(data.arv_c17 * 3 / 2));
         }
@@ -340,18 +369,42 @@
         
         $('#total_misc_cost').val(numberWithCommas(calc.total_misc_cost_c18_2));
         
-        $('#seller_share').val(data.wholesaler_fee_c26);
-        $('#seller_share_range_value').val(data.wholesaler_fee_c26);
+        if(!is_update_revised_asking_price_investor) {
+            $('#seller_share').val(wholesaler_fee.updated_wholesaler_fee_h30);
+            $('#seller_share_range_value').val(numberWithCommasAndDecimals(wholesaler_fee.updated_wholesaler_fee_h30));
+        }
+        else {
+            $('#seller_share').val(calc_params.wholesaler_fee_c26);
+            $('#seller_share_range_value').val(numberWithCommasAndDecimals(calc_params.wholesaler_fee_c26));
+        }
 
+        if(!initRange) {
+            $('#revised_price').attr("max", data.arv_c17 - data.est_repair_cost_c18);
+            $('#revised_price').attr("min", data.est_repair_cost_c18);
+        }
         $('#investor_profit').val(numberWithCommas(calc.investors_projected_profit_c24_2));
 
-        $('#wholeseller_offer').val(numberWithCommas(calc.estimated_offer_c23_2));
-
         initRange = true;
+        is_update_revised_asking_price_investor = false;
     }
         
     $('.calc-trigger').on("keyup", function(){
         $('#'+$(this).attr("data-id")).val(($(this).val()).replace(/,/g, ""));
+
+        if($(this).attr('data-id') == 'seller_share' && $(this).val().charAt($(this).val().length - 1) == '.') {
+            return;
+        }
+
+        let wholesaler_fee_c26 = str2Float($('#seller_share_range_value').val().replace(/,/g, ""));
+        if($(this).attr('data-id') != 'seller_share') {
+            wholesaler_fee_c26 = calc_params.wholesaler_fee_c26;
+        }
+        else {
+            is_update_revised_asking_price_investor = true;
+        }
+
+        calc_params.wholesaler_fee_c26 = wholesaler_fee_c26;
+
         updateCalcFields({
             arv_c17: str2Float($('#arv_range_value').val().replace(/,/g, "")),
             est_repair_cost_c18: str2Float($('#est_repair_cost_range_value').val().replace(/,/g, "")),
@@ -359,12 +412,23 @@
             holding_cost_c19: str2Float($('#holding_cost').val().replace(/,/g, "")),
             resale_fees_c20: str2Float($('#resale_fees').val().replace(/,/g, "")),
             loan_cost_c21: str2Float($('#loan_cost').val().replace(/,/g, "")),
-            wholesaler_fee_c26: str2Float($('#seller_share_range_value').val().replace(/,/g, "")),
+            wholesaler_fee_c26: wholesaler_fee_c26,
         });
     });
 
     $('.range-trigger').on('input', function(){
         $('#'+$(this).attr("id")+'_range_value').val(numberWithCommas($(this).val()));
+
+        let wholesaler_fee_c26 = str2Float($('#seller_share_range_value').val().replace(/,/g, ""));
+        if($(this).attr('id') != 'seller_share') {
+            wholesaler_fee_c26 = calc_params.wholesaler_fee_c26;
+        }
+        else {
+            is_update_revised_asking_price_investor = true;
+        }
+
+        calc_params.wholesaler_fee_c26 = wholesaler_fee_c26;
+        
         updateCalcFields({
             arv_c17: str2Float($('#arv_range_value').val().replace(/,/g, "")),
             est_repair_cost_c18: str2Float($('#est_repair_cost_range_value').val().replace(/,/g, "")),
@@ -372,7 +436,7 @@
             holding_cost_c19: str2Float($('#holding_cost').val().replace(/,/g, "")),
             resale_fees_c20: str2Float($('#resale_fees').val().replace(/,/g, "")),
             loan_cost_c21: str2Float($('#loan_cost').val().replace(/,/g, "")),
-            wholesaler_fee_c26: str2Float($('#seller_share_range_value').val().replace(/,/g, "")),
+            wholesaler_fee_c26: wholesaler_fee_c26,
         });
     })
 

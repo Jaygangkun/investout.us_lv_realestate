@@ -404,9 +404,23 @@
                                         <div class="m-t-xs">
                                             <b>Est. AVR - </b> ${{Helper::numberWithCommas((isset($property->detail) && isset($property->detail->arv_price)) ? $property->detail->arv_price : 0) }}
                                         </div>
-                                        <div class="m-t-xs">
-                                            <b>For Sale - </b> {{ (isset($property->detail->for_sale) && $property->detail->for_sale == 1)  ? 'Yes' : 'No' }}
-                                        </div>
+                                        <?php
+                                        if($property->seller()->first()->roles()->first()->slug == 'wholeseller'){
+                                            ?>
+                                            <div class="m-t-xs">
+                                                <b>For Sale - </b> Yes
+                                            </div>
+                                            <?php
+                                        }
+                                        else {
+                                            ?>
+                                            <div class="m-t-xs">
+                                                <b>For Sale - </b> {{ (isset($property->detail->for_sale) && $property->detail->for_sale == 1)  ? 'Yes' : 'No' }}
+                                            </div>
+                                            <?php
+                                        }
+                                            
+                                        ?>
                                         <?php
                                         if(isset($property->detail->for_sale) && $property->detail->for_sale == 1){
                                         ?>
@@ -447,6 +461,10 @@
                                                 }
                                                 else
                                                 {
+                                                    ?>
+                                                    <b>Wholesaler's Fee  - </b> 
+                                                    {{ Helper::numberWithCommas($property->detail->partnership_seller)}} %
+                                                    <?php
                                                 }
                                                 ?>
                                                 

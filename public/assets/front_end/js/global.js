@@ -5,6 +5,13 @@ function numberWithCommas(number) {
     return parts.join(".");
 }
 
+function numberWithCommasAndDecimals(number) {
+    number = Math.round(number * 100) / 100;
+    var parts = number.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
 function str2Float(str) {
     return str == '' || str == null ? 0 : parseFloat(str);
 }
@@ -52,5 +59,23 @@ function calcWholesaler(data) {
         max_offer_price_c21_2: max_offer_price_c21_2,
         estimated_offer_c23_2: estimated_offer_c23_2,
         investors_projected_profit_c24_2: investors_projected_profit_c24_2
+    }
+}
+
+function calcWholesalerFeeFromRevisedAskingPrice(data) {
+    // data = {
+    //     new_asking_price_investor_h28: str2Float($('#revised_price_range_value').val().replace(/,/g, "")),
+    //     asking_price_investor_c28: calc_results.asking_price_investor_c28,
+    //     wholesaler_fee_c26: calc_params.wholesaler_fee_c26,
+    //     arv_c17: data.arv_c17
+    // }
+    let divide_new_old_asking_price_h29 = (data.new_asking_price_investor_h28 - data.asking_price_investor_c28) / data.asking_price_investor_c28 * 100;
+    let updated_wholesaler_fee_h30 = data.wholesaler_fee_c26 + divide_new_old_asking_price_h29;
+    let updated_wholesaler_profit_h31 = updated_wholesaler_fee_h30 * data.arv_c17 / 100;
+
+    return {
+        divide_new_old_asking_price_h29: divide_new_old_asking_price_h29,
+        updated_wholesaler_fee_h30: updated_wholesaler_fee_h30,
+        updated_wholesaler_profit_h31: updated_wholesaler_profit_h31
     }
 }

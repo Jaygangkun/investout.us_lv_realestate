@@ -294,7 +294,7 @@
                                             <label for="">Price Per Sqr.Ft*</label> <br>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">$</span>
-                                                <input type="text" step=".01" name='price_per_sqft' id='price_per_sqft' value='{{$details->price_per_sqft ?? ""}}' class='form-control amountComma validate[min[0],maxSize[10]]' readOnly>
+                                                <input type="text" name='price_per_sqft' id='price_per_sqft' value='' class='form-control amountComma validate[min[0],maxSize[10]]' readOnly>
                                             </div>
                                             
                                             <small class="text-danger">{{ $errors->first('price_per_sqft') }}</small>
@@ -470,7 +470,7 @@
                                             <label for="seller">Wholesaler Fee*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
-                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' class="form-control validate[required,maxSize[2]] calc-trigger">
+                                                <input type="text" name="partnership_seller" id="partnership_seller" value='{{$details->partnership_seller ?? "0"}}' class="form-control validate[required] calc-trigger">
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_seller') }}</small>
                                         </div>
