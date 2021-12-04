@@ -13,7 +13,7 @@ function numberWithCommasAndDecimals(number) {
 }
 
 function str2Float(str) {
-    return str == '' || str == null ? 0 : parseFloat(str);
+    return str == '' || str == null ? 0 : parseFloat(typeof str == 'string' ? str.replace(/,/g, "") : str);
 }
 
 function calcWholesaler(data) {
@@ -77,5 +77,67 @@ function calcWholesalerFeeFromRevisedAskingPrice(data) {
         divide_new_old_asking_price_h29: divide_new_old_asking_price_h29,
         updated_wholesaler_fee_h30: updated_wholesaler_fee_h30,
         updated_wholesaler_profit_h31: updated_wholesaler_profit_h31
+    }
+}
+
+function calcSellerInvestorProposal(data) {
+    // var data = {
+    //     asking_price_i10: '',
+    //     arv_i16: '',
+    //     holding_cost_i17: '',
+    //     resale_fees_i18: '',
+    //     loan_cost_i19: '',
+    //     rule_percentage_i22: '',
+    //     seller_profit_share_i24: '',
+    //     estimated_cost_repairs_d21: ''
+    // }
+
+    console.log('calcSellerInvestorProposal >> data:', data);
+    let total_misc_cost_i20 = data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19;
+    let estimated_cost_repairs_misc_i21 =  data.estimated_cost_repairs_d21 + total_misc_cost_i20;
+    let brv_i23 = (data.arv_i16 - (total_misc_cost_i20 + estimated_cost_repairs_misc_i21)) * data.rule_percentage_i22 / 100;
+    let investor_partnership_i25 = 100 - data.seller_profit_share_i24;
+    let estimated_increase_seller_i26 = (data.arv_i16 - (data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19 + estimated_cost_repairs_misc_i21 + brv_i23)) * data.seller_profit_share_i24 / 100;
+    let partnership_offer_seller_i27 = brv_i23 + estimated_increase_seller_i26;
+    let investor_projected_profit_partnership_i29 = data.arv_i16 - (estimated_cost_repairs_misc_i21 + total_misc_cost_i20 + partnership_offer_seller_i27);
+    let investor_projected_profit_flip_i30 = data.arv_i16 - (data.asking_price_i10 + total_misc_cost_i20 + estimated_cost_repairs_misc_i21);
+    let investor_roi_flip_i31 = investor_projected_profit_flip_i30 / (data.asking_price_i10 + estimated_cost_repairs_misc_i21 + data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19) * 100;
+    let investor_roi_partnership_i32 = investor_projected_profit_partnership_i29 / (estimated_cost_repairs_misc_i21 + total_misc_cost_i20 + partnership_offer_seller_i27) * 100;
+
+    return {
+        total_misc_cost_i20: total_misc_cost_i20,
+        estimated_cost_repairs_misc_i21: estimated_cost_repairs_misc_i21,
+        brv_i23: brv_i23,
+        investor_partnership_i25: investor_partnership_i25,
+        estimated_increase_seller_i26: estimated_increase_seller_i26,
+        partnership_offer_seller_i27: partnership_offer_seller_i27,
+        investor_projected_profit_partnership_i29: investor_projected_profit_partnership_i29,
+        investor_projected_profit_flip_i30: investor_projected_profit_flip_i30,
+        investor_roi_flip_i31: investor_roi_flip_i31,
+        investor_roi_partnership_i32: investor_roi_partnership_i32
+    }
+}
+
+function calcInvestorSellerProposal(data) {
+    // var data = {
+    //     asking_price_d10: '',
+    //     arv_d16: '',
+    //     estimated_cost_repair_d21: '',
+    //     rule_percentage_d22: '',
+    //     seller_profit_share_d24: '',
+    // }
+    console.log('calcInvestorSellerProposal >> data:', data);
+    let brv_d23 = (data.arv_d16 - data.estimated_cost_repair_d21) * data.rule_percentage_d22 / 100;
+    let investor_partnership_d25 = 100 - data.seller_profit_share_d24;
+    let seller_increased_profit_d26 = (data.arv_d16 - (data.estimated_cost_repair_d21 + brv_d23)) * data.seller_profit_share_d24 / 100;
+    let seller_total_profit_d27 = brv_d23 + seller_increased_profit_d26;
+    let increased_roi_d28 = 100 - (data.asking_price_d10 / seller_total_profit_d27) * 100;
+    
+    return {
+        brv_d23: brv_d23,
+        investor_partnership_d25: investor_partnership_d25,
+        seller_increased_profit_d26: seller_increased_profit_d26,
+        seller_total_profit_d27: seller_total_profit_d27,
+        increased_roi_d28: increased_roi_d28
     }
 }

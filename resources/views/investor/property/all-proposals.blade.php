@@ -210,6 +210,11 @@
                                 @include('investor.property.wholesaler')
                                 <?php
                             }
+                            else if ($roleName == 'Seller') {
+                                ?>
+                                @include('investor.property.seller')
+                                <?php
+                            }
                             else {
                                 ?>
                                 <div class="row {{ $details->for_sale == '0' ? 'hide' : '' }}">
