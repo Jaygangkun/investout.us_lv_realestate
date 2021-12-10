@@ -82,39 +82,37 @@ function calcWholesalerFeeFromRevisedAskingPrice(data) {
 
 function calcSellerInvestorProposal(data) {
     // var data = {
-    //     asking_price_i10: '',
-    //     arv_i16: '',
-    //     holding_cost_i17: '',
-    //     resale_fees_i18: '',
-    //     loan_cost_i19: '',
-    //     rule_percentage_i22: '',
-    //     seller_profit_share_i24: '',
-    //     estimated_cost_repairs_d21: ''
+    //     asking_price_c3: '',
+    //     arv_c9: '',
+    //     holding_cost_c10: '',
+    //     resale_fees_c11: '',
+    //     loan_cost_c12: '',
+    //     rule_percentage_c15: '',
+    //     seller_profit_share_c17: '',
+    //     estimated_cost_repairs_c14: ''
     // }
 
     console.log('calcSellerInvestorProposal >> data:', data);
-    let total_misc_cost_i20 = data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19;
-    let estimated_cost_repairs_misc_i21 =  data.estimated_cost_repairs_d21 + total_misc_cost_i20;
-    let brv_i23 = (data.arv_i16 - (total_misc_cost_i20 + estimated_cost_repairs_misc_i21)) * data.rule_percentage_i22 / 100;
-    let investor_partnership_i25 = 100 - data.seller_profit_share_i24;
-    let estimated_increase_seller_i26 = (data.arv_i16 - (data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19 + estimated_cost_repairs_misc_i21 + brv_i23)) * data.seller_profit_share_i24 / 100;
-    let partnership_offer_seller_i27 = brv_i23 + estimated_increase_seller_i26;
-    let investor_projected_profit_partnership_i29 = data.arv_i16 - (estimated_cost_repairs_misc_i21 + total_misc_cost_i20 + partnership_offer_seller_i27);
-    let investor_projected_profit_flip_i30 = data.arv_i16 - (data.asking_price_i10 + total_misc_cost_i20 + estimated_cost_repairs_misc_i21);
-    let investor_roi_flip_i31 = investor_projected_profit_flip_i30 / (data.asking_price_i10 + estimated_cost_repairs_misc_i21 + data.holding_cost_i17 + data.resale_fees_i18 + data.loan_cost_i19) * 100;
-    let investor_roi_partnership_i32 = investor_projected_profit_partnership_i29 / (estimated_cost_repairs_misc_i21 + total_misc_cost_i20 + partnership_offer_seller_i27) * 100;
+    let total_misc_cost_c13 = data.holding_cost_c10 + data.resale_fees_c11 + data.loan_cost_c12;
+    let brv_c16 = (data.arv_c9 - (total_misc_cost_c13 + data.estimated_cost_repairs_c14)) * data.rule_percentage_c15 / 100;
+    let investor_partnership_c18 = 100 - data.seller_profit_share_c17;
+    let estimated_increase_seller_c19 = (data.arv_c9 - (data.holding_cost_c10 + data.resale_fees_c11 + data.loan_cost_c12 + data.estimated_cost_repairs_c14 + brv_c16)) * data.seller_profit_share_c17 / 100;
+    let partnership_offer_seller_c20 = brv_c16 + estimated_increase_seller_c19;
+    let investor_projected_profit_partnership_c22 = data.arv_c9 - (data.estimated_cost_repairs_c14 + total_misc_cost_c13 + partnership_offer_seller_c20);
+    let investor_projected_profit_flip_c23 = data.arv_c9 - (data.asking_price_c3 + total_misc_cost_c13 + data.estimated_cost_repairs_c14);
+    let investor_roi_flip_c24 = investor_projected_profit_flip_c23 / (data.asking_price_c3 + data.estimated_cost_repairs_c14 + data.holding_cost_c10 + data.resale_fees_c11 + data.loan_cost_c12) * 100;
+    let investor_roi_partnership_c25 = investor_projected_profit_partnership_c22 / (data.estimated_cost_repairs_c14 + total_misc_cost_c13 + partnership_offer_seller_c20) * 100;
 
     return {
-        total_misc_cost_i20: total_misc_cost_i20,
-        estimated_cost_repairs_misc_i21: estimated_cost_repairs_misc_i21,
-        brv_i23: brv_i23,
-        investor_partnership_i25: investor_partnership_i25,
-        estimated_increase_seller_i26: estimated_increase_seller_i26,
-        partnership_offer_seller_i27: partnership_offer_seller_i27,
-        investor_projected_profit_partnership_i29: investor_projected_profit_partnership_i29,
-        investor_projected_profit_flip_i30: investor_projected_profit_flip_i30,
-        investor_roi_flip_i31: investor_roi_flip_i31,
-        investor_roi_partnership_i32: investor_roi_partnership_i32
+        total_misc_cost_c13: total_misc_cost_c13,
+        brv_c16: brv_c16,
+        investor_partnership_c18: investor_partnership_c18,
+        estimated_increase_seller_c19: estimated_increase_seller_c19,
+        partnership_offer_seller_c20: partnership_offer_seller_c20,
+        investor_projected_profit_partnership_c22: investor_projected_profit_partnership_c22,
+        investor_projected_profit_flip_c23: investor_projected_profit_flip_c23,
+        investor_roi_flip_c24: investor_roi_flip_c24,
+        investor_roi_partnership_c25: investor_roi_partnership_c25
     }
 }
 

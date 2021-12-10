@@ -69,10 +69,10 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
 </div>
 <div class="row">
     <div class="form-group col-md-3">
-        <label for="">Estimated Cost of Repairs + Misc: </label>
+        <label for="">Estimated Cost of Repairs: </label>
         <div class="input-group">
             <span class="input-group-addon" id="">$</span>
-            <input type="text" class="form-control amountComma" name='estimated_cost_repairs_misc' id='estimated_cost_repairs_misc' readonly>
+            <input type="text" class="form-control amountComma" name='estimated_cost_repairs' id='estimated_cost_repairs' readonly>
         </div>
     </div>
     <div class="form-group col-md-3">
@@ -261,22 +261,22 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
                         $(panel).find('.sent-at-date').text(moment(value.created_at).format("MM/DD/YYYY hh:mm:ss A"));
 
                         calc_params = {
-                            asking_price_i10: str2Float(value.ask_price.replace(/,/g, "")),
-                            arv_i16: str2Float(value.arv),
-                            holding_cost_i17: str2Float(value.holding_cost),
-                            resale_fees_i18: str2Float(value.resale_fee),
-                            loan_cost_i19: str2Float(value.loan_cost),
-                            rule_percentage_i22: str2Float(value.rule_percentage),
-                            seller_profit_share_i24: str2Float(value.seller_share),
-                            estimated_cost_repairs_d21: str2Float(value.est_repair_cost)
+                            asking_price_c3: str2Float(value.ask_price.replace(/,/g, "")),
+                            arv_c9: str2Float(value.arv),
+                            holding_cost_c10: str2Float(value.holding_cost),
+                            resale_fees_c11: str2Float(value.resale_fee),
+                            loan_cost_c12: str2Float(value.loan_cost),
+                            rule_percentage_c15: str2Float(value.rule_percentage),
+                            seller_profit_share_c17: str2Float(value.seller_share),
+                            estimated_cost_repairs_c14: str2Float(value.est_repair_cost)
                         };
 
                         let calc = calcSellerInvestorProposal(calc_params);
                         calc_results = calc;
 
-                        $(panel).find('.investor-projected-profit-partnership').text(numberWithCommas(calc.investor_projected_profit_partnership_i29));
-                        $(panel).find('.investor-projected-profit-flip').text(numberWithCommas(calc.investor_projected_profit_flip_i30));
-                        $(panel).find('.partnership-offer-seller').text(numberWithCommas(calc.partnership_offer_seller_i27));
+                        $(panel).find('.investor-projected-profit-partnership').text(numberWithCommas(calc.investor_projected_profit_partnership_c22));
+                        $(panel).find('.investor-projected-profit-flip').text(numberWithCommas(calc.investor_projected_profit_flip_c23));
+                        $(panel).find('.partnership-offer-seller').text(numberWithCommas(calc.partnership_offer_seller_c20));
                         
                         // $(panel).find('.investor-roi').text(numberWithCommas(calc.investor_roi_c30));
                         // $(panel).find('.arv').text(numberWithCommas(str2Float(value.arv)));
@@ -329,14 +329,14 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
                 {
 
                     calc_params = {
-                        asking_price_i10: str2Float(details.investment_price),
-                        arv_i16: str2Float(details.arv_price),
-                        holding_cost_i17: str2Float(details.holding_cost),
-                        resale_fees_i18: str2Float(details.resale_fees),
-                        loan_cost_i19: str2Float(details.loan_cost),
-                        rule_percentage_i22: str2Float(details.rule_percentage),
-                        seller_profit_share_i24: str2Float(details.partnership_seller),
-                        estimated_cost_repairs_d21: str2Float(details.estimated_repair_cost)
+                        asking_price_c3: str2Float(details.investment_price),
+                        arv_c9: str2Float(details.arv_price),
+                        holding_cost_c10: str2Float(details.holding_cost),
+                        resale_fees_c11: str2Float(details.resale_fees),
+                        loan_cost_c12: str2Float(details.loan_cost),
+                        rule_percentage_c15: str2Float(details.rule_percentage),
+                        seller_profit_share_c17: str2Float(details.partnership_seller),
+                        estimated_cost_repairs_c14: str2Float(details.estimated_repair_cost)
                     }
                     let calc = calcSellerInvestorProposal(calc_params);
                     calc_results = calc;
@@ -353,42 +353,42 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
 
     function updateCalcFields(data) {
         let calc = calcSellerInvestorProposal({
-            asking_price_i10: data.asking_price_i10,
-            arv_i16: data.arv_i16,
-            holding_cost_i17: data.holding_cost_i17,
-            resale_fees_i18: data.resale_fees_i18,
-            loan_cost_i19: data.loan_cost_i19,
-            rule_percentage_i22: data.rule_percentage_i22,
-            seller_profit_share_i24: data.seller_profit_share_i24,
-            estimated_cost_repairs_d21: data.estimated_cost_repairs_d21
+            asking_price_c3: data.asking_price_c3,
+            arv_c9: data.arv_c9,
+            holding_cost_c10: data.holding_cost_c10,
+            resale_fees_c11: data.resale_fees_c11,
+            loan_cost_c12: data.loan_cost_c12,
+            rule_percentage_c15: data.rule_percentage_c15,
+            seller_profit_share_c17: data.seller_profit_share_c17,
+            estimated_cost_repairs_c14: data.estimated_cost_repairs_c14
         });
 
-        $('#est_repair_cost').val(data.estimated_cost_repairs_d21);
+        $('#est_repair_cost').val(data.estimated_cost_repairs_c14);
 
-        $('#ask_price').val(numberWithCommas(data.asking_price_i10));
+        $('#ask_price').val(numberWithCommas(data.asking_price_c3));
 
-        $('#arv').val(numberWithCommas(data.arv_i16));
+        $('#arv').val(numberWithCommas(data.arv_c9));
 
-        $('#holding_cost').val(numberWithCommas(data.holding_cost_i17));
-        $('#resale_fees').val(numberWithCommas(data.resale_fees_i18));
-        $('#loan_cost').val(numberWithCommas(data.loan_cost_i19));
+        $('#holding_cost').val(numberWithCommas(data.holding_cost_c10));
+        $('#resale_fees').val(numberWithCommas(data.resale_fees_c11));
+        $('#loan_cost').val(numberWithCommas(data.loan_cost_c12));
         
-        $('#total_misc_cost').val(numberWithCommas(calc.total_misc_cost_i20));
-        $('#rule_percentage').val(data.rule_percentage_i22);
+        $('#total_misc_cost').val(numberWithCommas(calc.total_misc_cost_c13));
+        $('#rule_percentage').val(data.rule_percentage_c15);
 
-        $('#estimated_cost_repairs_misc').val(numberWithCommas(calc.estimated_cost_repairs_misc_i21));
+        $('#estimated_cost_repairs').val(numberWithCommas(data.estimated_cost_repairs_c14));
 
-        $('#brv').val(numberWithCommas(calc.brv_i23));
-        $('#seller_share').val(data.seller_profit_share_i24);
-        $('#investor_partnership').val(calc.investor_partnership_i25);
+        $('#brv').val(numberWithCommas(calc.brv_c16));
+        $('#seller_share').val(data.seller_profit_share_c17);
+        $('#investor_partnership').val(calc.investor_partnership_c18);
 
-        $('#est_increase_seller').val(numberWithCommas(calc.estimated_increase_seller_i26));
-        $('#partnership_offer_seller').val(numberWithCommas(calc.partnership_offer_seller_i27));
+        $('#est_increase_seller').val(numberWithCommas(calc.estimated_increase_seller_c19));
+        $('#partnership_offer_seller').val(numberWithCommas(calc.partnership_offer_seller_c20));
 
-        $('#investor_projected_profit_partnership').val(numberWithCommas(calc.investor_projected_profit_partnership_i29));
-        $('#investor_projected_profit_flip').val(numberWithCommas(calc.investor_projected_profit_flip_i30));
-        $('#investor_roi_flip').val(numberWithCommas(calc.investor_roi_flip_i31));
-        $('#investor_roi_partnership').val(numberWithCommas(calc.investor_roi_partnership_i32));
+        $('#investor_projected_profit_partnership').val(numberWithCommas(calc.investor_projected_profit_partnership_c22));
+        $('#investor_projected_profit_flip').val(numberWithCommas(calc.investor_projected_profit_flip_c23));
+        $('#investor_roi_flip').val(numberWithCommas(calc.investor_roi_flip_c24));
+        $('#investor_roi_partnership').val(numberWithCommas(calc.investor_roi_partnership_c25));
 
         initRange = true;
     }
@@ -396,14 +396,14 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
     $('.calc-trigger').on("keyup", function(){
         
         updateCalcFields({
-            asking_price_i10: str2Float($('#ask_price').val().replace(/,/g, "")),
-            arv_i16: str2Float($('#arv').val().replace(/,/g, "")),
-            holding_cost_i17: str2Float($('#holding_cost').val().replace(/,/g, "")),
-            resale_fees_i18: str2Float($('#resale_fees').val().replace(/,/g, "")),
-            loan_cost_i19: str2Float($('#loan_cost').val().replace(/,/g, "")),
-            rule_percentage_i22: str2Float($('#rule_percentage').val().replace(/,/g, "")),
-            seller_profit_share_i24: str2Float($('#seller_share').val().replace(/,/g, "")),
-            estimated_cost_repairs_d21: str2Float(calc_params.estimated_cost_repairs_d21)
+            asking_price_c3: str2Float($('#ask_price').val().replace(/,/g, "")),
+            arv_c9: str2Float($('#arv').val().replace(/,/g, "")),
+            holding_cost_c10: str2Float($('#holding_cost').val().replace(/,/g, "")),
+            resale_fees_c11: str2Float($('#resale_fees').val().replace(/,/g, "")),
+            loan_cost_c12: str2Float($('#loan_cost').val().replace(/,/g, "")),
+            rule_percentage_c15: str2Float($('#rule_percentage').val().replace(/,/g, "")),
+            seller_profit_share_c17: str2Float($('#seller_share').val().replace(/,/g, "")),
+            estimated_cost_repairs_c14: str2Float(calc_params.estimated_cost_repairs_d21)
         });
     });
 
