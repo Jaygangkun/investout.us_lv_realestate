@@ -366,23 +366,7 @@
                 if(response.data.length >0)
                 {
                     let html = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-                    let send_proposal_div = false;
-                    let is_accepted;
-                    var ask_price = 0;
-                    var arv = 0;
-                    var brv = 0;
-                    var est_repair_cost = 0;
-                    var seller_share = 0;
-                    var investor_share = 0;
-                    var total_profit = 0;
-                    var seller_share_profit = 0;
-                    var investor_share_profit = 0;
-                    var flip_total_cost = 0;
-                    var flip_profit = 0;
-                    var partner_total_cost = 0;
-                    var partner_profit = 0;
-                    var flip_roi = 0;
-                    var partner_roi = 0;
+                    var hasAcceptedProposal = false;
                     $.each(response.data, function(index, value){
                         panel = $('#panel_template').clone();
                         if(<?php echo auth()->user()->id?> === value.from_user) {
@@ -438,7 +422,7 @@
                         calc_params = {
                             asking_price_d10: str2Float(value.ask_price),
                             arv_d16: str2Float(value.arv),
-                            estimated_cost_repair_d21: <?php echo auth()->user()->id?> === value.from_user ? str2Float(value.est_repair_cost) : calc_seller_investor.estimated_cost_repairs_misc_i21,
+                            estimated_cost_repair_d21: str2Float(value.est_repair_cost),
                             rule_percentage_d22: str2Float(value.rule_percentage),
                             seller_profit_share_d24: str2Float(value.seller_share),
                         };

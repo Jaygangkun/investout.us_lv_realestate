@@ -24,7 +24,6 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
 ?>
 
 <div class="row">
-    <input type="hidden" id="est_repair_cost" name="est_repair_cost" />
     <div class="form-group col-md-3">
         <label for="">ARV: </label>
         <div class="input-group">
@@ -72,7 +71,7 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
         <label for="">Estimated Cost of Repairs: </label>
         <div class="input-group">
             <span class="input-group-addon" id="">$</span>
-            <input type="text" class="form-control amountComma" name='estimated_cost_repairs' id='estimated_cost_repairs' readonly>
+            <input type="text" class="form-control amountComma" name='est_repair_cost' id='est_repair_cost'>
         </div>
     </div>
     <div class="form-group col-md-3">
@@ -376,7 +375,7 @@ if($details->for_sale == '1' && $details->partner_up == '1') {
         $('#total_misc_cost').val(numberWithCommas(calc.total_misc_cost_c13));
         $('#rule_percentage').val(data.rule_percentage_c15);
 
-        $('#estimated_cost_repairs').val(numberWithCommas(data.estimated_cost_repairs_c14));
+        // $('#estimated_cost_repairs').val(numberWithCommas(data.estimated_cost_repairs_c14));
 
         $('#brv').val(numberWithCommas(calc.brv_c16));
         $('#seller_share').val(data.seller_profit_share_c17);
