@@ -520,7 +520,7 @@
                                             <label for="investor">Investor*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon1">%</span>
-                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]] calc-trigger">
+                                                <input type="text" name="partnership_investor" id="partnership_investor" value='{{$details->partnership_investor ?? "0"}}' id="partnership_investor" class="form-control validate[required,maxSize[2]]" readonly>
                                             </div>
                                             <small class="text-danger">{{ $errors->first('partnership_investor') }}</small>
                                         </div>

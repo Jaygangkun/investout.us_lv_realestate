@@ -136,8 +136,9 @@ function calculationsHomeowner() {
     partnership_seller_b21 = str2Float(partnership_seller_b21) / 100;
 
     // Get Investor
-    let partnership_investor_c21 = $("#partnership_investor").val() == "" ? "0" : $("#partnership_investor").val().replace(/,/g, "");
-    partnership_investor_c21 = str2Float(partnership_investor_c21) / 100;
+    let partnership_investor_c21;
+    partnership_investor_c21 = 100 - partnership_seller_b21 * 100;
+    $("#partnership_investor").val(partnership_investor_c21);
     
     // Get 70% Rule
     let rule_percentage_e14 = $("#rule_percentage").val() == "" ? "0" : $("#rule_percentage").val().replace(/,/g, "");
