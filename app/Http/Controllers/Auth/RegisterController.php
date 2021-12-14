@@ -267,7 +267,7 @@ use App\Zipcode;'));
             $userplanfeature->save();
         }
 
-        Mail::to($data['email'])->send(new WelcomeMail($data));
+        // Mail::to($data['email'])->send(new WelcomeMail($data));
 
         if($data['role'] == 1){
             $file_name = 'PROMISSORY_NOTE_SAMPLE_Seller.docx';
