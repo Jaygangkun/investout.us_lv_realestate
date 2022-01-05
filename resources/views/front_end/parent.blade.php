@@ -204,9 +204,40 @@
     <!-- Header Section Begin -->
     <header class="header-section header-normal">
         <div class="top-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <div class="top-nav-container">
+                <style>
+                .top-nav-container {
+                    width: 80%;
+                    margin: auto;
+                }
+
+                .top-nav-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .top-nav-contact-wrap .nav-logo {
+                    box-shadow: initial !important;
+                }
+
+                .top-nav-contact-wrap .nav-logo .nav-logo-right ul li .info-text p {
+                    color: #ffffff;
+                }
+
+                .top-nav-contact-wrap .nav-logo .nav-logo-right ul li .info-text span {
+                    color: #ffffff;
+                }
+
+                .top-nav .main-menu ul li a {
+                    font-size: 16px;
+                }
+                </style>
+                <div class="top-nav-content">
+                    <div class="top-nav-logo-wrap">
+                        <a href="{{ url('/') }}"><img src="{{asset('assets/front_end/img/logo-update.png')}}" style="height:70px" alt=""></a>
+                    </div>
+                    <div class="top-nav-menu-wrap">
                         <nav class="main-menu">
                             <ul>
                                 <li id="home"><a href="{{ url('/') }}">Home</a></li>
@@ -245,52 +276,27 @@
                             </ul> 
                         </nav>
                     </div>
-                    {{-- <div class="col-lg-2">
-                        <div class="top-right">
-                            <div class="language-option">
-                                <img src="{{asset('assets/front_end/img/flag.png')}}" alt="">
-                                <span>English</span>
-                                <i class="fa fa-angle-down"></i>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Germany</a></li>
-                                        <li><a href="#">China</a></li>
-                                    </ul>
-                                </div>
+                    <div class="top-nav-contact-wrap">
+                        <div class="nav-logo">
+                            <div class="nav-logo-right">
+                                <ul>
+                                    <!-- <li>
+                                        <i class="icon_phone"></i>
+                                        <div class="info-text">
+                                            <span>Phone:</span>
+                                            <p>+1 (800) 935-8220</p>
+                                        </div>
+                                    </li> -->
+                                    <li>
+                                        <i class="icon_mail"></i>
+                                        <div class="info-text">
+                                            <span>Email:</span>
+                                            <p>info@investout.us</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
-        <div class="nav-logo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="logo">
-                            <a href="{{ url('/') }}"><img src="{{asset('assets/front_end/img/logo-update.png')}}" style="height:70px" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="nav-logo-right">
-                            <ul>
-                                <!-- <li>
-                                    <i class="icon_phone"></i>
-                                    <div class="info-text">
-                                        <span>Phone:</span>
-                                        <p>+1 (800) 935-8220</p>
-                                    </div>
-                                </li> -->
-                                <li>
-                                    <i class="icon_mail"></i>
-                                    <div class="info-text">
-                                        <span>Email:</span>
-                                        <p>info@investout.us</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>

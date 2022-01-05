@@ -196,13 +196,9 @@
     <!-- How It Works Section End -->
 
     <section class="howit-works spad">
-        <div class="row">
-            <div class="col-lg-12" style="padding: 0px;">
-                <div class="section-title">
-                    <img src="{{asset('affiliate/2.png')}}" alt="How it Works">
-                    <a class="btn btn-primary btn-block" href="https://investout.leaddyno.com/" style="padding: 10px 30px">Apply Now</a>
-                </div>
-            </div>
+        <div class="section-title">
+            <img src="{{asset('affiliate/new.png')}}" alt="How it Works">
+            <a class="btn btn-primary btn-block" href="https://investout.leaddyno.com/" style="padding: 10px 30px">Apply Now</a>
         </div>
     </section>
 
