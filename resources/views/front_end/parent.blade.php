@@ -207,7 +207,7 @@
             <div class="top-nav-container">
                 <style>
                 .top-nav-container {
-                    width: 80%;
+                    width: 90%;
                     margin: auto;
                 }
 
@@ -221,21 +221,26 @@
                     box-shadow: initial !important;
                 }
 
-                .top-nav-contact-wrap .nav-logo .nav-logo-right ul li .info-text p {
-                    color: #ffffff;
-                }
-
-                .top-nav-contact-wrap .nav-logo .nav-logo-right ul li .info-text span {
-                    color: #ffffff;
-                }
-
                 .top-nav .main-menu ul li a {
                     font-size: 16px;
+                    color: #000000;
+                }
+
+                .top-nav {
+                    background: #ffffff !important;
+                    border-bottom: 1px solid black;
+                }
+
+                .top-nav-menu-wrap {
+                    flex-grow: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
                 }
                 </style>
                 <div class="top-nav-content">
                     <div class="top-nav-logo-wrap">
-                        <a href="{{ url('/') }}"><img src="{{asset('assets/front_end/img/logo-update.png')}}" style="height:70px" alt=""></a>
+                        <a href="{{ url('/') }}"><img src="{{asset('assets/front_end/img/logo-new.png')}}" style="height:70px" alt=""></a>
                     </div>
                     <div class="top-nav-menu-wrap">
                         <nav class="main-menu">
@@ -275,28 +280,21 @@
                                 @endif
                             </ul> 
                         </nav>
-                    </div>
-                    <div class="top-nav-contact-wrap">
-                        <div class="nav-logo">
-                            <div class="nav-logo-right">
-                                <ul>
-                                    <!-- <li>
-                                        <i class="icon_phone"></i>
-                                        <div class="info-text">
-                                            <span>Phone:</span>
-                                            <p>+1 (800) 935-8220</p>
-                                        </div>
-                                    </li> -->
-                                    <li>
-                                        <i class="icon_mail"></i>
-                                        <div class="info-text">
-                                            <span>Email:</span>
-                                            <p>info@investout.us</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>                        
+                        <div class="top-nav-contact-wrap">
+                            <div class="nav-logo">
+                                <div class="nav-logo-right">
+                                    <ul>
+                                        <li>
+                                            <i class="icon_mail"></i>
+                                            <div class="info-text">
+                                                <span>Email:</span>
+                                                <p>info@investout.us</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>                        
+                        </div>
                     </div>
                 </div>
             </div>
