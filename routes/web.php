@@ -566,8 +566,6 @@ Route::post('/coordinates','frontendController@getCoordinates')->name('envoy.coo
 
         Route::get('/profile/delete/{id}', 'profileController@destroy')->name('profile.delete');
 
-
-
         // commin admin documents show route
 
         Route::get('{user}/documents', 'DashboardController@showDocument')->name('document.show');
@@ -787,6 +785,8 @@ Route::post('/getCounty','ManagePropertyController@getCounty')->name('getCounty'
 Route::get('/notificationcheck', 'PusherNotificationController@sendNotification');
 Route::get('/approve-property/{id}', 'BaseController@approvePropertyFromMail');
 Route::get('/upgradeSubscription', 'wholeSellerController@upgradeSub')->name('upgradeSub');
+
+Route::post('/hidevideo', 'profileController@hideVideo')->name('hidevideo');
 
 Route::get('/clearCache', function() {
     \Artisan::call('cache:clear');

@@ -10,6 +10,7 @@ use Session;
 use App\Realtor;
 use App\Profile;
 use App\BulkImport;
+use App\Setting;
 use DB;
 use Auth;
 use App\UserPlanFeatures;
@@ -89,7 +90,14 @@ class RealtorController extends Controller
             Auth::logout();
             return redirect('/login');
         }
-        return view('realtor.index');
+
+        $settings = Setting::where('user_id', $user->id)->get();
+        $hidevideo = '';
+        if(count($settings) != 0) {
+            $hidevideo = $settings[0]->hidevideo;
+        }
+
+        return view('realtor.index', compact('hidevideo'));
     }
     /*
     public function show($user,$id){

@@ -10,6 +10,7 @@ use App\Property;
 use App\Proposal;
 use App\PropertyProposal;
 use App\User;
+use App\Setting;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
 use Auth;
@@ -88,12 +89,18 @@ class investorController extends Controller
             Auth::logout();
             return redirect('/login');
         }
-        $properties = Property::where('acceptance_level', 5)->where('approved', 1)->where('property_state', '=', 0)->get();
+        // $properties = Property::where('acceptance_level', 5)->where('approved', 1)->where('property_state', '=', 0)->get();
+        $properties = Property::where('acceptance_level', 5)->where('approved', 1)->get();
         $zipcodes = Zipcode::all();
         $states = State::orderBy('state','asc')->get();
         $counties = County::orderBy('county','asc')->get();
+        $settings = Setting::where('user_id', $user->id)->get();
+        $hidevideo = '';
+        if(count($settings) != 0) {
+            $hidevideo = $settings[0]->hidevideo;
+        }
 
-        return view('investor.index', compact('properties', 'zipcodes', 'states', 'counties'));
+        return view('investor.index', compact('properties', 'zipcodes', 'states', 'counties', 'hidevideo'));
     }
 
     public function showProperty($id)

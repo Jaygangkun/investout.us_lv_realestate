@@ -60,11 +60,19 @@
 <div class='main-content col-md-offset-1 col-md-10' style="margin-bottom: 50px;">
   <div class='main-body row'>
     <div class='col-md-12'>
-      <h1>How it works?</h1>
+        <h1>How it works?</h1>
     </div>
-    <div class='col-md-12'>
-      <iframe width="100%" height="800px" src="//www.youtube.com/embed/gG-tLeMmmvI?autoplay=1" style="box-shadow: 4px 4px 12px #181818; border: none;"></iframe>
-    </div>
+    
+    @if($hidevideo != '1') 
+        <div class="col-md-12" style="margin-bottom: 20px;">
+            <input type="checkbox" name="hide_video" value="1" id="hide_video">
+            <label class="" for="hide_video">Hide Video</label>
+        </div>
+        
+        <div class='col-md-12' id="video_wrap">
+        <iframe width="100%" height="800px" src="//www.youtube.com/embed/gG-tLeMmmvI?autoplay=1" style="box-shadow: 4px 4px 12px #181818; border: none;"></iframe>
+        </div>
+    @endif
   </div>
 </div>
 <br><br>
@@ -691,5 +699,19 @@ function displayfiltered(filter){
     
 
 }
+
+$(document).on('change', '#hide_video', function() {
+    $('#video_wrap').slideUp();
+    $.ajax({
+        url    : '{{route('hidevideo')}}',
+        method : "POST",
+        data : {},
+        dataType : "json",
+        success : function (responses)
+        {
+            
+        }
+    });
+})
 </script>
 @endsection

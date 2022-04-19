@@ -9,6 +9,7 @@ use App\User;
 use App\WorkCategories;
 use App\UsersBodyOfWork;
 use App\UserSpecialities;
+use App\Setting;
 use DB;
 use App\Http\Requests\profileUpdate;
 use Illuminate\Support\Facades\Session;
@@ -234,5 +235,25 @@ class profileController extends Controller
         UsersBodyOfWork::where([['user_id', '=', $user->id], ['work_category_id', '=', $request->category_id]])->delete();
 
         return response()->json(['status' => true, 'category_id' => $request->category_id, 'message'=> 'User\'s body of work category deleted successfully.']);
+    }
+
+    public function hideVideo(Request $request) {
+        $user = Auth::user();
+
+        $setting = Setting::where('user_id', $user->id)->get();
+        if(count($setting) != 0) {
+            Setting::where('user_id', $user->id)->update([
+                'hidevideo' => '1'
+            ]);
+        }
+        else {
+            $setting = new Setting;
+            $setting->user_id = $user->id;
+            $setting->hidevideo = '1';
+            $setting->save();
+        }
+        
+
+        return response()->json(['status' => $user->id]);
     }
 }

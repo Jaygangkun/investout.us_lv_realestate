@@ -8,6 +8,7 @@ use App\Notification;
 use Auth;
 use App\User;
 use App\BulkImport;
+use App\Setting;
 use Pusher\Pusher;
 use Cartalyst\Stripe\Stripe;
 use Session;
@@ -92,7 +93,14 @@ class wholeSellerController extends Controller
             Auth::logout();
             return redirect('/login');
         }
-        return view('whole_seller.index');
+
+        $settings = Setting::where('user_id', $user->id)->get();
+        $hidevideo = '';
+        if(count($settings) != 0) {
+            $hidevideo = $settings[0]->hidevideo;
+        }
+
+        return view('whole_seller.index', compact('hidevideo'));
     }
 
     public function viewDocument()
