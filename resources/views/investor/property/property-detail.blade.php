@@ -67,16 +67,430 @@
   border: 1px solid #474040; 
   width: 98%;
 }
+
+
+.property-dashboard {
+  background: #f7f7f9;
+  padding: 50px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.property-dashboard-overview-wrap {
+  width: 100%;
+  height: 0px;
+  padding-top: 40%;
+  position: relative;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.property-dashboard-overview-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 0px;
+  height: 100%;
+  background-image: linear-gradient(transparent 70%, #000000);
+  opacity: .8;
+  border-radius: 20px;
+}
+
+.property-dashboard-overview-text {
+  position: absolute;
+  left: 50px;
+  bottom: 40px;
+  font-size: 25px;
+}
+
+.property-dashboard-overview__title {
+  color: #ffffff;
+}
+
+.property-dashboard-overview__status {
+  color: #1bc573;
+}
+
+.property-dashboard-overview__open {
+  color: #1ba6c5;
+}
+
+.property-dashboard-btn {
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  min-width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.property-dashboard-btn-primary {
+  background: #0b2a4a;
+  border-color: #0b2a4a;
+  color: #ffffff;
+}
+
+.property-dashboard-btn-primary:hover {
+  color: #ffffff;
+}
+
+.property-dashboard-btn-outline {
+  border-color: #0b2a4a;
+  color: #0b2a4a;
+  background: transparent;
+}
+
+.property-dashboard-btn-outline:hover {
+  color: #0b2a4a;
+}
+
+.property-dashboard-btn-danger {
+  color: #ffffff;
+  background: #d61515;
+  border-color: #d61515;
+}
+
+.property-dashboard-btn-danger:hover {
+  color: #ffffff;
+}
+
+.property-dashboard-action-btns {
+  display: flex;
+  margin-top: 30px;
+}
+
+.property-dashboard-action-btns a, 
+.property-dashboard-action-btns span {
+  margin: 0px 10px;
+}
+
+.property-dashboard-action-btns a:first-of-type, 
+.property-dashboard-action-btns span:first-of-type {
+  margin-left: 0px;
+}
+
+.property-dashboard-center {
+  margin-top: 40px;
+}
+
+.property-dashboard-name {
+  color: #171725;
+}
+
+.property-dashboard-desc {
+  color: #676767;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.property-dashboard-summary-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.property-dashboard-summary-wrap {
+  width: calc(25% - 15px);
+  margin-bottom: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.property-dashboard-summary-img {
+  margin-bottom: 30px;
+}
+
+.property-dashboard-summary-value {
+  color: #171725;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.property-dashboard-summary-title {
+  color: #92929d;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.property-dashboard-summary {
+  margin-top: 50px;
+}
+
+.property-dashboard-details {
+  margin-top: 50px;
+}
+
+.property-dashboard-details-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.property-dashboard-details-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(50% - 15px);
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.property-dashboard-details-title {
+  font-size: 16px;
+  color: #92929d;
+}
+
+.property-dashboard-details-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #171725;
+}
 </style>
 @endsection
  
 @section('body')
 
-<div class="col-md-12" style="margin-top: 35px;">
-    <p style="text-transform:capitalize"><a href="{{ URL::previous() }}"><b><i class="fa fa-arrow-left"></i> Back</b></a></p>
+<div class="property-dashboard">
+  <div class="property-dashboard-header">
+    <div class="property-dashboard-overview-wrap" style="background-image: url({{asset('dashboard/dashboard_house.png')}})">
+      <h3 class="property-dashboard-overview-text">
+        <span class="property-dashboard-overview__title">Status :</span> 
+        <span class="property-dashboard-overview__status">
+          @if ($property->property_state == 0)
+            Available
+          @elseif ($property->property_state == 1)
+            Contracted
+          @endif
+        </span>
+        <span class="property-dashboard-overview__title">Open :</span>
+        <span class="property-dashboard-overview__open">Pro 0</span>
+      </h3>
+    </div>
+  </div>
+  <div class="property-dashboard-center">
+    <h1 class="property-dashboard-name">Property Name</h1>
+    <p class="property-dashboard-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis in sagittis placerat proin vulputate arcu nisl. Condimentum velit tortor pharetra donec morbi. Quis feugiat nam molestie senectus proin.</p>
+    <div class="property-dashboard-action-btns">
+        <a href='{{route("message.read",$property->seller->id)}}' class="property-dashboard-btn property-dashboard-btn-primary">Get In Touch</a>
+        @if($property->property_state == 1)
+          @if($proposal->from_user == auth()->user()->id || $proposal->to_user == auth()->user()->id)
+            <span class="property-dashboard-btn-outline">Contracted with you!</span>
+          @else
+            <span class="property-dashboard-btn-outline">Contracted</span>
+          @endif
+        @else
+          @if(!empty($Proposal) > 0 && $Proposal->status == 0)
+            <span class="property-dashboard-btn-outline">Proposal Sent!</span>
+          @elseif(!empty($Proposal) > 0 && $Proposal->status == 1)
+            <span class="property-dashboard-btn-outline">Proposal Accepted</span>
+          @elseif(!empty($Proposal) > 0 && $Proposal->status == 2)
+            <a href='#' data-toggle='modal' data-target='#bidmodal' type="button" class="property-dashboard-btn-outline">Send Proposal1</a>
+          @else
+            <a href="{{ route('investors.property.propertyProposals',$property->id) }}" class="property-dashboard-btn property-dashboard-btn-outline">Send Proposal</a>
+          @endif
+        @endif
+          <a href='{{route("investors.index")}}' type="button" class="property-dashboard-btn property-dashboard-btn-danger">Cancel</a>
+    </div>
+  </div>
+
+  <div class="property-dashboard-summary">
+    <h1 class="property-dashboard-name">Quick Summary</h1>
+    <div class="property-dashboard-summary-list">
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_id.png')}}">
+        <h6 class="property-dashboard-summary-value">{{$property->id}}</h6>
+        <h6 class="property-dashboard-summary-title">property id</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_location.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ $property->address }}, {{ $property->city }}, {{ $property->state }}, {{ $property->zip }}</h6>
+        <h6 class="property-dashboard-summary-title">property location</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_contract_start.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ Carbon\Carbon::parse($property->contract_start)->format('m/d/Y') }}</h6>
+        <h6 class="property-dashboard-summary-title">contract start date</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_contract_end.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ Carbon\Carbon::parse($property->contract_end)->format('m/d/Y') }}</h6>
+        <h6 class="property-dashboard-summary-title">contract end date</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_bedroom.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ $property->detail->bedroom }}</h6>
+        <h6 class="property-dashboard-summary-title">bed room</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_bathroom.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ $property->detail->bathroom }}</h6>
+        <h6 class="property-dashboard-summary-title">bathroom</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_square_feet.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ $property->detail->square_footage }}</h6>
+        <h6 class="property-dashboard-summary-title">square feet</h6>
+      </div>
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_price_sqft.png')}}">
+        <h6 class="property-dashboard-summary-value">{{ $property->detail->price_per_sqft }}</h6>
+        <h6 class="property-dashboard-summary-title">price per sqft</h6>
+      </div>
+      <?php
+      if(isset($property->detail->for_sale) && $property->detail->for_sale == 1){
+      ?>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_price_sell_asking.png')}}">
+          <h6 class="property-dashboard-summary-value">$ <span class="priceNew">{{ $property->detail->brv_price}}</span></h6>
+          <h6 class="property-dashboard-summary-title">imidiate sell asking price</h6>
+        </div>
+      <?php
+      }
+      ?>
+      
+      <div class="property-dashboard-summary-wrap">
+        <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_estimated_renovation.png')}}">
+        <h6 class="property-dashboard-summary-value">$ <span class="priceNew">{{ $property->detail->arv_price }}</span></h6>
+        <h6 class="property-dashboard-summary-title">estimated after renovation value</h6>
+      </div>
+      <?php
+      if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
+      {
+      ?>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_partner_up.png')}}">
+          <h6 class="property-dashboard-summary-value">{{ (isset($property->detail->partner_up) && $property->detail->partner_up == 1)  ? 'Yes' : 'No' }}</h6>
+          <h6 class="property-dashboard-summary-title">partner up</h6>
+        </div>
+      <?php
+        }
+      ?>
+      <?php
+      if(isset($property->detail->partner_up) && $property->detail->partner_up == 1){
+      ?>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_partnership_share.png')}}">
+          <h6 class="property-dashboard-summary-value">
+            <?php
+            if($property->seller()->first()->roles()->first()->slug != 'wholeseller')
+            {
+            ?>
+              <span class=""><b> Seller/Investor</b></span></br>
+            <?php
+            }
+            else
+            {
+            ?>
+              <span class=""><b> Wholesaler/Investor</b></span></br>
+            <?php
+            }
+            ?>
+            {{ $property->detail->partnership_seller }}/{{$property->detail->partnership_investor}} %
+          </h6>
+          <h6 class="property-dashboard-summary-title">req.partnership % share</h6>
+        </div>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_estimated_repair.png')}}">
+          <h6 class="property-dashboard-summary-value">$ <span class="priceNew">{{ $property->detail->estimated_repair_cost }}</span></h6>
+          <h6 class="property-dashboard-summary-title">estimated cost of repair</h6>
+        </div>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_holding_cost.png')}}">
+          <h6 class="property-dashboard-summary-value">$ <span class="priceNew">{{ $property->detail->holding_cost }}</span></h6>
+          <h6 class="property-dashboard-summary-title">holding cost</h6>
+        </div>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_release_fee.png')}}">
+          <h6 class="property-dashboard-summary-value priceNew">$ {{ $property->detail->resale_fees }}</h6>
+          <h6 class="property-dashboard-summary-title">release fee</h6>
+        </div>
+        <div class="property-dashboard-summary-wrap">
+          <img class="property-dashboard-summary-img" src="{{asset('dashboard/icon_dashboard_loan_cost.png')}}">
+          <h6 class="property-dashboard-summary-value">$ {{ $property->detail->loan_cost }}</h6>
+          <h6 class="property-dashboard-summary-title">loan cost</h6>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+  </div>
+  <div class="property-dashboard-details">
+    <h1 class="property-dashboard-name">Property Details</h1>
+    <div class="property-dashboard-details-list">
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Bed Room</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->bedroom }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Lot Size</span>
+        <span class="property-dashboard-details-value priceNew">{{ $property->detail->lot_size }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">BathRoom</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->bathroom }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Square Footage</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->square_footage }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Property Type</span>
+        <span class="property-dashboard-details-value">{{ isset($property->detail->property_type) ? $property->detail->property_type : ' ' }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Price Per Square Feet</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->price_per_sqft }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Year Built</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->built }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">MLS</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->mls }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">City</span>
+        <span class="property-dashboard-details-value">{{ $property->city }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Country</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->county }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Monthly Insurance</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->insurance }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Monthly Mortage</span>
+        <span class="property-dashboard-details-value">{{ $property->detail->mortgage }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Last Updated</span>
+        <span class="property-dashboard-details-value">{{ date('d-M-Y', strtotime($property->detail->updated_at)) }}</span>
+      </div>
+      <div class="property-dashboard-details-wrap">
+        <span class="property-dashboard-details-title">Building Type</span>
+        <span class="property-dashboard-details-value">{{ isset($property->detail->building_type) ? $property->detail->building_type :
+                                ' ' }}</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="" style='padding:4em 3em'>
+<div class="" style='padding:4em 3em; display: none'>
   <div class="row" style='margin-left:58px;margin-bottom:12px'>
     <h2 style='margin:0px;color:#0b2a4a;font-size:2.7em;font-family:unisansboldbold'>Overview</h2>
     <h3 style='margin:0px;color:#67bbab;font-size:1.4em;font-family:unisansregularregular'>By {{ $property->seller->name() }}</h3>
