@@ -606,7 +606,7 @@
                     <td scope="row "></td>
                     @php $i = 0;  @endphp
                     @foreach($plans as $plan)
-                    <td><a target="_blank" href="{{config('app.basepath.APP_URL')}}register?plan={{$plan->plan_id}}" class="btn btn-primary btn-block">Sign Up</a></td>
+                    <td></td>
                     @php $i++;  @endphp
                     @endforeach
                 </tr>

@@ -294,7 +294,7 @@
                 <tr>
                     <td scope="row ">* Wholesalers cannot take part in the Partnering process with investors at this time. </td>
                     @foreach($plans as $plan)
-                    <td style="min-width: 140px;"><a target="_blank" href="{{config('app.basepath.APP_URL')}}register?plan={{$plan->plan_id}}" class="btn btn-primary btn-block">Sign Up</a></td>
+                    <td style="min-width: 140px;"></td>
                     @endforeach
                 </tr>
             </tbody>

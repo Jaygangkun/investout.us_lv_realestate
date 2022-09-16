@@ -254,30 +254,7 @@
                                 <li id="hiw"><a href="{{ route('how_it_works_index') }}">How it works</a></li>
                                 <li id="contact"><a href="{{ route('contact_index') }}">Contact</a></li>
                                 <!-- <li id="training"><a href="{{ route('training_index') }}">Training</a></li> -->
-                                @if (Auth::guest())
-                                    <li><a href="{{ url('/login') }}">Login</a></li>
-                                @else
-                                    <div class="dropdown">
-                                        <li>{{$user->first_name ." ".$user->last_name}} <i class="fa fa-angle-down"></i></li>
-                                        <div class="dropdown-content">
-                                            @if ($user->hasRole('brokeragehouse'))
-                                                <a href="{{ url('/brokeragehouse') }}">Dashboard</a>
-                                            @elseif ($user->hasRole('realtor'))
-                                                <a href="{{ url('/realtors') }}">Dashboard</a>
-                                            @elseif ($user->hasRole('investor'))
-                                                <a href="{{ url('/investors') }}">Dashboard</a>
-                                            @elseif ($user->hasRole('admin'))
-                                                <a href="{{ url('/admin') }}">Dashboard</a>
-                                            @elseif ($user->hasRole('wholeseller'))
-                                                <a href="{{ url('/whole-seller') }}">Dashboard</a>
-                                            @else
-                                                <a href="{{ url('/Dash') }}">Dashboard</a>
-                                            @endif
-                                            <a href="{{ url('/logout') }}">Logout</a>
-                                        </div>
-                                    </div>
-                                    
-                                @endif
+                                
                             </ul> 
                         </nav>
                         <div class="top-nav-contact-wrap">

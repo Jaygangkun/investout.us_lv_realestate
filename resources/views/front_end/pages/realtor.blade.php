@@ -155,7 +155,7 @@
                 <tr>
                     <td scope="row "></td>
                     @foreach($plans as $plan)
-                    <td style=""><a target="_blank" href="{{config('app.basepath.APP_URL')}}register?plan={{$plan->plan_id}}" class="btn btn-primary btn-block">Sign Up</a></td>
+                    <td style=""></td>
                     @endforeach
                 </tr>
             </tbody>
